@@ -38,6 +38,64 @@
     }
 }
 
+// product configure style 
+.th-compare-output-product {
+    visibility: visible;
+
+    .product-table-configure {
+        visibility: visible;
+
+        .title {
+            visibility: visible;
+
+            div {
+                visibility: visible;
+
+                span {
+                    visibility: visible;
+
+                }
+            }
+        }
+        .sku {
+            visibility: visible;
+
+            div {
+                visibility: visible;
+
+                span {
+                    visibility: visible;
+
+                }
+            }
+        }
+        .price {
+            visibility: visible;
+
+            div {
+                visibility: visible;
+
+                span {
+                    visibility: visible;
+
+                }
+            }
+        }
+        .image {
+            visibility: visible;
+
+            div {
+                visibility: visible;
+
+                img {
+                    visibility: visible;
+
+                }
+            }
+        }
+    }
+}
+
 @keyframes popupStyle1 {
     0% {
         opacity  : 0;
