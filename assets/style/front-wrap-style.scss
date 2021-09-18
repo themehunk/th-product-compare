@@ -1,0 +1,62 @@
+.th-compare-output-wrap {
+    background-color: #f50b61c2;
+    position        : fixed;
+    width           : 100%;
+    z-index         : 1000;
+    top             : 0;
+    height          : 100%;
+    left            : 0;
+    opacity         : 0;
+    // animation: popupStyle1 duration timing-function delay iteration-count direction fill-mode;
+    animation       : popupStyle1 1.2s ease 0s 1 forwards;
+
+    .th-compare-output-wrap-inner {
+        background-color: #fbfbfb;
+        height          : calc(100% - 100px);
+        margin          : 50px 30px;
+        width           : calc(100% - 60px);
+        position        : relative;
+    }
+
+    &.th-compare-output-wrap-close {
+        animation: popupStyle1close .4s linear 0s;
+    }
+
+    .th-compare-output-close {
+        width   : fit-content;
+        position: absolute;
+        right   : 0;
+
+        span {
+            font-size : 36px;
+            color     : white;
+            background: #181819;
+            height    : unset;
+            width     : unset;
+            cursor    : pointer;
+        }
+    }
+}
+
+@keyframes popupStyle1 {
+    0% {
+        opacity  : 0;
+        transform: translateY(-80px);
+    }
+
+    100% {
+        opacity  : 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popupStyle1close {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity   : 0;
+        visibility: 0;
+    }
+}
