@@ -2,6 +2,8 @@
 <div class="th-product-compare-wrap">
     <div class="th-product-compare-container">
         <nav class="th-nav_">
+            <a href="#"><?php _e('General', 'th-product-compare'); ?></a>
+            <a href="#"><?php _e('Style', 'th-product-compare'); ?></a>
             <a href="#"><?php _e('Setting', 'th-product-compare'); ?></a>
         </nav>
         <div class="th-setting_">

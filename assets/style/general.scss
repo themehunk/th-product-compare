@@ -1,0 +1,24 @@
+.th-product-compare-wrap {
+    border       : 1px solid black;
+    width        : 98%;
+    background   : white;
+    border-radius: 6px;
+
+    .th-product-compare-container {
+        display: flex;
+
+        .th-nav_ {
+            display       : flex;
+            flex-direction: column;
+            border-right  : 1px solid black;
+
+            >a {
+                padding        : 10px 0;
+                text-decoration: none;
+                border-bottom  : 1px solid black;
+                width          : 175px;
+                text-align     : center;
+            }
+        }
+    }
+}

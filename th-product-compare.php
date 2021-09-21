@@ -1,4 +1,4 @@
-<?php if (!defined('ABSPATH')) exit;
+<?php
 /*
 * Plugin Name: Product Compare
 * Version: 1.0.0

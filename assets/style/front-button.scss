@@ -1,5 +1,16 @@
-.th-product-compare-btn{
-    color: white;
-    padding: 6px 10px;
+.th-product-compare-btn {
+    color           : white;
+    padding         : 6px 10px;
     background-color: black;
+
+    // \f15e
+    &.th-added-compare {
+        display : flex !important;
+        grid-gap: 5px;
+
+        &::before {
+            content    : '\f15e';
+            font-family: 'dashicons';
+        }
+    }
 }

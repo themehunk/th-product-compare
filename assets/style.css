@@ -1,3 +1,23 @@
-
+.th-product-compare-wrap {
+  border: 1px solid black;
+  width: 98%;
+  background: white;
+  border-radius: 6px;
+}
+.th-product-compare-wrap .th-product-compare-container {
+  display: flex;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid black;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ > a {
+  padding: 10px 0;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  width: 175px;
+  text-align: center;
+}
 
 /*# sourceMappingURL=style.css.map */
