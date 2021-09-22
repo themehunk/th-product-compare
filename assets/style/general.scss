@@ -1,23 +1,134 @@
+$border-color:#d2d2d2;
+
+[data-group-tabs][data-tab-container] {
+    display: none;
+}
+
+.active[data-group-tabs][data-tab-container] {
+    display: block;
+}
+
 .th-product-compare-wrap {
-    border       : 1px solid black;
-    width        : 98%;
-    background   : white;
-    border-radius: 6px;
+    * {
+        box-sizing: border-box;
+    }
+
+    border    : 1px solid $border-color;
+    width     : 98%;
+    background: white;
+
+    a:focus {
+        box-shadow: none;
+        outline   : none;
+    }
 
     .th-product-compare-container {
-        display: flex;
+        display  : flex;
+        flex-wrap: wrap;
 
         .th-nav_ {
             display       : flex;
             flex-direction: column;
-            border-right  : 1px solid black;
+            background    : #d6d6d6;
+            width         : 20%;
+            padding       : 43px 0;
 
             >a {
                 padding        : 10px 0;
                 text-decoration: none;
-                border-bottom  : 1px solid black;
-                width          : 175px;
                 text-align     : center;
+                color          : white;
+                border-bottom  : 1px solid $border-color;
+                letter-spacing : .7px;
+                font-size      : 15px;
+                line-height    : 1;
+
+                &:last-child {
+                    border: none;
+                }
+
+                &.active {
+                    background: white;
+                    color     : black;
+                }
+            }
+        }
+    }
+
+    // tabs container 
+    .container-tabs {
+        width  : 80%;
+        padding: 10px 10px;
+    }
+
+    // save btn 
+    .th-save-btn {
+        width          : 100%;
+        border-top     : 1px solid $border-color;
+        display        : flex;
+        justify-content: center;
+        padding        : 18px;
+
+        .th-option-save-btn {
+            border        : none;
+            background    : dimgrey;
+            color         : white;
+            padding       : 10px 28px;
+            font-size     : 18px;
+            letter-spacing: .7px;
+            cursor        : pointer;
+            transition    : .2s all ease;
+        }
+    }
+}
+
+// dummy 
+.th-compare-popup-dummy {
+    width     : 808px;
+    background: #d6d6d6;
+    margin    : auto;
+
+    .inner-wrap_ {
+        border: 1px solid #f0f0f1;
+
+        .heading {
+            background : black;
+            color      : white;
+            font-size  : 15px;
+            display    : block;
+            line-height: 1;
+            padding    : 9px;
+            text-align : center;
+        }
+
+        .table_ {
+            visibility: visible;
+
+            table,
+            tr,
+            td {
+                border-collapse: collapse;
+            }
+
+            table {
+                width: 100%;
+
+                tr {
+
+                    visibility: visible;
+
+                    td {
+                        height: 40px;
+                    }
+
+                    &:nth-child(even) {
+                        background-color: #f7f7f7;
+                    }
+
+                    &:nth-child(odd) {
+                        background-color: white;
+                    }
+                }
             }
         }
     }

@@ -110,6 +110,8 @@
     overflow: auto;
 
     .product-table-configure {
+        width: fit-content;
+
         tr {
             position: relative;
 
@@ -144,8 +146,9 @@
                 position  : relative;
                 z-index   : 1000;
                 transition: 0.1s all linear;
-                width     : 200px;
-                min-width : 200px;
+                width     : 220px;
+                min-width : 178px;
+                max-width : 242px;
 
                 span {
                     display: block;
@@ -153,7 +156,7 @@
             }
 
             &:not(.left-title) {
-                width: 295px;
+                max-width: 400px;
             }
 
         }
@@ -171,9 +174,10 @@
                 .img_ {
                     min-width: 180px;
                     max-width: 100%;
-                    width    : 272px;
+                    width    : 270px;
                     height   : 270px;
                     position : relative;
+                    margin   : auto;
 
                     img {
                         position     : absolute;
