@@ -49,8 +49,10 @@ class th_product_compare
     public function enqueue_admin_script($hook)
     {
         // if ('toplevel_page_business-popup' != $hook) return;
+        wp_enqueue_style('th-color-picker', TH_PRODUCT_URL . 'assets/color/nano.min.css', false);
         wp_enqueue_style('th-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false);
-        wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/script.js', array('jquery'), 1, true);
+        wp_enqueue_script('th-color-picker', TH_PRODUCT_URL . 'assets/color/pickr.es5.min.js', array('jquery'), 1, true);
+        wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/script.js', [], 1, true);
         wp_localize_script('th-product-js', 'th_product', array('th_product_ajax_url' => admin_url('admin-ajax.php')));
     }
 
