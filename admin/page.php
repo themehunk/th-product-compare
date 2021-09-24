@@ -1,4 +1,7 @@
-<?php if (!defined('ABSPATH')) exit; ?>
+<?php if (!defined('ABSPATH')) exit; 
+        $ThGetOption = get_option('th_compare_option');
+
+?>
 <div class="th-product-compare-wrap">
     <div class="th-product-compare-container">
         <nav class="th-nav_">

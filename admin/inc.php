@@ -4,13 +4,14 @@
 class th_product_compare
 {
     private static $instance;
-
+    // public $localizeOption = [];
     private function __construct()
     {
         add_action('admin_init', array($this, 'create_roles'));
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_script'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_front_script'));
+
     }
     public static function get()
     {

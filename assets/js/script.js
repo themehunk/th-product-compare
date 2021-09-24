@@ -24,7 +24,29 @@
       $.each(inputs, (ind_, val_) => {
         let Input_ = $(val_);
         let inputName = Input_.attr("data-th-save");
-        if (inputName) {
+        if (inputName == "style") {
+          let checkSaveStyle = Input_.attr("data-th");
+          let checkStyle = Input_.attr("style");
+          let elemtntTarget = Input_.attr("data-th-output");
+          // check style and split and save with element id like this is id {heading-} and this is style {color} final save heading-style
+          if (checkStyle && checkSaveStyle != "") {
+            let saparateStyle = TH._inlineCssSeparate(checkStyle);
+            if (checkSaveStyle.indexOf("|") > 1) {
+              let splitted = checkSaveStyle.split("|");
+              splitted.map((ind_) => {
+                let saveWithElement = elemtntTarget + "th-id" + ind_;
+                if (saparateStyle[ind_]) {
+                  returnSave[saveWithElement] = saparateStyle[ind_];
+                }
+              });
+            } else {
+              if (saparateStyle[checkSaveStyle]) {
+                let saveWithElement = elemtntTarget + "th-id" + checkSaveStyle;
+                returnSave[saveWithElement] = saparateStyle[checkSaveStyle];
+              }
+            }
+          }
+        } else if (val_.tagName == "SELECT" || val_.tagName == "INPUT") {
           let inputVal = Input_.val();
           returnSave[inputName] = inputVal;
         }

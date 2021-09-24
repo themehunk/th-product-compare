@@ -14,7 +14,7 @@
             <tr>
                 <td>Text / Button Text</td>
                 <td>
-                    <input data-th-save='compare-btn-text' type="text">
+                    <input data-th-save='compare-btn-text' type="text" placeholder="Compare">
                 </td>
             </tr>
         </table>
