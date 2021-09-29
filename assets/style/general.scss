@@ -103,18 +103,20 @@ $border-color:#d2d2d2;
         }
     }
 }
-.th-tab-heading{
-    display: block;
-    font-size: 20px;
-    text-align: center;
-    line-height: 1;
-    width: fit-content;
-    margin: 0 auto 17px auto;
-    border-bottom: 2px solid #d6d6d6;
+
+.th-tab-heading {
+    display       : block;
+    font-size     : 20px;
+    text-align    : center;
+    line-height   : 1;
+    width         : fit-content;
+    margin        : 0 auto 17px auto;
+    border-bottom : 2px solid #d6d6d6;
     padding-bottom: 7px;
-    color: #565c62;
-    font-weight: 500;
+    color         : #565c62;
+    font-weight   : 500;
 }
+
 // dummy 
 .th-compare-popup-dummy {
     width     : 436px;
@@ -282,4 +284,39 @@ label.color-output {
 
 .th-color-title {
     font-weight: 500;
+}
+
+/// 
+.tooltip-show-with-title {
+    background-color: black;
+    position        : absolute;
+    z-index         : 100000;
+    border          : 1px solid black;
+    padding         : 4px 13px;
+    color           : white;
+    border-radius   : 3px;
+    text-align      : center;
+    width           : fit-content;
+    max-width       : 182px;
+    transition      : .2s transform ease, .2s opacity ease;
+    transform       : translateY(-25px);
+    opacity         : 0;
+
+    &.active {
+        visibility: visible;
+        transform : translateY(0);
+        opacity   : 1;
+    }
+
+    .pointer_ {
+        height   : 10px;
+        width    : 15px;
+        margin   : auto;
+        display  : block;
+        fill     : black;
+        position : absolute;
+        bottom   : -10px;
+        transform: translateX(-50%) rotateZ(180deg);
+        left     : 50%;
+    }
 }

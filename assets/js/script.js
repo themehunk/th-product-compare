@@ -1,8 +1,123 @@
 (function ($) {
   const TH = {
     init: function () {
+      if (
+        th_product.th_compare_style_local &&
+        !$("style#th-compare-style-head").length
+      ) {
+        let style_ =
+          '<style id="th-compare-style-head">' +
+          th_product.th_compare_style_local +
+          "</style>";
+        $("head").append(style_);
+      }
+
       TH.bind();
       TH.tab();
+      TH.toolTip();
+    },
+    toolTip: function () {
+      let initTooltip = $("[th-tooltip]");
+
+      console.log("initTooltip->", initTooltip);
+
+      if (initTooltip.length) {
+        // keep tool tip in document
+        let keepToolTip = $(".keep-th-tooltip-wrap");
+        if (!keepToolTip.length) {
+          let tooltipHtml = '<div class="tooltip-show-with-title">';
+          tooltipHtml += '<span class="th-ttt"></span>';
+          tooltipHtml +=
+            '<svg class="pointer_" viewBox="0 0 1280 70" preserveAspectRatio="none">';
+          tooltipHtml += '<polygon points="1280,70 0,70 640,0 "></polygon>';
+          tooltipHtml += "</svg>";
+          tooltipHtml += "</div>";
+
+          $("body").append(tooltipHtml);
+        }
+        // keep tool tip in document
+        initTooltip.hover(
+          function () {
+            let element = $(this);
+            let element_ = element[0].getBoundingClientRect();
+            let tooltip_ = $(".tooltip-show-with-title");
+            //text and content
+            let title_ = element.attr("th-tooltip");
+            tooltip_.find(".th-ttt").text(title_);
+            // style and dimensions
+            // calculate top
+            let tooltip = tooltip_[0].getBoundingClientRect();
+            let TopMargin = element_.top - (tooltip.height + 12);
+            // calculate left
+            let getTTwidth = tooltip.width / 2;
+            let elementWidth = element_.width / 2;
+            let leftMargin = element_.left - (getTTwidth - elementWidth);
+            tooltip_.addClass("active");
+            tooltip_.css({ top: TopMargin, left: leftMargin });
+            // setTimeout(() => {
+            //   tooltip_.addClass("active");
+            // }, 200);
+          },
+          function () {
+            let element_ = $(this);
+            let tooltip = $(".tooltip-show-with-title");
+            tooltip.removeClass("active");
+          }
+        );
+      }
+    },
+    toolTip_: function () {
+      let initTooltip = $("[th-tooltip]");
+      if (initTooltip.length) {
+        // keep tool tip in document
+        let keepToolTip = $(".keep-th-tooltip-wrap");
+        if (!keepToolTip.length) {
+          let tooltipHtml =
+            '<div class="tooltip-show-with-title"><span class="th-ttt">My Tooltip but you can check </span><svg class="pointer_" viewBox="0 0 1280 70" preserveAspectRatio="none"><polygon points="1280,70 0,70 640,0 "></polygon></svg></div>';
+
+          $("body").append(tooltipHtml);
+        }
+        // keep tool tip in document
+        initTooltip.hover(
+          function () {
+            let element = $(this);
+            let element_ = element[0].getBoundingClientRect();
+            // console.log("element_ in ", element_);
+            // console.log("offsetTop -> ", element_.top);
+            // console.log("offsetLeft -> ", element_.left);
+            let tooltip_ = $(".tooltip-show-with-title");
+            //text and content
+            let title_ = element.attr("th-tooltip");
+            tooltip_.find(".th-ttt").text(title_);
+            // style and dimensions
+            // calculate top
+            let tooltip = tooltip_[0].getBoundingClientRect();
+            let TopMargin = element_.top - (tooltip.height + 12);
+            // calculate left
+            let getTTwidth = tooltip.width / 2;
+            let elementWidth = element_.width / 2;
+            let leftMargin = element_.left - (getTTwidth - elementWidth);
+
+            tooltip_.css({ top: TopMargin, left: leftMargin });
+            // tooltip_.css({ top: TopMargin, left: element_.left });
+            tooltip_.addClass("active");
+
+            // bottom: 230
+            // height: 35
+            // left: 181
+            // right: 427.953125
+            // top: 195
+            // width: 246.953125
+            // x: 181
+            // y: 195
+          },
+          function () {
+            let element_ = $(this);
+            let tooltip = $(".tooltip-show-with-title");
+            tooltip.removeClass("active");
+          }
+        );
+      }
     },
     tab: function () {
       $("[data-group-tabs][data-tab]").click(function (e) {

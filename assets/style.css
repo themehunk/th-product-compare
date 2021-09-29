@@ -238,4 +238,36 @@ label.color-output {
   font-weight: 500;
 }
 
+.tooltip-show-with-title {
+  background-color: black;
+  position: absolute;
+  z-index: 100000;
+  border: 1px solid black;
+  padding: 4px 13px;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+  width: fit-content;
+  max-width: 182px;
+  transition: 0.2s transform ease, 0.2s opacity ease;
+  transform: translateY(-25px);
+  opacity: 0;
+}
+.tooltip-show-with-title.active {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}
+.tooltip-show-with-title .pointer_ {
+  height: 10px;
+  width: 15px;
+  margin: auto;
+  display: block;
+  fill: black;
+  position: absolute;
+  bottom: -10px;
+  transform: translateX(-50%) rotateZ(180deg);
+  left: 50%;
+}
+
 /*# sourceMappingURL=style.css.map */

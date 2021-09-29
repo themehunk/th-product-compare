@@ -12,12 +12,10 @@ function th_apply_color($title, $prop, $color_id = false)
 				</div>';
     }
 }
-echo "<pre>";
-print_r($ThGetOption);
-echo "</pre>";
+
 ?>
 <div class="style_">
-    <span class="th-tab-heading"><?php _e('Compare Popup Style', 'th-product-compare'); ?></span>
+    <span th-tooltip='i m heading' class="th-tab-heading"><?php _e('Compare Popup Style', 'th-product-compare'); ?></span>
     <div class="dummy-and-style">
         <div class="style-setting_">
 

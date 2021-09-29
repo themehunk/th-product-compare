@@ -1,13 +1,13 @@
-<?php if (!defined('ABSPATH')) exit; 
-        $ThGetOption = get_option('th_compare_option');
+<?php if (!defined('ABSPATH')) exit;
+// $ThGetOption = get_option('th_compare_option');
 
 ?>
 <div class="th-product-compare-wrap">
     <div class="th-product-compare-container">
         <nav class="th-nav_">
-            <a data-group-tabs="main" data-tab="general" href="#"><?php _e('General', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="style" href="#" class="active"><?php _e('Style', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="setting" href="#"><?php _e('Setting', 'th-product-compare'); ?></a>
+            <a th-tooltip='hello my tooltip text' data-group-tabs="main" data-tab="general" href="#"><?php _e('General', 'th-product-compare'); ?></a>
+            <a th-tooltip='hello my tooltip 2 d' data-group-tabs="main" data-tab="style" href="#" class="active"><?php _e('Style', 'th-product-compare'); ?></a>
+            <a th-tooltip='hello my tooltip 3rd ' data-group-tabs="main" data-tab="setting" href="#"><?php _e('Setting', 'th-product-compare'); ?></a>
         </nav>
         <div class="container-tabs">
             <!-- general tab -->

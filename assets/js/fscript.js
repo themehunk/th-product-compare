@@ -1,7 +1,74 @@
 (function ($) {
   let thCompare = {
     init: function () {
+      // console.log(
+      //   "th_compare_style_local ->",
+      //   th_product.th_compare_style_local
+      // );
+
+      thCompare.addStyle();
+
       thCompare.bind();
+    },
+    addStyle: function () {
+      let style_ = th_product.th_compare_style_local;
+      if (style_) {
+        let styleAdd = "";
+        for (let getKey in style_) {
+          // console.log("getKey->", getKey);
+          // console.log("getKey style_ ->", style_[getKey]);
+
+          if (getKey == "fore-ground-bgth-idbackground-color") {
+            styleAdd +=
+              "..th-compare-output-wrap{background-color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "dummy-border-colorth-idborder-color") {
+            styleAdd +=
+              ".th-compare-output-wrap .th-compare-output-wrap-inner{border-color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "heading-styleth-idbackground-color") {
+            styleAdd +=
+              ".th-compare-output-wrap .th-compare-heading{background-color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "heading-styleth-idcolor") {
+            styleAdd +=
+              ".th-compare-output-wrap .th-compare-heading > span{color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "row-odd-bgth-idbackground-color") {
+            styleAdd +=
+              ".th-compare-output-product .product-table-configure tr:nth-child(odd) td{background-color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "row-even-bgth-idbackground-color") {
+            styleAdd +=
+              ".th-compare-output-product .product-table-configure tr:nth-child(even) td{background-color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "rating-colorth-idcolor") {
+            styleAdd +=
+              ".th-compare-output-wrap .th-compare-rating{color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "remove-btn-colorth-idcolor") {
+            styleAdd +=
+              ".th-compare-output-product .product-table-configure .th-compare-product-remove{color:" +
+              style_[getKey] +
+              ";}";
+          }
+        }
+
+        // add css //
+        if (styleAdd && !$("style#th-compare-style-head").length) {
+          let style_Append =
+            '<style id="th-compare-style-head">' + styleAdd + "</style>";
+          $("head").append(style_Append);
+        }
+        // add css //
+      }
     },
     addProduct: function (e) {
       e.preventDefault();
