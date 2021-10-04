@@ -6,8 +6,6 @@
       //   th_product.th_compare_style_local
       // );
 
-      thCompare.addStyle();
-
       thCompare.bind();
     },
     addStyle: function () {
@@ -15,12 +13,18 @@
       if (style_) {
         let styleAdd = "";
         for (let getKey in style_) {
-          // console.log("getKey->", getKey);
-          // console.log("getKey style_ ->", style_[getKey]);
+          console.log("getKey->", getKey);
+          console.log("getKey style_ ->", style_[getKey]);
 
-          if (getKey == "fore-ground-bgth-idbackground-color") {
+          if (getKey == "compare-heading-text") {
+            $(".th-compare-output-wrap .th-compare-heading > span").html(
+              style_[getKey]
+            );
+          }
+          // set style
+          else if (getKey == "fore-ground-bgth-idbackground-color") {
             styleAdd +=
-              "..th-compare-output-wrap{background-color:" +
+              ".th-compare-output-wrap{background-color:" +
               style_[getKey] +
               ";}";
           } else if (getKey == "dummy-border-colorth-idborder-color") {
@@ -40,15 +44,17 @@
               ";}";
           } else if (getKey == "row-odd-bgth-idbackground-color") {
             styleAdd +=
-              ".th-compare-output-product .product-table-configure tr:nth-child(odd) td{background-color:" +
+              ".th-compare-output-product .product-table-configure tr:nth-child(odd) td,.th-compare-output-product .product-table-configure tr:nth-child(odd) td.left-title{background-color:" +
               style_[getKey] +
               ";}";
+              styleAdd += '.th-compare-output-product .product-table-configure tr:nth-child(odd) td.left-title{opacity:.7;}'
           } else if (getKey == "row-even-bgth-idbackground-color") {
             styleAdd +=
-              ".th-compare-output-product .product-table-configure tr:nth-child(even) td{background-color:" +
+              ".th-compare-output-product .product-table-configure tr:nth-child(even) td,.th-compare-output-product .product-table-configure tr:nth-child(even) td.left-title{background-color:" +
               style_[getKey] +
               ";}";
-          } else if (getKey == "rating-colorth-idcolor") {
+              styleAdd += '.th-compare-output-product .product-table-configure tr:nth-child(even) td.left-title{opacity:.7;}'
+            } else if (getKey == "rating-colorth-idcolor") {
             styleAdd +=
               ".th-compare-output-wrap .th-compare-rating{color:" +
               style_[getKey] +
@@ -56,6 +62,16 @@
           } else if (getKey == "remove-btn-colorth-idcolor") {
             styleAdd +=
               ".th-compare-output-product .product-table-configure .th-compare-product-remove{color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "close-btn-styleth-idbackground-color") {
+            styleAdd +=
+              ".th-compare-output-wrap .th-compare-output-close i{background-color:" +
+              style_[getKey] +
+              ";}";
+          } else if (getKey == "close-btn-styleth-idcolor") {
+            styleAdd +=
+              ".th-compare-output-wrap .th-compare-output-close i{color:" +
               style_[getKey] +
               ";}";
           }
@@ -123,6 +139,7 @@
       $("body").append(html);
       $("body").addClass("th_product_Compare_body_Class");
       thCompare.getOrUpdatePRoducts(ids, "add");
+      thCompare.addStyle();
     },
     // updateProduct
     getOrUpdatePRoducts: function (ids, action_) {

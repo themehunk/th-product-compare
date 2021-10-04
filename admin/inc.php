@@ -43,11 +43,11 @@ class th_product_compare
     public function display_addons()
     {
         if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {
-            // echo "<pre>";
-            // print_r($this->localizeOption);
-            // // echo $this->thCompareAddonStyle();
-            // echo "</pre>";
+
             $th_compare_option = $this->localizeOption;
+            // echo "<pre>";
+            // print_r($th_compare_option);
+            // echo "</pre>";
             include_once "page.php";
         }
     }
@@ -74,6 +74,10 @@ class th_product_compare
                     $styleCSs .= '.th-compare-popup-dummy .inner-wrap_ .table_ .rating_{color:' . $cvalue . ';}';
                 } else if ($ckey == 'remove-btn-colorth-idcolor') {
                     $styleCSs .= '.th-compare-popup-dummy .inner-wrap_ .table_ .rm-product{color:' . $cvalue . ';}';
+                } else if ($ckey == 'close-btn-styleth-idbackground-color') {
+                    $styleCSs .= '.th-compare-popup-dummy .inner-wrap_ .close-btn_{background-color:' . $cvalue . ';}';
+                } else if ($ckey == 'close-btn-styleth-idcolor') {
+                    $styleCSs .= '.th-compare-popup-dummy .inner-wrap_ .close-btn_{color:' . $cvalue . ';}';
                 }
             }
         }

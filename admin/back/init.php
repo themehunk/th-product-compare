@@ -10,6 +10,7 @@ class th_compare_admin
     private function __construct()
     {
         add_action('wp_ajax_th_compare_save_data', array($this, 'save'));
+        add_action('wp_ajax_th_compare_reset_data', array($this, 'reset'));
     }
 
 
@@ -20,6 +21,17 @@ class th_compare_admin
             echo $result ? 'update' : false;
         }
 
+        die();
+    }
+    public function reset()
+    {
+        if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
+            $checkOption = get_option($this->optionName);
+            if ($checkOption) {
+                update_option($this->optionName, '');
+                echo 'reset';
+            }
+        }
         die();
     }
     // cookies

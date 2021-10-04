@@ -1,76 +1,40 @@
-[data-group-tabs][data-tab-container] {
-  display: none;
-}
-
-.active[data-group-tabs][data-tab-container] {
-  display: block;
-}
-
-.th-product-compare-wrap {
-  border: 1px solid #d2d2d2;
-  width: 98%;
-  background: white;
-}
-.th-product-compare-wrap * {
-  box-sizing: border-box;
-}
-.th-product-compare-wrap a:focus {
-  box-shadow: none;
-  outline: none;
-}
-.th-product-compare-wrap .th-product-compare-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-.th-product-compare-wrap .th-product-compare-container .th-nav_ {
-  display: flex;
-  flex-direction: column;
-  background: #d6d6d6;
-  width: 20%;
-  padding: 43px 0;
-}
-.th-product-compare-wrap .th-product-compare-container .th-nav_ > a {
-  padding: 10px 0;
-  text-decoration: none;
+@charset "UTF-8";
+.tooltip-show-with-title {
+  background-color: black;
+  position: absolute;
+  z-index: 100000;
+  border: 1px solid black;
+  padding: 4px 13px;
+  color: white;
+  border-radius: 3px;
   text-align: center;
-  color: white;
-  border-bottom: 1px solid #d2d2d2;
-  letter-spacing: 0.7px;
-  font-size: 15px;
-  line-height: 1;
+  width: fit-content;
+  max-width: 182px;
+  transition: 0.2s transform ease, 0.2s opacity ease;
+  transform: translateY(-25px);
+  opacity: 0;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ > a:last-child {
-  border: none;
+.tooltip-show-with-title.active {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ > a.active {
-  background: white;
-  color: black;
-}
-.th-product-compare-wrap .container-tabs {
-  width: 80%;
-  padding: 10px 10px;
-}
-.th-product-compare-wrap .th-save-btn {
-  width: 100%;
-  border-top: 1px solid #d2d2d2;
-  display: flex;
-  justify-content: center;
-  padding: 18px;
-}
-.th-product-compare-wrap .th-save-btn .th-option-save-btn {
-  border: none;
-  background: dimgrey;
-  color: white;
-  padding: 10px 28px;
-  font-size: 18px;
-  letter-spacing: 0.7px;
-  cursor: pointer;
-  transition: 0.2s all ease;
+.tooltip-show-with-title .pointer_ {
+  height: 10px;
+  width: 15px;
+  margin: auto;
+  display: block;
+  fill: black;
+  position: absolute;
+  bottom: -10px;
+  transform: translateX(-50%) rotateZ(180deg);
+  left: 50%;
 }
 
 .dummy-and-style {
   display: flex;
   grid-gap: 47px;
+  align-items: flex-start;
 }
 .dummy-and-style .style-setting_ {
   visibility: visible;
@@ -84,15 +48,16 @@
   display: flex;
   grid-gap: 13px;
 }
+.dummy-and-style .style-setting_ .th-color-picker > label {
+  flex: 1;
+}
 
 .th-tab-heading {
   display: block;
-  font-size: 20px;
-  text-align: center;
+  font-size: 18px;
   line-height: 1;
-  width: fit-content;
   margin: 0 auto 17px auto;
-  border-bottom: 2px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
   padding-bottom: 7px;
   color: #565c62;
   font-weight: 500;
@@ -101,11 +66,12 @@
 .th-compare-popup-dummy {
   width: 436px;
   background: #d6d6d6;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
 }
 .th-compare-popup-dummy .inner-wrap_ {
   border: 1px solid #f0f0f1;
+  position: relative;
 }
 .th-compare-popup-dummy .inner-wrap_ .heading {
   background-color: black;
@@ -115,6 +81,17 @@
   line-height: 1;
   padding: 13px;
   text-align: center;
+}
+.th-compare-popup-dummy .inner-wrap_ .close-btn_ {
+  color: black;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: unset;
+  width: unset;
+  font-size: 14px;
+  border-radius: 1px;
 }
 .th-compare-popup-dummy .inner-wrap_ .table_ table,
 .th-compare-popup-dummy .inner-wrap_ .table_ tr,
@@ -216,6 +193,117 @@
   color: #d84747;
 }
 
+[data-group-tabs][data-tab-container] {
+  display: none;
+}
+
+.active[data-group-tabs][data-tab-container] {
+  display: block;
+}
+
+.th-product-compare-wrap {
+  border: 1px solid #d2d2d2;
+  width: 98%;
+  background: white;
+}
+.th-product-compare-wrap * {
+  box-sizing: border-box;
+}
+.th-product-compare-wrap a:focus {
+  box-shadow: none;
+  outline: none;
+}
+.th-product-compare-wrap .th-product-compare-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.th-product-compare-wrap .th-product-compare-container .logo-detail {
+  text-align: -webkit-center;
+  padding: 18px 0;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  border-bottom: 1px solid #d2d2d2;
+}
+.th-product-compare-wrap .th-product-compare-container .logo-detail span {
+  color: #565c62;
+  font-size: 15px;
+  display: block;
+  line-height: 1;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ {
+  display: flex;
+  flex-direction: column;
+  background: #efefef;
+  width: 20%;
+  position: relative;
+  padding: 0 0 67px 0;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ > a {
+  padding: 15px 0;
+  text-decoration: none;
+  text-align: center;
+  color: #565c62;
+  border-bottom: 1px solid #d2d2d2;
+  letter-spacing: 0.7px;
+  font-size: 15px;
+  line-height: 1;
+  border-left: 4px solid #f7f7f700;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ > a:last-child {
+  border: none;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ > a.active {
+  background: white;
+  color: #1f6fbf;
+  border-left: 4px solid;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 9px;
+  grid-gap: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #1f6fbf;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button {
+  border: none;
+  background: #fbfbfb;
+  color: #1f6fbf;
+  padding: 6px 14px;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  transition: 0.2s all ease;
+  display: flex;
+  align-items: center;
+  grid-gap: 7px;
+  border-radius: 4px;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button:before {
+  font-family: "dashicons";
+  height: unset;
+  width: unset;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button.th-compare-reset-style-btn:before {
+  content: "";
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button.loading {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button.loading:before {
+  content: "";
+  animation: loaderTMK 0.8s linear 0s infinite forwards;
+}
+.th-product-compare-wrap .container-tabs {
+  width: 80%;
+  padding: 10px 10px;
+}
+
 .color-output {
   display: block;
   height: 30px;
@@ -227,8 +315,8 @@
 
 label.color-output {
   display: block;
-  height: 30px;
-  width: 60px;
+  height: 25px;
+  width: 45px;
   border: 1px solid #dcdcdc;
   border-radius: 3px;
   cursor: pointer;
@@ -238,36 +326,63 @@ label.color-output {
   font-weight: 500;
 }
 
-.tooltip-show-with-title {
-  background-color: black;
-  position: absolute;
-  z-index: 100000;
-  border: 1px solid black;
-  padding: 4px 13px;
-  color: white;
-  border-radius: 3px;
-  text-align: center;
-  width: fit-content;
-  max-width: 182px;
-  transition: 0.2s transform ease, 0.2s opacity ease;
-  transform: translateY(-25px);
-  opacity: 0;
+.th-right-sidebar {
+  min-width: 234px;
+  background: #0c6ebf;
 }
-.tooltip-show-with-title.active {
-  visibility: visible;
-  transform: translateY(0);
-  opacity: 1;
+
+.th-general {
+  display: flex;
 }
-.tooltip-show-with-title .pointer_ {
-  height: 10px;
-  width: 15px;
-  margin: auto;
+.th-general .th-option_ {
+  flex: 1;
+}
+.th-general .th-option_ table {
+  width: 100%;
+}
+.th-general .th-option_ table tr {
+  margin: 21px 0;
+  display: flex;
+  border-bottom: 1px dashed #dbdbdb;
+  padding-bottom: 6px;
+}
+.th-general .th-option_ table tr.table_heading {
+  border-bottom: 1px dashed #dbdbdb;
+}
+.th-general .th-option_ table tr td {
+  flex: 1;
+  line-height: 1;
+}
+.th-general .th-option_ table tr td:first-child {
+  max-width: 258px;
+}
+.th-general .th-option_ table tr td.shortcode-appear {
+  max-width: 100%;
+  font-size: 17px;
+  color: black;
+}
+.th-general .th-option_ table .title_ {
+  color: #565c62;
   display: block;
-  fill: black;
-  position: absolute;
-  bottom: -10px;
-  transform: translateX(-50%) rotateZ(180deg);
-  left: 50%;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+@keyframes loaderTMK {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.th-product-compare-wrap .field-to-show {
+  width: 500px;
+}
+.th-product-compare-wrap .field-to-show table {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

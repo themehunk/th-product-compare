@@ -14,6 +14,92 @@ class th_product_compare_return
     }
 
 
+    public function get_products()
+    {
+        // echo "hello";
+        // print_r($_COOKIE);
+        // echo "<br>";
+        // print_r($_POST);
+        if (isset($_POST['product_id']) && intval($_POST['product_id'])) {
+            $productID = intval($_POST['product_id']);
+            $addREmove = sanitize_text_field($_POST['add_remove']);
+            // echo "<br>";
+            // echo $productID;
+            $setID = $this->setId($productID, $addREmove);
+            // echo "<pre>";
+            // print_r($setID);
+            // echo "</pre>";
+            // return;
+
+            if (!empty($setID)) {
+                $table = '';
+
+                $table .= '<table class="product-table-configure">';
+                $trImage = '<tr class="image">
+                        <td class="left-title"><span>Image</span></td>';
+                $trSku_ = '<tr class="sku">
+                        <td class="left-title"><span>SKU</span></td>';
+                $trRating_ = '<tr class="rating">
+                        <td class="left-title"><span>Rating</span></td>';
+                $trDescription_ = '<tr class="th-description">
+                        <td class="left-title"><span>Description</span></td>';
+                $trDimension_ = '<tr class="th-dimension">
+                        <td class="left-title"><span>Dimension</span></td>';
+                $trDelete_ = '<tr class="th-delete">
+                        <td class="left-title"><span>Remove</span></td>';
+
+                foreach ($setID as $IDvalue) {
+                    $ProductID = intval($IDvalue);
+                    if ($ProductID) {
+                        $product = wc_get_product($ProductID);
+
+                        $rating_ = $this->productRating($product);
+                        $rating_ = $rating_ ? $rating_ : "-";
+
+                        $sku = $product->get_sku();
+                        $sku = $sku ? $sku : "-";
+
+                        $description_ = $product->get_short_description();
+                        $description_ = $description_ ? $description_ : "-";
+
+                        $div_ = '<div class="image-and-addcart">';
+                        $div_ .= '<div class="img_">' . $product->get_image() . '</div>';
+                        $div_ .= '<span class="product-title_">' . $product->get_name() . '</span>';
+                        $div_ .= '<span class="price_">' . $product->get_price_html() . '</span>';
+                        $div_ .= '<span class="th-add-to-cart_">' . $this->add_to_cart($product) . '</span>';
+                        $div_ .= '</div>';
+                        $trImage .= '<td>' . $div_ . '</td>'; //image
+                        $trSku_ .= '<td><span>' . $sku . '</span></td>'; //sku
+                        $trRating_ .= '<td><span class="th-compare-rating">' . $rating_ . '</span></td>'; //rating
+                        $trDescription_ .= '<td><span>' . $description_ . '</span></td>'; //add to cart
+                        $trDimension_ .= '<td><span>' . esc_html(wc_format_dimensions($product->get_dimensions(false)))  . '</span></td>'; //dimension
+                        $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . $ProductID . '"><i class="dashicons dashicons-dismiss"></i>' . __('Remove', 'th-product-compare')  . '</button></td>'; //dimension
+                    }
+                }
+
+                $trImage .= '</tr>';
+                $trSku_ .= '</tr>';
+                $trRating_ .= '</tr>';
+                $trDescription_ .= '</tr>';
+                $trDimension_ .= '</tr>';
+                $trDelete_ .= '</tr>';
+
+                $table .= $trImage;
+                $table .= $trSku_;
+                $table .= $trRating_;
+                $table .= $trDescription_;
+                $table .= $trDimension_;
+                $table .= $trDelete_;
+
+                $table .= '</table>';
+
+                echo $table;
+            } else {
+                echo 'no_product';
+            }
+        }
+        die();
+    }
     function add_to_cart($product)
     {
         $args = [];
@@ -68,106 +154,6 @@ class th_product_compare_return
     {
         return wc_review_ratings_enabled() ? wc_get_rating_html($product->get_average_rating()) : '';
     }
-    public function get_products()
-    {
-        // echo "hello";
-        // print_r($_COOKIE);
-        // echo "<br>";
-        // print_r($_POST);
-        if (isset($_POST['product_id']) && intval($_POST['product_id'])) {
-            $productID = intval($_POST['product_id']);
-            $addREmove = sanitize_text_field($_POST['add_remove']);
-            // echo "<br>";
-            // echo $productID;
-            $setID = $this->setId($productID, $addREmove);
-            // echo "<pre>";
-            // print_r($setID);
-            // echo "</pre>";
-            // return;
-
-            if (!empty($setID)) {
-                $table = '';
-
-                $table .= '<table class="product-table-configure">';
-
-                // $trTitle = '<tr class="title top-title">
-                //              <td class="left-title"><span>Product Title</span></td>';
-                $trImage = '<tr class="image">
-                        <td class="left-title"><span>Image</span></td>';
-                $trSku_ = '<tr class="sku">
-                        <td class="left-title"><span>SKU</span></td>';
-                $trRating_ = '<tr class="rating">
-                        <td class="left-title"><span>Rating</span></td>';
-                // $trPrice = '<tr class="price">
-                //         <td class="left-title"><span>Price</span></td>';
-                // $trAddtoCart_ = '<tr class="th-add-to-cart-">
-                // <td class="left-title"><span>Add To Cart</span></td>';
-                $trDescription_ = '<tr class="th-description">
-                        <td class="left-title"><span>Description</span></td>';
-                $trDimension_ = '<tr class="th-dimension">
-                        <td class="left-title"><span>Dimension</span></td>';
-                $trDelete_ = '<tr class="th-delete">
-                        <td class="left-title"><span>Remove</span></td>';
-
-                foreach ($setID as $IDvalue) {
-                    $ProductID = intval($IDvalue);
-                    if ($ProductID) {
-                        $product = wc_get_product($ProductID);
-
-                        $rating_ = $this->productRating($product);
-                        $rating_ = $rating_ ? $rating_ : "-";
-
-                        $sku = $product->get_sku();
-                        $sku = $sku ? $sku : "-";
-
-                        $description_ = $product->get_short_description();
-                        $description_ = $description_ ? $description_ : "-";
-
-                        $div_ = '<div class="image-and-addcart">';
-                        $div_ .= '<div class="img_">' . $product->get_image() . '</div>';
-                        $div_ .= '<span class="product-title_">' . $product->get_name() . '</span>';
-                        $div_ .= '<span class="price_">' . $product->get_price_html() . '</span>';
-                        $div_ .= '<span class="th-add-to-cart_">' . $this->add_to_cart($product) . '</span>';
-                        $div_ .= '</div>';
-                        $trImage .= '<td>' . $div_ . '</td>'; //image
-                        $trSku_ .= '<td><span>' . $sku . '</span></td>'; //sku
-                        $trRating_ .= '<td><span class="th-compare-rating">' . $rating_ . '</span></td>'; //rating
-                        // $trRating_ .= '<td><span class="th-compare-rating">' . $this->productRating($product) . '</span></td>'; //rating
-                        // $trPrice .= '<td><span>' . $product->get_price_html() . '</span></td>'; //price
-                        // $trAddtoCart_ .= '<td><span class="th-add-to-cart_">' . $this->add_to_cart($product) . '</span></td>'; //add to cart
-                        $trDescription_ .= '<td><span>' . $description_ . '</span></td>'; //add to cart
-                        $trDimension_ .= '<td><span>' . esc_html(wc_format_dimensions($product->get_dimensions(false)))  . '</span></td>'; //dimension
-                        $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . $ProductID . '"><i class="dashicons dashicons-dismiss"></i>' . __('Remove', 'th-product-compare')  . '</button></td>'; //dimension
-                    }
-                }
-
-                $trImage .= '</tr>';
-                $trSku_ .= '</tr>';
-                $trRating_ .= '</tr>';
-                // $trPrice .= '</tr>';
-                // $trAddtoCart_ .= '</tr>';
-                $trDescription_ .= '</tr>';
-                $trDimension_ .= '</tr>';
-                $trDelete_ .= '</tr>';
-
-                $table .= $trImage;
-                $table .= $trSku_;
-                $table .= $trRating_;
-                // $table .= $trPrice;
-                // $table .= $trAddtoCart_;
-                $table .= $trDescription_;
-                $table .= $trDimension_;
-                $table .= $trDelete_;
-
-                $table .= '</table>';
-
-                echo $table;
-            } else {
-                echo 'no_product';
-            }
-        }
-        die();
-    }
     // cookies
     public function getPrevId()
     {
@@ -183,6 +169,8 @@ class th_product_compare_return
         $updateCookie = true;
         if ($addREmove == 'add') {
             if (!empty($previousCookie)) {
+                // check limit 
+                
                 $getExist = in_array($id, $previousCookie);
                 if ($getExist) {
                     $cookieValue = implode(",", $previousCookie);
@@ -191,6 +179,8 @@ class th_product_compare_return
                     $cookieValue = implode(",", $previousCookie) . "," . $id;
                     $previousCookie[] = $id;
                 }
+
+
             } else {
                 $previousCookie[] = $id;
             }

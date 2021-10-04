@@ -13,13 +13,14 @@
       }
 
       TH.bind();
+      TH.dataColorInit();
       TH.tab();
       TH.toolTip();
     },
     toolTip: function () {
       let initTooltip = $("[th-tooltip]");
 
-      console.log("initTooltip->", initTooltip);
+      // console.log("initTooltip->", initTooltip);
 
       if (initTooltip.length) {
         // keep tool tip in document
@@ -57,59 +58,6 @@
             // setTimeout(() => {
             //   tooltip_.addClass("active");
             // }, 200);
-          },
-          function () {
-            let element_ = $(this);
-            let tooltip = $(".tooltip-show-with-title");
-            tooltip.removeClass("active");
-          }
-        );
-      }
-    },
-    toolTip_: function () {
-      let initTooltip = $("[th-tooltip]");
-      if (initTooltip.length) {
-        // keep tool tip in document
-        let keepToolTip = $(".keep-th-tooltip-wrap");
-        if (!keepToolTip.length) {
-          let tooltipHtml =
-            '<div class="tooltip-show-with-title"><span class="th-ttt">My Tooltip but you can check </span><svg class="pointer_" viewBox="0 0 1280 70" preserveAspectRatio="none"><polygon points="1280,70 0,70 640,0 "></polygon></svg></div>';
-
-          $("body").append(tooltipHtml);
-        }
-        // keep tool tip in document
-        initTooltip.hover(
-          function () {
-            let element = $(this);
-            let element_ = element[0].getBoundingClientRect();
-            // console.log("element_ in ", element_);
-            // console.log("offsetTop -> ", element_.top);
-            // console.log("offsetLeft -> ", element_.left);
-            let tooltip_ = $(".tooltip-show-with-title");
-            //text and content
-            let title_ = element.attr("th-tooltip");
-            tooltip_.find(".th-ttt").text(title_);
-            // style and dimensions
-            // calculate top
-            let tooltip = tooltip_[0].getBoundingClientRect();
-            let TopMargin = element_.top - (tooltip.height + 12);
-            // calculate left
-            let getTTwidth = tooltip.width / 2;
-            let elementWidth = element_.width / 2;
-            let leftMargin = element_.left - (getTTwidth - elementWidth);
-
-            tooltip_.css({ top: TopMargin, left: leftMargin });
-            // tooltip_.css({ top: TopMargin, left: element_.left });
-            tooltip_.addClass("active");
-
-            // bottom: 230
-            // height: 35
-            // left: 181
-            // right: 427.953125
-            // top: 195
-            // width: 246.953125
-            // x: 181
-            // y: 195
           },
           function () {
             let element_ = $(this);
@@ -161,6 +109,10 @@
               }
             }
           }
+        } else if (inputName == "compare-field") {
+          let inputVal = Input_.val();
+
+          console.log("inputVal->", inputVal);
         } else if (val_.tagName == "SELECT" || val_.tagName == "INPUT") {
           let inputVal = Input_.val();
           returnSave[inputName] = inputVal;
@@ -173,9 +125,10 @@
       let thisBTN = $(this);
       let thContainer = thisBTN.closest(".th-product-compare-wrap");
       let inputs = thContainer.find(".container-tabs").find("[data-th-save]");
-
+      // thisBTN.addClass("loading");
       let sendData = TH.saveFN(inputs);
       console.log("sendData", sendData);
+      return;
       $.ajax({
         method: "post",
         url: th_product.th_product_ajax_url,
@@ -184,17 +137,55 @@
           inputs: sendData,
         },
         success: function (response) {
-          console.log("response->", response);
+          // console.log("response->", response);
 
           if (response == "update") {
             console.log("updated ");
           }
+          setTimeout(() => {
+            thisBTN.removeClass("loading");
+          }, 500);
+        },
+      });
+    },
+    changeHeadingText: function () {
+      let getText = $(this);
+      let heading_ = $(".th-compare-popup-dummy .inner-wrap_ .heading");
+      let txt_ = getText.val();
+      if (txt_) {
+        heading_.html(txt_);
+      } else {
+        heading_.html("Compare Product");
+      }
+    },
+    resetStyle: function () {
+      // let btn = $(this);
+      $.ajax({
+        method: "post",
+        url: th_product.th_product_ajax_url,
+        data: {
+          action: "th_compare_reset_data",
+          inputs: "reset",
+        },
+        success: function (response) {
+          console.log("response->", response);
+          // if (response == "update") {
+          //   console.log("updated ");
+          // }
         },
       });
     },
     bind: function () {
       $(document).on("click", ".th-option-save-btn", TH.saveData);
       $(document).on("click", "[data-th-color][output-type]", TH.pkr);
+      $(document).on(
+        "keyup",
+        '[data-th-save="compare-heading-text"]',
+        TH.changeHeadingText
+      );
+      $(document).on("click", ".th-compare-reset-style-btn", TH.resetStyle);
+    },
+    dataColorInit: function () {
       let getColorInput = $("[data-th-color]");
       if (getColorInput.length > 0) {
         $.each(getColorInput, function () {
@@ -218,6 +209,9 @@
       );
       if (outoutOBj.length) {
         let getColorValue = outoutOBj.css(getColorProperty);
+        // console.log("th_color_id->", th_color_id);
+        // console.log("getColorProperty->", getColorProperty);
+        // console.log("getColorValue->", getColorValue);
         inputOBj.css("background-color", getColorValue);
       }
     },
