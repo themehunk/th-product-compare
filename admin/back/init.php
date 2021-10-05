@@ -20,18 +20,6 @@ class th_compare_admin
             $result = $this->setOption($_POST['inputs']);
             echo $result ? 'update' : false;
         }
-
-        die();
-    }
-    public function reset()
-    {
-        if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
-            $checkOption = get_option($this->optionName);
-            if ($checkOption) {
-                update_option($this->optionName, '');
-                echo 'reset';
-            }
-        }
         die();
     }
     // cookies
@@ -51,7 +39,7 @@ class th_compare_admin
     {
         $return = [];
         foreach ($arr as $key => $value) {
-            if ($key && $value) {
+            if ($key) {
                 $x = sanitize_text_field($key);
                 $v = sanitize_text_field($value);
                 $return[$x] = $v;
@@ -60,6 +48,17 @@ class th_compare_admin
         return $return;
     }
 
+    public function reset()
+    {
+        if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
+            $checkOption = get_option($this->optionName);
+            if ($checkOption) {
+                delete_option($this->optionName);
+                echo 'reset';
+            }
+        }
+        die();
+    }
 
     // class end
 }

@@ -7,11 +7,11 @@ class th_product_compare
     public $localizeOption = [];
     private function __construct()
     {
-        $this->localizeOption = get_option('th_compare_option');
         add_action('admin_init', array($this, 'create_roles'));
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_script'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_front_script'));
+        $this->localizeOption = get_option('th_compare_option');
     }
     public static function get()
     {
@@ -44,7 +44,7 @@ class th_product_compare
     {
         if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {
 
-            $th_compare_option = $this->localizeOption;
+            $th_compare_option = $this->localizeOption; //appear in file pages/advance-setting.php, pages/general.php, pages/style.php
             // echo "<pre>";
             // print_r($th_compare_option);
             // echo "</pre>";

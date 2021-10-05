@@ -1,9 +1,16 @@
 .th-product-compare-wrap {
     .field-to-show {
-        width: 500px;
+        width: 570px;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
 
-        table {
-            width: 100%;
+        .row_ {
+            display: flex;
+
+            >div {
+                flex: 1;
+            }
         }
     }
 }

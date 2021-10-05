@@ -11,7 +11,7 @@ $th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitiz
                 <td><?php _e('Button Appearance', 'th-product-compare'); ?></td>
             </tr>
             <tr>
-                <td><span class="title_"> Link or Button</span></td>
+                <td><span class="th-color-title"> Link or Button</span></td>
                 <td>
                     <select data-th-save='compare-btn-type'>
                         <option value="button">Button</option>
@@ -20,13 +20,13 @@ $th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitiz
                 </td>
             </tr>
             <tr>
-                <td><span class="title_">Text / Button Text</span></td>
+                <td><span class="th-color-title">Text / Button Text</span></td>
                 <td>
                     <input data-th-save='compare-btn-text' type="text" placeholder="Compare" value="<?php echo $th_product_compare_btn_txt; ?>">
                 </td>
             </tr>
             <tr>
-                <td><span class="title_">Number Of Product</span></td>
+                <td><span class="th-color-title">Number Of Product</span></td>
                 <td>
                     <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php echo $th_product_limit; ?>">
                 </td>
@@ -58,7 +58,5 @@ $th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitiz
         </table>
     </div>
     <!-- sidebar -->
-    <section class="th-right-sidebar">
-
-    </section>
+    <?php include_once 'right-sidebar.php'; ?>
 </div>

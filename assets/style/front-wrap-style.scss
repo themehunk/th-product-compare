@@ -166,6 +166,49 @@
             z-index: 1010;
         }
 
+        .th-add-to-cart_ {
+            display        : flex;
+            justify-content: center;
+            grid-gap       : 7px;
+            flex-wrap      : wrap;
+
+            .th-compare-add-to-cart-btn,
+            .added_to_cart {
+                color        : #202020;
+                background   : transparent;
+                border       : 1px solid;
+                border-radius: 3px;
+                padding      : 6px 20px;
+                font-size    : 13px;
+                transition   : 0.3s all ease;
+
+                &:hover {
+                    background-color: #eaeaeafc;
+                }
+
+                &.loading {
+                    display    : flex;
+                    align-items: center;
+                    width      : fit-content;
+
+                    &:after {
+                        position   : unset;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+
+        .price_ {
+            color          : #5d5e61;
+            font-weight    : 600;
+            display        : flex;
+            justify-content: center;
+            grid-gap       : 7px;
+            font-size      : 17px;
+            letter-spacing : 1px;
+        }
+
         .image {
             .image-and-addcart {
                 display       : flex;
@@ -199,48 +242,7 @@
                     letter-spacing: 1px;
                 }
 
-                .th-add-to-cart_ {
-                    display        : flex;
-                    justify-content: center;
-                    grid-gap       : 7px;
-                    flex-wrap      : wrap;
 
-                    .th-compare-add-to-cart-btn,
-                    .added_to_cart {
-                        color        : #202020;
-                        background   : transparent;
-                        border       : 1px solid;
-                        border-radius: 3px;
-                        padding      : 6px 20px;
-                        font-size    : 13px;
-                        transition   : 0.3s all ease;
-
-                        &:hover {
-                            background-color: #eaeaeafc;
-                        }
-
-                        &.loading {
-                            display    : flex;
-                            align-items: center;
-                            width      : fit-content;
-
-                            &:after {
-                                position   : unset;
-                                margin-left: 5px;
-                            }
-                        }
-                    }
-                }
-
-                .price_ {
-                    color          : #5d5e61;
-                    font-weight    : 600;
-                    display        : flex;
-                    justify-content: center;
-                    grid-gap       : 7px;
-                    font-size      : 17px;
-                    letter-spacing : 1px;
-                }
             }
         }
 

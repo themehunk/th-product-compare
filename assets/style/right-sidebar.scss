@@ -1,0 +1,35 @@
+//right side bar 
+.th-right-sidebar {
+    display       : flex;
+    flex-direction: column;
+    grid-gap      : 15px;
+    padding-left  : 16px;
+
+    >div {
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
+        grid-gap      : 9px;
+        padding       : 24px 16px;
+        border-radius : 4px;
+        color         : #fff;
+        text-align    : center;
+        background    : #1665a9;
+
+        span.heading_ {
+            font-size  : 17px;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight    : bold;
+            padding        : 0.5rem 1.5rem;
+            font-size      : .6875rem;
+            background     : #f56640;
+            color          : #fff;
+            border-radius  : 4px;
+            box-shadow     : 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+        }
+    }
+}

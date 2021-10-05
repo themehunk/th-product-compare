@@ -13,8 +13,8 @@
       if (style_) {
         let styleAdd = "";
         for (let getKey in style_) {
-          console.log("getKey->", getKey);
-          console.log("getKey style_ ->", style_[getKey]);
+          // console.log("getKey->", getKey);
+          // console.log("getKey style_ ->", style_[getKey]);
 
           if (getKey == "compare-heading-text") {
             $(".th-compare-output-wrap .th-compare-heading > span").html(
@@ -47,14 +47,16 @@
               ".th-compare-output-product .product-table-configure tr:nth-child(odd) td,.th-compare-output-product .product-table-configure tr:nth-child(odd) td.left-title{background-color:" +
               style_[getKey] +
               ";}";
-              styleAdd += '.th-compare-output-product .product-table-configure tr:nth-child(odd) td.left-title{opacity:.7;}'
+            styleAdd +=
+              ".th-compare-output-product .product-table-configure tr:nth-child(odd) td.left-title{opacity:.7;}";
           } else if (getKey == "row-even-bgth-idbackground-color") {
             styleAdd +=
               ".th-compare-output-product .product-table-configure tr:nth-child(even) td,.th-compare-output-product .product-table-configure tr:nth-child(even) td.left-title{background-color:" +
               style_[getKey] +
               ";}";
-              styleAdd += '.th-compare-output-product .product-table-configure tr:nth-child(even) td.left-title{opacity:.7;}'
-            } else if (getKey == "rating-colorth-idcolor") {
+            styleAdd +=
+              ".th-compare-output-product .product-table-configure tr:nth-child(even) td.left-title{opacity:.7;}";
+          } else if (getKey == "rating-colorth-idcolor") {
             styleAdd +=
               ".th-compare-output-wrap .th-compare-rating{color:" +
               style_[getKey] +
@@ -103,7 +105,7 @@
           .closest(".th-compare-output-wrap-inner")
           .stop()
           .animate({ scrollTop: 0 }, 500, "swing", function () {
-            console.log("Finished animating");
+            // console.log("Finished animating");
           });
         // $(".th-compare-output-wrap-inner")
         //   .stop()

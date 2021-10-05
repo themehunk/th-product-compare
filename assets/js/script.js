@@ -111,8 +111,12 @@
           }
         } else if (inputName == "compare-field") {
           let inputVal = Input_.val();
-
-          console.log("inputVal->", inputVal);
+          let save_ = "field-" + inputVal;
+          if (Input_.prop("checked") == true) {
+            returnSave[save_] = 1;
+          } else {
+            returnSave[save_] = "hide";
+          }
         } else if (val_.tagName == "SELECT" || val_.tagName == "INPUT") {
           let inputVal = Input_.val();
           returnSave[inputName] = inputVal;
@@ -125,10 +129,10 @@
       let thisBTN = $(this);
       let thContainer = thisBTN.closest(".th-product-compare-wrap");
       let inputs = thContainer.find(".container-tabs").find("[data-th-save]");
-      // thisBTN.addClass("loading");
+      thisBTN.addClass("loading");
       let sendData = TH.saveFN(inputs);
       console.log("sendData", sendData);
-      return;
+      // return;
       $.ajax({
         method: "post",
         url: th_product.th_product_ajax_url,
@@ -137,7 +141,7 @@
           inputs: sendData,
         },
         success: function (response) {
-          // console.log("response->", response);
+          console.log("response->", response);
 
           if (response == "update") {
             console.log("updated ");
@@ -159,7 +163,8 @@
       }
     },
     resetStyle: function () {
-      // let btn = $(this);
+      let btn = $(this);
+      btn.addClass("loading");
       $.ajax({
         method: "post",
         url: th_product.th_product_ajax_url,
@@ -169,9 +174,13 @@
         },
         success: function (response) {
           console.log("response->", response);
-          // if (response == "update") {
-          //   console.log("updated ");
-          // }
+          if (response == "reset") {
+            setTimeout(() => {
+              location.reload();
+            }, 500);
+          } else {
+            location.reload();
+          }
         },
       });
     },

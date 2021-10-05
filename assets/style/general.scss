@@ -9,14 +9,13 @@ $border-color:#d2d2d2;
 }
 
 .th-product-compare-wrap {
+    border: 1px solid #d2d2d2;
+    width: 98%;
+    background: white;
+    margin-top: 20px;
     * {
         box-sizing: border-box;
     }
-
-    border    : 1px solid $border-color;
-    width     : 98%;
-    background: white;
-
     a:focus {
         box-shadow: none;
         outline   : none;
@@ -157,12 +156,6 @@ label.color-output {
 }
 
 
-//right side bar 
-.th-right-sidebar {
-    min-width : 234px;
-    background: #0c6ebf;
-}
-
 .th-general {
     display: flex;
 
@@ -175,12 +168,22 @@ label.color-output {
             tr {
                 margin        : 21px 0;
                 display       : flex;
-                border-bottom : 1px dashed #dbdbdb;
+                // border-bottom : 1px dashed #dbdbdb;
                 padding-bottom: 6px;
 
                 &.table_heading {
-                    border-bottom: 1px dashed #dbdbdb;
+                    // border-bottom: 1px dashed #dbdbdb;
 
+                    td {
+                        color         : #565c62;
+                        font-size     : 16px;
+                        font-weight   : 500;
+                        letter-spacing: 0.05rem;
+
+                        &:first-child {
+                            max-width: unset;
+                        }
+                    }
                 }
 
                 td {
@@ -192,13 +195,14 @@ label.color-output {
                     }
 
                     &.shortcode-appear {
-                        max-width: 100%;
-                        font-size: 17px;
-                        color    : black;
-
-                        // &.html-tag_ {
-                        //     background-color: green;
-                        // }
+                        font-size: 15px;
+                        color: #565c62;
+                        margin-left: 14px;
+                        background: #efefef;
+                        max-width: 604px;
+                        text-align: center;
+                        padding: 13px 10px;
+                        border-radius: 4px;
                     }
                 }
             }
@@ -206,14 +210,14 @@ label.color-output {
             input,
             select {}
 
-            .title_ {
-                color         : #565c62;
-                display       : block;
-                font-size     : 16px;
-                line-height   : 1;
-                font-weight   : 500;
-                letter-spacing: 0.05rem;
-            }
+            // .title_ {
+            //     color         : #565c62;
+            //     display       : block;
+            //     font-size     : 16px;
+            //     line-height   : 1;
+            //     font-weight   : 500;
+            //     letter-spacing: 0.05rem;
+            // }
         }
     }
 }
