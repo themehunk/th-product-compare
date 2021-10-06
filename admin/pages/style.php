@@ -15,12 +15,12 @@ function th_apply_color($title, $prop, $color_id = false)
 
 ?>
 <div class="style_">
-    <span class="th-tab-heading"><?php _e('Compare Preview', 'th-product-compare'); ?></span>
     <div class="dummy-and-style">
         <div class="style-setting_">
+            <span class="th-tab-heading"><?php _e('Compare Preview', 'th-product-compare'); ?></span>
             <div class="th-color-output">
                 <div class="th-input input-block">
-                    <label class="th-color-title">Popup Heading</label>
+                    <label class="th-color-title"><?php _e('Popup Heading', 'th-product-compare') ?></label>
                     <input data-th-save='compare-heading-text' type="text" value="<?php echo $th_headingText; ?>">
                 </div>
                 <?php
@@ -46,29 +46,29 @@ function th_apply_color($title, $prop, $color_id = false)
                 <div class="table_">
                     <table>
                         <tr data-th-output="row-odd-bg" data-th-save='style' data-th='background-color'>
-                            <td class="left-title">Image</td>
+                            <td class="left-title"><?php _e('Image', 'th-product-compare') ?></td>
                             <td>
                                 <div class="image-product">
                                     <?php echo $blankImage ?>
-                                    <span class="p-title">Product Title</span>
-                                    <button class="add-to-cart">Add To Cart</button>
+                                    <span class="p-title"><?php _e('Product Title', 'th-product-compare') ?></span>
+                                    <button class="add-to-cart"><?php _e('Add To Cart', 'th-product-compare') ?></button>
                                 </div>
                             </td>
                             <td>
                                 <div class="image-product">
                                     <?php echo $blankImage ?>
-                                    <span class="p-title">Product Title</span>
-                                    <button class="add-to-cart">Add To Cart</button>
+                                    <span class="p-title"><?php _e('Product Title','th-product-compare')?></span>
+                                    <button class="add-to-cart"><?php _e('Add To Cart','th-product-compare')?></button>
                                 </div>
                             </td>
                         </tr>
                         <tr data-th-output="row-even-bg" data-th-save='style' data-th='background-color'>
-                            <td class="left-title">SKU</td>
+                            <td class="left-title"><?php _e('SKU','th-product-compare')?></td>
                             <td>woo-vneck-tee</td>
                             <td>woo-vneck-tee</td>
                         </tr>
                         <tr data-th-output="row-odd-bg">
-                            <td class="left-title">Rating</td>
+                            <td class="left-title"><?php _e('Rating','th-product-compare')?></td>
                             <td class="rating_" data-th-output="rating-color" data-th-save='style' data-th='color'>
                                 <div class="star-rating" role="img" aria-label="Rated 3.00 out of 5"><span style="width:60%">Rated <strong class="rating">3.00</strong> out of 5</span></div>
                             </td>
@@ -77,9 +77,9 @@ function th_apply_color($title, $prop, $color_id = false)
                             </td>
                         </tr>
                         <tr data-th-output="row-even-bg">
-                            <td class="left-title">Remove</td>
-                            <td><button data-th-output="remove-btn-color" class="rm-product" data-th-save='style' data-th='color'><i class="dashicons dashicons-dismiss"></i>Remove</button></td>
-                            <td><button data-th-output="remove-btn-color" class="rm-product"><i class="dashicons dashicons-dismiss"></i>Remove</button></td>
+                            <td class="left-title"><?php _e('Remove','th-product-compare')?></td>
+                            <td><button data-th-output="remove-btn-color" class="rm-product" data-th-save='style' data-th='color'><i class="dashicons dashicons-dismiss"></i><?php _e('Remove','th-product-compare')?></button></td>
+                            <td><button data-th-output="remove-btn-color" class="rm-product"><i class="dashicons dashicons-dismiss"></i><?php _e('Remove','th-product-compare')?></button></td>
                         </tr>
                     </table>
                 </div>

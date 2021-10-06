@@ -1,4 +1,4 @@
-$border-color:#d2d2d2;
+$border-color:#f3f3f3;
 
 [data-group-tabs][data-tab-container] {
     display: none;
@@ -9,13 +9,15 @@ $border-color:#d2d2d2;
 }
 
 .th-product-compare-wrap {
-    border: 1px solid #d2d2d2;
-    width: 98%;
+    border    : 1px solid #d2d2d2;
+    width     : 98%;
     background: white;
     margin-top: 20px;
+
     * {
         box-sizing: border-box;
     }
+
     a:focus {
         box-shadow: none;
         outline   : none;
@@ -34,31 +36,32 @@ $border-color:#d2d2d2;
             border-bottom : 1px solid $border-color;
 
             span {
-                color      : #565c62;
+                color      : black;
                 font-size  : 15px;
                 display    : block;
                 line-height: 1;
+                font-weight: 600;
             }
         }
 
         .th-nav_ {
             display       : flex;
             flex-direction: column;
-            background    : #efefef;
             width         : 20%;
             position      : relative;
             padding       : 0 0 67px 0;
+            border-right  : 1px solid $border-color;
 
             >a {
-                padding        : 15px 0;
+                padding        : 15px 17px;
                 text-decoration: none;
-                text-align     : center;
-                color          : #565c62;
-                border-bottom  : 1px solid $border-color;
+                color          : black;
+                border-bottom  : 1px solid #d2d2d2;
                 letter-spacing : 0.7px;
                 font-size      : 15px;
                 line-height    : 1;
                 border-left    : 4px solid #f7f7f700;
+                font-weight    : 600;
 
                 &:last-child {
                     border: none;
@@ -81,21 +84,12 @@ $border-color:#d2d2d2;
                 position       : absolute;
                 left           : 0;
                 bottom         : 0;
-                background     : #1f6fbf;
+                background     : #ebebeb;
 
                 button {
-                    border        : none;
-                    background    : #fbfbfb;
-                    color         : #1f6fbf;
-                    padding       : 6px 14px;
-                    font-size     : 14px;
-                    letter-spacing: 0.7px;
-                    cursor        : pointer;
-                    transition    : 0.2s all ease;
-                    display       : flex;
-                    align-items   : center;
-                    grid-gap      : 7px;
-                    border-radius : 4px;
+                    display : flex;
+                    grid-gap: 7px;
+                    padding : 0 25px;
 
                     &:before {
 
@@ -127,7 +121,7 @@ $border-color:#d2d2d2;
     // tabs container 
     .container-tabs {
         width  : 80%;
-        padding: 10px 10px;
+        padding: 30px;
     }
 
 
@@ -152,37 +146,41 @@ label.color-output {
 }
 
 .th-color-title {
-    font-weight: 500;
+    font-weight: 400;
+    font-size  : 15px;
 }
 
+.bold-heading {
+    color         : #2e2e2e;
+    font-size     : 16px;
+    font-weight   : 500;
+    letter-spacing: 0.05rem;
+}
 
 .th-general {
-    display: flex;
+    display        : flex;
+    justify-content: space-between;
 
     .th-option_ {
-        flex: 1;
+        flex      : 1;
+        width     : 90%;
+        box-shadow: 0px 0px 10px 0px #d0eaf5;
+        padding   : 30px;
 
         table {
-            width: 100%;
+
 
             tr {
-                margin        : 21px 0;
-                display       : flex;
+                margin           : 21px 0;
+                display          : flex;
                 // border-bottom : 1px dashed #dbdbdb;
-                padding-bottom: 6px;
+                padding-bottom   : 6px;
 
-                &.table_heading {
+                .bold-heading {
+
                     // border-bottom: 1px dashed #dbdbdb;
-
-                    td {
-                        color         : #565c62;
-                        font-size     : 16px;
-                        font-weight   : 500;
-                        letter-spacing: 0.05rem;
-
-                        &:first-child {
-                            max-width: unset;
-                        }
+                    &:first-child {
+                        max-width: unset;
                     }
                 }
 
@@ -195,20 +193,23 @@ label.color-output {
                     }
 
                     &.shortcode-appear {
-                        font-size: 15px;
-                        color: #565c62;
-                        margin-left: 14px;
-                        background: #efefef;
-                        max-width: 604px;
-                        text-align: center;
-                        padding: 13px 10px;
+                        font-size    : 15px;
+                        color        : #565c62;
+                        background   : #efefef;
+                        max-width    : 604px;
+                        text-align   : center;
+                        padding      : 13px 10px;
                         border-radius: 4px;
                     }
                 }
             }
 
             input,
-            select {}
+            select {
+                width       : 250px;
+                padding     : 5px;
+                border-color: #e4e4e7;
+            }
 
             // .title_ {
             //     color         : #565c62;

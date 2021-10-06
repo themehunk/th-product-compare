@@ -1,17 +1,20 @@
 //style and dummy 
 .dummy-and-style {
-    display    : flex;
-    grid-gap   : 47px;
-    align-items: flex-start;
+    display: flex;
+    grid-gap: 47px;
+    align-items: self-start;
+    justify-content: space-between;
 
     .style-setting_ {
 
-        visibility: visible;
+        width: 450px;
+        box-shadow: 0px 0px 8px 0px #d0eaf5;
+        padding: 15px;
 
         .th-color-output {
             display       : flex;
             flex-direction: column;
-            grid-gap      : 20px;
+            grid-gap      : 24px;
         }
 
         .th-color-picker {
@@ -27,14 +30,16 @@
 
 .th-tab-heading {
     display       : block;
-    font-size     : 18px;
+    font-size     : 22px;
     line-height   : 1;
     margin        : 0 auto 17px auto;
-    border-bottom : 1px solid #d6d6d6;
+    border-bottom : 1px solid #f0f0f1;
     padding-bottom: 7px;
-    color         : #565c62;
-    font-weight   : 500;
+    color         : #2e2e2e;
+    font-weight   : bold;
+    letter-spacing: 0.5px;
 }
+
 // dummy 
 .th-compare-popup-dummy {
     width     : 436px;

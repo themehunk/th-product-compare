@@ -1,9 +1,10 @@
 //right side bar 
 .th-right-sidebar {
-    display       : flex;
+    display: flex;
     flex-direction: column;
-    grid-gap      : 15px;
-    padding-left  : 16px;
+    grid-gap: 15px;
+    padding-left: 16px;
+    width: 218px;
 
     >div {
         display       : flex;

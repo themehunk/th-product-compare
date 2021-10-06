@@ -15,8 +15,8 @@
             <a data-group-tabs="main" data-tab="style" href="#"><?php _e('Style', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="setting" href="#" class="active"><?php _e('Advance Settings', 'th-product-compare'); ?></a>
             <div class="th-save-btn">
-                <button class="th-compare-reset-style-btn">Reset</button>
-                <button class="th-option-save-btn">Save</button>
+                <button class="button th-compare-reset-style-btn">Reset</button>
+                <button class="button button-primary th-option-save-btn">Save</button>
             </div>
         </nav>
         <div class="container-tabs">

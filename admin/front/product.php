@@ -37,40 +37,47 @@ class th_product_compare_return
     private function productHtml($setID)
     {
         $chekBYoption = $this->compareOption();
-
+        // 'field-weight' => true,
+        // 'field-dimension' => true,
+        // 'field-size' => true,
+        // 'field-custom-image-size' => true,
         $table = '';
         $table .= '<table class="product-table-configure">';
 
         if ($chekBYoption['field-image'] || $chekBYoption['field-title'] || $chekBYoption['field-price'] || $chekBYoption['field-add-to-cart']) {
             $trImage = '<tr class="image">
-                    <td class="left-title"><span>Image</span></td>';
+                    <td class="left-title"><span>' . __('Image', 'th-product-compare') . '</span></td>';
         }
         if ($chekBYoption['field-sku']) {
             $trSku_ = '<tr class="sku">
-                    <td class="left-title"><span>SKU</span></td>';
+                    <td class="left-title"><span>' . __('SKU', 'th-product-compare') . '</span></td>';
+        }
+        if ($chekBYoption['field-availability']) {
+            $trAvailability_ = '<tr class="availability">
+                    <td class="left-title"><span>' . __('Availability', 'th-product-compare') . '</span></td>';
         }
         if ($chekBYoption['field-rating']) {
             $trRating_ = '<tr class="rating">
-                    <td class="left-title"><span>Rating</span></td>';
+                    <td class="left-title"><span>' . __('Rating', 'th-product-compare') . '</span></td>';
         }
         if ($chekBYoption['field-description']) {
             $trDescription_ = '<tr class="th-description">
-                    <td class="left-title"><span>Description</span></td>';
+                    <td class="left-title"><span>' . __('Description', 'th-product-compare') . '</span></td>';
         }
         if ($chekBYoption['field-dimension']) {
             $trDimension_ = '<tr class="th-dimension">
-                    <td class="left-title"><span>Dimension</span></td>';
+                    <td class="left-title"><span>' . __('Dimension', 'th-product-compare') . '</span></td>';
         }
         if ($chekBYoption['field-repeat-price']) {
             $trRepeatPrice_ = '<tr class="th-price">
-                    <td class="left-title"><span>Price</span></td>';
+                    <td class="left-title"><span>' . __('Price', 'th-product-compare') . '</span></td>';
         }
         if ($chekBYoption['field-repeat-add-to-cart']) {
             $trRepeatAddTocart = '<tr class="th-add-to-cart">
-                    <td class="left-title"><span>Add To Cart</span></td>';
+                    <td class="left-title"><span>' . __('Add To Cart', 'th-product-compare') . '</span></td>';
         }
         $trDelete_ = '<tr class="th-delete">
-                    <td class="left-title"><span>Remove</span></td>';
+                    <td class="left-title"><span>' . __('Remove', 'th-product-compare') . '</span></td>';
 
         foreach ($setID as $IDvalue) {
             $ProductID = intval($IDvalue);
@@ -99,11 +106,20 @@ class th_product_compare_return
                     $div_ .= '</div>';
                     $trImage .= '<td>' . $div_ . '</td>'; //image
                 }
+                //sku
                 if (isset($trSku_)) {
-                    //sku
                     $sku = $product->get_sku();
                     $sku = $sku ? $sku : "-";
                     $trSku_ .= '<td><span>' . $sku . '</span></td>';
+                }
+                // availability
+                if (isset($trAvailability_)) {
+                    $productNumber  = $product->is_in_stock();
+                    $productAvailbulity = '-';
+                    if ($productNumber) {
+                        $productAvailbulity = __('in stock','th-product-compare');
+                    }
+                    $trAvailability_ .= '<td>' . $productAvailbulity . '</td>';
                 }
                 //rating
                 if (isset($trRating_)) {
@@ -139,6 +155,10 @@ class th_product_compare_return
         if (isset($trSku_)) {
             $trSku_ .= '</tr>';
             $table .= $trSku_;
+        }
+        if (isset($trAvailability_)) {
+            $trAvailability_ .= '</tr>';
+            $table .= $trAvailability_;
         }
         if (isset($trRating_)) {
             $trRating_ .= '</tr>';
