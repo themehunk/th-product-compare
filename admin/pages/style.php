@@ -19,7 +19,7 @@ function th_apply_color($title, $prop, $color_id = false)
         <div class="style-setting_">
             <span class="th-tab-heading"><?php _e('Compare Preview', 'th-product-compare'); ?></span>
             <div class="th-color-output">
-                <div class="th-input input-block">
+                <div class="th-color-picker th-input input-block">
                     <label class="th-color-title"><?php _e('Popup Heading', 'th-product-compare') ?></label>
                     <input data-th-save='compare-heading-text' type="text" value="<?php echo $th_headingText; ?>">
                 </div>

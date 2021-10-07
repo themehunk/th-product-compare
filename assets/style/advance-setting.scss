@@ -4,9 +4,9 @@
         justify-content: space-between;
 
         .field-to-show {
-            box-shadow: 0px 0px 8px 0px #d0eaf5;
-            padding   : 15px;
-            flex      : 1;
+            // box-shadow: 0px 0px 8px 0px #d0eaf5;
+            padding: 15px;
+            flex   : 1;
 
             >div {
                 display       : flex;
@@ -37,9 +37,9 @@
     padding-left: 5px;
 
     label {
-        position: relative;
-        display: flex;
-        align-items: center;
+        position    : relative;
+        display     : flex;
+        align-items : center;
         padding-left: 25px;
 
         &:before {
@@ -56,10 +56,10 @@
         &:after {
             content      : "";
             position     : absolute;
-            height       : 20px;
-            width        : 20px;
-            border       : 2px solid grey;
-            left         : -4px;
+            height       : 16px;
+            width        : 16px;
+            border       : 1px solid grey;
+            left         : -2px;
             top          : 50%;
             border-radius: 3px;
             transform    : translateY(-50%);

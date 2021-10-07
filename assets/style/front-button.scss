@@ -1,16 +1,24 @@
 .th-product-compare-btn {
-    color           : white;
-    padding         : 6px 10px;
-    background-color: black;
+    margin: 10px 0;
+    &.txt_type {
+        color      : #3575e9;
+        font-weight: bold;
+    }
 
-    // \f15e
-    &.th-added-compare {
-        display : flex !important;
-        grid-gap: 5px;
+    &.btn_type {
+        color           : white;
+        padding         : 8px 10px;
+        background-color: black;
+        display         : flex !important;
+        grid-gap        : 5px;
+        width           : fit-content;
+        line-height     : 1;
 
-        &::before {
-            content    : '\f15e';
-            font-family: 'dashicons';
+        &.th-added-compare {
+            &::before {
+                content    : '\f15e';
+                font-family: 'dashicons';
+            }
         }
     }
 }

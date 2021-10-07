@@ -37,9 +37,13 @@
   align-items: self-start;
   justify-content: space-between;
 }
+.dummy-and-style input {
+  width: 250px;
+  padding: 5px;
+  border-color: #e4e4e7;
+}
 .dummy-and-style .style-setting_ {
   width: 450px;
-  box-shadow: 0px 0px 8px 0px #d0eaf5;
   padding: 15px;
 }
 .dummy-and-style .style-setting_ .th-color-output {
@@ -277,6 +281,7 @@
   position: relative;
   padding: 0 0 67px 0;
   border-right: 1px solid #f3f3f3;
+  background-color: #f0f0f1;
 }
 .th-product-compare-wrap .th-product-compare-container .th-nav_ > a {
   padding: 15px 17px;
@@ -354,14 +359,13 @@ label.color-output {
 
 .th-color-title {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .bold-heading {
   color: #2e2e2e;
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.05rem;
 }
 
 .th-general {
@@ -371,7 +375,6 @@ label.color-output {
 .th-general .th-option_ {
   flex: 1;
   width: 90%;
-  box-shadow: 0px 0px 10px 0px #d0eaf5;
   padding: 30px;
 }
 .th-general .th-option_ table tr {
@@ -418,7 +421,6 @@ label.color-output {
   justify-content: space-between;
 }
 .th-product-compare-wrap .setting_ .field-to-show {
-  box-shadow: 0px 0px 8px 0px #d0eaf5;
   padding: 15px;
   flex: 1;
 }
@@ -461,10 +463,10 @@ label.color-output {
 .th-compare-radio label:after {
   content: "";
   position: absolute;
-  height: 20px;
-  width: 20px;
-  border: 2px solid grey;
-  left: -4px;
+  height: 16px;
+  width: 16px;
+  border: 1px solid grey;
+  left: -2px;
   top: 50%;
   border-radius: 3px;
   transform: translateY(-50%);

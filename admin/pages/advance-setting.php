@@ -13,7 +13,6 @@ $checkChecked = [
     'field-size' => 'checked="checked"',
     'field-repeat-price' => 'checked="checked"',
     'field-repeat-add-to-cart' => 'checked="checked"',
-    'field-custom-image-size' => 'checked="checked"',
 ];
 
 if (is_array($th_compare_option)) {
@@ -117,18 +116,6 @@ if (is_array($th_compare_option)) {
                         <!--image-->
                         <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-add-to-cart" <?php echo $checkChecked['field-repeat-add-to-cart']; ?> value="repeat-add-to-cart">
                         <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php _e('Repeat the "Add to cart" field at the end of the table', 'th-product-compare') ?></label>
-                    </div>
-                </div>
-            </div>
-            <div class="row_">
-                <div>
-                    <span class="bold-heading"><?php _e('Image size', 'th-product-compare') ?></span>
-                </div>
-                <div>
-                    <div class="th-compare-radio">
-                        <!--image-->
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-custom-image-size" <?php echo $checkChecked['field-custom-image-size']; ?> value="custom-image-size">
-                        <label class="th-color-title" for="compare-fields-custom-image-size"><?php _e('Do you want to hard crop the image?', 'th-product-compare') ?></label>
                     </div>
                 </div>
             </div>

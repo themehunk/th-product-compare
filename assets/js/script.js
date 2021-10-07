@@ -144,7 +144,7 @@
           console.log("response->", response);
 
           if (response == "update") {
-            console.log("updated ");
+            thisBTN.removeClass("loading");
           }
           setTimeout(() => {
             thisBTN.removeClass("loading");
