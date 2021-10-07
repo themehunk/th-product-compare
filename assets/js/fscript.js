@@ -159,7 +159,7 @@
         },
         dataType: "json",
         success: function (response) {
-          console.log("response->", response);
+          // console.log("response->", response);
 
           if (response.no_product == "1") {
             let getWrap = $(".th-compare-output-wrap");
