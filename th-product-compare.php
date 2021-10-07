@@ -1,6 +1,7 @@
 <?php
 /*
 * Plugin Name: TH Product Compare
+* Description: Woocommerce Product Compare.
 * Version: 1.0.0
 * Author: ThemeHunk
 * Author URI: http://www.themehunk.com/
