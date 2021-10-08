@@ -26,10 +26,17 @@ class th_product_compare_return
             // echo "<br>";
             // echo $productID;
             $setID = $this->setId($productID, $addREmove);
+            // echo json_encode($setID);
+            // die();
+            // return;
             if (!empty($setID)) {
-                echo $this->productHtml($setID);
+                $html = $this->productHtml($setID);
+                if (isset($setID['product_limit'])) {
+                    $html['product_limit'] = __('Product Limit Exceeded.');
+                }
+                echo json_encode($html);
             } else {
-                echo 'no_product';
+                echo json_encode(['no_product' => 1]);
             }
         }
         die();
@@ -40,7 +47,6 @@ class th_product_compare_return
         // 'field-weight' => true,
         // 'field-dimension' => true,
         // 'field-size' => true,
-        // 'field-custom-image-size' => true,
         $table = '';
         $table .= '<table class="product-table-configure">';
 
@@ -117,7 +123,7 @@ class th_product_compare_return
                     $productNumber  = $product->is_in_stock();
                     $productAvailbulity = '-';
                     if ($productNumber) {
-                        $productAvailbulity = __('in stock','th-product-compare');
+                        $productAvailbulity = __('in stock', 'th-product-compare');
                     }
                     $trAvailability_ .= '<td>' . $productAvailbulity . '</td>';
                 }
@@ -187,7 +193,12 @@ class th_product_compare_return
 
         $table .= '</table>';
 
-        return $table;
+
+        $return = [
+            'html' => $table,
+        ];
+
+        return $return;
     }
     private function compareOption()
     {
@@ -205,7 +216,6 @@ class th_product_compare_return
             'field-size' => true,
             'field-repeat-price' => true,
             'field-repeat-add-to-cart' => true,
-            'field-custom-image-size' => true,
         ];
         $th_compare_option = get_option('th_compare_option');
         if (is_array($th_compare_option)) {
@@ -320,6 +330,9 @@ class th_product_compare_return
                 if ($getExist || $checkProduct) {
                     $cookieValue = implode(",", $previousCookie);
                     $updateCookie = false;
+                    if ($checkProduct) {
+                        $previousCookie['product_limit'] = 'product_limit';
+                    }
                 } else {
                     $cookieValue = implode(",", $previousCookie) . "," . $id;
                     $previousCookie[] = $id;

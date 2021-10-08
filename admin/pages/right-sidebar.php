@@ -1,3 +1,4 @@
+<?php if (!defined('ABSPATH')) exit; ?>
 <section class="th-right-sidebar">
     <div>
         <span class="heading_"><?php _e('Documentation', 'th-product-compare') ?></span>

@@ -38,7 +38,7 @@ class th_product_compare
     }
     public function admin_menu()
     {
-        add_menu_page(__('Product Compare', 'th-product-compare'), __('Product Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), "dashicons-update");
+        add_menu_page(__('Th Product Compare', 'th-product-compare'), __('Th Product Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL.'/assets/img/th-nav-logo.png');
     }
     public function display_addons()
     {

@@ -131,7 +131,7 @@
       let inputs = thContainer.find(".container-tabs").find("[data-th-save]");
       thisBTN.addClass("loading");
       let sendData = TH.saveFN(inputs);
-      console.log("sendData", sendData);
+      // console.log("sendData", sendData);
       // return;
       $.ajax({
         method: "post",
@@ -141,10 +141,10 @@
           inputs: sendData,
         },
         success: function (response) {
-          console.log("response->", response);
+          // console.log("response->", response);
 
           if (response == "update") {
-            console.log("updated ");
+            thisBTN.removeClass("loading");
           }
           setTimeout(() => {
             thisBTN.removeClass("loading");
@@ -173,7 +173,7 @@
           inputs: "reset",
         },
         success: function (response) {
-          console.log("response->", response);
+          // console.log("response->", response);
           if (response == "reset") {
             setTimeout(() => {
               location.reload();

@@ -1,27 +1,24 @@
-<?php if (!defined('ABSPATH')) exit;
-// $ThGetOption = get_option('th_compare_option');
-
-?>
+<?php if (!defined('ABSPATH')) exit; ?>
 <div class="th-product-compare-wrap">
     <div class="th-product-compare-container">
         <nav class="th-nav_">
             <span class="logo-detail">
                 <div class="img_">
-                    <img src="<?php echo TH_PRODUCT_URL . 'assets/img/th-logo.png'; ?>">
+                    <img src="<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/th-logo.png'); ?>">
                 </div>
                 <span><?php _e('Th Product Compare', 'th-product-compare'); ?></span>
             </span>
-            <a data-group-tabs="main" data-tab="general" href="#"><?php _e('General', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="general" href="#" class="active"><?php _e('General', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="style" href="#"><?php _e('Style', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="setting" href="#" class="active"><?php _e('Advance Settings', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="setting" href="#"><?php _e('Advance Settings', 'th-product-compare'); ?></a>
             <div class="th-save-btn">
-                <button class="button th-compare-reset-style-btn">Reset</button>
-                <button class="button button-primary th-option-save-btn">Save</button>
+                <button class="button th-compare-reset-style-btn"><?php _e("Reset", 'th-product-compare'); ?></button>
+                <button class="button button-primary th-option-save-btn"><?php _e("Save", 'th-product-compare'); ?></button>
             </div>
         </nav>
         <div class="container-tabs">
             <!-- general tab -->
-            <div data-group-tabs="main" data-tab-container="general">
+            <div data-group-tabs="main" data-tab-container="general" class="active">
                 <?php include_once 'pages/general.php'; ?>
             </div>
             <!-- style tab -->
@@ -29,7 +26,7 @@
                 <?php include_once 'pages/style.php'; ?>
             </div>
             <!-- setting tab -->
-            <div data-group-tabs="main" data-tab-container="setting" class="active">
+            <div data-group-tabs="main" data-tab-container="setting">
                 <?php include_once 'pages/advance-setting.php'; ?>
             </div>
             <!-- setting tab -->
