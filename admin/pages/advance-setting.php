@@ -1,4 +1,5 @@
 <?php
+if (!defined('ABSPATH')) exit;
 $checkChecked = [
     'field-image' => 'checked="checked"',
     'field-title' => 'checked="checked"',
