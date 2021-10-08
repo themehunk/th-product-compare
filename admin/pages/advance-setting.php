@@ -57,7 +57,7 @@ if (is_array($th_compare_option)) {
                     <div class="th-compare-radio">
                         <!--rating-->
                         <input type="checkbox" data-th-save='compare-field' id="compare-fields-rating" <?php echo $checkChecked['field-rating']; ?> value="rating">
-                        <label class="th-color-title" for="compare-fields-rating"><?php _e('Price', 'th-product-compare') ?></label>
+                        <label class="th-color-title" for="compare-fields-rating"><?php _e('Rating', 'th-product-compare') ?></label>
                     </div>
                     <div class="th-compare-radio">
                         <!--add-to-cart-->
