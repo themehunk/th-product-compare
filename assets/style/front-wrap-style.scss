@@ -6,7 +6,7 @@
     background-color: #131212d6;
     position        : fixed;
     width           : 100%;
-    z-index         : 1000;
+    z-index         : 10000;
     top             : 0;
     height          : 100%;
     left            : 0;
@@ -36,8 +36,8 @@
     // animation: popupStyle1 duration timing-function delay iteration-count direction fill-mode;
     .th-compare-output-wrap-inner {
         background-color: #ffffff;
-        height          : calc(100% - 100px);
-        margin          : 50px 30px;
+        height          : 90%;
+        margin          : 35px 30px;
         width           : calc(100% - 60px);
         position        : relative;
         overflow        : auto;
@@ -78,7 +78,7 @@
         padding   : 11px;
         position  : fixed;
         z-index   : 10000;
-        top       : 50px;
+        top       : 35px;
         width     : calc(100% - 60px);
 
         .heading_ {
@@ -150,22 +150,28 @@
             vertical-align: middle;
             border        : none;
             text-align    : -webkit-center;
+            min-width     : 400px;
 
             &.left-title {
-                position  : relative;
-                z-index   : 1000;
-                transition: 0.1s all linear;
-                width     : 220px;
-                min-width : 178px;
-                max-width : 242px;
+                position     : relative;
+                z-index      : 1000;
+                width        : 220px;
+                min-width    : 178px;
+                max-width    : 242px;
 
                 span {
                     display: block;
                 }
             }
 
-            &:not(.left-title) {
-                max-width: 400px;
+            &.th-in-stoct {
+                color           : #08a308;
+                background-color: #d3f7d3 !important;
+            }
+
+            &.th-out-of-stoct {
+                color           : #a90a0a;
+                background-color: #ffdfdf !important;
             }
 
         }
@@ -182,17 +188,17 @@
 
             .th-compare-add-to-cart-btn,
             .added_to_cart {
-                color        : #202020;
-                background   : transparent;
-                border       : 1px solid;
-                border-radius: 3px;
-                padding      : 6px 20px;
-                font-size    : 13px;
-                transition   : 0.3s all ease;
+                // color        : #202020;
+                // background   : transparent;
+                // border       : 1px solid;
+                // border-radius: 3px;
+                // padding      : 6px 20px;
+                // font-size    : 13px;
+                transition: 0.3s all ease;
 
-                &:hover {
-                    background-color: #eaeaeafc;
-                }
+                // &:hover {
+                //     background-color: #eaeaeafc;
+                // }
 
                 &.loading {
                     display    : flex;
@@ -222,6 +228,7 @@
                 display       : flex;
                 flex-direction: column;
                 grid-gap      : 10px;
+                padding       : 10px;
 
                 .img_ {
                     min-width: 180px;
@@ -232,15 +239,15 @@
                     margin   : auto;
 
                     img {
-                        position     : absolute;
-                        left         : 0;
-                        top          : 0;
-                        object-fit   : contain;
-                        height       : 100%;
-                        width        : 100%;
-                        /* background: #f1f1f1; */
-                        border-radius: 12px;
-                        box-shadow   : 0px 0px 1px 0.5px #d6d6d6;
+                        position        : absolute;
+                        left            : 0;
+                        top             : 0;
+                        object-fit      : contain;
+                        height          : 100%;
+                        width           : 100%;
+                        border-radius   : 12px;
+                        /* background   : #f1f1f1; */
+                        // box-shadow   : 0px 0px 1px 0.5px #d6d6d6;
                     }
                 }
 
@@ -258,17 +265,23 @@
 
         .th-compare-product-remove {
             color          : #444444;
-            border         : 1px solid;
             background     : transparent;
             display        : flex;
             justify-content: center;
             align-items    : center;
             margin         : auto;
             font-size      : 13px;
-            grid-gap       : 7px;
+            grid-gap       : 4px;
+            border         : none;
+            border-bottom  : 1px solid transparent;
+            padding        : 1px;
 
             i {
                 color: #d84747;
+            }
+
+            &:hover {
+                border-bottom: 1px solid #d84747;
             }
         }
     }
@@ -305,4 +318,14 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.th-compare-output-product::-webkit-scrollbar {
+    height: 2px;
+    width : 2px;
+}
+
+.th-compare-output-product::-webkit-scrollbar-thumb {
+    background   : black;
+    border-radius: 10px;
 }
