@@ -9,8 +9,8 @@
                 <span><?php _e('Th Product Compare', 'th-product-compare'); ?></span>
             </span>
             <a data-group-tabs="main" data-tab="general" href="#" class="active"><?php _e('General', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="style" href="#"><?php _e('Style', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="setting" href="#"><?php _e('Advance Settings', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="help" href="#"><?php _e('Help', 'th-product-compare'); ?></a>
             <div class="th-save-btn">
                 <button class="button th-compare-reset-style-btn"><?php _e("Reset", 'th-product-compare'); ?></button>
                 <button class="button button-primary th-option-save-btn"><?php _e("Save", 'th-product-compare'); ?></button>
@@ -21,13 +21,13 @@
             <div data-group-tabs="main" data-tab-container="general" class="active">
                 <?php include_once 'pages/general.php'; ?>
             </div>
-            <!-- style tab -->
-            <div data-group-tabs="main" data-tab-container="style">
-                <?php include_once 'pages/style.php'; ?>
-            </div>
             <!-- setting tab -->
             <div data-group-tabs="main" data-tab-container="setting">
                 <?php include_once 'pages/advance-setting.php'; ?>
+            </div>
+            <!-- help tab -->
+            <div data-group-tabs="main" data-tab-container="help">
+                <?php include_once 'pages/help.php'; ?>
             </div>
             <!-- setting tab -->
         </div>

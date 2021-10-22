@@ -48,11 +48,6 @@ if (is_array($th_compare_option)) {
                     <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php echo $th_product_limit; ?>">
                 </td>
             </tr>
-
-
-
-
-
             <tr>
                 <td><span class="th-color-title"><?php _e('Show button in single product page', 'th-product-compare') ?></span></td>
                 <td>

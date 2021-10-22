@@ -121,11 +121,13 @@ class th_product_compare_return
                 // availability
                 if (isset($trAvailability_)) {
                     $productNumber  = $product->is_in_stock();
-                    $productAvailbulity = '-';
+                    $productAvailbulity = __('Out Of Stock', 'th-product-compare');
+                    $StockClass = 'th-out-of-stoct';
                     if ($productNumber) {
                         $productAvailbulity = __('in stock', 'th-product-compare');
+                        $StockClass = 'th-in-stoct';
                     }
-                    $trAvailability_ .= '<td>' . $productAvailbulity . '</td>';
+                    $trAvailability_ .= '<td class="' . $StockClass . ' ">' . $productAvailbulity . '</td>';
                 }
                 //rating
                 if (isset($trRating_)) {

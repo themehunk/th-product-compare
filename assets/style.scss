@@ -1,5 +1,8 @@
-@import './style/tooltip.scss';
-@import './style/dummy-style.scss';
 @import './style/right-sidebar.scss';
 @import './style/general.scss';
 @import './style/advance-setting.scss';
+@import './style/help.scss';
+
+.active[data-slug="th-product-compare"] .premium a {
+    color: #c9356e;
+}

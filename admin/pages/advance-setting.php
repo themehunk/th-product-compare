@@ -27,8 +27,6 @@ if (is_array($th_compare_option)) {
         }
     }
 }
-
-
 ?>
 <div class="setting_">
     <div class="field-to-show">

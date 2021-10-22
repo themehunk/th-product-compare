@@ -1,92 +1,7 @@
 (function ($) {
   let thCompare = {
     init: function () {
-      // console.log(
-      //   "th_compare_style_local ->",
-      //   th_product.th_compare_style_local
-      // );
-
       thCompare.bind();
-    },
-    addStyle: function () {
-      let style_ = th_product.th_compare_style_local;
-      if (style_) {
-        let styleAdd = "";
-        for (let getKey in style_) {
-          // console.log("getKey->", getKey);
-          // console.log("getKey style_ ->", style_[getKey]);
-
-          if (getKey == "compare-heading-text") {
-            $(
-              ".th-compare-output-wrap .th-compare-heading > span.heading_"
-            ).html(style_[getKey]);
-          }
-          // set style
-          else if (getKey == "fore-ground-bgth-idbackground-color") {
-            styleAdd +=
-              ".th-compare-output-wrap{background-color:" +
-              style_[getKey] +
-              ";}";
-          } else if (getKey == "dummy-border-colorth-idborder-color") {
-            styleAdd +=
-              ".th-compare-output-wrap .th-compare-output-wrap-inner{border-color:" +
-              style_[getKey] +
-              ";}";
-          } else if (getKey == "heading-styleth-idbackground-color") {
-            styleAdd +=
-              ".th-compare-output-wrap .th-compare-heading{background-color:" +
-              style_[getKey] +
-              ";}";
-          } else if (getKey == "heading-styleth-idcolor") {
-            styleAdd +=
-              ".th-compare-output-wrap .th-compare-heading > span{color:" +
-              style_[getKey] +
-              ";}";
-          } else if (getKey == "row-odd-bgth-idbackground-color") {
-            styleAdd +=
-              ".th-compare-output-product .product-table-configure tr:nth-child(odd) td,.th-compare-output-product .product-table-configure tr:nth-child(odd) td.left-title{background-color:" +
-              style_[getKey] +
-              ";}";
-            styleAdd +=
-              ".th-compare-output-product .product-table-configure tr:nth-child(odd) td.left-title{opacity:.7;}";
-          } else if (getKey == "row-even-bgth-idbackground-color") {
-            styleAdd +=
-              ".th-compare-output-product .product-table-configure tr:nth-child(even) td,.th-compare-output-product .product-table-configure tr:nth-child(even) td.left-title{background-color:" +
-              style_[getKey] +
-              ";}";
-            styleAdd +=
-              ".th-compare-output-product .product-table-configure tr:nth-child(even) td.left-title{opacity:.7;}";
-          } else if (getKey == "rating-colorth-idcolor") {
-            styleAdd +=
-              ".th-compare-output-wrap .th-compare-rating{color:" +
-              style_[getKey] +
-              ";}";
-          } else if (getKey == "remove-btn-colorth-idcolor") {
-            styleAdd +=
-              ".th-compare-output-product .product-table-configure .th-compare-product-remove{color:" +
-              style_[getKey] +
-              ";}";
-          } else if (getKey == "close-btn-styleth-idbackground-color") {
-            styleAdd +=
-              ".th-compare-output-wrap .th-compare-output-close i{background-color:" +
-              style_[getKey] +
-              ";}";
-          } else if (getKey == "close-btn-styleth-idcolor") {
-            styleAdd +=
-              ".th-compare-output-wrap .th-compare-output-close i{color:" +
-              style_[getKey] +
-              ";}";
-          }
-        }
-
-        // add css //
-        if (styleAdd && !$("style#th-compare-style-head").length) {
-          let style_Append =
-            '<style id="th-compare-style-head">' + styleAdd + "</style>";
-          $("head").append(style_Append);
-        }
-        // add css //
-      }
     },
     addProduct: function (e) {
       e.preventDefault();
@@ -107,11 +22,6 @@
           .animate({ scrollTop: 0 }, 500, "swing", function () {
             // console.log("Finished animating");
           });
-        // $(".th-compare-output-wrap-inner")
-        //   .stop()
-        //   .animate({ scrollTop: 0 }, 500, "swing", function () {
-        //     alert("Finished animating");
-        //   });
         thisBtn.closest(".th-compare-output-wrap").addClass("th-loading");
         thCompare.getOrUpdatePRoducts(getProductId, "remove");
       }
@@ -142,13 +52,10 @@
       $("body").append(html);
       $("body").addClass("th_product_Compare_body_Class");
       thCompare.getOrUpdatePRoducts(ids, "add");
-      thCompare.addStyle();
     },
     // updateProduct
     getOrUpdatePRoducts: function (ids, action_) {
       // th-compare-output-product
-      // console.log("ids->", ids);
-      // console.log("url->", th_product.th_product_ajax_url);
       $.ajax({
         method: "post",
         url: th_product.th_product_ajax_url,
@@ -159,8 +66,6 @@
         },
         dataType: "json",
         success: function (response) {
-          // console.log("response->", response);
-
           if (response.no_product == "1") {
             let getWrap = $(".th-compare-output-wrap");
             getWrap.addClass("th-compare-output-wrap-close");
@@ -181,18 +86,11 @@
       });
     },
     containerScroll: function () {
-      // scrollll
-      // $(".th-compare-output-wrap-inner").scroll(function (ev) {
-      //   let container = $(this);
-      //   let getTop = container.scrollTop();
-      //   container.find(".top-title td").css("top", getTop + "px");
-      // });
       $(".th-compare-output-product").scroll(function (event) {
         let container = $(this);
         let getLeft = container.scrollLeft();
         container.find("td.left-title").css("left", getLeft + "px");
       });
-      // scrollll
     },
     removeCompare: function () {
       let closebtn = $(this);
