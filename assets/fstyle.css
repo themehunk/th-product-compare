@@ -10,10 +10,9 @@
   color: white;
   padding: 8px 10px;
   background-color: black;
-  display: flex !important;
-  grid-gap: 5px;
-  width: fit-content;
+  display: inline-block;
   line-height: 1;
+  text-align: inherit;
 }
 .th-product-compare-btn.btn_type.th-added-compare::before {
   content: "";

@@ -39,7 +39,7 @@ class th_product_compare
     }
     public function admin_menu()
     {
-        add_menu_page(__('Th Product Compare', 'th-product-compare'), __('Th Product Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png');
+        add_menu_page(__('Th Product Compare', 'th-product-compare'), __('Th Product Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png',59);
     }
     public function add_menu_links($links)
     {

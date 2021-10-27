@@ -48,7 +48,7 @@ class th_product_compare_return
         // 'field-dimension' => true,
         // 'field-size' => true,
         $table = '';
-        $table .= '<table class="product-table-configure">';
+        $table .= '<table class="product-table-configure woocommerce">';
 
         if ($chekBYoption['field-image'] || $chekBYoption['field-title'] || $chekBYoption['field-price'] || $chekBYoption['field-add-to-cart']) {
             $trImage = '<tr class="image">

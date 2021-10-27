@@ -4,8 +4,8 @@ $th_product_compare_btn_txt = isset($th_compare_option['compare-btn-text']) ? sa
 $th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitize_text_field($th_compare_option['compare-product-limit']) : 8;
 $th_product_btn_type = isset($th_compare_option['compare-btn-type']) ? sanitize_text_field($th_compare_option['compare-btn-type']) : '';
 $checkChecked = [
-    'field-product-page' => '',
-    'field-product-single-page' => '',
+    'field-product-page' => 'checked="checked"',
+    'field-product-single-page' => 'checked="checked"',
 ];
 
 if (is_array($th_compare_option)) {
