@@ -12,8 +12,18 @@ class th_product_compare_shortcode
     public function getPrevId()
     {
         if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
-            $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
-            return explode(',', $getPRoductId);
+            if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
+                $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
+                if ($getPRoductId) {
+                    $removeSlace = stripslashes($getPRoductId);
+                    $removeSlace = json_decode($removeSlace);
+                    $decodeArray = [];
+                    foreach ($removeSlace as $array_value) {
+                        $decodeArray[] = th_product_compare::th_decrypt($array_value);
+                    }
+                    return $decodeArray;
+                }
+            }
         }
     }
     public static function get()

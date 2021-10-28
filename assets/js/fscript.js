@@ -66,6 +66,8 @@
         },
         dataType: "json",
         success: function (response) {
+          // console.log("response->", response);
+
           if (thisBtn && !thisBtn.hasClass("th-added-compare")) {
             thisBtn.addClass("th-added-compare");
           }

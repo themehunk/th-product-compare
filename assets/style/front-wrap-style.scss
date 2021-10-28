@@ -1,3 +1,7 @@
+.admin-bar .th-compare-output-wrap .th-compare-output-wrap-inner {
+    height: calc(90% - 53px);
+}
+
 .th_product_Compare_body_Class {
     overflow: hidden !important;
 }
@@ -35,14 +39,18 @@
 
     // animation: popupStyle1 duration timing-function delay iteration-count direction fill-mode;
     .th-compare-output-wrap-inner {
-        background-color: #ffffff;
-        height          : 90%;
-        margin          : 35px 30px;
-        width           : calc(100% - 60px);
-        position        : relative;
-        overflow        : auto;
-        border-radius   : 4px;
-        padding-top     : 69px;
+        * {
+            box-sizing: border-box;
+        }
+
+        background-color : #ffffff;
+        height           : 90%;
+        margin           : 35px 30px;
+        width            : calc(100% - 60px);
+        position         : relative;
+        overflow         : auto;
+        border-radius    : 4px;
+        padding-top      : 69px;
     }
 
     .th-compare-loader {
@@ -153,11 +161,11 @@
             min-width     : 400px;
 
             &.left-title {
-                position     : relative;
-                z-index      : 1000;
-                width        : 220px;
-                min-width    : 178px;
-                max-width    : 242px;
+                position : relative;
+                z-index  : 1000;
+                width    : 220px;
+                min-width: 178px;
+                max-width: 242px;
 
                 span {
                     display: block;
