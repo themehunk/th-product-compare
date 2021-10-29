@@ -13,24 +13,21 @@ class th_product_compare_return
         add_action('wp_ajax_nopriv_th_get_compare_product', array($this, 'get_products'));
     }
 
-
     public function get_products()
     {
-        // echo "hello";
-        // print_r($_COOKIE);
-        // echo "<br>";
-        // print_r($_POST);
         if (isset($_POST['product_id']) && intval($_POST['product_id'])) {
             $productID = intval($_POST['product_id']);
             $addREmove = sanitize_text_field($_POST['add_remove']);
-            // echo "<br>";
-            // echo $productID;
-            $setID = $this->setId($productID, $addREmove);
-            // echo json_encode($setID);
-            // die();
+            $setID = $this->setId_cookie($productID, $addREmove);
+
+            // print_r($setID);
             // return;
+
             if (!empty($setID)) {
                 $html = $this->productHtml($setID);
+
+                // $html['set-id'] = $setID;
+
                 if (isset($setID['product_limit'])) {
                     $html['product_limit'] = __('Product Limit Exceeded.');
                 }
@@ -41,6 +38,82 @@ class th_product_compare_return
         }
         die();
     }
+    // cookies
+    public function getPrevId()
+    {
+        if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
+            if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
+                $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
+                if ($getPRoductId) {
+                    $removeSlace = stripslashes($getPRoductId);
+                    $removeSlace = json_decode($removeSlace);
+                    $decodeArray = [];
+                    foreach ($removeSlace as $array_value) {
+                        $decodeArray[] = th_product_compare::th_decrypt($array_value);
+                    }
+                    return $decodeArray;
+                }
+            }
+        }
+    }
+    function setId_cookie($id, $addREmove)
+    {
+        $previousCookie = $this->getPrevId();
+        $updateCookie = true;
+        $chekBYoption = get_option('th_compare_option');
+        if ($addREmove == 'add') {
+            if (!empty($previousCookie)) {
+                // check limit 
+                $checkLimit = 8;
+                // $chekBYoption
+                if (is_array($chekBYoption) && isset($chekBYoption['compare-product-limit']) && intval($chekBYoption['compare-product-limit'])) {
+                    $checkLimit = intval($chekBYoption['compare-product-limit']);
+                }
+                $countProduct = count($previousCookie);
+                $checkProduct = true;
+                if ($countProduct <= ($checkLimit - 1)) {
+                    $checkProduct = false;
+                }
+                $getExist = in_array($id, $previousCookie);
+                if ($getExist || $checkProduct) {
+                    $updateCookie = false;
+                    if ($checkProduct) {
+                        $previousCookie['product_limit'] = 'product_limit';
+                    }
+                } else {
+                    $previousCookie[] = $id;
+                }
+            } else {
+                $previousCookie[] = $id;
+            }
+        } else {
+
+            if (!empty($previousCookie)) {
+                $getExist = in_array($id, $previousCookie);
+                if ($getExist) {
+                    $findID = array_search($id, $previousCookie);
+                    unset($previousCookie[$findID]);
+                    if (count($previousCookie) == 0) {
+                        $previousCookie = false;
+                    }
+                }
+            }
+        }
+        if ($updateCookie) {
+            $cookieValue = '';
+            if (!empty($previousCookie) && is_array($previousCookie)) {
+                $arrayENcrypt = [];
+
+                foreach ($previousCookie as $array_value) {
+                    $arrayENcrypt[] = th_product_compare::th_encrypt($array_value);
+                }
+                $cookieValue = json_encode($arrayENcrypt);
+            }
+            setcookie($this->cookiesName, $cookieValue, time() + (86400), "/"); // 86400 = 1 day
+        }
+        return $previousCookie;
+    }
+    // cookie 
     private function productHtml($setID)
     {
         $chekBYoption = $this->compareOption();
@@ -48,7 +121,7 @@ class th_product_compare_return
         // 'field-dimension' => true,
         // 'field-size' => true,
         $table = '';
-        $table .= '<table class="product-table-configure">';
+        $table .= '<table class="product-table-configure woocommerce">';
 
         if ($chekBYoption['field-image'] || $chekBYoption['field-title'] || $chekBYoption['field-price'] || $chekBYoption['field-add-to-cart']) {
             $trImage = '<tr class="image">
@@ -287,85 +360,7 @@ class th_product_compare_return
     {
         return wc_review_ratings_enabled() ? wc_get_rating_html($product->get_average_rating()) : '';
     }
-    // cookies
-    public function getPrevId()
-    {
-        if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
-            $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
-            return explode(',', $getPRoductId);
-        }
-    }
-    function setId($id, $addREmove)
-    {
-        $previousCookie = $this->getPrevId();
-        $cookieValue = $id;
-        $updateCookie = true;
-        $chekBYoption = get_option('th_compare_option');
-        if ($addREmove == 'add') {
-            if (!empty($previousCookie)) {
-                // check limit 
-                $checkLimit = 8;
-                // $chekBYoption
-                if (is_array($chekBYoption) && isset($chekBYoption['compare-product-limit']) && intval($chekBYoption['compare-product-limit'])) {
-                    $checkLimit = intval($chekBYoption['compare-product-limit']);
-                }
-                $countProduct = count($previousCookie);
-                $checkProduct = true;
-                if ($countProduct <= ($checkLimit - 1)) {
-                    $checkProduct = false;
-                }
-                $getExist = in_array($id, $previousCookie);
 
-                // echo $checkLimit;
-                // echo "<br>";
-                // echo $id;
-                // echo "<br>";
-                // print_r($getExist);
-                // echo "<br>";
-                // print_r($previousCookie);
-                // echo "<br>";
-                // print_r($countProduct);
-                // echo "<br>";
-                // print_r($checkProduct);
-                // echo "<br>";
-
-                if ($getExist || $checkProduct) {
-                    $cookieValue = implode(",", $previousCookie);
-                    $updateCookie = false;
-                    if ($checkProduct) {
-                        $previousCookie['product_limit'] = 'product_limit';
-                    }
-                } else {
-                    $cookieValue = implode(",", $previousCookie) . "," . $id;
-                    $previousCookie[] = $id;
-                }
-            } else {
-                $previousCookie[] = $id;
-            }
-        } else {
-            if (!empty($previousCookie)) {
-                $getExist = in_array($id, $previousCookie);
-                if ($getExist) {
-                    $findID = array_search($id, $previousCookie);
-                    unset($previousCookie[$findID]);
-                    if (count($previousCookie) > 0) {
-                        $cookieValue = implode(",", $previousCookie);
-                    } else {
-                        $cookieValue = "";
-                        $previousCookie = false;
-                    }
-                }
-            } else {
-                $previousCookie = false;
-                $cookieValue = "";
-            }
-        }
-        //   update cookies
-        if ($updateCookie) {
-            setcookie($this->cookiesName, $cookieValue, time() + (86400), "/"); // 86400 = 1 day
-        }
-        return $previousCookie;
-    }
     // class end
 }
 

@@ -1,19 +1,16 @@
 .th-product-compare-btn {
     margin: 10px 0;
+    display         : inline-block;
     &.txt_type {
         color      : #3575e9;
         font-weight: bold;
     }
-
     &.btn_type {
         color           : white;
         padding         : 8px 10px;
         background-color: black;
-        display         : flex !important;
-        grid-gap        : 5px;
-        width           : fit-content;
         line-height     : 1;
-
+        text-align      : inherit;
         &.th-added-compare {
             &::before {
                 content    : '\f15e';

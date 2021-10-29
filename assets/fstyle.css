@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .th-product-compare-btn {
   margin: 10px 0;
+  display: inline-block;
 }
 .th-product-compare-btn.txt_type {
   color: #3575e9;
@@ -10,14 +11,16 @@
   color: white;
   padding: 8px 10px;
   background-color: black;
-  display: flex !important;
-  grid-gap: 5px;
-  width: fit-content;
   line-height: 1;
+  text-align: inherit;
 }
 .th-product-compare-btn.btn_type.th-added-compare::before {
   content: "";
   font-family: "dashicons";
+}
+
+.admin-bar .th-compare-output-wrap .th-compare-output-wrap-inner {
+  height: calc(90% - 53px);
 }
 
 .th_product_Compare_body_Class {
@@ -59,6 +62,9 @@
   overflow: auto;
   border-radius: 4px;
   padding-top: 69px;
+}
+.th-compare-output-wrap .th-compare-output-wrap-inner * {
+  box-sizing: border-box;
 }
 .th-compare-output-wrap .th-compare-loader {
   display: none;
