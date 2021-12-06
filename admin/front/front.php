@@ -4,7 +4,7 @@ class th_product_compare_shortcode
 {
     private function __construct()
     {
-        add_shortcode('th_product_compare', array($this, 'compare'));
+        add_shortcode('th_compare', array($this, 'compare'));
         $this->showAndHide();
     }
     public $cookiesName = 'th_compare_product';
@@ -12,17 +12,15 @@ class th_product_compare_shortcode
     public function getPrevId()
     {
         if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
-            if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
-                $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
-                if ($getPRoductId) {
-                    $removeSlace = stripslashes($getPRoductId);
-                    $removeSlace = json_decode($removeSlace);
-                    $decodeArray = [];
-                    foreach ($removeSlace as $array_value) {
-                        $decodeArray[] = th_product_compare::th_decrypt($array_value);
-                    }
-                    return $decodeArray;
+            $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
+            if ($getPRoductId) {
+                $removeSlace = stripslashes($getPRoductId);
+                $removeSlace = json_decode($removeSlace);
+                $decodeArray = [];
+                foreach ($removeSlace as $array_value) {
+                    $decodeArray[] = th_product_compare::th_decrypt($array_value);
                 }
+                return $decodeArray;
             }
         }
     }
@@ -65,8 +63,8 @@ class th_product_compare_shortcode
     // show compare by shortcode 
     public function compare($atts, $content)
     {
-        $a = shortcode_atts(['product_id' => ''], $atts);
-        $product_id = intval($a['product_id']);
+        $a = shortcode_atts(['pid' => ''], $atts);
+        $product_id = intval($a['pid']);
         if ($product_id) {
             return $this->btnBYoption($product_id);
         }

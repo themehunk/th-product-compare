@@ -20,7 +20,7 @@
     },
     saveFN: function (inputs) {
       // console.log("inputs->", inputs);
-      let returnSave = {};
+      let returnSave = { attributes: {} };
       $.each(inputs, (ind_, val_) => {
         let Input_ = $(val_);
         let inputName = Input_.attr("data-th-save");
@@ -31,6 +31,19 @@
             returnSave[save_] = 1;
           } else {
             returnSave[save_] = "hide";
+          }
+        } else if (inputName == "compare-attributes") {
+          let inputVal = Input_.val();
+          returnSave["attributes"][inputVal] = {};
+          if (Input_.prop("checked") == true) {
+            returnSave["attributes"][inputVal]["active"] = 1;
+          } else {
+            returnSave["attributes"][inputVal]["active"] = 0;
+          }
+          if (Input_.attr("data-custom-attr") == 1) {
+            returnSave["attributes"][inputVal]["custom"] = 1;
+            returnSave["attributes"][inputVal]["label"] =
+              Input_.siblings("label").html();
           }
         } else if (val_.tagName == "SELECT" || val_.tagName == "INPUT") {
           let inputVal = Input_.val();

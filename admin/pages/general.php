@@ -75,7 +75,7 @@ if (is_array($th_compare_option)) {
             </tr>
             <tr>
                 <td class="shortcode-appear">
-                    echo do_shortcode('[th_product_compare product_id='10']')
+                    echo do_shortcode('[th_compare pid='10']')
                 </td>
             </tr>
             <tr>
