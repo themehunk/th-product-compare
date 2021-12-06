@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
         <div>
             <span class="bold-heading"><?php _e('Documentation', 'th-product-compare') ?></span>
             <p class="th-color-title"><?php _e('Our Wordpress Theme is well Documented, you can go with our Documentation and learn to customize Open Shop.', 'th-product-compare') ?></p>
-            <a href="<?php echo esc_url('https://themehunk.com/contact-us/') ?>" class="link_"><?php _e('Need help ?', 'th-product-compare') ?></a>
+            <a href="<?php echo esc_url('https://themehunk.com/docs/th-product-compare-pro/') ?>" class="link_"><?php _e('Docs', 'th-product-compare') ?></a>
         </div>
         <div>
             <span class="bold-heading"><?php _e('Contact Support', 'th-product-compare') ?></span>

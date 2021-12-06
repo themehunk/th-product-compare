@@ -4,7 +4,7 @@ class th_product_compare_shortcode
 {
     private function __construct()
     {
-        add_shortcode('th_product_compare', array($this, 'compare'));
+        add_shortcode('th_compare', array($this, 'compare'));
         $this->showAndHide();
     }
     public $cookiesName = 'th_compare_product';
@@ -63,8 +63,8 @@ class th_product_compare_shortcode
     // show compare by shortcode 
     public function compare($atts, $content)
     {
-        $a = shortcode_atts(['product_id' => ''], $atts);
-        $product_id = intval($a['product_id']);
+        $a = shortcode_atts(['pid' => ''], $atts);
+        $product_id = intval($a['pid']);
         if ($product_id) {
             return $this->btnBYoption($product_id);
         }

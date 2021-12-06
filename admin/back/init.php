@@ -11,9 +11,46 @@ class th_compare_admin
     {
         add_action('wp_ajax_th_compare_save_data', array($this, 'save'));
         add_action('wp_ajax_th_compare_reset_data', array($this, 'reset'));
+        add_action('wp_ajax_th_compare_filter_product', array($this, 'filter_product'));
+        add_action('wp_ajax_nopriv_th_compare_filter_product', array($this, 'filter_product'));
     }
 
+    public function filter_product()
+    {
+        $text_ = sanitize_text_field($_POST['inputs']);
+        $arrArg = array(
+            'post_type'     => 'product',
+            'post_status'   => 'publish',
+            'nopaging'      => true,
+            'posts_per_page' => 100,
+            's'             => $text_,
+        );
+        if ($text_ != '') {
+            $arrArg['s'] = $text_;
+            $arrArg['posts_per_page'] = 100;
+        } else {
+            $arrArg['posts_per_page'] = 20;
+        }
+        $results = new WP_Query($arrArg);
+        $items = array();
+        if (!empty($results->posts)) {
+            foreach ($results->posts as $result) {
+                // $product = wc_get_product($result->ID);
 
+                $imageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($result->ID), 'single-post-thumbnail');
+                $imageUrl = isset($imageUrl[0]) ? $imageUrl[0] : wc_placeholder_img_src();
+
+                $items[] = array(
+                    'image_url' => $imageUrl,
+                    'label' => $result->post_title,
+                    'id' => $result->ID,
+                );
+            }
+        } else {
+            $items['no_product'] = __('No Product Found');
+        }
+        wp_send_json_success($items);
+    }
     public function save()
     {
         if (isset($_POST['inputs']) && is_array($_POST['inputs'])) {
@@ -35,17 +72,16 @@ class th_compare_admin
         return $result;
     }
 
-    function sanitizeOptions($arr)
+    function sanitizeOptions($array)
     {
-        $return = [];
-        foreach ($arr as $key => $value) {
-            if ($key) {
-                $x = sanitize_text_field($key);
-                $v = sanitize_text_field($value);
-                $return[$x] = $v;
+        foreach ($array as $key => &$value) {
+            if (is_array($value)) {
+                $value = $this->sanitizeOptions($value);
+            } else {
+                $value = sanitize_text_field($value);
             }
         }
-        return $return;
+        return $array;
     }
 
     public function reset()
