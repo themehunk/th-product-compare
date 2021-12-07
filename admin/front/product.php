@@ -314,7 +314,16 @@ class th_product_compare_return
     }
     public function productRating($product)
     {
-        return wc_review_ratings_enabled() ? wc_get_rating_html($product->get_average_rating()) : '';
+        if (wc_review_ratings_enabled()) {
+            $getRAtingHtml = wc_get_rating_html($product->get_average_rating());
+            if ($getRAtingHtml) {
+                $rating_ = $getRAtingHtml;
+                $rating_ .= "<div class='th-rating-count'>(";
+                $rating_ .= $product->get_rating_count() . __(' Review', 'th-product-compare');
+                $rating_ .= ")</div>";
+                return $rating_;
+            }
+        }
     }
     // cookies
     public function getPrevId()
