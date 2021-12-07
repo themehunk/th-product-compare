@@ -172,7 +172,6 @@
   }
 
   .th-compare-rating {
-    font-family: "star";
     color: #f9b538;
 
     span {
@@ -183,6 +182,11 @@
     .star-rating {
       float: unset;
       margin: auto;
+      font-family: "star";
+    }
+    .th-rating-count {
+      font-size: 12px;
+      display: inline-block;
     }
   }
 
@@ -306,7 +310,7 @@
             height: 100%;
             width: 100%;
             border-radius: 2px;
-            background: #f7f7f7;
+            // background: #f7f7f7;
           }
         }
 

@@ -157,7 +157,6 @@
   font-family: "inherit", sans-serif;
 }
 .th-compare-output-product .th-compare-rating {
-  font-family: "star";
   color: #f9b538;
 }
 .th-compare-output-product .th-compare-rating span {
@@ -167,6 +166,11 @@
 .th-compare-output-product .th-compare-rating .star-rating {
   float: unset;
   margin: auto;
+  font-family: "star";
+}
+.th-compare-output-product .th-compare-rating .th-rating-count {
+  font-size: 12px;
+  display: inline-block;
 }
 .th-compare-output-product .product-table-configure {
   margin: 0;
@@ -254,7 +258,6 @@
   height: 100%;
   width: 100%;
   border-radius: 2px;
-  background: #f7f7f7;
 }
 .th-compare-output-product .product-table-configure ._image_ .image-and-addcart .product-title_ > a {
   color: #5d5e61;
