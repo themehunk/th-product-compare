@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) exit;
         <div class="wrap_">
             <div class="description_">
                 <span class="heading_"><?php _e('General Setting', 'th-product-compare') ?></span>
-                <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
+                <span class="text_"><?php _e('Customize Button Appearnace such as, Button icon, and Table Animation.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
                 <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/compare-product.png") ?>">
@@ -29,7 +29,7 @@ if (!defined('ABSPATH')) exit;
         <div class="wrap_">
             <div class="description_">
                 <span class="heading_"><?php _e('Advance Setting', 'th-product-compare') ?></span>
-                <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
+                <span class="text_"><?php _e('Select what filed to show or hide and field shorting for product compare by attribute.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
                 <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/advance-product-compare.png") ?>">
@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) exit;
         <div class="wrap_">
             <div class="description_">
                 <span class="heading_"><?php _e('Compare Table Style', 'th-product-compare') ?></span>
-                <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
+                <span class="text_"><?php _e('Customize styling and appearance of compare table.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
                 <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/product-compare-style.png") ?>">
@@ -47,7 +47,7 @@ if (!defined('ABSPATH')) exit;
         <div class="wrap_">
             <div class="description_">
                 <span class="heading_"><?php _e('Custom Shortcode', 'th-product-compare') ?></span>
-                <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
+                <span class="text_"><?php _e('Create Custom shortcodes for product comparison to display on a single page or post.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
                 <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/custom-shortcodes-th.png") ?>">
@@ -56,7 +56,7 @@ if (!defined('ABSPATH')) exit;
         <div class="wrap_">
             <div class="description_">
                 <span class="heading_"><?php _e('Single Product Page Compare Setting', 'th-product-compare') ?></span>
-                <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
+                <span class="text_"><?php _e('Enable and customize products to add on all single product compare page.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
                 <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/settings-for-single-page-.png") ?>">
