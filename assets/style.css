@@ -262,6 +262,7 @@ label.color-output {
   display: flex;
   align-items: center;
   padding-left: 25px;
+  text-transform: capitalize;
 }
 .th-compare-radio label:before {
   content: "";

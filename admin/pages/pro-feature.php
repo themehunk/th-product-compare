@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) exit;
     <div class="img-description">
         <div class="wrap_">
             <div class="description_">
-                <span class="heading_"><?php _e('Th product compare General Style', 'th-product-compare') ?></span>
+                <span class="heading_"><?php _e('General Setting', 'th-product-compare') ?></span>
                 <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
@@ -37,7 +37,7 @@ if (!defined('ABSPATH')) exit;
         </div>
         <div class="wrap_">
             <div class="description_">
-                <span class="heading_"><?php _e('Compare Style', 'th-product-compare') ?></span>
+                <span class="heading_"><?php _e('Compare Table Style', 'th-product-compare') ?></span>
                 <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
@@ -46,7 +46,7 @@ if (!defined('ABSPATH')) exit;
         </div>
         <div class="wrap_">
             <div class="description_">
-                <span class="heading_"><?php _e('Th product compare custom Shortcode', 'th-product-compare') ?></span>
+                <span class="heading_"><?php _e('Custom Shortcode', 'th-product-compare') ?></span>
                 <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
@@ -55,7 +55,7 @@ if (!defined('ABSPATH')) exit;
         </div>
         <div class="wrap_">
             <div class="description_">
-                <span class="heading_"><?php _e('Th product compare single page setting', 'th-product-compare') ?></span>
+                <span class="heading_"><?php _e('Single Product Page Compare Setting', 'th-product-compare') ?></span>
                 <span class="text_"><?php _e('TH Advance Product Search plugin is a powerful AJAX based search plugin which will display result for Product, Post and Pages.', 'th-product-compare') ?></span>
             </div>
             <div class="img_">
