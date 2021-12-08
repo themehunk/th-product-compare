@@ -84,6 +84,9 @@ $border-color: #f3f3f3;
           color: #fd654b;
           border-left: 4px solid;
         }
+        &[data-tab="pro-feature"] {
+          color: #ef653f;
+        }
       }
 
       // save btn
@@ -179,7 +182,7 @@ label.color-output {
         display: flex;
         // border-bottom : 1px dashed #dbdbdb;
         padding-bottom: 6px;
-        &:first-child{
+        &:first-child {
           margin-top: 0;
         }
         .bold-heading {

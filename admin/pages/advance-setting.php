@@ -11,8 +11,6 @@ $defaultAttributes = [
     'sku' => ["active" => 1],
 ];
 
-// $th_image_width = isset($th_compare_option['product-image-width']) ? intval($th_compare_option['product-image-width']) : 150;
-// $th_image_height = isset($th_compare_option['product-image-height']) ? intval($th_compare_option['product-image-height']) : 150;
 if (is_array($th_compare_option)) {
     if (isset($th_compare_option['attributes'])) {
         $defaultAttributes = $th_compare_option['attributes'];
@@ -20,36 +18,38 @@ if (is_array($th_compare_option)) {
 }
 $fieldRepeatPrice = isset($th_compare_option['field-repeat-price']) && $th_compare_option['field-repeat-price'] == '1' ? 'checked="checked"' : '';
 $fieldrepeatAddToCart = isset($th_compare_option['field-repeat-add-to-cart']) && $th_compare_option['field-repeat-add-to-cart'] == '1' ? 'checked="checked"' : '';
-$wcAttr = wc_get_attribute_taxonomies();
-$wcAttr_ = [];
-$wcAttr_add = [];
-if (!empty($wcAttr)) {
-    foreach ($wcAttr as $key => $value) {
-        if (isset($value->attribute_name)) {
-            $wcAttr_[$value->attribute_name] = true;
-            if (!isset($defaultAttributes[$value->attribute_name])) {
-                $wcAttr_add[$value->attribute_name] = ["active" => 0, 'custom' => 1, 'label' => $value->attribute_label];
-            }
-        }
-    }
-}
-$defaultAttributes = array_merge($defaultAttributes, $wcAttr_add);
+// $wcAttr = wc_get_attribute_taxonomies();
+// $wcAttr_ = [];
+// $wcAttr_add = [];
+// if (!empty($wcAttr)) {
+//     foreach ($wcAttr as $key => $value) {
+//         if (isset($value->attribute_name)) {
+//             $wcAttr_[$value->attribute_name] = true;
+//             if (!isset($defaultAttributes[$value->attribute_name])) {
+//                 $wcAttr_add[$value->attribute_name] = ["active" => 0, 'custom' => 1, 'label' => $value->attribute_label];
+//             }
+//         }
+//     }
+// }
+// $defaultAttributes = array_merge($defaultAttributes, $wcAttr_add);
 $productsAttributes = '';
 foreach ($defaultAttributes as $key => $value) {
-    $checkCustomAttr = isset($value['custom']) ? "data-custom-attr=1" : '';
+    // $checkCustomAttr = isset($value['custom']) ? "data-custom-attr=1" : '';
 
-    if ($checkCustomAttr) {
-        // remove custom attributes if not available in woocommerce 
-        if (!isset($wcAttr_[$key])) {
-            continue;
-        }
-    }
+    // if ($checkCustomAttr) {
+    //     // remove custom attributes if not available in woocommerce 
+    //     if (!isset($wcAttr_[$key])) {
+    //         continue;
+    //     }
+    // }
 
     $uniqId = 'compare-attributes-' . $key;
-    $name_ = $checkCustomAttr ? $value['label'] : str_replace("-", " ", $key);
+    // $name_ = $checkCustomAttr ? $value['label'] : str_replace("-", " ", $key);
+    $name_ = str_replace("-", " ", $key);
+
     $checkActive = $value['active'] == "1" ? "checked='checked'" : '';
     $productsAttributes .=  '<div class="th-compare-radio">';
-    $productsAttributes .=  '<input type="checkbox" data-th-save="compare-attributes" ' . $checkCustomAttr . ' ' . $checkActive . ' id="' . $uniqId . '" value="' . $key . '">';
+    $productsAttributes .=  '<input type="checkbox" data-th-save="compare-attributes"  ' . $checkActive . ' id="' . $uniqId . '" value="' . $key . '">';
     $productsAttributes .=  '<label class="th-color-title" for="' . $uniqId . '">' . __($name_, 'th-product-compare') . '</label>';
     $productsAttributes .=  '</div>';
 }
