@@ -106,8 +106,4 @@ foreach ($defaultAttributes as $key => $value) {
             <!-- row  -->
         </div>
     </div>
-    <?php
-    include 'right-sidebar.php';
-    ?>
-
 </div>

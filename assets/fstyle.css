@@ -26,7 +26,7 @@
 .th-compare-output-wrap {
   position: fixed;
   width: 100%;
-  z-index: 10000;
+  z-index: 100000;
   top: 0;
   height: 100%;
   left: 0;
@@ -389,7 +389,7 @@
 }
 .th-compare-footer-wrap {
   position: fixed;
-  z-index: 1000100;
+  z-index: 99999;
   background-color: #f1f0f3;
   width: 100%;
   bottom: -72px;
@@ -673,7 +673,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  width: 40%;
+  width: 60%;
 }
 .th-add-more-product-container .th-add-more-product-inner .th-search-product {
   padding: 10px 10px;
@@ -684,12 +684,15 @@
 }
 .th-add-more-product-container .th-add-more-product-inner .th-search-product .remove_search_popup {
   position: absolute;
-  right: -9px;
-  top: -9px;
+  right: -15px;
+  top: -15px;
   background: #cd0b0b;
   color: white;
   border-radius: 3px;
   cursor: pointer;
+  width: 33px;
+  line-height: 33px;
+  height: 33px;
 }
 .th-add-more-product-container .th-add-more-product-inner .th-search-product .th-search-product-input {
   width: 100%;
@@ -716,6 +719,7 @@
   display: flex;
   align-items: center;
   grid-gap: 5px;
+  font-size: 16px;
 }
 .th-add-more-product-container .th-add-more-product-inner .th-search-product .th-search-product-input-result .th-compare-external-popup-open:before {
   content: "";
@@ -733,8 +737,8 @@
   color: white;
 }
 .th-add-more-product-container .th-add-more-product-inner .th-search-product .th-search-product-input-result .th-compare-external-popup-open .img_ {
-  height: 45px;
-  width: 45px;
+  height: 60px;
+  width: 75px;
   position: relative;
 }
 .th-add-more-product-container .th-add-more-product-inner .th-search-product .th-search-product-input-result .th-compare-external-popup-open .img_ img {
@@ -742,7 +746,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 @media screen and (max-width: 450px) {
@@ -765,9 +769,17 @@
 
   .th-add-more-product-container .th-add-more-product-inner {
     justify-content: center;
+    width: 95%;
   }
   .th-add-more-product-container .th-add-more-product-inner .th-search-product {
-    max-width: 70%;
+    max-width: 90%;
+  }
+  .th-add-more-product-container .th-add-more-product-inner .th-search-product .th-search-product-input-result .th-compare-external-popup-open {
+    font-size: 14px;
+  }
+  .th-add-more-product-container .th-add-more-product-inner .th-search-product .th-search-product-input-result .th-compare-external-popup-open .img_ {
+    height: 45px;
+    width: 52px;
   }
   .th-add-more-product-container .th-add-more-product-inner .th-search-product .th-search-product-input input {
     padding: 4px;

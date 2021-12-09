@@ -46,6 +46,18 @@
       let thisBtn = $(this);
       let getProductId = thisBtn.attr("data-th-product-id");
       if (parseInt(getProductId)) {
+        // check in footer bar and open footer bar if exist
+        if (thisBtn.hasClass("th-added-compare")) {
+          if (
+            $(".product-table-configure").length &&
+            $(".th-compare-footer-wrap").length &&
+            $("[data-product-id='" + getProductId + "']").length
+          ) {
+            $(".th-compare-footer-wrap").addClass("active");
+            return;
+          }
+        }
+        // check in footer bar and open footer bar if exist
         thisBtn.addClass("loading");
         if (thisBtn.hasClass("th-single-page")) {
           thCompare.getOrUpdatePRoducts(getProductId, "single_page", thisBtn);
@@ -151,7 +163,9 @@
               $("body").append(response.footer_bar);
               $(".th-compare-footer-wrap > div").append(thCompare.loaderIcon());
               if (putActiveIfHas) {
-                $(".th-compare-footer-wrap").addClass("active");
+                setTimeout(() => {
+                  $(".th-compare-footer-wrap").addClass("active");
+                }, 200);
               }
             }
             // footer bar ----------------------
@@ -328,12 +342,12 @@
         // 35 top padding
         // let height_ = heading_.outerHeight() + 35;
         let height_ = heading_.outerHeight();
-        let adminBAr = $("#wpadminbar");
-        if (adminBAr.length) {
-          let adminBArHeight = adminBAr.outerHeight();
-          heading_.css("top", adminBArHeight + "px");
-          height_ = height_ + adminBArHeight;
-        }
+        // let adminBAr = $("#wpadminbar");
+        // if (adminBAr.length) {
+        //   let adminBArHeight = adminBAr.outerHeight();
+        //   heading_.css("top", adminBArHeight + "px");
+        //   height_ = height_ + adminBArHeight;
+        // }
         // console.log("height_->", height_);
         $(".th-compare-output-wrap .th-compare-output-wrap-inner").css(
           "padding-top",

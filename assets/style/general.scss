@@ -20,8 +20,6 @@ $border-color: #f3f3f3;
 }
 
 .th-product-compare-wrap {
-  width: 98%;
-  background: white;
   margin-top: 20px;
 
   * {
@@ -57,7 +55,7 @@ $border-color: #f3f3f3;
     .th-nav_ {
       display: flex;
       flex-direction: column;
-      width: 25%;
+      width: 18%;
       position: relative;
       padding: 0 0 67px 0;
       border-right: 1px solid #f3f3f3;
@@ -132,8 +130,9 @@ $border-color: #f3f3f3;
 
   // tabs container
   .container-tabs {
-    width: 75%;
+    width: 58%;
     padding: 30px;
+    background: white;
   }
 }
 
@@ -157,7 +156,8 @@ label.color-output {
 
 .th-color-title {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
+  word-spacing: 0.05rem;
 }
 
 .bold-heading {
@@ -197,6 +197,7 @@ label.color-output {
           line-height: 1;
 
           &:first-child {
+            min-width: 258px;
             max-width: 258px;
           }
 

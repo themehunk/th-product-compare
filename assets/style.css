@@ -4,7 +4,7 @@
   flex-direction: column;
   grid-gap: 15px;
   padding-left: 16px;
-  width: 218px;
+  width: 22%;
 }
 .th-right-sidebar > div {
   display: flex;
@@ -54,8 +54,6 @@
 }
 
 .th-product-compare-wrap {
-  width: 98%;
-  background: white;
   margin-top: 20px;
 }
 .th-product-compare-wrap * {
@@ -87,7 +85,7 @@
 .th-product-compare-wrap .th-product-compare-container .th-nav_ {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 18%;
   position: relative;
   padding: 0 0 67px 0;
   border-right: 1px solid #f3f3f3;
@@ -148,8 +146,9 @@
   animation: loaderTMK 0.8s linear 0s infinite forwards;
 }
 .th-product-compare-wrap .container-tabs {
-  width: 75%;
+  width: 58%;
   padding: 30px;
+  background: white;
 }
 
 .color-output {
@@ -172,7 +171,8 @@ label.color-output {
 
 .th-color-title {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
+  word-spacing: 0.05rem;
 }
 
 .bold-heading {
@@ -204,6 +204,7 @@ label.color-output {
   line-height: 1;
 }
 .th-general .th-option_ table tr td:first-child {
+  min-width: 258px;
   max-width: 258px;
 }
 .th-general .th-option_ table tr td.shortcode-appear {
