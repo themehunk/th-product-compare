@@ -26,7 +26,7 @@
   font-weight: bold;
   padding: 0.5rem 1.5rem;
   font-size: 0.6875rem;
-  background: #f56640;
+  background: #f7a100;
   color: #fff;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -263,7 +263,6 @@ label.color-output {
   display: flex;
   align-items: center;
   padding-left: 25px;
-  text-transform: capitalize;
 }
 .th-compare-radio label:before {
   content: "";
@@ -339,7 +338,8 @@ label.color-output {
   font-size: 15px;
   align-items: center;
   grid-gap: 16px;
-  width: 754px;
+  width: 687px;
+  max-width: 100%;
 }
 .th-compare-pro-feature .th-compare-banner .heading_ {
   flex: 3;
@@ -385,6 +385,9 @@ label.color-output {
 }
 .th-compare-pro-feature .img-description .wrap_ .img_ {
   margin-left: -23px;
+}
+.th-compare-pro-feature .img-description .wrap_ .img_ img {
+  max-width: 90%;
 }
 .th-compare-pro-feature .img-description .wrap_ .description_ {
   display: flex;

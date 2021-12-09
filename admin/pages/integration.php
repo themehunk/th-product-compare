@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) exit;
 ?>
 <div class="th-general">
     <div class="th-option_">
-        <span class="th-tab-heading"><?php _e('Compare Button Integration', 'th-product-compare'); ?></span>
+        <span class="th-tab-heading"><?php _e('Custom Integration', 'th-product-compare'); ?></span>
         <table>
             <tr>
                 <td class="bold-heading"><?php _e('Show Compare Button By Shortcode ', 'th-product-compare'); ?></td>

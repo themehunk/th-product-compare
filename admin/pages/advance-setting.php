@@ -45,7 +45,7 @@ foreach ($defaultAttributes as $key => $value) {
 
     $uniqId = 'compare-attributes-' . $key;
     // $name_ = $checkCustomAttr ? $value['label'] : str_replace("-", " ", $key);
-    $name_ = str_replace("-", " ", $key);
+    $name_ = ucfirst(str_replace("-", " ", $key));
 
     $checkActive = $value['active'] == "1" ? "checked='checked'" : '';
     $productsAttributes .=  '<div class="th-compare-radio">';
@@ -69,23 +69,23 @@ foreach ($defaultAttributes as $key => $value) {
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php _e('Repeat "Price" field', 'th-product-compare') ?></span>
+                    <span class="bold-heading"><?php _e('Repeat price field', 'th-product-compare') ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
                         <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-price" <?php echo $fieldRepeatPrice; ?> value="repeat-price">
-                        <label class="th-color-title" for="compare-fields-repeat-price"><?php _e('Repeat the "Price" field at the end of the table', 'th-product-compare') ?></label>
+                        <label class="th-color-title" for="compare-fields-repeat-price"><?php _e('Repeat the <b> &#160 price &#160 </b> at the end of the table', 'th-product-compare') ?></label>
                     </div>
                 </div>
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php _e('Repeat "Add to cart" field', 'th-product-compare') ?></span>
+                    <span class="bold-heading"><?php _e('Repeat add to cart', 'th-product-compare') ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
                         <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-add-to-cart" <?php echo $fieldrepeatAddToCart; ?> value="repeat-add-to-cart">
-                        <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php _e('Repeat the "Add to cart" field at the end of the table', 'th-product-compare') ?></label>
+                        <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php _e('Repeat  <b>&#160 add to cart &#160</b> at the end of the table', 'th-product-compare') ?></label>
                     </div>
                 </div>
             </div>
