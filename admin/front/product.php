@@ -343,64 +343,6 @@ class th_product_compare_return
             }
         }
     }
-    // cookie 
-    // function setId_cookie($id, $addREmove)
-    // {
-    //     $previousCookie = $this->getPrevId();
-    //     $updateCookie = true;
-    //     $chekBYoption = get_option('th_compare_option');
-    //     if ($addREmove == 'add') {
-    //         if (!empty($previousCookie)) {
-    //             // check limit 
-    //             $checkLimit = 8;
-    //             // $chekBYoption
-    //             if (is_array($chekBYoption) && isset($chekBYoption['compare-product-limit']) && intval($chekBYoption['compare-product-limit'])) {
-    //                 $checkLimit = intval($chekBYoption['compare-product-limit']);
-    //             }
-    //             $countProduct = count($previousCookie);
-    //             $checkProduct = true;
-    //             if ($countProduct <= ($checkLimit - 1)) {
-    //                 $checkProduct = false;
-    //             }
-    //             $getExist = in_array($id, $previousCookie);
-    //             if ($getExist || $checkProduct) {
-    //                 $updateCookie = false;
-    //                 if ($checkProduct) {
-    //                     $previousCookie['product_limit'] = 'product_limit';
-    //                 }
-    //             } else {
-    //                 $previousCookie[] = $id;
-    //             }
-    //         } else {
-    //             $previousCookie[] = $id;
-    //         }
-    //     } else {
-
-    //         if (!empty($previousCookie)) {
-    //             $getExist = in_array($id, $previousCookie);
-    //             if ($getExist) {
-    //                 $findID = array_search($id, $previousCookie);
-    //                 unset($previousCookie[$findID]);
-    //                 if (count($previousCookie) == 0) {
-    //                     $previousCookie = false;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     if ($updateCookie) {
-    //         $cookieValue = '';
-    //         if (!empty($previousCookie) && is_array($previousCookie)) {
-    //             $arrayENcrypt = [];
-
-    //             foreach ($previousCookie as $array_value) {
-    //                 $arrayENcrypt[] = th_product_compare::th_encrypt($array_value);
-    //             }
-    //             $cookieValue = json_encode($arrayENcrypt);
-    //         }
-    //         setcookie($this->cookiesName, $cookieValue, time() + (86400), "/"); // 86400 = 1 day
-    //     }
-    //     return $previousCookie;
-    // }
     function setId_cookie($id, $addREmove)
     {
 

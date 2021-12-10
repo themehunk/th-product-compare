@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) exit;
             <span class="bold_"><?php _e('TH PRODUCT COMPARE', "th-product-compare") ?></span>
         </div>
         <div class="button_">
-            <a href="#">
+            <a href="<?php echo esc_url('https://themehunk.com/plugins/') ?>">
                 <span class="bold_"><?php _e('UPGRADE PRO', "th-product-compare") ?></span>
             </a>
         </div>
@@ -71,7 +71,7 @@ if (!defined('ABSPATH')) exit;
             <span class="bold_"><?php _e('TH PRODUCT COMPARE', "th-product-compare") ?></span>
         </div>
         <div class="button_">
-            <a href="#">
+            <a href="<?php echo esc_url('https://themehunk.com/plugins/') ?>">
                 <span class="bold_"><?php _e('UPGRADE PRO', "th-product-compare") ?></span>
             </a>
         </div>

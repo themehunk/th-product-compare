@@ -50,6 +50,8 @@ class th_product_compare_shortcode
             } else {
                 add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 15);
             }
+        } else {
+            add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 15);
         }
     }
     public function addCompareBtn()

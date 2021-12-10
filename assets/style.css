@@ -4,7 +4,7 @@
   flex-direction: column;
   grid-gap: 15px;
   padding-left: 16px;
-  width: 218px;
+  width: 22%;
 }
 .th-right-sidebar > div {
   display: flex;
@@ -26,7 +26,7 @@
   font-weight: bold;
   padding: 0.5rem 1.5rem;
   font-size: 0.6875rem;
-  background: #f56640;
+  background: #f7a100;
   color: #fff;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -54,8 +54,6 @@
 }
 
 .th-product-compare-wrap {
-  width: 98%;
-  background: white;
   margin-top: 20px;
 }
 .th-product-compare-wrap * {
@@ -87,7 +85,7 @@
 .th-product-compare-wrap .th-product-compare-container .th-nav_ {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 18%;
   position: relative;
   padding: 0 0 67px 0;
   border-right: 1px solid #f3f3f3;
@@ -148,8 +146,9 @@
   animation: loaderTMK 0.8s linear 0s infinite forwards;
 }
 .th-product-compare-wrap .container-tabs {
-  width: 75%;
+  width: 58%;
   padding: 30px;
+  background: white;
 }
 
 .color-output {
@@ -172,7 +171,8 @@ label.color-output {
 
 .th-color-title {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
+  word-spacing: 0.05rem;
 }
 
 .bold-heading {
@@ -204,6 +204,7 @@ label.color-output {
   line-height: 1;
 }
 .th-general .th-option_ table tr td:first-child {
+  min-width: 258px;
   max-width: 258px;
 }
 .th-general .th-option_ table tr td.shortcode-appear {
@@ -262,7 +263,6 @@ label.color-output {
   display: flex;
   align-items: center;
   padding-left: 25px;
-  text-transform: capitalize;
 }
 .th-compare-radio label:before {
   content: "";
@@ -338,7 +338,8 @@ label.color-output {
   font-size: 15px;
   align-items: center;
   grid-gap: 16px;
-  width: 754px;
+  width: 687px;
+  max-width: 100%;
 }
 .th-compare-pro-feature .th-compare-banner .heading_ {
   flex: 3;
@@ -384,6 +385,9 @@ label.color-output {
 }
 .th-compare-pro-feature .img-description .wrap_ .img_ {
   margin-left: -23px;
+}
+.th-compare-pro-feature .img-description .wrap_ .img_ img {
+  max-width: 90%;
 }
 .th-compare-pro-feature .img-description .wrap_ .description_ {
   display: flex;

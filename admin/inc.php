@@ -12,6 +12,8 @@ class th_product_compare
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_script'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_front_script'));
         add_filter('plugin_action_links_' . plugin_basename(TH_PRODUCT_PATH . '/' . basename(TH_PRODUCT_BASE_NAME)), array($this, 'add_menu_links'));
+        add_filter('plugin_row_meta', array($this, 'docs_link'), 10, 2);
+
         $this->localizeOption = get_option('th_compare_option');
     }
     public static function get()
@@ -39,14 +41,31 @@ class th_product_compare
     }
     public function admin_menu()
     {
-        add_menu_page(__('Th Product Compare', 'th-product-compare'), __('Th Product Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png', 59);
+        add_menu_page(__('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png', 59);
     }
+    // add menu links in left where plugin name placed 
     public function add_menu_links($links)
     {
         $links[] = '<a href="' . admin_url("admin.php?page=th-product-compare") . '">' . __('Settings', 'th-compare-product') . '</a>';
-        $links['premium'] = '<a href="#"><b>' . __('Get Pro', 'th-compare-product') . '</b></a>';
+        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank"><b>' . __('Get Pro', 'th-compare-product') . '</b></a>';
         return $links;
     }
+
+
+
+    public function docs_link($plugin_meta, $plugin_file)
+    {
+        if (strpos($plugin_file, 'th-product-compare.php') !== false) {
+            $new_links = array(
+                'dosumentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
+                'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/') . '" target="_blank">' . __('Support', 'th-product-compare') . '</a>',
+                'premium_version' => '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
+            );
+            $plugin_meta = array_merge($plugin_meta, $new_links);
+        }
+        return $plugin_meta;
+    }
+
     public function display_addons()
     {
         if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {
