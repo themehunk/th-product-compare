@@ -13,3 +13,10 @@ This plugin contains all the professional features which are required to create 
 == Description ==
 
 Woocommerce Product Compare plugin
+
+== Installation ==
+
+1. Upload the `th-product-compare.zip` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Get started from Dashboard > Th product compare
+
