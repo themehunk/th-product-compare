@@ -57,7 +57,7 @@ class th_product_compare
     {
         if (strpos($plugin_file, 'th-product-compare.php') !== false) {
             $new_links = array(
-                'dosumentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
+                'documentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
                 'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/') . '" target="_blank">' . __('Support', 'th-product-compare') . '</a>',
                 'premium_version' => '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
             );
