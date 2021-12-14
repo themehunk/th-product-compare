@@ -73,7 +73,7 @@ foreach ($defaultAttributes as $key => $value) {
                 </div>
                 <div>
                     <div class="th-compare-radio">
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-price" <?php echo $fieldRepeatPrice; ?> value="repeat-price">
+                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-price" <?php esc_html_e($fieldRepeatPrice, 'th-product-compare'); ?> value="repeat-price">
                         <label class="th-color-title" for="compare-fields-repeat-price"><?php _e('Repeat the <b> &#160 price &#160 </b> at the end of the table', 'th-product-compare') ?></label>
                     </div>
                 </div>
@@ -89,21 +89,6 @@ foreach ($defaultAttributes as $key => $value) {
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="row_">
-                <div>
-                    <span class="bold-heading"><?php _e('Image Size "Width X Height"', 'th-product-compare') ?></span>
-                </div>
-                <div>
-                    <div class="th-product-size">
-                        <input data-th-save='product-image-width' type="number" value="<?php echo $th_image_width; ?>">
-                        <span>X</span>
-                        <input data-th-save='product-image-height' type="number" value="<?php echo $th_image_height; ?>">
-                        <span>px</span>
-                    </div>
-                </div>
-            </div> -->
-            <!-- row  -->
         </div>
     </div>
 </div>

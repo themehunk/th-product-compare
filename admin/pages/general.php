@@ -31,21 +31,21 @@ if (is_array($th_compare_option)) {
                 <td><span class="th-color-title"><?php _e('Link or Button', 'th-product-compare') ?></span></td>
                 <td>
                     <select data-th-save='compare-btn-type'>
-                        <option value="button" <?php echo $th_product_btn_type == 'button' ? "selected" : '' ?>><?php _e('Button', 'th-product-compare') ?></option>
-                        <option value="link" <?php echo $th_product_btn_type == 'link' ? "selected" : '' ?>><?php _e('Link', 'th-product-compare') ?></option>
+                        <option value="button" <?php esc_html_e($th_product_btn_type == 'button' ? "selected" : '', 'th-product-compare') ?>><?php _e('Button', 'th-product-compare') ?></option>
+                        <option value="link" <?php esc_html_e($th_product_btn_type == 'link' ? "selected" : '', 'th-product-compare') ?>><?php _e('Link', 'th-product-compare') ?></option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td><span class="th-color-title"><?php _e('Text / Button Text', 'th-product-compare') ?></span></td>
                 <td>
-                    <input data-th-save='compare-btn-text' type="text" placeholder="Compare" value="<?php echo $th_product_compare_btn_txt; ?>">
+                    <input data-th-save='compare-btn-text' type="text" placeholder="Compare" value="<?php esc_html_e($th_product_compare_btn_txt, 'th-product-compare'); ?>">
                 </td>
             </tr>
             <tr>
                 <td><span class="th-color-title"><?php _e('Number Of Product', 'th-product-compare') ?></span></td>
                 <td>
-                    <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php echo $th_product_limit; ?>">
+                    <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php esc_html_e($th_product_limit, 'th-product-compare'); ?>">
                 </td>
             </tr>
             <tr>
@@ -53,7 +53,7 @@ if (is_array($th_compare_option)) {
                 <td>
                     <div class="th-compare-radio">
                         <!--title-->
-                        <input type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php echo $checkChecked['field-product-single-page']; ?> value="product-single-page">
+                        <input type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php esc_html_e($checkChecked['field-product-single-page'], 'th-product-compare'); ?> value="product-single-page">
                         <label class="th-color-title" for="field-show-product-page"><?php _e('Single Page', 'th-product-compare') ?></label>
                     </div>
                 </td>
@@ -63,7 +63,7 @@ if (is_array($th_compare_option)) {
                 <td>
                     <div class="th-compare-radio">
                         <!--title-->
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-product-list" <?php echo $checkChecked['field-product-page']; ?> value="product-page">
+                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-product-list" <?php esc_html_e($checkChecked['field-product-page'], 'th-product-compare'); ?> value="product-page">
                         <label class="th-color-title" for="compare-fields-product-list"><?php _e('Show Product List', 'th-product-compare') ?></label>
                     </div>
                 </td>

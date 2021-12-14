@@ -57,7 +57,7 @@ class th_product_compare
     {
         if (strpos($plugin_file, 'th-product-compare.php') !== false) {
             $new_links = array(
-                'dosumentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
+                'documentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
                 'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/') . '" target="_blank">' . __('Support', 'th-product-compare') . '</a>',
                 'premium_version' => '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
             );
@@ -71,9 +71,6 @@ class th_product_compare
         if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {
 
             $th_compare_option = $this->localizeOption; //appear in file pages/advance-setting.php, pages/general.php, pages/style.php
-            // echo "<pre>";
-            // print_r($th_compare_option);
-            // echo "</pre>";
             include_once "page.php";
         }
     }
