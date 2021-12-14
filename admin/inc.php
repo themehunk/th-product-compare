@@ -71,9 +71,6 @@ class th_product_compare
         if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {
 
             $th_compare_option = $this->localizeOption; //appear in file pages/advance-setting.php, pages/general.php, pages/style.php
-            // echo "<pre>";
-            // print_r($th_compare_option);
-            // echo "</pre>";
             include_once "page.php";
         }
     }
