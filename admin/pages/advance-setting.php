@@ -18,40 +18,20 @@ if (is_array($th_compare_option)) {
 }
 $fieldRepeatPrice = isset($th_compare_option['field-repeat-price']) && $th_compare_option['field-repeat-price'] == '1' ? 'checked="checked"' : '';
 $fieldrepeatAddToCart = isset($th_compare_option['field-repeat-add-to-cart']) && $th_compare_option['field-repeat-add-to-cart'] == '1' ? 'checked="checked"' : '';
-// $wcAttr = wc_get_attribute_taxonomies();
-// $wcAttr_ = [];
-// $wcAttr_add = [];
-// if (!empty($wcAttr)) {
-//     foreach ($wcAttr as $key => $value) {
-//         if (isset($value->attribute_name)) {
-//             $wcAttr_[$value->attribute_name] = true;
-//             if (!isset($defaultAttributes[$value->attribute_name])) {
-//                 $wcAttr_add[$value->attribute_name] = ["active" => 0, 'custom' => 1, 'label' => $value->attribute_label];
-//             }
-//         }
-//     }
-// }
-// $defaultAttributes = array_merge($defaultAttributes, $wcAttr_add);
-$productsAttributes = '';
-foreach ($defaultAttributes as $key => $value) {
-    // $checkCustomAttr = isset($value['custom']) ? "data-custom-attr=1" : '';
 
-    // if ($checkCustomAttr) {
-    //     // remove custom attributes if not available in woocommerce 
-    //     if (!isset($wcAttr_[$key])) {
-    //         continue;
-    //     }
-    // }
-
-    $uniqId = 'compare-attributes-' . $key;
-    // $name_ = $checkCustomAttr ? $value['label'] : str_replace("-", " ", $key);
-    $name_ = ucfirst(str_replace("-", " ", $key));
-
-    $checkActive = $value['active'] == "1" ? "checked='checked'" : '';
-    $productsAttributes .=  '<div class="th-compare-radio">';
-    $productsAttributes .=  '<input type="checkbox" data-th-save="compare-attributes"  ' . $checkActive . ' id="' . $uniqId . '" value="' . $key . '">';
-    $productsAttributes .=  '<label class="th-color-title" for="' . $uniqId . '">' . __($name_, 'th-product-compare') . '</label>';
-    $productsAttributes .=  '</div>';
+function th_compare_productsAttributes($defaultAttributes)
+{
+    foreach ($defaultAttributes as $key => $value) {
+        $uniqId = 'compare-attributes-' . $key;
+        $name_ = ucfirst(str_replace("-", " ", $key));
+        $checkActive = $value['active'] == "1" ? "checked='checked'" : '';
+?>
+        <div class="th-compare-radio">
+            <input type="checkbox" data-th-save="compare-attributes" <?php echo esc_attr($checkActive); ?> id="<?php echo esc_attr($uniqId); ?>" value="<?php echo esc_attr($key); ?>">
+            <label class="th-color-title" for="<?php echo esc_attr($uniqId); ?>"> <?php _e($name_, 'th-product-compare') ?> </label>
+        </div>
+<?php
+    }
 }
 
 ?>
@@ -64,7 +44,7 @@ foreach ($defaultAttributes as $key => $value) {
                     <span class="bold-heading"><?php _e('Field To Show', 'th-product-compare') ?></span>
                 </div>
                 <div class="th-compare-field-wrap woocommerce-th-attributes">
-                    <?php echo $productsAttributes; ?>
+                    <?php th_compare_productsAttributes($defaultAttributes) ?>
                 </div>
             </div>
             <div class="row_">
@@ -84,7 +64,7 @@ foreach ($defaultAttributes as $key => $value) {
                 </div>
                 <div>
                     <div class="th-compare-radio">
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-add-to-cart" <?php echo $fieldrepeatAddToCart; ?> value="repeat-add-to-cart">
+                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-add-to-cart" <?php esc_html_e($fieldrepeatAddToCart, 'th-product-compare'); ?> value="repeat-add-to-cart">
                         <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php _e('Repeat  <b>&#160 add to cart &#160</b> at the end of the table', 'th-product-compare') ?></label>
                     </div>
                 </div>

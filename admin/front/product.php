@@ -23,12 +23,12 @@ class th_product_compare_return
                 if (isset($setID['product_limit'])) {
                     $html['product_limit'] = __('Product Limit Exceeded.');
                 }
-                echo json_encode($html);
+                $return = $html;
             } else {
-                echo json_encode(['no_product' => 1]);
+                $return = ['no_product' => 1];
             }
+            wp_send_json($return);
         }
-        die();
     }
     public function productHtml($setID, $type_ = [])
     {

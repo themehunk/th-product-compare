@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, wc popup, woocommerce compare product, compare product
 Requires at least: 5.0
 Tested up to: 5.8
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,5 +22,7 @@ Woocommerce Product Compare plugin
 
 == changelog 1.0.1 
     escaping problam solve
+== changelog 1.0.2
+    again escaping problam solve
 
 

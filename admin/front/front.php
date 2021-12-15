@@ -59,7 +59,7 @@ class th_product_compare_shortcode
         global $product;
         $productId = intval($product->get_id());
         if ($productId) {
-            echo $this->btnBYoption($productId);
+            $this->btnBYoption($productId);
         }
     }
     // show compare by shortcode 
@@ -68,7 +68,7 @@ class th_product_compare_shortcode
         $a = shortcode_atts(['pid' => ''], $atts);
         $product_id = intval($a['pid']);
         if ($product_id) {
-            return $this->btnBYoption($product_id);
+            $this->btnBYoption($product_id);
         }
     }
     public function btnBYoption($product_id)
@@ -83,6 +83,10 @@ class th_product_compare_shortcode
             if (isset($checkOption['compare-btn-type']) && $checkOption['compare-btn-type'] == 'link') {
                 $compareBtnTypeClass = 'txt_type';
             }
+            // btn text 
+            if (isset($checkOption['compare-btn-text']) && $checkOption['compare-btn-text']) {
+                $compareText = $checkOption['compare-btn-text'];
+            }
         }
         $btnClass .= ' ' . $compareBtnTypeClass;
         // previous cookies class 
@@ -91,18 +95,15 @@ class th_product_compare_shortcode
             $getExist = in_array($product_id, $previousCookie);
             if ($getExist) {
                 $btnClass .= ' th-added-compare';
-                // added text 
-                // $compareText = __('Added', 'th-product-compare');
             }
         }
-
-        $html = '';
-        $html .= "<div class='th-product-compare-btn-wrap'>";
-        $html .= '<a href="#" class="' . $btnClass . '" data-th-product-id="' . $product_id . '">';
-        $html .= $compareText;
-        $html .= '</a>';
-        $html .= "</div>";
-        return $html;
+?>
+        <div class='th-product-compare-btn-wrap'>
+            <a href="#" class="<?php echo esc_attr($btnClass) ?>" data-th-product-id="<?php echo esc_attr($product_id) ?>">
+                <?php _e($compareText, 'th-product-compare'); ?>
+            </a>
+        </div>
+<?php
     }
     // class end
 }
