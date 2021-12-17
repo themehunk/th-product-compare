@@ -8,8 +8,7 @@
                 </div>
                 <span><?php _e('TH Product Compare', 'th-product-compare'); ?></span>
             </span>
-            <a data-group-tabs="main" data-tab="integration" href="#" class="active"><?php _e('Integration', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="general" href="#"><?php _e('Basic', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="general" href="#" class="active"><?php _e('Basic Settings', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="setting" href="#"><?php _e('Advance', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="pro-feature" href="#"><?php _e('Premium', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="help" href="#"><?php _e('Help', 'th-product-compare'); ?></a>
@@ -19,12 +18,8 @@
             </div>
         </nav>
         <div class="container-tabs">
-            <!-- integration tab -->
-            <div data-group-tabs="main" data-tab-container="integration" class="active">
-                <?php include_once 'pages/integration.php'; ?>
-            </div>
             <!-- general tab -->
-            <div data-group-tabs="main" data-tab-container="general">
+            <div data-group-tabs="main" data-tab-container="general" class="active">
                 <?php include_once 'pages/general.php'; ?>
             </div>
             <!-- setting tab -->

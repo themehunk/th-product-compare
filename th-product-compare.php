@@ -2,7 +2,7 @@
 /*
 * Plugin Name: TH Product Compare
 * Description: Woocommerce Product Compare.
-* Version: 1.0.2
+* Version: 1.0.3
 * Author: ThemeHunk
 * Author URI: http://www.themehunk.com/
 * Text Domain: th-product-compare

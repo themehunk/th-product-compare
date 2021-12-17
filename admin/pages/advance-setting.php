@@ -8,7 +8,7 @@ $defaultAttributes = [
     'add-to-cart' => ["active" => 1],
     'description' => ["active" => 0],
     'availability' => ["active" => 1],
-    'sku' => ["active" => 1],
+    'SKU' => ["active" => 1],
 ];
 
 if (is_array($th_compare_option)) {
@@ -37,11 +37,11 @@ function th_compare_productsAttributes($defaultAttributes)
 ?>
 <div class="setting_">
     <div class="field-to-show">
-        <span class="th-tab-heading"><?php _e('Advance Setting', 'th-product-compare'); ?></span>
+        <span class="th-tab-heading"><?php _e('Advance Settings', 'th-product-compare'); ?></span>
         <div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php _e('Field To Show', 'th-product-compare') ?></span>
+                    <span class="bold-heading"><?php _e('Fields to Show in Comparison Table', 'th-product-compare') ?></span>
                 </div>
                 <div class="th-compare-field-wrap woocommerce-th-attributes">
                     <?php th_compare_productsAttributes($defaultAttributes) ?>
@@ -49,7 +49,7 @@ function th_compare_productsAttributes($defaultAttributes)
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php _e('Repeat price field', 'th-product-compare') ?></span>
+                    <span class="bold-heading"><?php _e('Repeat Fields', 'th-product-compare') ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
@@ -60,7 +60,6 @@ function th_compare_productsAttributes($defaultAttributes)
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php _e('Repeat add to cart', 'th-product-compare') ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">

@@ -214,7 +214,8 @@
       padding: 10px;
       vertical-align: middle;
       border: none;
-      min-width: 330px;
+      min-width: 250px;
+      max-width: 250px;
 
       > span {
         max-width: 400px;
@@ -297,10 +298,10 @@
         .img_ {
           min-width: 180px;
           max-width: 100%;
-          width: 250px;
-          height: 250px;
+          width: 220px;
+          height: 220px;
           position: relative;
-          // margin   : auto;
+          border: 1px solid #f7f7f7;
 
           img {
             position: absolute;

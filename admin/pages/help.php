@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) exit;
     <div class="blocks">
         <div>
             <span class="bold-heading"><?php _e('Documentation', 'th-product-compare') ?></span>
-            <p class="th-color-title"><?php _e('Our Wordpress Theme is well Documented, you can go with our Documentation and learn to customize Open Shop.', 'th-product-compare') ?></p>
+            <p class="th-color-title"><?php _e('Our plugin is well documented, Please go with documentation & learn to customise plugin.', 'th-product-compare') ?></p>
             <a href="<?php echo esc_url('https://themehunk.com/docs/th-product-compare-pro/') ?>" class="link_"><?php _e('Docs', 'th-product-compare') ?></a>
         </div>
         <div>
