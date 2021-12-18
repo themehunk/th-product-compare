@@ -188,7 +188,8 @@
   padding: 10px;
   vertical-align: middle;
   border: none;
-  min-width: 330px;
+  min-width: 250px;
+  max-width: 250px;
 }
 .th-compare-output-product .product-table-configure td > span {
   max-width: 400px;
@@ -246,9 +247,10 @@
 .th-compare-output-product .product-table-configure ._image_ .image-and-addcart .img_ {
   min-width: 180px;
   max-width: 100%;
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   position: relative;
+  border: 1px solid #f7f7f7;
 }
 .th-compare-output-product .product-table-configure ._image_ .image-and-addcart .img_ img {
   position: absolute;

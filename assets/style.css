@@ -231,6 +231,15 @@ label.color-output {
     transform: rotate(360deg);
   }
 }
+.description {
+  font-size: 12px;
+  font-weight: 300;
+  color: #a7a7a7;
+  font-style: normal;
+  margin-top: 6px;
+  display: block;
+}
+
 .th-product-compare-wrap .setting_ {
   display: flex;
   justify-content: space-between;

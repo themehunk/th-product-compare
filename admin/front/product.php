@@ -123,7 +123,7 @@ class th_product_compare_return
                         $addMoreHtml .= $price_;
                     } else if ($initTitleAndRow_key == 'add-to-cart') {
                         $addMoreHtml .= $Add_to_cart_;
-                    } else if ($initTitleAndRow_key == 'sku') {
+                    } else if ($initTitleAndRow_key == 'SKU') {
                         $sku = $product->get_sku();
                         $sku = $sku ? $sku : "-";
                         $addMoreHtml .= '<span>' . $sku . '</span>';
@@ -241,7 +241,7 @@ class th_product_compare_return
                 'add-to-cart' => ["active" => 1],
                 'description' => ["active" => 0],
                 'availability' => ["active" => 1],
-                'sku' => ["active" => 1],
+                'SKU' => ["active" => 1],
             ],
             'field-repeat-price' => true,
             'field-repeat-add-to-cart' => true,
