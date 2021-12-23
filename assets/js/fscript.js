@@ -131,6 +131,17 @@
         success: function (response) {
           // console.log("response->", response);
           // return;
+          // remove added class
+          if (action_ == "remove") {
+            let removeAdded = $(
+              '.th-product-compare-btn[data-th-product-id="' + ids + '"]'
+            );
+            if (removeAdded.length) {
+              removeAdded.removeClass("th-added-compare");
+            }
+          }
+          // remove added class
+
           if (thisBtn) {
             thisBtn.removeClass("loading");
             if (!thisBtn.hasClass("th-added-compare")) {
