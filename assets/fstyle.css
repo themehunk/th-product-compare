@@ -186,7 +186,7 @@
 }
 .th-compare-output-product .product-table-configure td {
   padding: 10px;
-  vertical-align: middle;
+  vertical-align: top;
   border: none;
   min-width: 250px;
   max-width: 250px;
@@ -213,6 +213,7 @@
   text-transform: capitalize;
   text-align: left;
   padding-left: 20px;
+  vertical-align: middle;
 }
 .th-compare-output-product .product-table-configure td.left-title span {
   font-size: 14px;
