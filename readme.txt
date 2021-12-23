@@ -24,6 +24,7 @@ Woocommerce Product Compare plugin
     table description alignment fix
     review url change
     mobile responsive problam fix 
+    remove compare product remove also added check mark
 == changelog 1.0.3
     text change and style fix
 == changelog 1.0.2
