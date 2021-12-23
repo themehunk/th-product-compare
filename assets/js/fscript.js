@@ -337,18 +337,10 @@
     containerScroll: function () {
       // scrollll
       // add heading top margin
-      let heading_ = $(".th-compare-heading");
+      let heading_ = $(".th-compare-output-wrap .th-compare-heading");
+      let isMobile = $(".th-mobile-type-displey").length;
       if (heading_.length) {
-        // 35 top padding
-        // let height_ = heading_.outerHeight() + 35;
         let height_ = heading_.outerHeight();
-        // let adminBAr = $("#wpadminbar");
-        // if (adminBAr.length) {
-        //   let adminBArHeight = adminBAr.outerHeight();
-        //   heading_.css("top", adminBArHeight + "px");
-        //   height_ = height_ + adminBArHeight;
-        // }
-        // console.log("height_->", height_);
         $(".th-compare-output-wrap .th-compare-output-wrap-inner").css(
           "padding-top",
           height_ + "px"
@@ -358,7 +350,7 @@
       // add heading top margin
       const win_ = $(window);
       let getWindowWidth = win_.innerWidth();
-      if (getWindowWidth < 450) {
+      if (isMobile) {
         $(
           ".th-compare-output-wrap .th-compare-output-wrap-inner,.th-compare-footer-wrap"
         ).addClass("th-mobile-view");
@@ -370,7 +362,7 @@
       if (containerTable > getWindowWidth) {
         container_.css("cursor", "grab");
       }
-      if (!$(".th-mobile-view").length) {
+      if (isMobile) {
         container_.scroll(function (event) {
           let container = $(this);
           let getLeft = container.scrollLeft();
@@ -381,35 +373,36 @@
         });
       }
       // scroll
-      const slider = document.querySelector(".th-compare-output-product");
-      // console.log("slider -> ", slider);
-      if (slider) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        slider.addEventListener("mousedown", (e) => {
-          isDown = true;
-          slider.classList.add("active");
-          startX = e.pageX - slider.offsetLeft;
-          scrollLeft = slider.scrollLeft;
-        });
-        slider.addEventListener("mouseleave", () => {
-          isDown = false;
-          slider.classList.remove("active");
-        });
-        slider.addEventListener("mouseup", () => {
-          isDown = false;
-          slider.classList.remove("active");
-        });
-        slider.addEventListener("mousemove", (e) => {
-          if (!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - slider.offsetLeft;
-          const walk = (x - startX) * 3; //scroll-fast
-          slider.scrollLeft = scrollLeft - walk;
-          // console.log(walk);
-        });
+      const slider2 = document.querySelectorAll(".th-compare-output-product");
+      if (slider2.length) {
+        for (let i = 0; i < slider2.length; i++) {
+          let slider = slider2[i];
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+          slider.addEventListener("mousedown", (e) => {
+            isDown = true;
+            slider.classList.add("active");
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+          });
+          slider.addEventListener("mouseleave", () => {
+            isDown = false;
+            slider.classList.remove("active");
+          });
+          slider.addEventListener("mouseup", () => {
+            isDown = false;
+            slider.classList.remove("active");
+          });
+          slider.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+            // console.log(walk);
+          });
+        }
       }
       // scroll
     },
