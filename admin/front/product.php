@@ -42,10 +42,8 @@ class th_product_compare_return
         // ----------------------footer add more----------------------
         // check mobile 
         $wp_is_mobile = wp_is_mobile();
-
-        $mobileClass = $wp_is_mobile ? "th-mobile-type-displey" : "th-desktop-type-displey";
         $table = '';
-        $table .= sprintf('<table class="product-table-configure woocommerce %s">', $mobileClass);
+        $table .= '<table class="product-table-configure woocommerce">';
         $initTitleAndRow = [];
         if (!empty($chekBYoption['attributes'])) {
             foreach ($chekBYoption['attributes'] as $title_key => $title_value) {
@@ -60,7 +58,7 @@ class th_product_compare_return
                             $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
                             $putHtml .= '</td></tr>';
                         } else {
-                            $putHtml .= '<tr class="_' . $title_key . '_">';
+                            $putHtml .= '<tr class="' . $title_key . '">';
                         }
                     } else {
                         $putHtml .= '<tr class="_' . $title_key . '_"><td class="left-title">';
@@ -318,11 +316,10 @@ class th_product_compare_return
     {
         if (wc_review_ratings_enabled()) {
             $getRAtingHtml = wc_get_rating_html($product->get_average_rating());
-            $count_rating = $product->get_rating_count();
-            if ($getRAtingHtml && $count_rating > 0) {
+            if ($getRAtingHtml) {
                 $rating_ = $getRAtingHtml;
                 $rating_ .= "<div class='th-rating-count'>(";
-                $rating_ .= $count_rating . __(' Review', 'th-product-compare');
+                $rating_ .= $product->get_rating_count() . __(' Review', 'th-product-compare');
                 $rating_ .= ")</div>";
                 return $rating_;
             }

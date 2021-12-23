@@ -3,32 +3,25 @@
   display: flex;
   flex-direction: column;
   grid-gap: 15px;
-  padding-left: 2%;
-  width: 21%;
-  img {
-    max-width: 100%;
-    margin: auto;
-  }
-  > div:not(.img_) {
+  padding-left: 16px;
+  width: 22%;
+
+  > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     grid-gap: 9px;
     padding: 24px 16px;
     border-radius: 4px;
-    color: #fff;
+    color: #111;
     text-align: center;
-    background: #1665a9;
+    background: #fff;
 
     span.heading_ {
       font-size: 17px;
       font-weight: bold;
     }
-    span.description_ {
-      font-weight: 400;
-      font-size: 13px;
-      line-height: 1.5;
-    }
+
     a {
       text-decoration: none;
       font-weight: bold;
