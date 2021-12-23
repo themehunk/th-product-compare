@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) exit;
         <div>
             <span class="bold-heading"><?php _e('Leave us a review', 'th-product-compare') ?></span>
             <p class="th-color-title"><?php _e('We would love to hear your feedback.', 'th-product-compare') ?></p>
-            <a href="<?php echo esc_url('https://wordpress.org/support/plugin/th-product-compare/reviews/#new-post'); ?>" target="_blank" class="link_"><?php _e('Submit review', 'th-product-compare') ?></a>
+            <a href="<?php echo esc_url('https://www.trustpilot.com/review/themehunk.com'); ?>" target="_blank" class="link_"><?php _e('Submit review', 'th-product-compare') ?></a>
         </div>
     </div>
 </div>
