@@ -2,10 +2,11 @@
 if (!defined('ABSPATH')) exit;
 class th_product_compare_shortcode
 {
-    private function __construct()
+    function __construct()
     {
         add_shortcode('th_compare', array($this, 'compare'));
-        $this->showAndHide();
+        // $this->showAndHide();
+        $this->showAndHideSingle();
     }
     public $cookiesName = 'th_compare_product';
     public $optionName = 'th_compare_option';
@@ -28,20 +29,12 @@ class th_product_compare_shortcode
     {
         return new self();
     }
-    public function showAndHide()
+    public function showAndHideShopPage()
     {
-
+        // all option 
         $checkOption = get_option($this->optionName);
         // button type 
         if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
-            // single product content 
-            if (isset($checkOption['field-product-single-page'])) {
-                if ($checkOption['field-product-single-page'] == '1') {
-                    add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
-                }
-            } else {
-                add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
-            }
             // list product content 
             if (isset($checkOption['field-product-page'])) {
                 if ($checkOption['field-product-page'] == '1') {
@@ -54,6 +47,27 @@ class th_product_compare_shortcode
             add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 15);
         }
     }
+    public function showAndHideSingle()
+    {
+        // all option 
+        $checkOption = get_option($this->optionName);
+        // button type 
+        if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
+            // auto add single page 
+            add_action('woocommerce_after_single_product_summary', [$this, 'appearAutoSinglePage']);
+            // single product content 
+            if (isset($checkOption['field-product-single-page'])) {
+                if ($checkOption['field-product-single-page'] == '1') {
+                    add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
+                }
+            } else {
+                add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
+            }
+        } else {
+            add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
+        }
+    }
+
     public function addCompareBtn()
     {
         global $product;
@@ -107,3 +121,14 @@ class th_product_compare_shortcode
     }
     // class end
 }
+
+
+function th_compare_add_action_shop_list()
+{
+    $obj = new th_product_compare_shortcode();
+    $obj->showAndHideShopPage();
+}
+add_action('woocommerce_init', 'th_compare_add_action_shop_list');
+
+// to remove action in theme 
+// remove_action('woocommerce_init','th_compare_add_action_shop_list');
