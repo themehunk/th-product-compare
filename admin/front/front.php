@@ -48,8 +48,6 @@ class th_product_compare_shortcode
         $checkOption = get_option($this->optionName);
         // button type 
         if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
-            // auto add single page 
-            add_action('woocommerce_after_single_product_summary', [$this, 'appearAutoSinglePage']);
             // single product content 
             if (isset($checkOption['field-product-single-page'])) {
                 if ($checkOption['field-product-single-page'] == '1') {
