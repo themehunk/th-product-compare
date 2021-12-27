@@ -7,13 +7,16 @@
   z-index: 99999;
   background-color: #f1f0f3;
   width: 100%;
-  bottom: -72px;
+  // bottom: -72px;
+  bottom: -150px;
   transition: 0.2s all ease;
   box-sizing: border-box;
 
   &.active {
     bottom: 0;
-
+    > div {
+      box-shadow: 0 12px 53px 3px rgb(69 77 89 / 21%);
+    }
     .th-footer-up-down {
       .icon_2 {
         transform: rotate(180deg);
@@ -53,7 +56,8 @@
     display: flex;
     grid-gap: 10px;
     align-items: center;
-    height: 72px;
+    // height: 72px;
+    height: 150px;
     padding: 0 35px;
     position: relative;
     background-color: inherit;
@@ -102,9 +106,12 @@
       padding: 10px;
 
       .img_ {
-        width: 48px;
-        height: 48px;
-        min-width: 48px;
+        // width: 48px;
+        // height: 48px;
+        // min-width: 48px;
+        width: 110px;
+        height: 110px;
+        min-width: 110px;
         position: relative;
         background: #dbdbdb;
         border-radius: 3px;
@@ -138,7 +145,7 @@
             content: "\f158";
             font-family: "dashicons";
             font-style: normal;
-            font-size: 12px;
+            font-size: 18px;
           }
         }
 
@@ -215,7 +222,7 @@
   // for left footer bar
   &.position-right,
   &.position-left {
-    width: 80px;
+    width: 150px;
     height: 100%;
     bottom: 0;
 
@@ -272,7 +279,7 @@
   }
 
   &.position-left {
-    left: -80px;
+    left: -150px;
 
     .th-footer-up-down .icon_2 {
       transform: rotate(90deg);
@@ -296,7 +303,7 @@
   // for left footer bar
   // for right footer bar
   &.position-right {
-    right: -80px;
+    right: -150px;
 
     .th-footer-up-down .icon_2 {
       transform: rotate(-90deg);
@@ -320,7 +327,7 @@
   // for right footer bar
   // for top footer bar
   &.position-top {
-    top: -72px;
+    top: -150px;
     height: fit-content;
 
     .th-footer-up-down .icon_2 {
