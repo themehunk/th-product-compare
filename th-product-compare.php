@@ -23,9 +23,10 @@ if (!function_exists('th_product_compare_loaded_pro')) {
     add_action('plugins_loaded', 'th_product_compare_loaded');
     function th_product_compare_loaded()
     {
+        $frontObj = new th_product_compare_shortcode();
         th_compare_admin::get();
         th_product_compare::get();
-        th_product_compare_shortcode::get();
+        $frontObj->get();
         th_product_compare_return::get();
     }
 }

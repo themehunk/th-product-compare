@@ -2,12 +2,6 @@
 if (!defined('ABSPATH')) exit;
 class th_product_compare_shortcode
 {
-    function __construct()
-    {
-        add_shortcode('th_compare', array($this, 'compare'));
-        // $this->showAndHide();
-        $this->showAndHideSingle();
-    }
     public $cookiesName = 'th_compare_product';
     public $optionName = 'th_compare_option';
     public function getPrevId()
@@ -25,9 +19,10 @@ class th_product_compare_shortcode
             }
         }
     }
-    public static function get()
+    public function get()
     {
-        return new self();
+        add_shortcode('th_compare', array($this, 'compare'));
+        $this->showAndHideSingle();
     }
     public function showAndHideShopPage()
     {
