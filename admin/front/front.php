@@ -33,13 +33,13 @@ class th_product_compare_shortcode
             // list product content 
             if (isset($checkOption['field-product-page'])) {
                 if ($checkOption['field-product-page'] == '1') {
-                    add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 15);
+                    add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
                 }
             } else {
-                add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 15);
+                add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
             }
         } else {
-            add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 15);
+            add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
         }
     }
     public function showAndHideSingle()
