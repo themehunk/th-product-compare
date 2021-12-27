@@ -486,6 +486,9 @@
   position: relative;
   background: #dbdbdb;
   border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .th-compare-footer-wrap > div .product_image .img_:hover .th-remove-product {
   opacity: 1;
@@ -515,8 +518,12 @@
   font-style: normal;
   font-size: 18px;
 }
+.th-compare-footer-wrap > div .product_image .img_ a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 .th-compare-footer-wrap > div .product_image .img_ img {
-  position: absolute;
   object-fit: scale-down;
   max-width: 100%;
   max-height: 100%;

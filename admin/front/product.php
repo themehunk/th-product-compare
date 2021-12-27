@@ -108,17 +108,19 @@ class th_product_compare_return
                 $price_ = '<span class="price_">' . $product->get_price_html() . '</span>';
                 $Add_to_cart_ = '<div class="th-add-to-cart_">' . $this->add_to_cart($product) . '</div>';
 
+                $link_ = esc_html(get_permalink($ProductID));
+
                 foreach ($initTitleAndRow as $initTitleAndRow_key => $initTitleAndRow_value) {
                     $addMoreHtml = '';
                     // $attrPErticularClass = '';
                     if ($initTitleAndRow_key == 'image') {
                         $addMoreHtml .= '<div class="image-and-addcart">';
                         $addMoreHtml .= '<div class="img_">';
-                        $addMoreHtml .= '<a target="_blank" href="' . esc_html(get_permalink($ProductID)) . '">' . $product->get_image() . '</a>';
+                        $addMoreHtml .= '<a target="_blank" href="' . $link_ . '">' . $product->get_image() . '</a>';
                         $addMoreHtml .= '</div>';
                         $addMoreHtml .= '</div>';
                     } else if ($initTitleAndRow_key == 'title') {
-                        $addMoreHtml .= '<span class="product-title_"><a target="_blank" href="' . esc_html(get_permalink($ProductID)) . '">' . $product->get_name() . '</a></span>';
+                        $addMoreHtml .= '<span class="product-title_"><a target="_blank" href="' . $link_ . '">' . $product->get_name() . '</a></span>';
                     } else if ($initTitleAndRow_key == 'price') {
                         $addMoreHtml .= $price_;
                     } else if ($initTitleAndRow_key == 'add-to-cart') {
@@ -189,7 +191,9 @@ class th_product_compare_return
                 // ----------------------footer add more----------------------
                 $footerProduct .= '<div data-product-id="' . $ProductID . '" class="img_">';
                 $footerProduct .= '<i class="th-remove-product th-compare-product-remove" data-th-product-id="' . $ProductID . '"></i>';
+                $footerProduct .= "<a target='_blank' href='" . $link_ . "'>";
                 $footerProduct .= $product->get_image();
+                $footerProduct .= '</a>';
                 $footerProduct .= '</div>';
                 // ----------------------footer add more----------------------
             }
