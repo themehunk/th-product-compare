@@ -95,6 +95,7 @@ Yes, You can translate our plugin to desired language.
 
 = 1.0.2 =
  custom remove action in theme added
+ bottom footer bar height increase
 
 = 1.0.1 =
 Update Readme content
