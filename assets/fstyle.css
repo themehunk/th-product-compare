@@ -156,6 +156,9 @@
 .th-compare-output-product span {
   font-family: "inherit", sans-serif;
 }
+.th-compare-output-product .th-compare-add-to-cart-btn {
+  width: fit-content;
+}
 .th-compare-output-product .th-compare-rating {
   color: #f9b538;
 }
@@ -519,9 +522,11 @@
   font-size: 18px;
 }
 .th-compare-footer-wrap > div .product_image .img_ a {
-  display: block;
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .th-compare-footer-wrap > div .product_image .img_ img {
   object-fit: scale-down;
