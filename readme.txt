@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, wc popup, woocommerce compare product, compare product
 Requires at least: 5.0
 Tested up to: 5.8
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,9 +93,11 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.0.3 =
+ bottom footer bar height increase
+
 = 1.0.2 =
  custom remove action in theme added
- bottom footer bar height increase
 
 = 1.0.1 =
 Update Readme content
