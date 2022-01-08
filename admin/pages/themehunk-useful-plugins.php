@@ -4,6 +4,17 @@
             <span class="heading_"><?php _e('Themehunk Useful Plugins', 'th-product-compare'); ?></span>
         </div>
         <div class="th-plugins_">
+            <!-- woocommerce cart  -->
+            <div>
+                <div class="img_">
+                    <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/') ?>">
+                        <img src="<?php echo esc_url('https://ps.w.org/th-all-in-one-woo-cart/assets/icon-128x128.png') ?>">
+                    </a>
+                </div>
+                <div class="description_">
+                    <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/') ?>" class="plugin-title_"><?php _e('TH All in One Woo Cart Pro', 'th-product-compare') ?></a>
+                </div>
+            </div>
             <!-- lfb  -->
             <div>
                 <div class="img_">
@@ -46,17 +57,6 @@
                 </div>
                 <div class="description_">
                     <a target="_blank" href="<?php echo esc_url('https://themehunk.com/advance-product-search/') ?>" class="plugin-title_"><?php _e('TH Advance Product Search', 'th-product-compare') ?></a>
-                </div>
-            </div>
-            <!-- woocommerce cart  -->
-            <div>
-                <div class="img_">
-                    <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/') ?>">
-                        <img src="<?php echo esc_url('https://ps.w.org/th-all-in-one-woo-cart/assets/icon-128x128.png') ?>">
-                    </a>
-                </div>
-                <div class="description_">
-                    <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/') ?>" class="plugin-title_"><?php _e('TH All in One Woo Cart Pro', 'th-product-compare') ?></a>
                 </div>
             </div>
         </div>
