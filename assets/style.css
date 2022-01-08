@@ -17,13 +17,6 @@
   text-align: center;
   background: #fff;
 }
-.th-right-sidebar .bnr{
-display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-    padding: 10px 0px;
-}
 .th-right-sidebar > div span.heading_ {
   font-size: 17px;
   font-weight: bold;
@@ -37,6 +30,43 @@ display: flex;
   color: #fff;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.th-useful-plugins {
+  display: flex;
+}
+.th-useful-plugins > div:not(.themehunk-sidebar) {
+  flex: 1;
+  padding-right: 30px;
+}
+.th-useful-plugins .th-plugins_ {
+  display: flex;
+  grid-row-gap: 60px;
+  flex-wrap: wrap;
+}
+.th-useful-plugins .th-plugins_ > div {
+  display: flex;
+  grid-gap: 30px;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+}
+.th-useful-plugins .th-plugins_ > div .img_ img {
+  /* width: 100%; */
+  /* object-fit: scale-down; */
+  border: 1px solid #f0f0f1;
+  width: 128px;
+  height: 128px;
+}
+.th-useful-plugins .th-plugins_ > div .description_ .plugin-title_ {
+  font-size: 16px;
+  display: block;
+  line-height: 1;
+  text-decoration: none;
+  font-weight: 600;
+}
+.th-useful-plugins .th-plugins_ > div .description_ .plugin-title_:hover {
+  text-decoration: underline;
 }
 
 .th-tab-heading {
