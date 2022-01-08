@@ -5,7 +5,13 @@
   grid-gap: 15px;
   padding-left: 16px;
   width: 22%;
-
+  img{
+    max-width: 100%;
+    margin: auto;
+  }
+  a.bnr{
+    margin: auto;
+  }
   > div {
     display: flex;
     flex-direction: column;
@@ -22,7 +28,7 @@
       font-weight: bold;
     }
 
-    a {
+    a.link_ {
       text-decoration: none;
       font-weight: bold;
       padding: 0.5rem 1.5rem;

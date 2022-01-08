@@ -6,6 +6,13 @@
   padding-left: 16px;
   width: 22%;
 }
+.th-right-sidebar img {
+  max-width: 100%;
+  margin: auto;
+}
+.th-right-sidebar a.bnr {
+  margin: auto;
+}
 .th-right-sidebar > div {
   display: flex;
   flex-direction: column;
@@ -21,7 +28,7 @@
   font-size: 17px;
   font-weight: bold;
 }
-.th-right-sidebar > div a {
+.th-right-sidebar > div a.link_ {
   text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 1.5rem;
@@ -135,7 +142,7 @@
   background-color: #f0f0f1;
 }
 .th-product-compare-wrap .th-product-compare-container .th-nav_ > a {
-  padding: 24px 20px;
+  padding: 24px 15px;
   text-decoration: none;
   color: black;
   border-bottom: 1px solid #d2d2d2;
