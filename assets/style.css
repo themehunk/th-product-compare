@@ -38,7 +38,13 @@
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-
+.th-right-sidebar > div a.bnr {
+    background: #fff;
+    box-shadow: none;
+}
+.th-product-compare-wrap .th-product-compare-container .th-nav_ > a{
+  line-height: 1.3!important;
+}
 .th-useful-plugins {
   display: flex;
 }

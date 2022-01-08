@@ -17,6 +17,7 @@ if (!function_exists('th_product_compare_loaded_pro')) {
     define('TH_PRODUCT_PATH', plugin_dir_path(__FILE__));
     define('TH_PRODUCT_BASE_NAME', __FILE__);
     include_once(TH_PRODUCT_PATH . 'admin/inc.php');
+    include_once(TH_PRODUCT_PATH . 'notice/th-notice.php');
     include_once(TH_PRODUCT_PATH . 'admin/front/front.php');
     include_once(TH_PRODUCT_PATH . 'admin/front/product.php');
     include_once(TH_PRODUCT_PATH . 'admin/back/init.php');

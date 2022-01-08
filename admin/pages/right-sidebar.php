@@ -14,5 +14,4 @@
 
     <a class="bnr" target="_blank" href="<?php echo esc_url('https://themehunk.com/product/amaz-store/'); ?>"><img src='<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/amaz-store.png') ?>' alt="amaz-store">
     </a>
-
 </section>
