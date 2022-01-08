@@ -12,6 +12,7 @@
             <a data-group-tabs="main" data-tab="setting" href="#"><?php _e('Advance', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="pro-feature" href="#"><?php _e('Premium', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="help" href="#"><?php _e('Help', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><?php _e('ThemeHunk Useful Plugins', 'th-product-compare'); ?></a>
             <div class="th-save-btn">
                 <button class="button th-compare-reset-style-btn"><?php _e("Reset", 'th-product-compare'); ?></button>
                 <button class="button button-primary th-option-save-btn"><?php _e("Save", 'th-product-compare'); ?></button>
@@ -33,6 +34,10 @@
             <!-- pro feature tab -->
             <div data-group-tabs="main" data-tab-container="pro-feature">
                 <?php include_once 'pages/pro-feature.php'; ?>
+            </div>
+            <!-- useful plugins tab -->
+            <div data-group-tabs="main" data-tab-container="themehunk-useful">
+                <?php include_once 'pages/themehunk-useful-plugins.php'; ?>
             </div>
         </div>
         <?php

@@ -34,3 +34,44 @@
     }
   }
 }
+
+.th-useful-plugins {
+  display: flex;
+  > div:not(.themehunk-sidebar) {
+    flex: 1;
+    padding-right: 30px;
+  }
+  .th-plugins_ {
+    display: flex;
+    grid-row-gap: 60px;
+    flex-wrap: wrap;
+    > div {
+      display: flex;
+      grid-gap: 30px;
+      align-items: center;
+      width: 50%;
+      flex-direction: column;
+      .img_ {
+        img {
+          /* width: 100%; */
+          /* object-fit: scale-down; */
+          border: 1px solid #f0f0f1;
+          width: 128px;
+          height: 128px;
+        }
+      }
+      .description_ {
+        .plugin-title_ {
+          font-size: 16px;
+          display: block;
+          line-height: 1;
+          text-decoration: none;
+          font-weight: 600;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
