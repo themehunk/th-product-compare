@@ -2,8 +2,12 @@
 if (!defined('ABSPATH')) exit;
 class th_product_compare_shortcode
 {
-    public $cookiesName = 'th_compare_product';
+    public $cookiesName;
     public $optionName = 'th_compare_option';
+    private function __construct()
+    {
+        $cookiesName = th_product_compare::cookieName();
+    }
     public function getPrevId()
     {
         if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
