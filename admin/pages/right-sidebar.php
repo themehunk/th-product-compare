@@ -7,12 +7,11 @@
     </div>
     <div>
         <span class="heading_"><?php _e('Unlock Th Product Compare Pro', 'th-product-compare') ?></span>
-        <a class="bnr" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/') ?>"><img src='<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/th-compare-plugin.png') ?>'>
+        <a class="bnr" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/') ?>"><img src='<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/compare-pro.png') ?>'>
         </a>
         <a class="link_" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/') ?>"><?php _e('Upgrade Pro', 'th-product-compare') ?></a>
     </div>
 
     <a class="bnr" target="_blank" href="<?php echo esc_url('https://themehunk.com/product/amaz-store/'); ?>"><img src='<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/amaz-store.png') ?>' alt="amaz-store">
     </a>
-
 </section>

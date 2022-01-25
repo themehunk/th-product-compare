@@ -3,8 +3,8 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: compare, wc popup, woocommerce compare product, compare product
 Requires at least: 5.0
-Tested up to: 5.8
-Stable tag: 1.0.4
+Tested up to: 5.8.3
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.5 =
+Pro Plugin image added.
 
 = 1.0.4 =
  useful plugins page added
