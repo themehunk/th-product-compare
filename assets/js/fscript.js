@@ -155,17 +155,15 @@
             // footer bar ----------------------
             if (response.footer_bar && response.footer_bar != "") {
               let footer_bar = $(".th-compare-footer-wrap");
-              let putActiveIfHas = false;
               if (footer_bar.length) {
                 footer_bar.remove();
-                putActiveIfHas = true;
               }
               $("body").append(response.footer_bar);
               $(".th-compare-footer-wrap > div").append(thCompare.loaderIcon());
-              if (putActiveIfHas) {
+              if (parseInt(ids)) {
                 setTimeout(() => {
                   $(".th-compare-footer-wrap").addClass("active");
-                }, 200);
+                }, 500);
               }
             }
             // footer bar ----------------------

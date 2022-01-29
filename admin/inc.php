@@ -15,6 +15,7 @@ class th_product_compare
         add_filter('plugin_row_meta', array($this, 'docs_link'), 10, 2);
 
         $this->localizeOption = get_option('th_compare_option');
+        $cookiesName = th_product_compare::cookieName();
     }
     public static function get()
     {
@@ -112,6 +113,17 @@ class th_product_compare
             $result .= $char;
         }
         return base64_encode($result);
+    }
+    public static function cookieName()
+    {
+        $str = get_site_url();
+        $getSlash = strrpos($str, "//") + 2;
+        $removedSlash = substr($str, $getSlash);
+        $removeSingleSlash = str_replace('/', "", $removedSlash);
+        $removeColone = str_replace(':', "", $removeSingleSlash);
+        $convertMd5 = md5($removeColone);
+        $minLength = substr($convertMd5, -12);
+        return 'th_compare_product_' . $minLength;
     }
     // class end 
 }

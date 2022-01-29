@@ -2,7 +2,7 @@
 /*
 * Plugin Name: TH Product Compare
 * Description: Th Product Compare plugin helps you to create interactive product comparison tables and allow customers to compare their products. It will also increases engagement and conversion rates. This plugin lets the customers to compare different product and display fields like Image, Title, Rating, Price, Add to cart, Description, Availability and SKU. You can display Compare button or link with your products and also add Number of Product to Compare in your comparison table. It is fully Responsive and user friendly plugin which make your buying decision more easy.
-* Version: 1.0.5
+* Version: 1.0.6
 * Requires at least:       4.8.3
 * Tested up to:            5.8.2
 * WC requires at least:    3.2
