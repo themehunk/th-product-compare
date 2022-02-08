@@ -47,7 +47,7 @@ class th_compare_admin
                 );
             }
         } else {
-            $items['no_product'] = __('No Product Found');
+            $items['no_product'] = __('No Product Found', 'th-product-compare');
         }
         wp_send_json_success($items);
     }

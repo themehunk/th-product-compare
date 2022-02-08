@@ -2,7 +2,7 @@
 if (!defined('ABSPATH')) exit;
 class th_product_compare_return
 {
-    public $cookiesName = 'th_compare_product';
+    public $cookiesName;
     public static function get()
     {
         return new self();
@@ -21,7 +21,7 @@ class th_product_compare_return
             if (!empty($setID)) {
                 $html = $this->productHtml($setID);
                 if (isset($setID['product_limit'])) {
-                    $html['product_limit'] = __('Product Limit Exceeded.');
+                    $html['product_limit'] = __('Product Limit Exceeded.', 'th-product-compare');
                 }
                 $return = $html;
             } else {
@@ -202,7 +202,7 @@ class th_product_compare_return
         $footerBArPosition = $chekBYoption['compare-popup-position'];
         $returnFooter = "<div class='th-compare-footer-wrap position-" . $footerBArPosition . "'><div>";
         $returnFooter .= "<button class='th-footer-up-down'>
-                            <span class='text_'>" . __('TH Compare') . "</span>
+                            <span class='text_'>" . __('TH Compare', 'th-product-compare') . "</span>
                             <span class='icon_2 dashicons dashicons-arrow-up-alt2'></span>
                         </button>";
         $returnFooter .= "<div><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i><span>" . __('Add Product', 'th-product-compare') . "</span></a></div>";
