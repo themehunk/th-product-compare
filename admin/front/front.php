@@ -4,7 +4,7 @@ class th_product_compare_shortcode
 {
     public $cookiesName;
     public $optionName = 'th_compare_option';
-    private function __construct()
+    function __construct()
     {
         $cookiesName = th_product_compare::cookieName();
     }
