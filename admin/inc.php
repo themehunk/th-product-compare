@@ -42,7 +42,9 @@ class th_product_compare
     }
     public function admin_menu()
     {
-        add_menu_page(__('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png', 59);
+
+        add_submenu_page( 'themehunk-plugins', __('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'),1 );
+        //add_menu_page(__('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png', 59);
     }
     // add menu links in left where plugin name placed 
     public function add_menu_links($links)

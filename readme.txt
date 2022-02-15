@@ -94,19 +94,20 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = 1.0.7 =
-languages file added
+Languages file added.
+New Option panel added.
 
 = 1.0.6 =
-site unique compare cookies
+Site unique compare cookies
 
 = 1.0.5 =
 Pro Plugin image added.
 
 = 1.0.4 =
- useful plugins page added
+ Useful plugins page added
 
 = 1.0.3 =
- bottom footer bar height increase
+ Bottom footer bar height increase
 
 = 1.0.2 =
  custom remove action in theme added
