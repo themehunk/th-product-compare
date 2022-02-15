@@ -85,7 +85,7 @@ class th_product_compare_shortcode
     public function btnBYoption($product_id)
     {
 
-        $compareText = __('Compare', 'th-product-compare');
+        $compareText = _e('Compare', 'th-product-compare');
         $btnClass = 'th-product-compare-btn button';
         $compareBtnTypeClass = 'btn_type';
         $checkOption = get_option($this->optionName);

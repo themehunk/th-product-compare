@@ -33,7 +33,7 @@ class th_product_compare
             $wp_roles = new WP_Roles();
         }
         // Shop manager role
-        add_role('th_product_compare_role', __('Product Compare Role', 'th-product-compare'), array(
+        add_role('th_product_compare_role', _e('Product Compare Role', 'th-product-compare'), array(
             'level_9'        => true,
             'read'          => true,
         ));
@@ -43,14 +43,14 @@ class th_product_compare
     public function admin_menu()
     {
 
-        add_submenu_page( 'themehunk-plugins', __('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'),1 );
+        add_submenu_page( 'themehunk-plugins', _e('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'),1 );
         //add_menu_page(__('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png', 59);
     }
     // add menu links in left where plugin name placed 
     public function add_menu_links($links)
     {
         $links[] = '<a href="' . admin_url("admin.php?page=th-product-compare") . '">' . __('Settings', 'th-compare-product') . '</a>';
-        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank"><b>' . __('Get Pro', 'th-compare-product') . '</b></a>';
+        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/plugins/', 'th-product-compare') . '" target="_blank"><b>' . _e('Get Pro', 'th-compare-product') . '</b></a>';
         return $links;
     }
 
@@ -60,10 +60,10 @@ class th_product_compare
     {
         if (strpos($plugin_file, 'th-product-compare.php') !== false) {
             $new_links = array(
-                'livedemo' => '<a href="' . esc_url('https://wpthemes.themehunk.com/th-product-compare-pro/') . '" target="_blank">' . __('Live Demo', 'th-product-compare') . '</a>',
-                'documentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
-                'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/') . '" target="_blank">' . __('Support', 'th-product-compare') . '</a>',
-                'premium_version' => '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
+                'livedemo' => '<a href="' . esc_url('https://wpthemes.themehunk.com/th-product-compare-pro/','th-product-compare') . '" target="_blank">' . _e('Live Demo', 'th-product-compare') . '</a>',
+                'documentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/','th-product-compare') . '" target="_blank">' . _e('Documentation', 'th-product-compare') . '</a>',
+                'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/','th-product-compare') . '" target="_blank">' . _e('Support', 'th-product-compare') . '</a>',
+                'premium_version' => '<a href="' . esc_url('https://themehunk.com/plugins/','th-product-compare') . '" target="_blank">' . _e('Premium Version', 'th-product-compare') . '</a>',
             );
             $plugin_meta = array_merge($plugin_meta, $new_links);
         }

@@ -23,7 +23,7 @@
 
     <div class="th-heade th-right-header">
         <div class="th-noticetheme">
-        <a target="_blank" href="https://themehunk.com/th-shop-mania/">
+        <a target="_blank" href="<?php echo esc_url("https://themehunk.com/th-shop-mania/");?>">
         <img src="<?php echo THEMEHUNK_PURL; ?>th-option/assets/images/th-shop-mania.png">
         </a>
     </div>

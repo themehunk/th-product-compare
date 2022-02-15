@@ -21,7 +21,7 @@ class th_product_compare_return
             if (!empty($setID)) {
                 $html = $this->productHtml($setID);
                 if (isset($setID['product_limit'])) {
-                    $html['product_limit'] = __('Product Limit Exceeded.', 'th-product-compare');
+                    $html['product_limit'] = _e('Product Limit Exceeded.', 'th-product-compare');
                 }
                 $return = $html;
             } else {
@@ -55,7 +55,7 @@ class th_product_compare_return
                     if ($wp_is_mobile) {
                         if ($checkCustomAttr) {
                             $putHtml .= '<tr class="_' . $title_key . '_"><td colspan="100" class="left-title">';
-                            $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
+                            $putHtml .= '<span>' . _e($name_, 'th-product-compare') . '</span>';
                             $putHtml .= '</td></tr>';
                         } else {
                             $putHtml .= '<tr class="' . $title_key . '">';
@@ -63,7 +63,7 @@ class th_product_compare_return
                     } else {
                         $putHtml .= '<tr class="_' . $title_key . '_"><td class="left-title">';
                         if ($name_ != 'image') {
-                            $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
+                            $putHtml .= '<span>' . _e($name_, 'th-product-compare') . '</span>';
                         }
                         $putHtml .= '</td>';
                     }
@@ -78,7 +78,7 @@ class th_product_compare_return
                 $trRepeatPrice_ = '<tr class="th-price">';
             } else {
                 $trRepeatPrice_ = '<tr class="th-price">
-                    <td class="left-title"><span>' . __('PRICE', 'th-product-compare') . '</span></td>';
+                    <td class="left-title"><span>' . _e('PRICE', 'th-product-compare') . '</span></td>';
             }
         }
         if ($chekBYoption['field-repeat-add-to-cart']) {
@@ -86,7 +86,7 @@ class th_product_compare_return
                 $trRepeatAddTocart = '<tr class="th-add-to-cart">';
             } else {
                 $trRepeatAddTocart = '<tr class="th-add-to-cart">
-                     <td class="left-title"><span>' . __('ADD TO CART', 'th-product-compare') . '</span></td>';
+                     <td class="left-title"><span>' . _e('ADD TO CART', 'th-product-compare') . '</span></td>';
             }
         }
         if ($removeBtn) {
@@ -94,7 +94,7 @@ class th_product_compare_return
                 $trDelete_ = '<tr class="th-delete">';
             } else {
                 $trDelete_ = '<tr class="th-delete">
-                     <td class="left-title"><span>' . __('Remove', 'th-product-compare') . '</span></td>';
+                     <td class="left-title"><span>' . _e('Remove', 'th-product-compare') . '</span></td>';
             }
         }
         $add_TR_AT_last = 0;
@@ -131,10 +131,10 @@ class th_product_compare_return
                         $addMoreHtml .= '<span>' . $sku . '</span>';
                     } else if ($initTitleAndRow_key == 'availability') {
                         $productNumber  = $product->is_in_stock();
-                        $productAvailbulity = __('out of stock', 'th-product-compare');
+                        $productAvailbulity = _e('out of stock', 'th-product-compare');
                         $StockClass = 'th-out-of-stoct';
                         if ($productNumber) {
-                            $productAvailbulity = __('in stock', 'th-product-compare');
+                            $productAvailbulity = _e('in stock', 'th-product-compare');
                             $StockClass = 'th-in-stoct';
                         }
                         // $attrPErticularClass = $StockClass;
@@ -183,7 +183,7 @@ class th_product_compare_return
                 }
                 // delete button 
                 if (isset($trDelete_)) {
-                    $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . $ProductID . '"><i class="dashicons dashicons-dismiss"></i>' . __('Remove', 'th-product-compare')  . '</button></td>';
+                    $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . $ProductID . '"><i class="dashicons dashicons-dismiss"></i>' . _e('Remove', 'th-product-compare')  . '</button></td>';
                     if ($CheckLAstProduct) {
                         $trDelete_ .= '</tr>';
                     }
@@ -202,14 +202,14 @@ class th_product_compare_return
         $footerBArPosition = $chekBYoption['compare-popup-position'];
         $returnFooter = "<div class='th-compare-footer-wrap position-" . $footerBArPosition . "'><div>";
         $returnFooter .= "<button class='th-footer-up-down'>
-                            <span class='text_'>" . __('TH Compare', 'th-product-compare') . "</span>
+                            <span class='text_'>" . _e('TH Compare', 'th-product-compare') . "</span>
                             <span class='icon_2 dashicons dashicons-arrow-up-alt2'></span>
                         </button>";
-        $returnFooter .= "<div><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i><span>" . __('Add Product', 'th-product-compare') . "</span></a></div>";
+        $returnFooter .= "<div><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i><span>" . _e('Add Product', 'th-product-compare') . "</span></a></div>";
         $returnFooter .= "<div class='product_image'>";
         $returnFooter .= $footerProduct;
         $returnFooter .= "</div>";
-        $returnFooter .= "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'><span class='dashicons dashicons-visibility icon_'></span><span class='text_'>" . __('Compare', 'th-product-compare') . "</span></a></div>";
+        $returnFooter .= "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'><span class='dashicons dashicons-visibility icon_'></span><span class='text_'>" . _e('Compare', 'th-product-compare') . "</span></a></div>";
         $returnFooter .= "</div></div>";
         // ----------------------footer add more----------------------
         foreach ($initTitleAndRow as $initTitleAndRow_final_value) {
@@ -323,7 +323,7 @@ class th_product_compare_return
             if ($getRAtingHtml) {
                 $rating_ = $getRAtingHtml;
                 $rating_ .= "<div class='th-rating-count'>(";
-                $rating_ .= $product->get_rating_count() . __(' Review', 'th-product-compare');
+                $rating_ .= $product->get_rating_count() . _e('Review', 'th-product-compare');
                 $rating_ .= ")</div>";
                 return $rating_;
             }
