@@ -16,7 +16,7 @@ function tab_constant(){
     $tab_array['header'] = array('theme_brand' => __('ThemeHunk','wp-popup-builder'),
     'theme_brand_url' => esc_url($theme_data->get( 'AuthorURI' )),
     'welcome'=>esc_html__('ThemeHunk Marketplace', 'wp-popup-builder' ),
-    'welcome_desc' => esc_html__('Grow your business free and paid ThemeHunk plugins.', 'wp-popup-builder' ),
+    'welcome_desc' => esc_html__('Grow your business with ThemeHunk free/pro themes & plugins.', 'wp-popup-builder' ),
     'v'=> 'Version '.$theme_data->get( 'Version' )
     );
     return $tab_array;
