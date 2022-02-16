@@ -10,8 +10,19 @@ class Th_Product_Compare_Notice{
 
     function __construct(){
 
+        if(isset($_GET['ntc-disable']) && $_GET['ntc-disable'] == true){
+        add_action('admin_init', array($this,'set_cookie'));
+        }
+
+        if(!isset($_COOKIE['thntc_time'])) {
+            
         add_action( 'admin_enqueue_scripts', array($this,'th_product_compare_admin_enqueue_style') );
         add_action( 'admin_notices', array($this,'th_product_compare_admin_notice' ));
+        }
+
+        if(isset($_COOKIE['thntc_time'])) {
+            add_action( 'admin_notices', array($this,'unset_cookie'));
+        }
 
         
     }
@@ -22,9 +33,13 @@ class Th_Product_Compare_Notice{
 
     } 
 
-    function th_product_compare_admin_notice() { ?>
+    function th_product_compare_admin_notice() { 
 
-    <div class="th-product-compare-notice notice notice-success is-dismissible">
+    $display = isset($_GET['ntc-disable'])?'none':'block';
+
+    ?>
+     
+    <div class="th-product-compare-notice notice " style="display:<?php echo $display; ?>;">
         <div class="th-product-compare-notice-wrap">
             <div class="th-product-compare-notice-image"><img src="<?php echo esc_url( TH_PRODUCT_URL.'notice/img/compare-pro.png' );?>" alt="<?php _e('TH Product Compare Pro','th-product-compare'); ?>"></div>
             <div class="th-product-compare-notice-content-wrap">
@@ -34,10 +49,37 @@ class Th_Product_Compare_Notice{
                 </div>
                 <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/');?>" class="upgradetopro-btn"><?php _e('Upgrade To Pro','th-product-compare');?> </a>
             </div>
+            <a href="?ntc-disable=1"  class="ntc-dismiss dashicons dashicons-dismiss dashicons-dismiss-icon"></a>
         </div>
     </div>
 
     <?php }
+
+
+    function set_cookie() { 
+ 
+        $visit_time = date('F j, Y  g:i a');
+
+        $cok_time = time()+(86457*30);
+ 
+        if(!isset($_COOKIE['thntc_time'])) {
+ 
+        // set a cookie for 1 year
+        setcookie('thntc_time', $cok_time, time()+(86457*30));
+             
+        }
+ 
+    }
+
+    function unset_cookie(){
+
+            $visit_time = time();
+            $cookie_time = $_COOKIE['thntc_time'];
+
+            if ($cookie_time < $visit_time) {
+                setcookie('thntc_time', null, strtotime('-1 day'));
+            }
+    }
 
     
 }
