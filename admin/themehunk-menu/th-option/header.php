@@ -5,13 +5,13 @@
         <div class="th-option-top-hdr">
             <div class="col-1">
                 <div class="logo-img">
-                    <a target="_blank" href="<?php echo esc_url($theme_header['theme_brand_url']); ?>/?wp=plugins'.). ?>"> <span class="logo-image"><img src="<?php echo esc_url(THEMEHUNK_PURL); ?>/th-option/assets/images/icon.png" /><?php echo $theme_header['theme_brand']; ?></span></a>
+                <a target="_blank" href="<?php echo esc_url($theme_header['theme_brand_url'].'/?wp=plugins'); ?>"> <span class="logo-image"><img src="<?php echo esc_url(THEMEHUNK_PURL); ?>/th-option/assets/images/icon.png" /></span></a>
                 </div>
             </div>
             <div class="col-2">
                 <div class="th-option-heading">
-                    <h2><?php echo $theme_header['welcome']; ?></h2>
-                    <span><?php echo $theme_header['welcome_desc']; ?></span>
+                <h3><?php echo $theme_header['welcome']; ?></h3>
+                    <p><?php echo $theme_header['welcome_desc']; ?></p>
                 </div>
             </div>
         </div>

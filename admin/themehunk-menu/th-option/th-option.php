@@ -16,7 +16,7 @@ function tab_constant(){
     $tab_array['header'] = array('theme_brand' => __('ThemeHunk','th-product-compare'),
     'theme_brand_url' => esc_url($theme_data->get( 'AuthorURI' )),
     'welcome'=>esc_html__('ThemeHunk Marketplace', 'th-product-compare' ),
-    'welcome_desc' => esc_html__('Grow your business free and paid ThemeHunk plugins.', 'th-product-compare' ),
+    'welcome_desc' => esc_html__('Grow your business with ThemeHunk free/pro themes & plugins.', 'th-product-compare' ),
     'v'=> 'Version '.$theme_data->get( 'Version' )
     );
     return $tab_array;
