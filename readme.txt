@@ -95,6 +95,7 @@ Yes, You can translate our plugin to desired language.
 
 = 1.0.8 =
 New Option panel added.
+Pro Notice Improved.
 
 = 1.0.7 =
 Languages file added.

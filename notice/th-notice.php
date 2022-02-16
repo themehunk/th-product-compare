@@ -1,6 +1,14 @@
 <?php
 
 if (!defined('ABSPATH')){
+
+    exit;
+}
+
+include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+if ( is_plugin_active( 'th-product-compare-pro/th-product-compare-pro.php' ) ) {
+
     exit;
 }
 
@@ -10,18 +18,18 @@ class Th_Product_Compare_Notice{
 
     function __construct(){
 
-        if(isset($_GET['ntc-disable']) && $_GET['ntc-disable'] == true){
-        add_action('admin_init', array($this,'set_cookie'));
+        if(isset($_GET['ntc-cmpr-disable']) && $_GET['ntc-cmpr-disable'] == true){
+        add_action('admin_init', array($this,'th_product_compare_notice_set_cookie'));
         }
 
+       
         if(!isset($_COOKIE['thntc_time'])) {
-            
         add_action( 'admin_enqueue_scripts', array($this,'th_product_compare_admin_enqueue_style') );
         add_action( 'admin_notices', array($this,'th_product_compare_admin_notice' ));
         }
 
         if(isset($_COOKIE['thntc_time'])) {
-            add_action( 'admin_notices', array($this,'unset_cookie'));
+            add_action( 'admin_notices', array($this,'th_product_compare_notice_unset_cookie'));
         }
 
         
@@ -35,7 +43,7 @@ class Th_Product_Compare_Notice{
 
     function th_product_compare_admin_notice() { 
 
-    $display = isset($_GET['ntc-disable'])?'none':'block';
+    $display = isset($_GET['ntc-cmpr-disable'])?'none':'block';
 
     ?>
      
@@ -49,14 +57,14 @@ class Th_Product_Compare_Notice{
                 </div>
                 <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/');?>" class="upgradetopro-btn"><?php _e('Upgrade To Pro','th-product-compare');?> </a>
             </div>
-            <a href="?ntc-disable=1"  class="ntc-dismiss dashicons dashicons-dismiss dashicons-dismiss-icon"></a>
+            <a href="?ntc-cmpr-disable=1"  class="ntc-dismiss dashicons dashicons-dismiss dashicons-dismiss-icon"></a>
         </div>
     </div>
 
     <?php }
 
 
-    function set_cookie() { 
+    function th_product_compare_notice_set_cookie() { 
  
         $visit_time = date('F j, Y  g:i a');
 
@@ -71,7 +79,7 @@ class Th_Product_Compare_Notice{
  
     }
 
-    function unset_cookie(){
+    function th_product_compare_notice_unset_cookie(){
 
             $visit_time = time();
             $cookie_time = $_COOKIE['thntc_time'];
