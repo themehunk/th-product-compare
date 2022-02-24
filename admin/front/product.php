@@ -2,7 +2,6 @@
 if (!defined('ABSPATH')) exit;
 class th_product_compare_return
 {
-    public $cookiesName;
     public static function get()
     {
         return new self();
@@ -332,9 +331,10 @@ class th_product_compare_return
     // cookies
     public function getPrevId()
     {
-        if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
-            if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
-                $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
+        $cookiesName = th_product_compare::cookieName();
+        if (isset($_COOKIE[$cookiesName]) && $_COOKIE[$cookiesName] != '') {
+            if (isset($_COOKIE[$cookiesName]) && $_COOKIE[$cookiesName] != '') {
+                $getPRoductId = sanitize_text_field($_COOKIE[$cookiesName]);
                 if ($getPRoductId) {
                     $removeSlace = stripslashes($getPRoductId);
                     $removeSlace = json_decode($removeSlace);
@@ -408,7 +408,8 @@ class th_product_compare_return
                 }
                 $cookieValue = json_encode($arrayENcrypt);
             }
-            setcookie($this->cookiesName, $cookieValue, time() + (86400), "/"); // 86400 = 1 day
+            $cookiesName = th_product_compare::cookieName();
+            setcookie($cookiesName, $cookieValue, time() + (86400), "/"); // 86400 = 1 day
         }
         return $previousCookie;
     }
