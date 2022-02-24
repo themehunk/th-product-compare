@@ -148,12 +148,16 @@
 .th-product-compare-wrap .th-product-compare-container .th-nav_ > a:last-child {
   border: none;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ > a:hover, .th-product-compare-wrap .th-product-compare-container .th-nav_ > a.active {
+.th-product-compare-wrap .th-product-compare-container .th-nav_ > a:hover,
+.th-product-compare-wrap .th-product-compare-container .th-nav_ > a.active {
   background: white;
   color: #fd654b;
   border-left: 4px solid;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ > a[data-tab=pro-feature] {
+.th-product-compare-wrap
+  .th-product-compare-container
+  .th-nav_
+  > a[data-tab="pro-feature"] {
   color: #ef653f;
 }
 .th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn {
@@ -167,24 +171,44 @@
   bottom: 0;
   background: #ebebeb;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button {
+.th-product-compare-wrap
+  .th-product-compare-container
+  .th-nav_
+  .th-save-btn
+  button {
   display: flex;
   grid-gap: 7px;
   padding: 0 25px;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button:before {
+.th-product-compare-wrap
+  .th-product-compare-container
+  .th-nav_
+  .th-save-btn
+  button:before {
   font-family: "dashicons";
   height: unset;
   width: unset;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button.th-compare-reset-style-btn:before {
+.th-product-compare-wrap
+  .th-product-compare-container
+  .th-nav_
+  .th-save-btn
+  button.th-compare-reset-style-btn:before {
   content: "\f531";
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button.loading {
+.th-product-compare-wrap
+  .th-product-compare-container
+  .th-nav_
+  .th-save-btn
+  button.loading {
   pointer-events: none;
   opacity: 0.5;
 }
-.th-product-compare-wrap .th-product-compare-container .th-nav_ .th-save-btn button.loading:before {
+.th-product-compare-wrap
+  .th-product-compare-container
+  .th-nav_
+  .th-save-btn
+  button.loading:before {
   content: "\f463";
   animation: loaderTMK 0.8s linear 0s infinite forwards;
 }
@@ -458,8 +482,6 @@ label.color-output {
   color: #4e4e4e;
 }
 
-.active[data-slug=th-product-compare] .premium a {
+.active[data-slug="th-product-compare"] .premium a {
   color: #c9356e;
 }
-
-/*# sourceMappingURL=style.css.map */
