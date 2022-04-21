@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-02-08 12:04+0530\n"
-"PO-Revision-Date: 2022-02-08 12:04+0530\n"
+"POT-Creation-Date: 2022-04-02 17:51+0530\n"
+"PO-Revision-Date: 2022-04-02 17:51+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -157,15 +157,15 @@ msgstr ""
 msgid "Join Our Facebook Group"
 msgstr ""
 
-#: admin/pages/help.php:23
+#: admin/pages/help.php:23 admin/themehunk-menu/th-option/sidebar.php:21
 msgid "Leave us a review"
 msgstr ""
 
-#: admin/pages/help.php:24
+#: admin/pages/help.php:24 admin/themehunk-menu/th-option/sidebar.php:22
 msgid "We would love to hear your feedback."
 msgstr ""
 
-#: admin/pages/help.php:25
+#: admin/pages/help.php:25 admin/themehunk-menu/th-option/sidebar.php:23
 msgid "Submit review"
 msgstr ""
 
@@ -270,23 +270,94 @@ msgstr ""
 msgid "TH Advance Product Search"
 msgstr ""
 
-#: notice/th-notice.php:29
+#: admin/themehunk-menu/th-option/header.php:19
+msgid "Plugins"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/header.php:31
+msgid "TH Shop Mania Free Theme"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/header.php:32
+msgid "Elementor + WooCommerce Free WordPress Theme."
+msgstr ""
+
+#: admin/themehunk-menu/th-option/header.php:34
+msgid "View Detail"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:4
+msgid "ThemeHunk Premium Plugins"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:7
+msgid ""
+"If you like the free version of this plugin, you will LOVE the full version "
+"of plugin which includes numerous  Advanced features, Custom Style and more "
+"useful options to customize your plugins."
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:8
+msgid "Upgrade To Premium Plugin"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:13
+msgid "Why Upgrade?"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:14
+msgid ""
+"Upgrading to Premium plugins you will unlock a dozen of unique features that "
+"will take your website to the next level."
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:15
+msgid "View Premium Plugins"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:29
+msgid "Video Tutorials"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:30
+msgid ""
+"Want a guide? We have video tutorials to walk you through getting started."
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:31
+msgid "Watch Videos"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:36
+msgid "Support"
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:37
+msgid ""
+"Have a question, we are happy to help! Get in touch with our support team."
+msgstr ""
+
+#: admin/themehunk-menu/th-option/sidebar.php:38
+msgid "Submit a Ticket"
+msgstr ""
+
+#: notice/th-notice.php:52
 msgid "TH Product Compare Pro"
 msgstr ""
 
-#: notice/th-notice.php:32
+#: notice/th-notice.php:55
 msgid ""
 "Let's remove users confusion & help them to choose the correct product. Make "
 "product selection easy & advanced, using Compare Pro."
 msgstr ""
 
-#: notice/th-notice.php:33
+#: notice/th-notice.php:56
 msgid ""
 "Filter Similarities and Differences in Compare table for fast and easy "
 "comparison. You can show Custom and Global Attributes in the Compare table "
 "and order them in your desired order."
 msgstr ""
 
-#: notice/th-notice.php:35
+#: notice/th-notice.php:58
 msgid "Upgrade To Pro"
 msgstr ""
