@@ -18,7 +18,7 @@
   content: "\f15e";
   font-family: "dashicons";
 }
-.th-product-compare-btn.loading {
+/* .th-product-compare-btn.loading {
   pointer-events: none;
 }
 .th-product-compare-btn.loading:after {
@@ -34,7 +34,7 @@
   border: 4px solid #436eee;
   border-top-color: white;
   animation: loaderTMKWithCenter 0.8s linear 0s infinite forwards;
-}
+} */
 
 @keyframes loaderTMKWithCenter {
   0% {
