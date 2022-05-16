@@ -88,6 +88,7 @@ class th_product_compare
 
     public function enqueue_front_script()
     {
+        wp_enqueue_style('dashicons');
         wp_enqueue_style('th-product-compare-style-front', TH_PRODUCT_URL . 'assets/fstyle.css', false);
         wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/fscript.js', array('jquery'), 1, true);
         wp_localize_script('th-product-js', 'th_product', array('th_product_ajax_url' => admin_url('admin-ajax.php')));
