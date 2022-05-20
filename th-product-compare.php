@@ -12,7 +12,7 @@
 * Text Domain: th-product-compare
  */
 if (!defined('ABSPATH')) exit;
-if (!function_exists('th_product_compare_loaded_pro')) {
+if (!function_exists('tpcp_loaded')) {
     define('TH_PRODUCT_URL', plugin_dir_url(__FILE__));
     define('TH_PRODUCT_PATH', plugin_dir_path(__FILE__));
     define('TH_PRODUCT_BASE_NAME', __FILE__);
