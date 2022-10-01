@@ -14,21 +14,37 @@ class th_product_compare_return
     public function get_products()
     {
         if (isset($_POST['product_id']) && intval($_POST['product_id']) || $_POST['product_id'] === 'refresh') {
+
             $productID = $_POST['product_id'] === 'refresh' ? 'refresh' : intval($_POST['product_id']);
+
             $addREmove = sanitize_text_field($_POST['add_remove']);
+
             $setID = $this->setId_cookie($productID, $addREmove);
+
             if (!empty($setID)) {
+
                 $html = $this->productHtml($setID);
+
                 if (isset($setID['product_limit'])) {
+
                     $html['product_limit'] = __('Product Limit Exceeded.', 'th-product-compare');
+
                 }
+
                 $return = $html;
+
             } else {
+
                 $return = ['no_product' => 1];
+
             }
+
             wp_send_json($return);
+
         }
+
     }
+    
     public function productHtml($setID, $type_ = [])
     {
         $removeBtn = true;

@@ -29,22 +29,30 @@ class th_product_compare
         if (!class_exists('WP_Roles')) {
             return;
         }
+
         if (!isset($wp_roles)) {
+
             $wp_roles = new WP_Roles();
         }
+
         // Shop manager role
+
         add_role('th_product_compare_role', __('Product Compare Role', 'th-product-compare'), array(
             'level_9'        => true,
             'read'          => true,
         ));
+
         $wp_roles->add_cap('th_product_compare_role', 'th_product_compare_manager');
+
         $wp_roles->add_cap('administrator', 'th_product_compare_manager');
+
     }
+
     public function admin_menu()
     {
 
         add_submenu_page('themehunk-plugins', __('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'), 1);
-        //add_menu_page(__('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'th_product_compare_manager', 'th-product-compare', array($this, 'display_addons'), TH_PRODUCT_URL . '/assets/img/th-nav-logo.png', 59);
+        
     }
     // add menu links in left where plugin name placed 
     public function add_menu_links($links)
@@ -72,18 +80,27 @@ class th_product_compare
 
     public function display_addons()
     {
+
+        if ( ! current_user_can( 'manage_options' ) ) {
+        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','th-advance-product-search' ) );
+        }
+        
         if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {
 
             $th_compare_option = $this->localizeOption; //appear in file pages/advance-setting.php, pages/general.php, pages/style.php
             include_once "page.php";
         }
     }
+
     public function enqueue_admin_script($hook)
     {
         // if ('check-plugin' != $hook) return;
         wp_enqueue_style('th-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false);
         wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/script.js', [], 1, true);
-        wp_localize_script('th-product-js', 'th_product', array('th_product_ajax_url' => admin_url('admin-ajax.php')));
+        wp_localize_script('th-product-js', 'th_product', array('th_product_ajax_url' => admin_url('admin-ajax.php'),
+            'th_product_compare_nonce' => wp_create_nonce( '_wpnonce' ),
+
+    ));
     }
 
     public function enqueue_front_script()

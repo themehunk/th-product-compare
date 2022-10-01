@@ -67,6 +67,7 @@
         data: {
           action: "th_compare_save_data",
           inputs: sendData,
+          nonce: th_product.th_product_compare_nonce,
         },
         success: function (response) {
           if (response == "update") {
@@ -87,6 +88,7 @@
         data: {
           action: "th_compare_reset_data",
           inputs: "reset",
+          nonce: th_product.th_product_compare_nonce,
         },
         success: function (response) {
           // console.log("response->", response);

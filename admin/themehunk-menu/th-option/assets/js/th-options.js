@@ -132,7 +132,8 @@ function openTab(evt, tabName) {
                 data : {
                     action : 'th_activeplugin',
                     init   :  $init,
-                    slug   :  $slug
+                    slug   :  $slug,
+                    nonce  : ThCompareAdmin.nonce,
                 }
             }).done(function ( response ){
             	if( response.success) {

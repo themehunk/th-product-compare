@@ -11,12 +11,13 @@
             <div class="col-2">
                 <div class="th-option-heading">
                 <h3><?php echo $theme_header['welcome']; ?></h3>
-                    <p><?php echo $theme_header['welcome_desc']; ?></p>
+                <p><?php echo $theme_header['welcome_desc']; ?></p>
                 </div>
             </div>
         </div>
         <div class="th-option-bottom-hdr">
-            <a class="tablinks active <?php echo esc_attr($tabActiveRp) ?>" onclick="openTab(event, 'Recommended-Plugin')"><?php _e('Plugins', 'th-product-compare'); ?> </a>
+            <a class="tablinks active <?php echo esc_attr($tabActiveRp); ?>" onclick="openTab(event, 'Recommended-Plugin')"><?php _e('Plugins', 'th-product-compare'); ?>
+            </a>
         </div>
     </div>
 
