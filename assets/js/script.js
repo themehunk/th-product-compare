@@ -73,9 +73,6 @@
           if (response == "update") {
             thisBTN.removeClass("loading");
           }
-          setTimeout(() => {
-            thisBTN.removeClass("loading");
-          }, 500);
         },
       });
     },
@@ -91,7 +88,6 @@
           nonce: th_product.th_product_compare_nonce,
         },
         success: function (response) {
-          // console.log("response->", response);
           if (response == "reset") {
             setTimeout(() => {
               location.reload();
