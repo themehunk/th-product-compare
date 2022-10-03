@@ -68,12 +68,19 @@ class th_compare_admin
 
             $result = $this->setOption($_POST['inputs']);
 
+           if($result){
+
+            echo 'update';
+
+           }
+
         }
 
         die();
 
         }
     }
+
     // cookies
     public function setOption($inputs)
     {
@@ -130,6 +137,8 @@ class th_compare_admin
             if ($checkOption) {
 
                 delete_option($this->optionName);
+
+                echo 'reset';
 
             }
 
