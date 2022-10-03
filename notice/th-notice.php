@@ -43,13 +43,21 @@ class Th_Product_Compare_Notice{
 
     function th_product_compare_admin_notice() { 
 
-    $display = isset($_GET['ntc-cmpr-disable'])?'none':'block';
+    if(isset($_GET['ntc-cmpr-disable'])){
+
+          $display ='none';
+
+          }else{
+
+          $display ='block';
+
+          }
 
     ?>
      
-    <div class="th-product-compare-notice notice " style="display:<?php echo $display; ?>;">
+    <div class="th-product-compare-notice notice " style="display:<?php echo esc_attr($display); ?>">
         <div class="th-product-compare-notice-wrap">
-            <div class="th-product-compare-notice-image"><img src="<?php echo esc_url( TH_PRODUCT_URL.'notice/img/compare-pro.png' );?>" alt="<?php _e('TH Product Compare Pro','th-product-compare'); ?>"></div>
+         <div class="th-product-compare-notice-image"><img src="<?php echo esc_url( TH_PRODUCT_URL.'notice/img/compare-pro.png' );?>" alt="<?php _e('TH Product Compare Pro','th-product-compare'); ?>"></div>
             <div class="th-product-compare-notice-content-wrap">
                 <div class="th-product-compare-notice-content">
                 <p class="th-product-compare-heading"><?php _e('Let\'s remove users confusion & help them to choose the correct product. Make product selection easy & advanced, using Compare Pro.','th-product-compare'); ?></p>
@@ -82,11 +90,15 @@ class Th_Product_Compare_Notice{
     function th_product_compare_notice_unset_cookie(){
 
             $visit_time = time();
-            $cookie_time = $_COOKIE['thntc_time'];
+
+            $cookie_time = isset($_COOKIE['thntc_time']) ? sanitize_key($_COOKIE['thntc_tim']) : '0';
 
             if ($cookie_time < $visit_time) {
-                setcookie('thntc_time', null, strtotime('-1 day'));
+
+            setcookie('thntc_time', null, strtotime('-1 day'));
+
             }
+
     }
 
     

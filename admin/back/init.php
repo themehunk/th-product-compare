@@ -17,7 +17,9 @@ class th_compare_admin
 
     public function filter_product()
     {
-        $text_ = sanitize_text_field($_POST['inputs']);
+
+        $text_ = isset( $_POST['inputs'] ) ? sanitize_text_field($_POST['inputs']):'';
+
         $arrArg = array(
             'post_type'     => 'product',
             'post_status'   => 'publish',
@@ -35,7 +37,6 @@ class th_compare_admin
         $items = array();
         if (!empty($results->posts)) {
             foreach ($results->posts as $result) {
-                // $product = wc_get_product($result->ID);
 
                 $imageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($result->ID), 'single-post-thumbnail');
                 $imageUrl = isset($imageUrl[0]) ? $imageUrl[0] : wc_placeholder_img_src();
@@ -51,50 +52,95 @@ class th_compare_admin
         }
         wp_send_json_success($items);
     }
+
+
     public function save()
     {
+         if ( ! current_user_can( 'administrator' ) ) {
+
+            wp_die( - 1, 403 );
+
+            }
+
+         if (isset($_GET['nonce']) || wp_verify_nonce($_REQUEST['nonce'], '_wpnonce' ) ) {
+
         if (isset($_POST['inputs']) && is_array($_POST['inputs'])) {
+
             $result = $this->setOption($_POST['inputs']);
-            echo $result ? 'update' : false;
+
         }
+
         die();
+
+        }
     }
     // cookies
     public function setOption($inputs)
     {
         $checkOption = get_option($this->optionName);
+
         $saveOption = $this->sanitizeOptions($inputs);
+
         if ($checkOption) {
+
             $result = update_option($this->optionName, $saveOption);
+
         } else {
+
             $result = add_option($this->optionName, $saveOption);
+
         }
+
         return $result;
     }
 
     function sanitizeOptions($array)
     {
         foreach ($array as $key => &$value) {
+
             if (is_array($value)) {
+
                 $value = $this->sanitizeOptions($value);
+
             } else {
+
                 $value = sanitize_text_field($value);
             }
+
         }
+
         return $array;
     }
 
     public function reset()
     {
-        if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
-            $checkOption = get_option($this->optionName);
-            if ($checkOption) {
-                delete_option($this->optionName);
-                echo 'reset';
+
+        if ( ! current_user_can( 'administrator' ) ) {
+
+            wp_die( - 1, 403 );
+
             }
+
+    if (isset($_GET['nonce']) || wp_verify_nonce($_REQUEST['nonce'], '_wpnonce' ) ) {
+
+        if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
+
+            $checkOption = get_option($this->optionName);
+
+            if ($checkOption) {
+
+                delete_option($this->optionName);
+
+            }
+
         }
+
         die();
+
     }
+
+
+  }
 
     // class end
 }
