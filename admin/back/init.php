@@ -70,7 +70,7 @@ class th_compare_admin
 
            if($result){
 
-            echo 'update';
+            echo esc_html('update');
 
            }
 
@@ -138,7 +138,7 @@ class th_compare_admin
 
                 delete_option($this->optionName);
 
-                echo 'reset';
+                echo esc_html('reset');
 
             }
 
