@@ -12,6 +12,6 @@
         <a class="link_" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/'); ?>"><?php _e('Upgrade Pro', 'th-product-compare'); ?></a>
     </div>
 
-    <a class="bnr" target="_blank" href="<?php echo esc_url('https://themehunk.com/product/amaz-store/'); ?>"><img src='<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/amaz-store.png'); ?>' alt="amaz-store">
+    <a class="bnr" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"><img src='<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/th-shop-mania-ad.png'); ?>' alt="amaz-store">
     </a>
 </section>
