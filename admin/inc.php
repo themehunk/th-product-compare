@@ -51,7 +51,7 @@ class th_product_compare
     public function admin_menu()
     {
 
-        add_submenu_page('themehunk-plugins', __('TH Compare', 'th-product-compare'), __('TH Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'), 1);
+        add_submenu_page('themehunk-plugins', __('Product Compare', 'th-product-compare'), __('Product Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'), 1);
         
     }
     // add menu links in left where plugin name placed 
