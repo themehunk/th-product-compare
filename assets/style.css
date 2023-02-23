@@ -260,7 +260,7 @@ label.color-output {
 
 .bold-heading {
   color: #2e2e2e;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -283,7 +283,6 @@ label.color-output {
   max-width: unset;
 }
 .th-general .th-option_ table tr td {
-  flex: 1;
   line-height: 1;
 }
 .th-general .th-option_ table tr td:first-child {
@@ -321,13 +320,14 @@ label.color-output {
   }
 }
 .description {
-  font-size: 12px;
     font-weight: 500;
     color: #787878;
     font-style: NORMAL;
     margin-top: 6px;
     display: block;
     line-height: 19px;
+    font-size: 0.867rem;
+    color: #444;
 }
 
 .th-product-compare-wrap .setting_ {
