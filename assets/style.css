@@ -179,7 +179,7 @@
   grid-gap: 20px;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 9px;
   background: transparent;
 }
 .th-product-compare-wrap
@@ -189,7 +189,9 @@
   button {
   display: flex;
   grid-gap: 7px;
-  padding: 0 25px;
+  padding: 2px 25px;
+  min-width: 127px;
+  justify-content: center;
 }
 .th-product-compare-wrap
   .th-product-compare-container
@@ -429,7 +431,7 @@ label.color-output {
 }
 
 .th-compare-pro-feature .th-compare-banner {
-  background: #2471b1;
+  background: #1681ef;
   display: flex;
   padding: 20px 26px;
   border-radius: 4px;

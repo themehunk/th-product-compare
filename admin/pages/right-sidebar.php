@@ -3,7 +3,7 @@
     <div>
         <span class="heading_"><?php _e('Documentation', 'th-product-compare'); ?></span>
         <span class="description_"><?php _e('Want to know how this plugin works. Read our Documentation.', 'th-product-compare'); ?></span>
-        <a class="link_" target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-product-compare-pro/'); ?>"><?php _e('READ', 'th-product-compare'); ?></a>
+        <a class="link_" target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-product-compare-pro/'); ?>"><?php _e('View More', 'th-product-compare'); ?></a>
     </div>
     <div>
         <span class="heading_"><?php _e('Unlock Th Product Compare Pro', 'th-product-compare'); ?></span>

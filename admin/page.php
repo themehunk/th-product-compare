@@ -10,7 +10,7 @@
             </span>
             <a data-group-tabs="main" data-tab="general" href="#" class="active"><span class="dashicons dashicons-admin-generic"></span><?php _e('Basic Settings', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="setting" href="#"><span class="dashicons dashicons-hammer"></span><?php _e('Advance', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span class="dashicons dashicons-awards"></span><?php _e('Premium', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span class="dashicons dashicons-unlock"></span><?php _e('Premium', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="help" href="#"><span class="dashicons dashicons-editor-help"></span><?php _e('Help', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span class="dashicons dashicons-admin-plugins"></span><?php _e('ThemeHunk Useful Plugins', 'th-product-compare'); ?></a>
             <div class="th-save-btn">
