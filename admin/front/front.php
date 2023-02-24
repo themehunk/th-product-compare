@@ -28,10 +28,8 @@ class th_product_compare_shortcode
                 }
 
                 return $decodeArray;
-
             }
         }
-
     }
 
     public function get()
@@ -39,7 +37,6 @@ class th_product_compare_shortcode
         add_shortcode('th_compare', array($this, 'compare'));
 
         $this->showAndHideSingle();
-
     }
 
     public function showAndHideShopPage()
@@ -58,21 +55,15 @@ class th_product_compare_shortcode
                 if ($checkOption['field-product-page'] == '1') {
 
                     add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
-
                 }
-
             } else {
 
                 add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
-
             }
-
         } else {
 
             add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
-
         }
-
     }
 
     public function showAndHideSingle()
@@ -92,13 +83,10 @@ class th_product_compare_shortcode
 
                     add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
                 }
-
             } else {
 
                 add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
-
             }
-
         } else {
 
             add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
@@ -114,9 +102,7 @@ class th_product_compare_shortcode
         if ($productId) {
 
             $this->btnBYoption($productId);
-
         }
-
     }
 
     // show compare by shortcode
@@ -131,9 +117,7 @@ class th_product_compare_shortcode
         if ($product_id) {
 
             $this->btnBYoption($product_id);
-
         }
-
     }
 
     public function btnBYoption($product_id)
@@ -154,7 +138,6 @@ class th_product_compare_shortcode
             if (isset($checkOption['compare-btn-type']) && $checkOption['compare-btn-type'] == 'link') {
 
                 $compareBtnTypeClass = 'txt_type';
-
             }
 
             // btn text 
@@ -162,7 +145,6 @@ class th_product_compare_shortcode
             if (isset($checkOption['compare-btn-text']) && $checkOption['compare-btn-text']) {
 
                 $compareText = $checkOption['compare-btn-text'];
-
             }
         }
 
@@ -179,9 +161,7 @@ class th_product_compare_shortcode
             if ($getExist) {
 
                 $btnClass .= ' th-added-compare';
-
             }
-
         }
 ?>
         <div class='th-product-compare-btn-wrap'>
@@ -201,7 +181,6 @@ function th_compare_add_action_shop_list()
     $obj = new th_product_compare_shortcode();
 
     $obj->showAndHideShopPage();
-
 }
 
 add_action('woocommerce_init', 'th_compare_add_action_shop_list');

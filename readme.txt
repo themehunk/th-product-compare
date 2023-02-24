@@ -1,18 +1,18 @@
-====== Th Product Compare ========
+====== Product Compare for WooCommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: compare, wc popup, woocommerce compare product, compare product
+Tags: compare, woocommerce compare, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.1
 Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Th Product Compare plugin helps you to create interactive product comparison tables and allow customers to compare their products. It will also increases engagement and conversion rates. This plugin lets the customers to compare different product and display fields like Image, Title, Rating, Price, Add to cart, Description, Availability and SKU. You can display Compare button or link with your products and also add Number of Product to Compare in your comparison table. It is fully Responsive and user friendly plugin which make your buying decision more easy.
+Th Product Compare plugin for WooCommerce helps you to create interactive product comparison tables and allow customers to compare their products.
 
 == Description ==
 
-Th Product Compare plugin helps you to create interactive product comparison tables and allow customers to compare their products. It will also increases engagement and conversion rates. This plugin lets the customers to compare different product and display fields like Image, Title, Rating, Price, Add to cart, Description, Availability and SKU. You can display Compare button or link with your products and also add Number of Product to Compare in your comparison table. It is fully Responsive and user friendly plugin which make your buying decision more easy.
+Th Product Compare plugin helps you to create interactive product comparison tables and allow customers to compare their products on their WooCommerce Store. It will also increases engagement and conversion rates. This plugin lets the customers to compare different product and display fields like Image, Title, Rating, Price, Add to cart, Description, Availability and SKU. You can display Compare button or link with your products and also add Number of Product to Compare in your comparison table. It is Woocommerce Compatible, fully Responsive, and user friendly plugin which make your buying decision more easy.
 
 [Docs](https://themehunk.com/docs/th-product-compare-pro/) | [Sales Page](https://themehunk.com/th-product-compare-plugin/) | [support](https://themehunk.com/contact-us/)
 
