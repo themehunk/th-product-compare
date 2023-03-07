@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, woocommerce compare, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.1
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.2.6 =
+ Update : th_compare_save_data function modified.
+
 = 1.2.5 =
  Update : Admin css modified.
 
@@ -141,8 +144,8 @@ Update Readme content
 Initial release
 
 == Upgrade Notice ==
-= 1.2.4 =
- Update : TH Shop Mania banner added.
+= 1.2.6 =
+ Update : th_compare_save_data function modified.
  
 = 1.0.0 =
 Initial release
