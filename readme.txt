@@ -95,6 +95,7 @@ Yes, You can translate our plugin to desired language.
 
 = 1.2.6 =
  Update : th_compare_save_data function modified.
+ FIX : save, reset and plugin th_activeplugin logged in user and nonce issue fixed.
 
 = 1.2.5 =
  Update : Admin css modified.

@@ -56,15 +56,18 @@ class th_compare_admin
 
     public function save()
     {
-         if ( ! current_user_can( 'administrator' ) ) {
+         if (!is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
 
             wp_die( - 1, 403 );
 
             }
             
-            check_ajax_referer( '_wpnonce','nonce');
-         if (isset($_GET['nonce']) || wp_verify_nonce($_REQUEST['nonce'], '_wpnonce' ) ) {
+        if (!wp_verify_nonce($_REQUEST['nonce'], '_wpnonce')) {
 
+                wp_die( - 1, 403 );
+                
+            }
+        
         if (isset($_POST['inputs']) && is_array($_POST['inputs'])) {
 
             $result = $this->setOption($_POST['inputs']);
@@ -79,7 +82,6 @@ class th_compare_admin
 
         die();
 
-        }
     }
 
     // cookies
@@ -123,13 +125,17 @@ class th_compare_admin
     public function reset()
     {
 
-        if ( ! current_user_can( 'administrator' ) ) {
+        if (!is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
 
             wp_die( - 1, 403 );
 
             }
+            
+        if (!wp_verify_nonce($_REQUEST['nonce'], '_wpnonce')) {
 
-    if (isset($_GET['nonce']) || wp_verify_nonce($_REQUEST['nonce'], '_wpnonce' ) ) {
+                wp_die( - 1, 403 );
+                
+        }
 
         if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
 
@@ -146,9 +152,6 @@ class th_compare_admin
         }
 
         die();
-
-    }
-
 
   }
 
