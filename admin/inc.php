@@ -97,7 +97,8 @@ class th_product_compare
         // if ('check-plugin' != $hook) return;
         wp_enqueue_style('th-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false);
         wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/script.js', [], 1, true);
-        wp_localize_script('th-product-js', 'th_product', array('th_product_ajax_url' => admin_url('admin-ajax.php'),
+        wp_localize_script('th-product-js', 'th_product', array(
+            'th_product_ajax_url' => admin_url('admin-ajax.php'),
             'th_product_compare_nonce' => wp_create_nonce( '_wpnonce' ),
 
     ));

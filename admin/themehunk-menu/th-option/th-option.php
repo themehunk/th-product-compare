@@ -54,13 +54,18 @@ function tab_page() {
           */
         public function th_activeplugin(){
 
-         if ( ! current_user_can( 'administrator' ) ) {
+         if ( !is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
 
             wp_die( - 1, 403 );
                             
         } 
 
-        check_ajax_referer( 'th_product_compare_admin_nonce','nonce');
+        if (!wp_verify_nonce($_REQUEST['nonce'], 'th_product_compare_admin_nonce')) {
+
+          wp_die( - 1, 403 );
+          
+       }
+
 
        if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
         wp_send_json_error(
