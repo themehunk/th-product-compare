@@ -61,7 +61,8 @@ class th_compare_admin
             wp_die( - 1, 403 );
 
             }
-
+            
+            check_ajax_referer( '_wpnonce','nonce');
          if (isset($_GET['nonce']) || wp_verify_nonce($_REQUEST['nonce'], '_wpnonce' ) ) {
 
         if (isset($_POST['inputs']) && is_array($_POST['inputs'])) {
