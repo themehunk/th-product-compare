@@ -365,7 +365,7 @@ class th_product_compare_return
     }
     function setId_cookie($id, $addREmove)
     {
-
+        $previousCookie = array();
         $previousCookie = $this->getPrevId();
         $updateCookie = true;
         $chekBYoption = get_option('th_compare_option');
@@ -405,7 +405,7 @@ class th_product_compare_return
                     $findID = array_search($id, $previousCookie);
                     unset($previousCookie[$findID]);
                     if (count($previousCookie) == 0) {
-                        $previousCookie = false;
+                        array_push($previousCookie,false);
                     }
                 }
             }

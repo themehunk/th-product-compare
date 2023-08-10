@@ -3,8 +3,8 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: compare, woocommerce compare, compare product, product compare, product comparison
 Requires at least: 5.0
-Tested up to: 6.1
-Stable tag: 1.2.6
+Tested up to: 6.3
+Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.2.7 =
+ Update : Automatic conversion of false to array is deprecated resolved in get_products.
+
 = 1.2.6 =
  Update : th_compare_save_data function modified.
  FIX : save, reset and plugin th_activeplugin logged in user and nonce issue fixed.
@@ -145,8 +148,8 @@ Update Readme content
 Initial release
 
 == Upgrade Notice ==
-= 1.2.6 =
- Update : th_compare_save_data function modified.
+= 1.2.7 =
+ Update : Automatic conversion of false to array is deprecated resolved in get_products.
  
 = 1.0.0 =
 Initial release
