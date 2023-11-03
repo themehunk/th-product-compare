@@ -7,6 +7,7 @@ class th_product_compare
     public $localizeOption = [];
     private function __construct()
     {
+        add_action( 'before_woocommerce_init', array( $this, 'hpos_compatibility') );
         add_action('admin_init', array($this, 'create_roles'));
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_script'));
@@ -46,6 +47,16 @@ class th_product_compare
 
         $wp_roles->add_cap('administrator', 'th_product_compare_manager');
 
+    }
+
+    /**
+     *  Declare the woo HPOS compatibility.
+     */
+   public  function hpos_compatibility() {
+
+            if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', TH_PRODUCT_FILE, true );
+            }
     }
 
     public function admin_menu()
