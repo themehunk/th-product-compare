@@ -14,7 +14,7 @@
 if (!defined('ABSPATH')) exit;
 if (!function_exists('tpcp_loaded')) {
 
-    if (!defined('TH_PRODUCT_')) {
+    if (!defined('TH_PRODUCT_FILE')) {
   define('TH_PRODUCT_FILE', __FILE__);
 }
     define('TH_PRODUCT_URL', plugin_dir_url(__FILE__));
