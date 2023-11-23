@@ -81,15 +81,15 @@ class th_product_compare_shortcode
 
                 if ($checkOption['field-product-single-page'] == '1') {
 
-                    add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
+                    add_action('woocommerce_after_add_to_cart_form', array($this, 'addCompareBtn'), 30);
                 }
             } else {
 
-                add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
+                add_action('woocommerce_after_add_to_cart_form', array($this, 'addCompareBtn'), 30);
             }
         } else {
 
-            add_action('woocommerce_single_product_summary', array($this, 'addCompareBtn'), 30);
+            add_action('woocommerce_after_add_to_cart_form', array($this, 'addCompareBtn'), 30);
         }
     }
 
