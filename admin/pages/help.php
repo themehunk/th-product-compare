@@ -14,10 +14,13 @@ if (!defined('ABSPATH')) exit;
             <a href="<?php echo esc_url('https://themehunk.com/contact-us/'); ?>" class="link_"><?php _e('Need help ?', 'th-product-compare'); ?></a>
         </div>
         <div>
-            <span class="bold-heading"><?php _e('Join Group', 'th-product-compare'); ?></span>
-            <p class="th-color-title"><?php _e('Join the community of friendly ThemeHunk users. Get connected, share opinion, ask questions and help each other!', 'th-product-compare'); ?></p>
-            <p class="th-color-title"><?php _e('Please Join Our Facebook Group'); ?></p>
-            <a href="<?php echo esc_url('https://www.facebook.com/groups/themehunk'); ?>" class="link_ fb"><?php _e('Join Our Facebook Group', 'th-product-compare'); ?></a>
+            <span class="bold-heading"><?php _e('Spread the News', 'th-product-compare'); ?></span>
+            <p class="th-color-title"><?php _e('Love using this theme? Spread the word and let the world know you’ve crafted an awesome website for your store! Share your experience and showcase your stunning online presence to inspire others.', 'th-product-compare'); ?></p>
+            
+            <a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-shop-mania&text=Hey, I am using this awesome WooCommerce Theme for WordPress and created a beautiful store website for <?php echo esc_url(home_url()); ?> . You can also check out this awesome theme: Shop Mania By 
+@ThemeHunk %20%23WooCommerce%20%23WordPress" target="_blank" rel="external noreferrer noopener" class="x-gropup is-link">
+        <span class="x-image"><img src="<?php echo(TH_PRODUCT_URL . 'assets/img/x.png'); ?>" /></span>
+        <span><?php _e(' Click to Tweet','th-shop-mania'); ?></span></a>
         </div>
         <div>
             <span class="bold-heading"><?php _e('Leave us a review', 'th-product-compare'); ?></span>

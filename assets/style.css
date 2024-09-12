@@ -2,7 +2,7 @@
   display: flex;
     flex-direction: column;
     /* padding-left: 1.5rem; */
-    width: 28%;
+    width: 21%;
     line-height: 21px;
 }
 .th-right-sidebar img {
@@ -134,7 +134,7 @@
 .th-product-compare-wrap .th-product-compare-container .th-nav_ {
     display: flex;
     flex-direction: column;
-    width: 28%;
+    width: 25%;
     border: none;
     padding: 10px;
     background: #E1E6F4;
@@ -227,7 +227,7 @@
 }
 .th-product-compare-wrap .container-tabs {
   padding: 1.5rem;
-    width: 80%;
+    width: 54%;
     margin: 0 20px;
     background: #fff;
     padding-top: 2.8rem;
@@ -274,8 +274,8 @@ label.color-output {
   flex: 1;
 }
 .th-general .th-option_ table tr {
-  margin: 21px 0;
-  display: flex;
+  margin: 20px 0;
+  display: block;
   padding-bottom: 6px;
 }
 .th-general .th-option_ table tr:first-child {
@@ -413,7 +413,7 @@ label.color-output {
   display: flex;
   flex-direction: column;
   grid-gap: 12px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .th-help-wrap .blocks > div .link_.fb {
   background-color: #2b8ef2;
@@ -519,4 +519,28 @@ label.color-output {
     color: #aab2cb;
 }
 .th-product-compare-wrap .th-product-compare-container .th-nav_ > a.active span {
-    color: #007eff}
+    color: #007eff
+  }
+.x-gropup {
+    display: flex;
+    align-items: center;
+    background-color: #2a2929;
+    padding: 2px 0px 1px 12px;
+    margin: 20px 0 0 !important;
+    color: #fff;
+    line-height: normal;
+    text-decoration: none;
+    box-shadow: 0 0 0 0 #3b5998;
+    transition: .3s ease;
+    border-radius: 58px;
+    width: 179px;
+}
+.x-gropup:hover{
+  color: #FFF;
+}
+.x-image{
+  max-width: 54px;
+}
+.x-image img{
+  max-width: 100%;
+}

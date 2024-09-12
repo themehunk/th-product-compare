@@ -8,7 +8,7 @@
             <div>
                 <div class="img_">
                     <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/') ?>">
-                        <img src="<?php echo esc_url('https://ps.w.org/th-all-in-one-woo-cart/assets/icon-128x128.png'); ?>">
+                        <img src="<?php echo esc_url('https://ps.w.org/th-all-in-one-woo-cart/assets/icon-128x128.gif'); ?>">
                     </a>
                 </div>
                 <div class="description_">
