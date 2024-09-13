@@ -1,5 +1,12 @@
 <?php
  return array(
+    'vayu-blocks' => array(
+        'name' => esc_html__('Vayu Blocks', 'th-product-compare'),
+        'img' => 'icon-128x128.png',
+        'admin_link' =>   'vayu-blocks',
+        'details' => esc_url('https://themehunk.com/vayu-blocks/'),
+        'active_filename' => 'vayu-blocks/vayu-blocks.php',
+    ),
     'th-advance-product-search' => array(
         'name' => esc_html__('TH Advance Product Search', 'wp-popup-builder'),
         'img' => 'icon-128x128.gif',
