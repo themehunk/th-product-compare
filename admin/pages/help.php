@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) exit;
         </div>
         <div>
             <span class="bold-heading"><?php _e('Spread the News', 'th-product-compare'); ?></span>
-            <p class="th-color-title"><?php _e('Love using this theme? Spread the word and let the world know you’ve crafted an awesome website for your store! Share your experience and showcase your stunning online presence to inspire others.', 'th-product-compare'); ?></p>
+            <p class="th-color-title"><?php _e('Enjoying this plugin? Help spread the the creation and show off your amazing website with such amazing functionality.', 'th-product-compare'); ?></p>
             
             <a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-product-compare-plugin/&text=Hey, I just tried out the WordPress Plugin for <?php echo esc_url(home_url()); ?> . You can also check out this awesome plugin: TH Product Compare By 
 @ThemeHunk %20%23WooCommerce%20%23WordPress" target="_blank" rel="external noreferrer noopener" class="x-gropup is-link">
