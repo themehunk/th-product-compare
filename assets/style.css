@@ -10,7 +10,7 @@
   margin: auto;
 }
 .th-right-sidebar a.bnr {
-  margin: auto;
+  margin: 0 auto;
 }
 .th-right-sidebar > div {
   padding: 22px 15px;
@@ -32,7 +32,7 @@
     letter-spacing: -0.08px;
     font-size: .6875rem;
     line-height: 1.81818;
-    background: #1681ef;
+    background: #858789;
     color: #fff;
     display: inline-flex;
     border-radius: 4px;
@@ -40,6 +40,9 @@
     font-weight: 700;
     text-decoration: auto;
     display: block;
+}
+.th-right-sidebar > div a.link_:hover{
+  background: #575555;
 }
 
 .th-useful-plugins {
@@ -431,7 +434,8 @@ label.color-output {
 }
 
 .th-compare-pro-feature .th-compare-banner {
-  background: #1681ef;
+  background: #E1E6F4;
+  color: #111;
   display: flex;
   padding: 20px 26px;
   border-radius: 4px;
@@ -442,6 +446,9 @@ label.color-output {
   width: 687px;
   max-width: 100%;
 }
+.th-compare-pro-feature .th-compare-banner .heading_{
+  color: #111;
+}
 .th-compare-pro-feature .th-compare-banner .heading_ {
   flex: 3;
   line-height: 1.4;
@@ -451,7 +458,7 @@ label.color-output {
 }
 .th-compare-pro-feature .th-compare-banner .button_ a {
   display: block;
-  background: #f7a100;
+  background: #3070ff;
   color: white;
   text-decoration: none;
   text-align: center;
@@ -543,4 +550,34 @@ label.color-output {
 }
 .x-image img{
   max-width: 100%;
+}
+.th-option-save-btn{
+  background: #3070ff!important;
+}
+.wp-core-ui .button-primary.th-option-save-btn:focus{
+  box-shadow: none;
+    outline: 0;
+    border: 0;
+}
+.wp-core-ui .button.th-compare-reset-style-btn{
+    color: #3070ff;
+    border-color: #3070ff;
+}
+.th-compare-pro-feature .img_{
+    position: relative;
+}
+.th-compare-pro-feature .img_:after{
+  content: 'Pro';
+    background: #b73838;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    width: 29px;
+    height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 12px;
 }
