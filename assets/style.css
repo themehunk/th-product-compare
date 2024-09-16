@@ -532,6 +532,7 @@ label.color-output {
     display: flex;
     align-items: center;
     background-color: #2a2929;
+    color: #FFF;
     padding: 2px 0px 1px 12px;
     margin: 20px 0 0 !important;
     color: #fff;
