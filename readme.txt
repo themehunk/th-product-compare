@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, woocommerce compare, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.3.1 =
+* Fix : wc_get_products() issue resolved.
+
 = 1.3.0 =
 * Update: Admin style improved.
 * New: X share button added.
@@ -158,8 +161,8 @@ Update Readme content
 Initial release
 
 == Upgrade Notice ==
-= 1.2.9 =
-* Compare Button position hook changed in Single Product.
+= 1.3.1 =
+* Fix : wc_get_products() issue resolved.
  
 = 1.0.0 =
 Initial release
