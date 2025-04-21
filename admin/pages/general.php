@@ -26,10 +26,10 @@ if (is_array($th_compare_option)) {
 ?>
 <div class="th-general">
     <div class="th-option_">
-        <span class="th-tab-heading"><?php _e('Appearance', 'th-product-compare'); ?></span>
+        <span class="th-tab-heading"><?php esc_html_e('Appearance', 'th-product-compare'); ?></span>
         <table>
             <tr>
-                <td><span class="th-color-title"><?php _e('Link or Button', 'th-product-compare'); ?></span></td>
+                <td><span class="th-color-title"><?php esc_html_e('Link or Button', 'th-product-compare'); ?></span></td>
                 <td>
                     <select data-th-save='compare-btn-type'>
                         <option value="button" <?php echo esc_html($th_product_btn_type == 'button' ? "selected" : ''); ?>><?php _e('Button', 'th-product-compare'); ?></option>
@@ -39,25 +39,25 @@ if (is_array($th_compare_option)) {
                 </td>
             </tr>
             <tr>
-                <td><span class="th-color-title"><?php _e('Link / Button Text', 'th-product-compare'); ?></span></td>
+                <td><span class="th-color-title"><?php esc_html_e('Link / Button Text', 'th-product-compare'); ?></span></td>
                 <td>
                     <input data-th-save='compare-btn-text' type="text" placeholder="Compare" value="<?php echo esc_html($th_product_compare_btn_txt); ?>">
-                    <i class="description"><?php _e('This value define maximum number of products you want to add in the compare table.', 'th-product-compare'); ?></i>
+                    <i class="description"><?php esc_html_e('This value define maximum number of products you want to add in the compare table.', 'th-product-compare'); ?></i>
                 </td>
             </tr>
             <tr>
-                <td><span class="th-color-title"><?php _e('Number of Product to Compare', 'th-product-compare') ?></span></td>
+                <td><span class="th-color-title"><?php esc_html_e('Number of Product to Compare', 'th-product-compare') ?></span></td>
                 <td>
                     <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php echo esc_html($th_product_limit); ?>">
                 </td>
             </tr>
             <tr>
-                <td><span class="th-color-title"><?php _e('Display Compare Button', 'th-product-compare') ?></span></td>
+                <td><span class="th-color-title"><?php esc_html_e('Display Compare Button', 'th-product-compare') ?></span></td>
                 <td>
                     <div class="th-compare-radio">
                         <!--title-->
                         <input type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php echo esc_html($checkChecked['field-product-single-page']); ?> value="product-single-page">
-                        <label class="th-color-title" for="field-show-product-page"><?php _e('Product Single Page.', 'th-product-compare') ?></label>
+                        <label class="th-color-title" for="field-show-product-page"><?php esc_html_e('Product Single Page.', 'th-product-compare') ?></label>
                     </div>
                 </td>
             </tr>
@@ -67,7 +67,7 @@ if (is_array($th_compare_option)) {
                     <div class="th-compare-radio">
                         <!--title-->
                         <input type="checkbox" data-th-save='compare-field' id="compare-fields-product-list" <?php echo esc_html($checkChecked['field-product-page']); ?> value="product-page">
-                        <label class="th-color-title" for="compare-fields-product-list"><?php _e('Shop and Archive Pages.', 'th-product-compare') ?></label>
+                        <label class="th-color-title" for="compare-fields-product-list"><?php esc_html_e('Shop and Archive Pages.', 'th-product-compare') ?></label>
                     </div>
                 </td>
             </tr>
