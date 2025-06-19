@@ -37,11 +37,11 @@ function th_compare_productsAttributes($defaultAttributes)
 ?>
 <div class="setting_">
     <div class="field-to-show">
-        <span class="th-tab-heading"><?php _e('Advance Settings', 'th-product-compare'); ?></span>
+        <span class="th-tab-heading"><?php esc_html_e('Advance Settings', 'th-product-compare'); ?></span>
         <div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php _e('Fields to Show in Comparison Table', 'th-product-compare') ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Fields to Show in Comparison Table', 'th-product-compare') ?></span>
                 </div>
                 <div class="th-compare-field-wrap woocommerce-th-attributes">
                     <?php th_compare_productsAttributes($defaultAttributes); ?>
@@ -49,12 +49,12 @@ function th_compare_productsAttributes($defaultAttributes)
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php _e('Repeat Fields', 'th-product-compare'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Repeat Fields', 'th-product-compare'); ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
                         <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-price" <?php echo esc_html($fieldRepeatPrice); ?> value="repeat-price">
-                        <label class="th-color-title" for="compare-fields-repeat-price"><?php _e('Repeat the Price at the end of the table', 'th-product-compare'); ?></label>
+                        <label class="th-color-title" for="compare-fields-repeat-price"><?php esc_html_e('Repeat the Price at the end of the table', 'th-product-compare'); ?></label>
                     </div>
                 </div>
             </div>
