@@ -69,7 +69,7 @@ class th_product_compare
     public function add_menu_links($links)
     {
         $links[] = '<a href="' . admin_url("admin.php?page=th-product-compare") . '">' . __('Settings', 'th-compare-product') . '</a>';
-        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank"><b>' . __('Get Pro', 'th-compare-product') . '</b></a>';
+        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank"><b>' . __('Get Pro', 'th-compare-product') . '</b></a>';
         return $links;
     }
 
@@ -82,7 +82,7 @@ class th_product_compare
                 'livedemo' => '<a href="' . esc_url('https://wpthemes.themehunk.com/th-product-compare-pro/') . '" target="_blank">' . __('Live Demo', 'th-product-compare') . '</a>',
                 'documentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
                 'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/') . '" target="_blank">' . __('Support', 'th-product-compare') . '</a>',
-                'premium_version' => '<a href="' . esc_url('https://themehunk.com/plugins/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
+                'premium_version' => '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
             );
             $plugin_meta = array_merge($plugin_meta, $new_links);
         }

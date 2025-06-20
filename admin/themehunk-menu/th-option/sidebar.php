@@ -5,14 +5,14 @@
             </h3>
             <p>
             <?php esc_html_e('If you like the free version of this plugin, you will LOVE the full version of plugin which includes numerous  Advanced features, Custom Style and more useful options to customize your plugins.','th-product-compare'); ?> </p>
-                <center><a class="button ztabtn" target="_blank" href="<?php echo esc_url('https://themehunk.com/plugins/')?>"><?php esc_html_e('Upgrade To Premium Plugin','th-product-compare'); ?> </a></center>
+                <center><a class="button ztabtn" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/')?>"><?php esc_html_e('Upgrade To Premium Plugin','th-product-compare'); ?> </a></center>
             </div>
 
             <hr>
             <div class="section">
                 <h3><?php esc_html_e('Why Upgrade?','th-product-compare'); ?></h3>
                 <p><?php esc_html_e('Upgrading to Premium plugins you will unlock a dozen of unique features that will take your website to the next level.','th-product-compare'); ?> </p>
-                 <center><a class="button button-primary" target="_blank" href="<?php echo esc_url('https://themehunk.com/plugins/')?>"><?php esc_html_e('View Premium Plugins','th-product-compare'); ?> </a></center>
+                 <center><a class="button button-primary" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/')?>"><?php esc_html_e('View Premium Plugins','th-product-compare'); ?> </a></center>
 
             </div>
 

@@ -95,6 +95,7 @@ Yes, You can translate our plugin to desired language.
 
 = 1.3.2 =
 * Update : Tested with WordPress 6.8.
+* Update : Premium link & get pro link changed.
 
 = 1.3.1 =
 * Fix : wc_get_products() issue resolved.
