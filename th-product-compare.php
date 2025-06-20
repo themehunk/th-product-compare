@@ -6,7 +6,7 @@
 * Requires at least:       5.0
 * Tested up to:            6.8
 * WC requires at least:    3.2
-* WC tested up to:         9.8
+* WC tested up to:         9.9
 * Author: ThemeHunk
 * Author URI: http://www.themehunk.com/
 * Text Domain: th-product-compare
