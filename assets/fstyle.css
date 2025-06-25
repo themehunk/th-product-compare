@@ -1,6 +1,7 @@
 .th-product-compare-btn {
   margin: 10px 0;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   position: relative;
 }
 .th-product-compare-btn.txt_type {
