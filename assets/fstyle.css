@@ -7,10 +7,10 @@
   color: #3575e9;
   font-weight: bold;
 }
-.th-product-compare-btn.btn_type {
-  color: white;
+.th-product-compare-btn-wrap .th-product-compare-btn.btn_type {
+  color: inherit;
   padding: 8px 10px;
-  background-color: black;
+  background-color: transparent;
   line-height: 1;
   text-align: inherit;
 }
