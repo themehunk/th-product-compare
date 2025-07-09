@@ -96,6 +96,7 @@ Yes, You can translate our plugin to desired language.
 = 1.3.2 =
 * Update : Tested with WordPress 6.8.
 * Update : Premium link & get pro link changed.
+* Update : Compare Button background removed and color inherited.
 
 = 1.3.1 =
 * Fix : wc_get_products() issue resolved.
@@ -168,6 +169,8 @@ Initial release
 
 = 1.3.2 =
 * Update : Tested with WordPress 6.8.
+* Update : Premium link & get pro link changed.
+* Update : Compare Button background removed and color inherited.
  
 = 1.0.0 =
 Initial release

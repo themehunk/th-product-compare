@@ -1,16 +1,17 @@
 .th-product-compare-btn {
   margin: 10px 0;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   position: relative;
 }
 .th-product-compare-btn.txt_type {
   color: #3575e9;
   font-weight: bold;
 }
-.th-product-compare-btn.btn_type {
-  color: white;
+.th-product-compare-btn-wrap .th-product-compare-btn.btn_type {
+  color: inherit;
   padding: 8px 10px;
-  background-color: black;
+  background-color: transparent;
   line-height: 1;
   text-align: inherit;
 }
