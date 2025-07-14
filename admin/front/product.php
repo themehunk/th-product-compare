@@ -45,209 +45,206 @@ class th_product_compare_return
 
     }
     
-    public function productHtml($setID, $type_ = [])
-    {
-        $removeBtn = true;
-        if (isset($type_['remove_btn'])) {
-            $removeBtn = $type_['remove_btn'];
-        }
-        $chekBYoption = $this->compareOption();
-        // ----------------------footer add more----------------------
-        $footerProduct = '';
-        // ----------------------footer add more----------------------
-        // check mobile 
-        $wp_is_mobile = wp_is_mobile();
-        $table = '';
-        $table .= '<table class="product-table-configure woocommerce">';
-        $initTitleAndRow = [];
-        if (!empty($chekBYoption['attributes'])) {
-            foreach ($chekBYoption['attributes'] as $title_key => $title_value) {
-                if ($title_value['active'] == 1) {
-                    unset($title_value['active']);
-                    $checkCustomAttr = isset($title_value['custom']) ? true : false;
-                    $name_ = $checkCustomAttr ? $title_value['label'] : str_replace("-", " ", $title_key);
-                    $putHtml = '';
-                    if ($wp_is_mobile) {
-                        if ($checkCustomAttr) {
-                            $putHtml .= '<tr class="_' . $title_key . '_"><td colspan="100" class="left-title">';
-                            $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
-                            $putHtml .= '</td></tr>';
-                        } else {
-                            $putHtml .= '<tr class="' . $title_key . '">';
-                        }
-                    } else {
-                        $putHtml .= '<tr class="_' . $title_key . '_"><td class="left-title">';
-                        if ($name_ != 'image') {
-                            $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
-                        }
-                        $putHtml .= '</td>';
-                    }
-                    $title_value['html'] = $putHtml;
-                    $initTitleAndRow[$title_key] = $title_value;
-                }
-            }
-        }
-        // return $initTitleAndRow;
-        if ($chekBYoption['field-repeat-price']) {
-            if ($wp_is_mobile) {
-                $trRepeatPrice_ = '<tr class="th-price">';
-            } else {
-                $trRepeatPrice_ = '<tr class="th-price">
-                    <td class="left-title"><span>' . __('PRICE', 'th-product-compare') . '</span></td>';
-            }
-        }
-        if ($chekBYoption['field-repeat-add-to-cart']) {
-            if ($wp_is_mobile) {
-                $trRepeatAddTocart = '<tr class="th-add-to-cart">';
-            } else {
-                $trRepeatAddTocart = '<tr class="th-add-to-cart">
-                     <td class="left-title"><span>' . __('ADD TO CART', 'th-product-compare') . '</span></td>';
-            }
-        }
-        if ($removeBtn) {
-            if ($wp_is_mobile) {
-                $trDelete_ = '<tr class="th-delete">';
-            } else {
-                $trDelete_ = '<tr class="th-delete">
-                     <td class="left-title"><span>' . __('Remove', 'th-product-compare') . '</span></td>';
-            }
-        }
-        $add_TR_AT_last = 0;
-        $count_length_last = count($setID);
-        foreach ($setID as $IDvalue) {
-            $ProductID = intval($IDvalue);
-            if ($ProductID) {
-                $add_TR_AT_last++;
-                $CheckLAstProduct = $count_length_last == $add_TR_AT_last ? true : false;
-                $product = wc_get_product($ProductID);
-                $price_ = '<span class="price_">' . $product->get_price_html() . '</span>';
-                $Add_to_cart_ = '<div class="th-add-to-cart_">' . $this->add_to_cart($product) . '</div>';
-
-                $link_ = esc_html(get_permalink($ProductID));
-
-                foreach ($initTitleAndRow as $initTitleAndRow_key => $initTitleAndRow_value) {
-                    $addMoreHtml = '';
-                    // $attrPErticularClass = '';
-                    if ($initTitleAndRow_key == 'image') {
-                        $addMoreHtml .= '<div class="image-and-addcart">';
-                        $addMoreHtml .= '<div class="img_">';
-                        $addMoreHtml .= '<a target="_blank" href="' . $link_ . '">' . $product->get_image() . '</a>';
-                        $addMoreHtml .= '</div>';
-                        $addMoreHtml .= '</div>';
-                    } else if ($initTitleAndRow_key == 'title') {
-                        $addMoreHtml .= '<span class="product-title_"><a target="_blank" href="' . $link_ . '">' . $product->get_name() . '</a></span>';
-                    } else if ($initTitleAndRow_key == 'price') {
-                        $addMoreHtml .= $price_;
-                    } else if ($initTitleAndRow_key == 'add-to-cart') {
-                        $addMoreHtml .= $Add_to_cart_;
-                    } else if ($initTitleAndRow_key == 'SKU') {
-                        $sku = $product->get_sku();
-                        $sku = $sku ? $sku : "-";
-                        $addMoreHtml .= '<span>' . $sku . '</span>';
-                    } else if ($initTitleAndRow_key == 'availability') {
-                        $productNumber  = $product->is_in_stock();
-                        $productAvailbulity = __('out of stock', 'th-product-compare');
-                        $StockClass = 'th-out-of-stoct';
-                        if ($productNumber) {
-                            $productAvailbulity = __('in stock', 'th-product-compare');
-                            $StockClass = 'th-in-stoct';
-                        }
-                        // $attrPErticularClass = $StockClass;
-                        $addMoreHtml .= '<span class="' . $StockClass . '">' . $productAvailbulity . '</span>';
-                    } else if ($initTitleAndRow_key == 'rating') {
-                        $rating_ = $this->productRating($product);
-                        $rating_ = $rating_ ? $rating_ : "-";
-                        $addMoreHtml .= '<span class="th-compare-rating">' . $rating_ . '</span>';
-                    } else if ($initTitleAndRow_key == 'description') {
-                        $description_ = $product->get_short_description();
-                        $description_ = $description_ ? $description_ : "-";
-                        $addMoreHtml .= '<span>' . $description_ . '</span>';
-                    }
-                    // add custom attributes here 
-                    else if (isset($initTitleAndRow_value['custom'])) {
-                        $customAttrGlobal = $product->get_attribute($initTitleAndRow_key);
-                        $customAttrGlobal = $customAttrGlobal ? $customAttrGlobal : '-';
-                        $addMoreHtml .= '<span>' . $customAttrGlobal . '</span>';
-                    }
-                    // add custom attributes here 
-                    // ******* ----------- we can also check that first content and init title in future ----------- *******
-                    $addHtml = '<td>';
-                    $addHtml .= $addMoreHtml;
-                    $addHtml .= '</td>';
-                    // add close row in last product 
-                    if ($CheckLAstProduct) {
-                        $addHtml .= '</tr>';
-                    }
-                    // add close row in last product 
-                    $initTitleAndRow_value['html'] = $initTitleAndRow_value['html'] . $addHtml;
-                    $initTitleAndRow[$initTitleAndRow_key] = $initTitleAndRow_value;
-                }
-                //repeat price 
-                if (isset($trRepeatPrice_)) {
-                    $trRepeatPrice_ .= '<td>' . $price_ . '</td>';
-                    if ($CheckLAstProduct) {
-                        $trRepeatPrice_ .= '</tr>';
-                    }
-                }
-                //repeat add to cart 
-                if (isset($trRepeatAddTocart)) {
-                    $trRepeatAddTocart .= '<td>' . $Add_to_cart_ . '</td>';
-                    if ($CheckLAstProduct) {
-                        $trRepeatAddTocart .= '</tr>';
-                    }
-                }
-                // delete button 
-                if (isset($trDelete_)) {
-                    $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . $ProductID . '"><i class="dashicons dashicons-dismiss"></i>' . __('Remove', 'th-product-compare')  . '</button></td>';
-                    if ($CheckLAstProduct) {
-                        $trDelete_ .= '</tr>';
-                    }
-                }
-                // ----------------------footer add more----------------------
-                $footerProduct .= '<div data-product-id="' . $ProductID . '" class="img_">';
-                $footerProduct .= '<i class="th-remove-product th-compare-product-remove" data-th-product-id="' . $ProductID . '"></i>';
-                $footerProduct .= "<a target='_blank' href='" . $link_ . "'>";
-                $footerProduct .= $product->get_image();
-                $footerProduct .= '</a>';
-                $footerProduct .= '</div>';
-                // ----------------------footer add more----------------------
-            }
-        } //end product id loop here 
-        // ----------------------footer add more----------------------
-        $footerBArPosition = $chekBYoption['compare-popup-position'];
-        $returnFooter = "<div class='th-compare-footer-wrap position-" . $footerBArPosition . "'><div>";
-        $returnFooter .= "<button class='th-footer-up-down'>
-                            <span class='text_'>" . __('TH Compare', 'th-product-compare') . "</span>
-                            <span class='icon_2 dashicons dashicons-arrow-up-alt2'></span>
-                        </button>";
-        $returnFooter .= "<div><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i><span>" . __('Add Product', 'th-product-compare') . "</span></a></div>";
-        $returnFooter .= "<div class='product_image'>";
-        $returnFooter .= $footerProduct;
-        $returnFooter .= "</div>";
-        $returnFooter .= "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'><span class='dashicons dashicons-visibility icon_'></span><span class='text_'>" . __('Compare', 'th-product-compare') . "</span></a></div>";
-        $returnFooter .= "</div></div>";
-        // ----------------------footer add more----------------------
-        foreach ($initTitleAndRow as $initTitleAndRow_final_value) {
-            $table .= $initTitleAndRow_final_value['html'];
-        }
-
-        if (isset($trRepeatPrice_)) {
-            $table .= $trRepeatPrice_;
-        }
-        if (isset($trRepeatAddTocart)) {
-            $table .= $trRepeatAddTocart;
-        }
-        if (isset($trDelete_)) {
-            $table .= $trDelete_;
-        }
-        $table .= '</table>';
-        $return = [
-            'html' => $table,
-            'footer_bar' => $returnFooter
-        ];
-        $return['add_more'] = $returnFooter;
-        return $return;
+  public function productHtml($setID, $type_ = [])
+{
+    $removeBtn = true;
+    if (isset($type_['remove_btn'])) {
+        $removeBtn = $type_['remove_btn'];
     }
+    $chekBYoption = $this->compareOption();
+
+    $footerProduct = '';
+    $wp_is_mobile = wp_is_mobile();
+    $table = '';
+    $table .= '<table class="product-table-configure woocommerce">';
+    $initTitleAndRow = [];
+
+    if (!empty($chekBYoption['attributes'])) {
+        foreach ($chekBYoption['attributes'] as $title_key => $title_value) {
+            if ($title_value['active'] == 1) {
+                unset($title_value['active']);
+                $checkCustomAttr = isset($title_value['custom']) ? true : false;
+                $name_ = $checkCustomAttr ? $title_value['label'] : str_replace("-", " ", $title_key);
+                $putHtml = '';
+                if ($wp_is_mobile) {
+                    if ($checkCustomAttr) {
+                        $putHtml .= '<tr class="_' . $title_key . '_"><td colspan="100" class="left-title">';
+                        $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
+                        $putHtml .= '</td></tr>';
+                    } else {
+                        $putHtml .= '<tr class="' . $title_key . '">';
+                    }
+                } else {
+                    $putHtml .= '<tr class="_' . $title_key . '_"><td class="left-title">';
+                    if ($name_ != 'image') {
+                        $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
+                    }
+                    $putHtml .= '</td>';
+                }
+                $title_value['html'] = $putHtml;
+                $initTitleAndRow[$title_key] = $title_value;
+            }
+        }
+    }
+
+    if ($chekBYoption['field-repeat-price']) {
+        if ($wp_is_mobile) {
+            $trRepeatPrice_ = '<tr class="th-price">';
+        } else {
+            $trRepeatPrice_ = '<tr class="th-price">
+                <td class="left-title"><span>' . __('PRICE', 'th-product-compare') . '</span></td>';
+        }
+    }
+
+    if ($chekBYoption['field-repeat-add-to-cart']) {
+        if ($wp_is_mobile) {
+            $trRepeatAddTocart = '<tr class="th-add-to-cart">';
+        } else {
+            $trRepeatAddTocart = '<tr class="th-add-to-cart">
+                 <td class="left-title"><span>' . __('ADD TO CART', 'th-product-compare') . '</span></td>';
+        }
+    }
+
+    if ($removeBtn) {
+        if ($wp_is_mobile) {
+            $trDelete_ = '<tr class="th-delete">';
+        } else {
+            $trDelete_ = '<tr class="th-delete">
+                 <td class="left-title"><span>' . __('Remove', 'th-product-compare') . '</span></td>';
+        }
+    }
+
+    $add_TR_AT_last = 0;
+    $count_length_last = count($setID);
+    $countProductsForFooter = 0;
+
+    foreach ($setID as $IDvalue) {
+        $ProductID = intval($IDvalue);
+        if ($ProductID) {
+            $add_TR_AT_last++;
+            $countProductsForFooter++;
+            $CheckLAstProduct = $count_length_last == $add_TR_AT_last ? true : false;
+            $product = wc_get_product($ProductID);
+            $price_ = '<span class="price_">' . $product->get_price_html() . '</span>';
+            $Add_to_cart_ = '<div class="th-add-to-cart_">' . $this->add_to_cart($product) . '</div>';
+            $link_ = esc_html(get_permalink($ProductID));
+
+            foreach ($initTitleAndRow as $initTitleAndRow_key => $initTitleAndRow_value) {
+                $addMoreHtml = '';
+                if ($initTitleAndRow_key == 'image') {
+                    $addMoreHtml .= '<div class="image-and-addcart">';
+                    $addMoreHtml .= '<div class="img_">';
+                    $addMoreHtml .= '<a target="_blank" href="' . $link_ . '">' . $product->get_image() . '</a>';
+                    $addMoreHtml .= '</div>';
+                    $addMoreHtml .= '</div>';
+                } elseif ($initTitleAndRow_key == 'title') {
+                    $addMoreHtml .= '<span class="product-title_"><a target="_blank" href="' . $link_ . '">' . $product->get_name() . '</a></span>';
+                } elseif ($initTitleAndRow_key == 'price') {
+                    $addMoreHtml .= $price_;
+                } elseif ($initTitleAndRow_key == 'add-to-cart') {
+                    $addMoreHtml .= $Add_to_cart_;
+                } elseif ($initTitleAndRow_key == 'SKU') {
+                    $sku = $product->get_sku();
+                    $sku = $sku ? $sku : "-";
+                    $addMoreHtml .= '<span>' . $sku . '</span>';
+                } elseif ($initTitleAndRow_key == 'availability') {
+                    $productNumber = $product->is_in_stock();
+                    $productAvailbulity = __('out of stock', 'th-product-compare');
+                    $StockClass = 'th-out-of-stoct';
+                    if ($productNumber) {
+                        $productAvailbulity = __('in stock', 'th-product-compare');
+                        $StockClass = 'th-in-stoct';
+                    }
+                    $addMoreHtml .= '<span class="' . $StockClass . '">' . $productAvailbulity . '</span>';
+                } elseif ($initTitleAndRow_key == 'rating') {
+                    $rating_ = $this->productRating($product);
+                    $rating_ = $rating_ ? $rating_ : "-";
+                    $addMoreHtml .= '<span class="th-compare-rating">' . $rating_ . '</span>';
+                } elseif ($initTitleAndRow_key == 'description') {
+                    $description_ = $product->get_short_description();
+                    $description_ = $description_ ? $description_ : "-";
+                    $addMoreHtml .= '<span>' . $description_ . '</span>';
+                } elseif (isset($initTitleAndRow_value['custom'])) {
+                    $customAttrGlobal = $product->get_attribute($initTitleAndRow_key);
+                    $customAttrGlobal = $customAttrGlobal ? $customAttrGlobal : '-';
+                    $addMoreHtml .= '<span>' . $customAttrGlobal . '</span>';
+                }
+
+                $addHtml = '<td>' . $addMoreHtml . '</td>';
+                if ($CheckLAstProduct) {
+                    $addHtml .= '</tr>';
+                }
+                $initTitleAndRow_value['html'] .= $addHtml;
+                $initTitleAndRow[$initTitleAndRow_key] = $initTitleAndRow_value;
+            }
+
+            if (isset($trRepeatPrice_)) {
+                $trRepeatPrice_ .= '<td>' . $price_ . '</td>';
+                if ($CheckLAstProduct) {
+                    $trRepeatPrice_ .= '</tr>';
+                }
+            }
+            if (isset($trRepeatAddTocart)) {
+                $trRepeatAddTocart .= '<td>' . $Add_to_cart_ . '</td>';
+                if ($CheckLAstProduct) {
+                    $trRepeatAddTocart .= '</tr>';
+                }
+            }
+            if (isset($trDelete_)) {
+                $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . $ProductID . '"><i class="dashicons dashicons-dismiss"></i>' . __('Remove', 'th-product-compare') . '</button></td>';
+                if ($CheckLAstProduct) {
+                    $trDelete_ .= '</tr>';
+                }
+            }
+
+            // add to footer
+            $footerProduct .= '<div data-product-id="' . $ProductID . '" class="img_">';
+            $footerProduct .= '<i class="th-remove-product th-compare-product-remove" data-th-product-id="' . $ProductID . '"></i>';
+            $footerProduct .= "<a target='_blank' href='" . $link_ . "'>";
+            $footerProduct .= $product->get_image();
+            $footerProduct .= '</a></div>';
+        }
+    }
+
+    // Add empty slots up to 7
+    $emptySlots = max(0, 7 - $countProductsForFooter);
+    for ($i = 0; $i < $emptySlots; $i++) {
+        $footerProduct .= '<div class="img_ empty-slot"></div>';
+    }
+
+    // footer bar build
+    $footerBArPosition = $chekBYoption['compare-popup-position'];
+    $returnFooter = "<div class='th-compare-footer-wrap position-" . $footerBArPosition . "'><div>";
+    $returnFooter .= "<button class='th-footer-up-down'>
+                        <span class='text_'>" . __('TH Compare', 'th-product-compare') . "</span>
+                        <span class='icon_2 dashicons dashicons-arrow-up-alt2'></span>
+                    </button>";
+    $returnFooter .= "<div><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i><span>" . __('Add Product', 'th-product-compare') . "</span></a></div>";
+    $returnFooter .= "<div class='product_image'>" . $footerProduct . "</div>";
+    $returnFooter .= "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'><span class='dashicons dashicons-visibility icon_'></span><span class='text_'>" . __('Compare', 'th-product-compare') . "</span></a></div>";
+    $returnFooter .= "</div></div>";
+
+    foreach ($initTitleAndRow as $initTitleAndRow_final_value) {
+        $table .= $initTitleAndRow_final_value['html'];
+    }
+
+    if (isset($trRepeatPrice_)) {
+        $table .= $trRepeatPrice_;
+    }
+    if (isset($trRepeatAddTocart)) {
+        $table .= $trRepeatAddTocart;
+    }
+    if (isset($trDelete_)) {
+        $table .= $trDelete_;
+    }
+    $table .= '</table>';
+
+    return [
+        'html' => $table,
+        'footer_bar' => $returnFooter,
+        'add_more' => $returnFooter
+    ];
+}
 
     private function compareOption()
     {
