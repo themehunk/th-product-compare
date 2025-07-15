@@ -299,7 +299,7 @@ class th_product_compare_return
         if (isset($th_compare_option['compare-product-limit'])) {
             $checkChecked['compare-product-limit'] = $th_compare_option['compare-product-limit'];
         } else {
-            $checkChecked['compare-product-limit'] = 8;
+            $checkChecked['compare-product-limit'] = 7;
         }
 
         return $checkChecked;
