@@ -206,13 +206,15 @@ class th_product_compare_return
         }
     }
 
+    $th_product_atleast_txt = $chekBYoption['compare-atleast-text'];
+    $compare_product_limit = $chekBYoption['compare-product-limit'];
+
     // Add empty slots up to 7
-    $emptySlots = max(0, 7 - $countProductsForFooter);
+    $emptySlots = max(0, $compare_product_limit - $countProductsForFooter);
     for ($i = 0; $i < $emptySlots; $i++) {
         $footerProduct .= '<div class="img_ empty-slot"></div>';
     }
 
-    $th_product_atleast_txt = $chekBYoption['compare-atleast-text'];
 
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
@@ -292,6 +294,12 @@ class th_product_compare_return
             $checkChecked['compare-atleast-text'] = $th_compare_option['compare-atleast-text'];
         } else {
             $checkChecked['compare-atleast-text'] = 'Select at least 2 products to compare';
+        }
+
+        if (isset($th_compare_option['compare-product-limit'])) {
+            $checkChecked['compare-product-limit'] = $th_compare_option['compare-product-limit'];
+        } else {
+            $checkChecked['compare-product-limit'] = 8;
         }
 
         return $checkChecked;
