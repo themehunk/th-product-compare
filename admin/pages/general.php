@@ -3,6 +3,8 @@ if (!defined('ABSPATH')) exit;
 
 $th_product_compare_btn_txt = isset($th_compare_option['compare-btn-text']) ? sanitize_text_field($th_compare_option['compare-btn-text']) : __('Compare', 'th-product-compare');
 
+$th_product_atleast_txt = isset($th_compare_option['compare-atleast-text']) ? sanitize_text_field($th_compare_option['compare-atleast-text']) : __('Select at least 2 products to compare', 'th-product-compare');
+
 $th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitize_text_field($th_compare_option['compare-product-limit']) : 8;
 
 $th_product_btn_type = isset($th_compare_option['compare-btn-type']) ? sanitize_text_field($th_compare_option['compare-btn-type']) : '';
@@ -61,6 +63,15 @@ if (is_array($th_compare_option)) {
                     </div>
                 </td>
             </tr>
+
+            <tr>
+                <td><span class="th-atleast-title"><?php esc_html_e('Minimum products message', 'th-product-compare'); ?></span></td>
+                <td>
+                    <input data-th-save='compare-atleast-text' type="text" placeholder="Compare" value="<?php echo esc_html($th_product_atleast_txt); ?>">
+                    <!-- <i class="description"><?php esc_html_e('This value define maximum number of products you want to add in the compare table.', 'th-product-compare'); ?></i> -->
+                </td>
+            </tr>
+
             <tr>
                 <td></td>
                 <td>

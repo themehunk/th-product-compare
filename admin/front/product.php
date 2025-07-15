@@ -51,7 +51,7 @@ class th_product_compare_return
     if (isset($type_['remove_btn'])) {
         $removeBtn = $type_['remove_btn'];
     }
-    $chekBYoption = $this->compareOption();
+    $chekBYoption = $this->compareOption(); 
 
     $footerProduct = '';
     $wp_is_mobile = wp_is_mobile();
@@ -212,16 +212,21 @@ class th_product_compare_return
         $footerProduct .= '<div class="img_ empty-slot"></div>';
     }
 
+    $th_product_atleast_txt = $chekBYoption['compare-atleast-text'];
+
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
-    $returnFooter = "<div class='th-compare-footer-wrap position-" . $footerBArPosition . "'><div>";
+    $returnFooter = "<div class='th-compare-footer-wrap active position-" . $footerBArPosition . "'><div>";
     $returnFooter .= "<button class='th-footer-up-down'>
-                        <span class='text_'>" . __('TH Compare', 'th-product-compare') . "</span>
+                        <span class='text_'>" . __('Product Compare', 'th-product-compare') . "</span>
                         <span class='icon_2 dashicons dashicons-arrow-up-alt2'></span>
                     </button>";
     $returnFooter .= "<div><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i><span>" . __('Add Product', 'th-product-compare') . "</span></a></div>";
+
+    $returnFooter .= "<p class='th-atleast'>" . $th_product_atleast_txt . "</p>";
+
     $returnFooter .= "<div class='product_image'>" . $footerProduct . "</div>";
-    $returnFooter .= "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'><span class='dashicons dashicons-visibility icon_'></span><span class='text_'>" . __('Compare', 'th-product-compare') . "</span></a></div>";
+    $returnFooter .= "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'><span class='dashicons dashicons-visibility icon_'></span><span class='text_'>" . __('View Compare', 'th-product-compare') . "</span></a></div>";
     $returnFooter .= "</div></div>";
 
     foreach ($initTitleAndRow as $initTitleAndRow_final_value) {
@@ -282,6 +287,13 @@ class th_product_compare_return
         } else {
             $checkChecked['compare-popup-position'] = 'bottom';
         }
+        //ATLEAST MESSAGE
+         if (isset($th_compare_option['compare-atleast-text'])) {
+            $checkChecked['compare-atleast-text'] = $th_compare_option['compare-atleast-text'];
+        } else {
+            $checkChecked['compare-atleast-text'] = 'Select at least 2 products to compare';
+        }
+
         return $checkChecked;
     }
     public function add_to_cart($product)
