@@ -551,6 +551,7 @@
   max-width: 100%;
   overflow: auto;
   padding: 10px;
+  min-width: 700px;
 }
 .th-compare-footer-wrap > div .product_image .img_ {
   width: 90px;

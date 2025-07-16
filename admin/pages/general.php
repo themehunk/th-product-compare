@@ -5,7 +5,7 @@ $th_product_compare_btn_txt = isset($th_compare_option['compare-btn-text']) ? sa
 
 $th_product_atleast_txt = isset($th_compare_option['compare-atleast-text']) ? sanitize_text_field($th_compare_option['compare-atleast-text']) : __('Select at least 2 products to compare', 'th-product-compare');
 
-$th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitize_text_field($th_compare_option['compare-product-limit']) : 7;
+$th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitize_text_field($th_compare_option['compare-product-limit']) : 4;
 
 $th_product_btn_type = isset($th_compare_option['compare-btn-type']) ? sanitize_text_field($th_compare_option['compare-btn-type']) : '';
 
@@ -50,7 +50,7 @@ if (is_array($th_compare_option)) {
             <tr>
                 <td><span class="th-color-title"><?php esc_html_e('Number of Product to Compare', 'th-product-compare') ?></span></td>
                 <td>
-                    <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php echo esc_html($th_product_limit); ?>">
+                    <input data-th-save='compare-product-limit' type="number" placeholder="4" value="<?php echo esc_html($th_product_limit); ?>"  readonly>
                 </td>
             </tr>
             <tr>
