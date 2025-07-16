@@ -581,4 +581,8 @@ label.color-output {
     align-items: center;
     color: #fff;
     font-size: 12px;
+} 
+.compare-th_compare{
+  font-size: 18px;
+  line-height: 27px;
 }

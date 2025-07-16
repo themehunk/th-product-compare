@@ -7,7 +7,7 @@ $th_product_atleast_txt = isset($th_compare_option['compare-atleast-text']) ? sa
 
 $th_product_limit = isset($th_compare_option['compare-product-limit']) ? sanitize_text_field($th_compare_option['compare-product-limit']) : 4;
 
-$th_product_btn_type = isset($th_compare_option['compare-btn-type']) ? sanitize_text_field($th_compare_option['compare-btn-type']) : '';
+$th_product_shop_hook = isset($th_compare_option['compare-at-shop-hook']) ? sanitize_text_field($th_compare_option['compare-at-shop-hook']) : 'after';
 
 $checkChecked = [
     'field-product-page' => 'checked="checked"',
@@ -40,6 +40,18 @@ if (is_array($th_compare_option)) {
                     <i class="description"><?php _e('How you want to display compare trigger (Like a Link or a Button).', 'th-product-compare'); ?></i>
                 </td>
             </tr>
+
+              <tr>
+                <td><span class="th-color-title"><?php esc_html_e('Show Compare At Shop', 'th-product-compare'); ?></span></td>
+                <td>
+                    <select data-th-save='compare-at-shop-hook'>
+                        <option value="button" <?php echo esc_html($th_product_shop_hook == 'before' ? "selected" : ''); ?>><?php _e('Before Cart', 'th-product-compare'); ?></option>
+                        <option value="link" <?php echo esc_html($th_product_shop_hook == 'after' ? "selected" : ''); ?>><?php _e('After Cart', 'th-product-compare'); ?></option>
+                    </select>
+                    
+                </td>
+            </tr>
+
             <tr>
                 <td><span class="th-color-title"><?php esc_html_e('Link / Button Text', 'th-product-compare'); ?></span></td>
                 <td>
@@ -82,6 +94,22 @@ if (is_array($th_compare_option)) {
                     </div>
                 </td>
             </tr>
+
+             <tr>
+            
+                <td>
+                    <h4>Using shortcode:     
+                    </h4>
+                </td>
+
+                <td>
+                    <h4 class="compare-th_compare">Just put this [th_compare pid="123"] 
+                        to display compare at your desired location.
+                    </h4>
+                    <p>* pid="123" is the product ID. *</p>
+                </td>
+            </tr>
+
         </table>
     </div>
 </div>

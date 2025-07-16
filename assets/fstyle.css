@@ -1027,6 +1027,9 @@
     justify-content: center;
     align-items: center;
 }
+.single-product .th-product-compare-checkbox-wrap {
+    justify-content: flex-start;
+}
 
 /* Label styling for better text appearance */
 .th-compare-label {

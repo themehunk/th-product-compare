@@ -39,7 +39,7 @@ class th_product_compare_shortcode
         $checkOption = get_option($this->optionName);
         if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
             if (isset($checkOption['field-product-page']) && $checkOption['field-product-page'] == '1') {
-                add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
+                add_action('woocommerce_after_shop_loop_item_title', array($this, 'addCompareBtn'), 11);
             }
         } else {
             add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
@@ -67,13 +67,20 @@ class th_product_compare_shortcode
         }
     }
 
-    public function compare($atts, $content)
+    public function compare($atts, $content = null)
     {
         $a = shortcode_atts(['pid' => ''], $atts);
         $product_id = intval($a['pid']);
-        if ($product_id) {
-            $this->btnBYoption($product_id);
+        
+        // Validate product ID and check if it's a valid WooCommerce product
+        if (!$product_id || !wc_get_product($product_id)) {
+            return '<span class="th-compare-error">' . __('Invalid product ID.', 'th-product-compare') . '</span>';
         }
+
+        // Start output buffering to capture the checkbox HTML
+        ob_start();
+        $this->btnBYoption($product_id);
+        return ob_get_clean();
     }
 
     public function btnBYoption($product_id)
@@ -94,15 +101,13 @@ class th_product_compare_shortcode
 
         // Checkbox class
         $checkboxClass = 'th-product-compare-checkbox';
-
-        // Add th-added-compare class if product is in comparison
         if ($isChecked) {
             $checkboxClass .= ' th-added-compare';
         }
 ?>
         <div class='th-product-compare-checkbox-wrap'>
             <label class="th-compare-label">
-                <input type="checkbox" class="<?php echo esc_attr($checkboxClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>"<?php echo $isChecked; ?>>
+                <input type="checkbox" class="<?php echo esc_attr($checkboxClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>"<?php echo $isChecked; ?> aria-label="<?php echo esc_attr($compareText); ?>">
                 <?php echo esc_html($compareText); ?>
             </label>
         </div>
