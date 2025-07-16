@@ -299,7 +299,7 @@ class th_product_compare_return
         if (isset($th_compare_option['compare-product-limit'])) {
             $checkChecked['compare-product-limit'] = $th_compare_option['compare-product-limit'];
         } else {
-            $checkChecked['compare-product-limit'] = 7;
+            $checkChecked['compare-product-limit'] = 4;
         }
 
         return $checkChecked;
@@ -389,7 +389,7 @@ class th_product_compare_return
         if ($addREmove == 'add' || $id == 'refresh') {
             if (!empty($previousCookie)) {
                 // check limit 
-                $checkLimit = 8;
+                $checkLimit = 4;
                 // $chekBYoption
                 if (is_array($chekBYoption) && isset($chekBYoption['compare-product-limit']) && intval($chekBYoption['compare-product-limit'])) {
                     $checkLimit = intval($chekBYoption['compare-product-limit']);
