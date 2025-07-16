@@ -999,3 +999,111 @@
     margin-right: 5px;
     border-radius: 5px;
 }
+
+
+/* Compare Styling with checkbox feature Start*/
+.th-product-compare-checkbox-wrap {
+    margin: 10px 0;
+}
+.th-compare-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.th-product-compare-checkbox {
+    margin-right: 5px;
+}
+.th-product-compare-checkbox.th-added-compare {
+    /* Optional: Add styles for checked state */
+}
+.th-product-compare-checkbox.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+/* Wrapper for the checkbox and label */
+.th-product-compare-checkbox-wrap {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Label styling for better text appearance */
+.th-compare-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333; /* Text color, matches WooCommerce default */
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Checkbox base styling */
+.th-product-compare-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px; /* Checkbox width */
+    height: 20px; /* Checkbox height */
+    border: 2px solid #111; /* Border color (WooCommerce blue) */
+    border-radius: 4px; /* Slightly rounded corners */
+    outline: none; /* Remove default outline */
+    margin-right: 8px; /* Space between checkbox and label text */
+    background-color: #fff; /* Background color when unchecked */
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease; /* Smooth transition for state changes */
+}
+
+/* Checked state */
+.th-product-compare-checkbox:checked {
+    background-color: green; /* Fill color when checked (WooCommerce blue) */
+    border-color: green; /* Maintain border color */
+}
+
+/* Checkmark (using pseudo-element) */
+.th-product-compare-checkbox:checked::after {
+    content: '\2713'; /* Unicode for checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Checkmark color */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Hover state */
+.th-product-compare-checkbox:hover {
+    border-color: #005177; /* Darker blue on hover */
+}
+
+/* Focus state (for accessibility) */
+.th-product-compare-checkbox:focus {
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.3); /* Subtle focus ring */
+}
+
+/* Loading state */
+.th-product-compare-checkbox.loading {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Active (added to compare) state */
+.th-product-compare-checkbox.th-added-compare {
+    border-color: green; /* Ensure consistent border color */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .th-product-compare-checkbox {
+        width: 18px; /* Slightly smaller for mobile */
+        height: 18px;
+    }
+    .th-compare-label {
+        font-size: 13px; /* Adjust font size for mobile */
+    }
+}
+/* Compare Styling with checkbox feature End*/
