@@ -39,7 +39,7 @@ class th_product_compare_shortcode
         $checkOption = get_option($this->optionName);
         if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
             if (isset($checkOption['field-product-page']) && $checkOption['field-product-page'] == '1') {
-                add_action('woocommerce_after_shop_loop_item_title', array($this, 'addCompareBtn'), 11);
+                add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
             }
         } else {
             add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
@@ -77,7 +77,7 @@ class th_product_compare_shortcode
             return '<span class="th-compare-error">' . __('Invalid product ID.', 'th-product-compare') . '</span>';
         }
 
-        // Start output buffering to capture the checkbox HTML
+        // Start output buffering to capture the button HTML
         ob_start();
         $this->btnBYoption($product_id);
         return ob_get_clean();
@@ -98,20 +98,36 @@ class th_product_compare_shortcode
         // Check if product is already in comparison
         $previousCookie = $this->getPrevId();
         $isChecked = (!empty($previousCookie) && in_array($product_id, $previousCookie)) ? ' checked' : '';
+        $isAdded = (!empty($previousCookie) && in_array($product_id, $previousCookie)) ? ' th-added-compare' : '';
 
-        // Checkbox class
-        $checkboxClass = 'th-product-compare-checkbox';
-        if ($isChecked) {
-            $checkboxClass .= ' th-added-compare';
-        }
+        // Determine button style
+        $buttonStyle = (is_array($checkOption) && isset($checkOption['compare-btn-type']) && $checkOption['compare-btn-type'] === 'icon') ? 'icon' : 'checkbox';
+
+        if ($buttonStyle === 'checkbox') {
+            // Checkbox class
+            $checkboxClass = 'th-product-compare-checkbox' . $isAdded;
 ?>
-        <div class='th-product-compare-checkbox-wrap'>
-            <label class="th-compare-label">
-                <input type="checkbox" class="<?php echo esc_attr($checkboxClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>"<?php echo $isChecked; ?> aria-label="<?php echo esc_attr($compareText); ?>">
-                <?php echo esc_html($compareText); ?>
-            </label>
-        </div>
+            <div class='th-product-compare-checkbox-wrap'>
+                <label class="th-compare-label">
+                    <input type="checkbox" class="<?php echo esc_attr($checkboxClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>"<?php echo $isChecked; ?> aria-label="<?php echo esc_attr($compareText); ?>">
+                    <?php echo esc_html($compareText); ?>
+                </label>
+            </div>
 <?php
+        } else {
+            // Icon class
+            $iconClass = 'th-product-compare-btn compare button' . $isAdded;
+?>
+            <div class="thunk-compare">
+                <div th-tooltip="<?php echo esc_attr__('Compare', 'th-product-compare'); ?>" class="compare-tooltip">
+                    <a class="<?php echo esc_attr($iconClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>" aria-label="<?php echo esc_attr($compareText); ?>">
+                        <span class="icon">&#8646;</span>
+                        <span class="text"><?php echo esc_html($compareText); ?></span>
+                    </a>
+                </div>
+            </div>
+<?php
+        }
     }
 }
 

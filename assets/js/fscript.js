@@ -32,25 +32,16 @@
       });
     },
     addProduct: function (e) {
-      let thisCheckbox = $(this);
-      let getProductId = thisCheckbox.attr("data-th-product-id");
+      e.preventDefault();
+      let thisElement = $(this);
+      let getProductId = thisElement.attr("data-th-product-id");
       if (parseInt(getProductId)) {
-        let action = thisCheckbox.is(":checked") ? "add" : "remove";
-        if (thisCheckbox.is(":checked") && thisCheckbox.hasClass("th-added-compare")) {
-          if (
-            $(".product-table-configure").length &&
-            $(".th-compare-footer-wrap").length &&
-            $("[data-product-id='" + getProductId + "']").length
-          ) {
-            $(".th-compare-footer-wrap").addClass("active");
-            return;
-          }
-        }
-        thisCheckbox.addClass("loading");
-        if (thisCheckbox.closest(".th-product-compare-checkbox-wrap").hasClass("th-single-page")) {
-          thCompare.getOrUpdatePRoducts(getProductId, action, thisCheckbox);
+        let action = thisElement.hasClass("th-added-compare") ? "remove" : "add";
+        thisElement.addClass("loading");
+        if (thisElement.closest(".th-product-compare-checkbox-wrap, .thunk-compare").hasClass("th-single-page")) {
+          thCompare.getOrUpdatePRoducts(getProductId, action, thisElement);
         } else {
-          thCompare.openAndaddPopup(getProductId, thisCheckbox, action);
+          thCompare.openAndaddPopup(getProductId, thisElement, action);
         }
       }
     },
@@ -65,11 +56,9 @@
           .animate({ scrollTop: 0 }, 500, "swing");
         thisBtn.closest(".th-compare-output-wrap").addClass("th-loading");
         thCompare.getOrUpdatePRoducts(getProductId, "remove", thisBtn);
-        // Uncheck the corresponding checkbox
-        $("[data-th-product-id='" + getProductId + "'].th-product-compare-checkbox").removeClass("th-added-compare").prop("checked", false);
       }
     },
-    openAndaddPopup: function (ids = "", thisCheckbox, action = "add") {
+    openAndaddPopup: function (ids = "", thisElement, action = "add") {
       let ExistCompare = $("#th-compare-output-wrap");
       if (ExistCompare.length) {
         ExistCompare.remove();
@@ -92,9 +81,9 @@
         $(".thcompare-open-by-popup").remove();
       }
       $("body").append(html);
-      thCompare.getOrUpdatePRoducts(ids, action, thisCheckbox);
+      thCompare.getOrUpdatePRoducts(ids, action, thisElement);
     },
-    getOrUpdatePRoducts: function (ids, action_, thisCheckbox = false) {
+    getOrUpdatePRoducts: function (ids, action_, thisElement = false) {
       $(".thcompare-open-by-popup .th-compare-output-wrap").addClass("th-loading");
       $(".th-compare-footer-wrap").addClass("loading");
       $.ajax({
@@ -107,12 +96,21 @@
         },
         dataType: "json",
         success: function (response) {
-          if (thisCheckbox) {
-            thisCheckbox.removeClass("loading");
+          if (thisElement) {
+            thisElement.removeClass("loading");
             if (action_ === "add") {
-              thisCheckbox.addClass("th-added-compare");
+              thisElement.addClass("th-added-compare");
+              if (thisElement.hasClass("th-product-compare-checkbox")) {
+                thisElement.prop("checked", true);
+              }
             } else {
-              thisCheckbox.removeClass("th-added-compare").prop("checked", false);
+              thisElement.removeClass("th-added-compare");
+              if (thisElement.hasClass("th-product-compare-checkbox")) {
+                thisElement.prop("checked", false);
+              }
+              // Update all instances of this product
+              $("[data-th-product-id='" + ids + "'].th-product-compare-checkbox").removeClass("th-added-compare").prop("checked", false);
+              $("[data-th-product-id='" + ids + "'].th-product-compare-btn").removeClass("th-added-compare");
             }
           }
           if (response.no_product == "1") {
@@ -124,6 +122,9 @@
               $(".th-add-more-product-container").remove();
             }, 500);
             $("body").removeClass("th_product_Compare_body_Class");
+            // Clear all checkboxes and icons
+            $(".th-product-compare-checkbox").removeClass("th-added-compare").prop("checked", false);
+            $(".th-product-compare-btn").removeClass("th-added-compare");
           } else {
             $(".thcompare-open-by-popup .th-compare-output-product").html(response.html);
             if (response.footer_bar && response.footer_bar != "") {
@@ -146,6 +147,13 @@
             $(".thcompare-open-by-popup .th-compare-output-wrap").removeClass("th-loading");
           }
         },
+        error: function () {
+          if (thisElement) {
+            thisElement.removeClass("loading");
+          }
+          $(".thcompare-open-by-popup .th-compare-output-wrap").removeClass("th-loading");
+          $(".th-compare-footer-wrap").removeClass("loading");
+        }
       });
     },
     removeCompare: function () {
@@ -157,8 +165,9 @@
         .removeClass("active");
       $(".th-compare-footer-product-opner").removeClass("active");
       $("body").removeClass("th_product_Compare_body_Class");
-      // Uncheck all checkboxes
-      $(".th-product-compare-checkbox.th-added-compare").removeClass("th-added-compare").prop("checked", false);
+      // Update all checkboxes and icons
+      $(".th-product-compare-checkbox").removeClass("th-added-compare").prop("checked", false);
+      $(".th-product-compare-btn").removeClass("th-added-compare");
     },
     addMorePopup: function (e) {
       e.preventDefault();
@@ -259,10 +268,12 @@
         thCompare.getOrUpdatePRoducts(productId, "add", thisBtn_);
         thisBtn_.addClass("checked");
         $("[data-th-product-id='" + productId + "'].th-product-compare-checkbox").addClass("th-added-compare").prop("checked", true);
+        $("[data-th-product-id='" + productId + "'].th-product-compare-btn").addClass("th-added-compare");
       }
     },
     bind: function () {
       $(document).on("change", ".th-product-compare-checkbox", thCompare.addProduct);
+      $(document).on("click", ".th-product-compare-btn", thCompare.addProduct);
       $(document).on(
         "click",
         ".th-compare-product-remove[data-th-product-id]",
