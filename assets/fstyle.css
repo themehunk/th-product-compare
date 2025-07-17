@@ -999,14 +999,11 @@
     margin-right: 5px;
     border-radius: 5px;
 }
-
-
 /* Compare Styling with checkbox feature Start*/
 /* Checkbox Wrapper */
 .th-product-compare-checkbox-wrap {
     margin: 9px 0;
 }
-
 /* Checkbox Label */
 .th-compare-label {
     display: flex;
@@ -1018,7 +1015,9 @@
     line-height: 1.5;
     justify-content: center;
 }
-
+.single-product .th-compare-label{
+  justify-content: flex-start;
+}
 /* Checkbox Styling */
 .th-product-compare-checkbox {
     -webkit-appearance: none;
@@ -1081,7 +1080,10 @@
    width: max-content;
    margin: 0 auto;
 }
-
+.single-product .thunk-compare{
+  width: initial;
+  display: flex;
+}
 /* Tooltip Wrapper */
 .compare-tooltip {
     position: relative;

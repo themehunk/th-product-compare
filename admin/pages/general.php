@@ -39,7 +39,7 @@ if (is_array($th_compare_option)) {
                         <option value="checkbox" <?php echo esc_html($th_product_btn_type == 'checkbox' ? "selected" : ''); ?>><?php _e('checkbox', 'th-product-compare'); ?></option>
                         <option value="icon" <?php echo esc_html($th_product_btn_type == 'icon' ? "selected" : ''); ?>><?php _e('Link', 'th-product-compare'); ?></option>
                     </select>
-                    <i class="description"><?php _e('How you want to display compare trigger (Like a Link or a Button).', 'th-product-compare'); ?></i>
+                    <i class="description"><?php _e('How you want to display compare trigger.', 'th-product-compare'); ?></i>
                 </td>
             </tr>
 
@@ -47,8 +47,8 @@ if (is_array($th_compare_option)) {
                 <td><span class="th-color-title"><?php esc_html_e('Show Compare At Shop', 'th-product-compare'); ?></span></td>
                 <td>
                     <select data-th-save='compare-at-shop-hook'>
-                        <option value="button" <?php echo esc_html($th_product_shop_hook == 'before' ? "selected" : ''); ?>><?php _e('Before Cart', 'th-product-compare'); ?></option>
-                        <option value="link" <?php echo esc_html($th_product_shop_hook == 'after' ? "selected" : ''); ?>><?php _e('After Cart', 'th-product-compare'); ?></option>
+                        <option value="before" <?php echo esc_html($th_product_shop_hook == 'before' ? "selected" : ''); ?>><?php _e('Before Cart', 'th-product-compare'); ?></option>
+                        <option value="after" <?php echo esc_html($th_product_shop_hook == 'after' ? "selected" : ''); ?>><?php _e('After Cart', 'th-product-compare'); ?></option>
                     </select>
                     
                 </td>
