@@ -36,7 +36,7 @@ if (is_array($th_compare_option)) {
                 <td><span class="th-color-title"><?php esc_html_e('Comapre Button Type', 'th-product-compare'); ?></span></td>
                 <td>
                     <select data-th-save='compare-btn-type'>
-                        <option value="checkbox" <?php echo esc_html($th_product_btn_type == 'checkbox' ? "selected" : ''); ?>><?php _e('checkbox', 'th-product-compare'); ?></option>
+                        <option value="checkbox" <?php echo esc_html($th_product_btn_type == 'checkbox' ? "selected" : ''); ?> disabled><?php _e('Text (Checkbox) Pro', 'th-product-compare'); ?></option>
                         <option value="icon" <?php echo esc_html($th_product_btn_type == 'icon' ? "selected" : ''); ?>><?php _e('Icon', 'th-product-compare'); ?></option>
                     </select>
                     <i class="description"><?php _e('How you want to display compare trigger.', 'th-product-compare'); ?></i>
