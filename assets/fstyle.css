@@ -999,111 +999,202 @@
     margin-right: 5px;
     border-radius: 5px;
 }
-
-
 /* Compare Styling with checkbox feature Start*/
+/* Checkbox Wrapper */
 .th-product-compare-checkbox-wrap {
-    margin: 10px 0;
+    margin: 9px 0;
 }
-.th-compare-label {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-}
-.th-product-compare-checkbox {
-    margin-right: 5px;
-}
-.th-product-compare-checkbox.th-added-compare {
-    /* Optional: Add styles for checked state */
-}
-.th-product-compare-checkbox.loading {
-    opacity: 0.5;
-    pointer-events: none;
-}
-/* Wrapper for the checkbox and label */
-.th-product-compare-checkbox-wrap {
-    margin: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Label styling for better text appearance */
+/* Checkbox Label */
 .th-compare-label {
     display: flex;
     align-items: center;
     cursor: pointer;
     font-size: 14px;
-    color: #333; /* Text color, matches WooCommerce default */
+    color: #333;
     font-weight: 400;
     line-height: 1.5;
+    justify-content: center;
 }
-
-/* Checkbox base styling */
+.single-product .th-compare-label{
+  justify-content: flex-start;
+}
+/* Checkbox Styling */
 .th-product-compare-checkbox {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 20px; /* Checkbox width */
-    height: 20px; /* Checkbox height */
-    border: 2px solid #111; /* Border color (WooCommerce blue) */
-    border-radius: 4px; /* Slightly rounded corners */
-    outline: none; /* Remove default outline */
-    margin-right: 8px; /* Space between checkbox and label text */
-    background-color: #fff; /* Background color when unchecked */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #111;
+    border-radius: 4px;
+    outline: none;
+    margin-right: 8px;
+    background-color: #fff;
     position: relative;
     cursor: pointer;
-    transition: all 0.2s ease; /* Smooth transition for state changes */
+    transition: all 0.2s ease;
 }
 
-/* Checked state */
+/* Checkbox Checked */
 .th-product-compare-checkbox:checked {
-    background-color: green; /* Fill color when checked (WooCommerce blue) */
-    border-color: green; /* Maintain border color */
+    background-color: green;
+    border-color: green;
 }
 
-/* Checkmark (using pseudo-element) */
+/* Checkbox Checkmark */
 .th-product-compare-checkbox:checked::after {
-    content: '\2713'; /* Unicode for checkmark */
+    content: '\2713';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff; /* Checkmark color */
+    color: #fff;
     font-size: 14px;
     font-weight: bold;
 }
 
-/* Hover state */
+/* Checkbox Hover */
 .th-product-compare-checkbox:hover {
-    border-color: #005177; /* Darker blue on hover */
+    border-color: #005177;
 }
 
-/* Focus state (for accessibility) */
-.th-product-compare-checkbox:focus {
-    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.3); /* Subtle focus ring */
-}
+/* Checkbox Focus */
+/*.th-product-compare-checkbox:focus {
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.3);
+}*/
 
-/* Loading state */
+/* Checkbox Loading */
 .th-product-compare-checkbox.loading {
     opacity: 0.5;
     pointer-events: none;
     cursor: not-allowed;
 }
 
-/* Active (added to compare) state */
+/* Checkbox Added */
 .th-product-compare-checkbox.th-added-compare {
-    border-color: green; /* Ensure consistent border color */
+    border-color: green;
 }
 
-/* Mobile adjustments */
+/* Icon Wrapper */
+.thunk-compare {
+   width: max-content;
+   margin: 0 auto;
+}
+.single-product .thunk-compare{
+  width: initial;
+  display: flex;
+}
+/* Tooltip Wrapper */
+.compare-tooltip {
+    position: relative;
+}
+
+/* Icon Button */
+.th-product-compare-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 4px;
+    color: #111;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Icon */
+.th-product-compare-btn .th-icon-repeat {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    background: url('path-to-icon-repeat.svg') no-repeat center; /* Replace with actual icon path */
+    background-size: contain;
+}
+
+/* Icon Text */
+.th-product-compare-btn .text {
+    display: inline;
+    margin-left: 9px;
+}
+
+/* Icon Hover */
+/*.th-product-compare-btn:hover {
+    background-color: #e6f0fa;
+    border-color: #005177;
+    color: #005177;
+}*/
+
+.th-product-compare-btn:hover .th-icon-repeat {
+    background: url('path-to-icon-repeat-hover.svg') no-repeat center; /* Replace with hover icon path */
+    background-size: contain;
+}
+
+/* Icon Added */
+.th-product-compare-btn.th-added-compare {
+    pointer-events: none;
+    opacity: .7;
+}
+
+.th-product-compare-btn.th-added-compare .th-icon-repeat {
+    background: url('path-to-icon-repeat-active.svg') no-repeat center; /* Replace with active icon path */
+    background-size: contain;
+}
+
+/* Icon Loading */
+.th-product-compare-btn.loading {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Icon Focus */
+.th-product-compare-btn:focus {
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.3);
+    outline: none;
+}
+
+/* Tooltip Styling */
+.compare-tooltip:hover:after {
+    content: attr(th-tooltip);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .th-product-compare-checkbox {
-        width: 18px; /* Slightly smaller for mobile */
+        width: 18px;
         height: 18px;
     }
     .th-compare-label {
-        font-size: 13px; /* Adjust font size for mobile */
+        font-size: 13px;
     }
+    .th-product-compare-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    .th-product-compare-btn .th-icon-repeat {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Error Message for Invalid Shortcode */
+.th-compare-error {
+    color: #d63638;
+    font-size: 14px;
 }
 /* Compare Styling with checkbox feature End*/
