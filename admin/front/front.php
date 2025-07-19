@@ -38,8 +38,11 @@ class th_product_compare_shortcode
     {
         $checkOption = get_option($this->optionName);
         if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
-            if (isset($checkOption['field-product-page']) && $checkOption['field-product-page'] == '1') {
+            if (isset($checkOption['field-product-page']) && $checkOption['field-product-page'] == '1' && (isset($checkOption['compare-at-shop-hook']) && $checkOption['compare-at-shop-hook'] == 'after')) {
                 add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
+            }
+            elseif (isset($checkOption['field-product-page']) && $checkOption['field-product-page'] == '1' && (isset($checkOption['compare-at-shop-hook']) && $checkOption['compare-at-shop-hook'] == 'before')) {
+                add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 9);
             }
         } else {
             add_action('woocommerce_after_shop_loop_item', array($this, 'addCompareBtn'), 11);
@@ -101,7 +104,7 @@ class th_product_compare_shortcode
         $isAdded = (!empty($previousCookie) && in_array($product_id, $previousCookie)) ? ' th-added-compare' : '';
 
         // Determine button style
-        $buttonStyle = (is_array($checkOption) && isset($checkOption['compare-btn-type']) && $checkOption['compare-btn-type'] === 'icon') ? 'icon' : 'checkbox';
+        $buttonStyle = (is_array($checkOption) && isset($checkOption['compare-btn-type']) && $checkOption['compare-btn-type'] === 'checkbox') ? 'checkbox' : 'icon';
 
         if ($buttonStyle === 'checkbox') {
             // Checkbox class
@@ -119,7 +122,7 @@ class th_product_compare_shortcode
             $iconClass = 'th-product-compare-btn compare button' . $isAdded;
 ?>
             <div class="thunk-compare">
-                <div th-tooltip="<?php echo esc_attr__('Compare', 'th-product-compare'); ?>" class="compare-tooltip">
+                <div th-tooltip="<?php echo esc_attr($compareText); ?>" class="compare-tooltip">
                     <a class="<?php echo esc_attr($iconClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>" aria-label="<?php echo esc_attr($compareText); ?>">
                         <span class="icon">&#8646;</span>
                         <span class="text"><?php echo esc_html($compareText); ?></span>

@@ -99,7 +99,8 @@ Yes, You can translate our plugin to desired language.
 * Update : remove product not enable compare button working
 	checkbox add default
 * Update : 2 product show alignment
-* New : free product limit only 4 product show
+* New : free product limit only 4 product show.
+* New : Place Compare At added.
 
 = 1.3.2 =
 * Update : Tested with WordPress 6.8.
