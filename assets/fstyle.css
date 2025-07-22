@@ -920,6 +920,9 @@
 }
 
 @media screen and (max-width: 450px) {
+  .th-compare-footer-wrap > div .product_image{
+    min-width: initial;
+  }
     .th-compare-output-product .product-table-configure td {
     min-width: unset;
   }
@@ -1141,7 +1144,6 @@
 }
 
 .th-product-compare-btn.th-added-compare .th-icon-repeat {
-    background: url('path-to-icon-repeat-active.svg') no-repeat center; /* Replace with active icon path */
     background-size: contain;
 }
 

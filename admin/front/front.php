@@ -122,7 +122,7 @@ class th_product_compare_shortcode
             $iconClass = 'th-product-compare-btn compare button' . $isAdded;
 ?>
             <div class="thunk-compare">
-                <div th-tooltip="<?php echo esc_attr($compareText); ?>" class="compare-tooltip">
+                <div th-tooltip="<?php echo esc_attr($compareText); ?>" class="compare-tooltip th-product-compare-btn-wrap">
                     <a class="<?php echo esc_attr($iconClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>" aria-label="<?php echo esc_attr($compareText); ?>">
                         <span class="icon">&#8646;</span>
                         <span class="text"><?php echo esc_html($compareText); ?></span>
