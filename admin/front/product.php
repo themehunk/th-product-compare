@@ -13,7 +13,7 @@ class th_product_compare_return
     }
     public function get_products()
     {
-        if (isset($_POST['product_id']) && intval($_POST['product_id']) || $_POST['product_id'] === 'refresh') {
+        if ( isset($_POST['product_id']) && ( intval($_POST['product_id']) || $_POST['product_id'] === 'refresh' ) ) {
 
             $productID = $_POST['product_id'] === 'refresh' ? 'refresh' : intval($_POST['product_id']);
 
