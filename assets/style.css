@@ -25,7 +25,8 @@
     display: block;
     margin-bottom: 18px;
 }
-.th-right-sidebar > div a.link_ {
+.th-right-sidebar > div a.link_,
+.th-help-wrap .upgrade-button{
   width: fit-content;
   margin: 16px auto 0 auto;
   padding: 0.4rem 1.5rem;
@@ -41,10 +42,12 @@
     text-decoration: auto;
     display: block;
 }
+.th-help-wrap .upgrade-button{
+  margin: 0;
+}
 .th-right-sidebar > div a.link_:hover{
   background: #575555;
 }
-
 .th-useful-plugins {
   display: flex;
 }
@@ -237,7 +240,9 @@
     justify-content: space-between;
     border-radius: 10px;
 }
-
+.container-tabs a{
+  text-decoration: none;
+}
 .color-output {
   display: block;
   height: 30px;
@@ -585,4 +590,47 @@ label.color-output {
 .compare-th_compare{
   font-size: 18px;
   line-height: 27px;
+}
+code{
+  background: transparent;
+}
+
+a.link_.upgrade-button {
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Animated Border Glow (No White) */
+a.link_.upgrade-button::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(
+        120deg,
+        #00c6ff,    /* Bright Cyan */
+        #0072ff,    /* Deep Blue */
+        #00c6ff,
+        #6a00ff     /* Vivid Violet-Blue */
+    );
+    background-size: 300% 300%;
+    border-radius: 6px;
+    z-index: -1;
+    animation: borderGlow 4s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

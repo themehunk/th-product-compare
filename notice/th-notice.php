@@ -25,7 +25,7 @@ class Th_Product_Compare_Notice{
        
         if(!isset($_COOKIE['thntc_time'])) {
         add_action( 'admin_enqueue_scripts', array($this,'th_product_compare_admin_enqueue_style') );
-        add_action( 'admin_notices', array($this,'th_product_compare_admin_notice' ));
+        add_action( 'admin_notices', array($this,'th_conditionally_display_notice' ));
         }
 
         if(isset($_COOKIE['thntc_time'])) {
@@ -40,6 +40,19 @@ class Th_Product_Compare_Notice{
          wp_enqueue_style( 'th-product-compare-notice-style', TH_PRODUCT_URL.'notice/css/th-notice.css', array(), '1.0.0' );
 
     } 
+
+    function th_conditionally_display_notice() {
+    $screen = get_current_screen();
+
+    // Show only on Plugins page and your plugin settings page
+    if (
+        ( isset($screen->id) && $screen->id === 'plugins' ) ||
+        ( isset($_GET['page']) && $_GET['page'] === 'th-product-compare' )
+    ) {
+        $this->th_product_compare_admin_notice();
+    }
+}
+
 
     function th_product_compare_admin_notice() { 
 
@@ -76,12 +89,12 @@ class Th_Product_Compare_Notice{
  
         $visit_time = date('F j, Y  g:i a');
 
-        $cok_time = time()+(86457*30);
+        $cok_time = time()+(86457*15);
  
         if(!isset($_COOKIE['thntc_time'])) {
  
-        // set a cookie for 1 year
-        setcookie('thntc_time', $cok_time, time()+(86457*30));
+        // set a cookie for 15 days
+        setcookie('thntc_time', $cok_time, time()+(86457*15));
              
         }
  
@@ -91,7 +104,8 @@ class Th_Product_Compare_Notice{
 
             $visit_time = time();
 
-            $cookie_time = isset($_COOKIE['thntc_time']) ? sanitize_key($_COOKIE['thntc_tim']) : '0';
+            $cookie_time = isset($_COOKIE['thntc_time']) ? sanitize_key($_COOKIE['thntc_time']) : '0';
+
 
             if ($cookie_time < $visit_time) {
 
