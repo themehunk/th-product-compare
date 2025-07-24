@@ -4,6 +4,12 @@ if (!defined('ABSPATH')) exit;
 <div class="th-help-wrap">
     <div class="blocks">
         <div>
+            <span class="bold-heading"><?php esc_html_e('Upgrade To Pro', 'th-product-compare'); ?></span>
+            <p class="th-color-title"><?php esc_html_e('Lets remove users confusion & help them to choose the correct product. Make product selection easy & advanced, using Compare Pro.', 'th-product-compare'); ?></p>
+            
+            <a class="link_ upgrade-button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/'); ?>"><?php esc_html_e('Upgrade To Pro', 'th-product-compare'); ?></a>
+        </div>
+        <div>
             <span class="bold-heading"><?php esc_html_e('Documentation', 'th-product-compare'); ?></span>
             <p class="th-color-title"><?php esc_html_e('Our plugin is well documented, Please go with documentation & learn to customise plugin.', 'th-product-compare'); ?></p>
             <a href="<?php echo esc_url('https://themehunk.com/docs/th-product-compare-pro/'); ?>" class="link_"><?php esc_html_e('Docs', 'th-product-compare'); ?></a>

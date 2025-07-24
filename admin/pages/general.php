@@ -105,10 +105,10 @@ if (is_array($th_compare_option)) {
                 </td>
 
                 <td>
-                    <h4 class="compare-th_compare">Just put this [th_compare pid="123"] 
-                        to display compare at your desired location.
-                    </h4>
-                    <p>* pid="123" is the product ID. *</p>
+                    <p><strong><?php esc_html_e('Display Compare Button for a Particular Product:', 'th-product-compare-pro'); ?></strong></p>
+                    <p><?php esc_html_e('To show a compare button for a specific product, place the following shortcode where needed:', 'th-product-compare-pro'); ?></p>
+                    <h5><code>[th_compare pid="856"]</code></h5>
+                    <p><?php esc_html_e('* The "pid" attribute should be the ID of the product you want to allow comparison for. *', 'th-product-compare-pro'); ?></p>
                 </td>
             </tr>
 
