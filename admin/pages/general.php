@@ -61,8 +61,18 @@ if (is_array($th_compare_option)) {
                 <td>
                     <div class="th-compare-radio">
                         <!--title-->
-                        <input type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php echo esc_html($checkChecked['field-product-single-page']); ?> value="product-single-page">
-                        <label class="th-color-title" for="field-show-product-page"><?php esc_html_e('Product Single Page.', 'th-product-compare') ?></label>
+
+                        <input type="checkbox" data-th-save='compare-field' id="field-show-product-page"
+       <?php echo esc_html($checkChecked['field-product-single-page']); ?>
+       value="product-single-page">
+<label class="th-color-title" for="field-show-product-page">
+    <?php esc_html_e('Product Single Page.', 'th-product-compare') ?>
+</label>
+
+
+
+                        <!-- <input type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php echo esc_html($checkChecked['field-product-single-page']); ?> value="product-single-page"> -->
+                        <!-- <label class="th-color-title" for="field-show-product-page"><?php esc_html_e('Product Single Page.', 'th-product-compare') ?></label> -->
                     </div>
                 </td>
             </tr>

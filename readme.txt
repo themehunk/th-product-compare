@@ -93,7 +93,7 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
-= 1.3.2 =
+= 1.3.3 =
 * New : remove Link or Button option - add icon /check text
 * New : shortcode if customize custom
 * Update : remove product not enable compare button working
