@@ -1084,10 +1084,10 @@
    width: max-content;
    margin: 0 auto;
 }
-.single-product .thunk-compare{
+/*.single-product .thunk-compare{
   width: initial;
   display: flex;
-}
+}*/
 /* Tooltip Wrapper */
 .compare-tooltip {
     position: relative;
@@ -1175,11 +1175,15 @@
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
-    padding: 5px 10px;
+    padding: 0px 10px;
     border-radius: 4px;
     font-size: 12px;
     white-space: nowrap;
     z-index: 10;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    height: 25px;
 }
 
 /* Mobile Adjustments */
