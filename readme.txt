@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, woocommerce compare, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.3.4 =
+* New: If no products in footer bar then footer popup should be closed feature added.
 
 = 1.3.3 =
 * New : remove Link or Button option - add icon /check text

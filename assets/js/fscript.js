@@ -134,7 +134,19 @@
               }
               $("body").append(response.footer_bar);
               $(".th-compare-footer-wrap > div").append(thCompare.loaderIcon());
-              if (parseInt(ids)) {
+              // Check if product_image contains any product-comp
+              let productImage = $(".th-compare-footer-wrap .product_image");
+              if (productImage.find(".product-comp").length === 0) {
+                
+                  $(".thcompare-open-by-popup").remove();
+                  $(".th-compare-footer-wrap").remove();
+                  $(".th-add-more-product-container").remove();
+                  $("body").removeClass("th_product_Compare_body_Class");
+                  $(".th-product-compare-checkbox").removeClass("th-added-compare").prop("checked", false);
+                  $(".th-product-compare-btn").removeClass("th-added-compare");
+                
+              } 
+              else if (parseInt(ids)) {
                 setTimeout(() => {
                   $(".th-compare-footer-wrap").addClass("active");
                 }, 500);

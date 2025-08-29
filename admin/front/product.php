@@ -133,7 +133,7 @@ class th_product_compare_return
                 $addMoreHtml = '';
                 if ($initTitleAndRow_key == 'image') {
                     $addMoreHtml .= '<div class="image-and-addcart">';
-                    $addMoreHtml .= '<div class="img_">';
+                    $addMoreHtml .= '<div class="img_ product-comp">';
                     $addMoreHtml .= '<a target="_blank" href="' . $link_ . '">' . $product->get_image() . '</a>';
                     $addMoreHtml .= '</div>';
                     $addMoreHtml .= '</div>';
@@ -198,7 +198,7 @@ class th_product_compare_return
             }
 
             // add to footer
-            $footerProduct .= '<div data-product-id="' . $ProductID . '" class="img_">';
+            $footerProduct .= '<div data-product-id="' . $ProductID . '" class="img_ product-comp">';
             $footerProduct .= '<i class="th-remove-product th-compare-product-remove" data-th-product-id="' . $ProductID . '"></i>';
             $footerProduct .= "<a target='_blank' href='" . $link_ . "'>";
             $footerProduct .= $product->get_image();
