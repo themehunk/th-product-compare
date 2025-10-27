@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, woocommerce compare, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.3.5 =
+*Update:  Themehunk plugins page style improved.
+
 = 1.3.4 =
 * New: If no products in footer bar then footer popup should be closed feature added.
 
@@ -179,10 +182,8 @@ Initial release
 
 == Upgrade Notice ==
 
-= 1.3.2 =
-* Update : Tested with WordPress 6.8.
-* Update : Premium link & get pro link changed.
-* Update : Compare Button background removed and color inherited.
+= 1.3.5 =
+*Update:  Themehunk plugins page style improved.
  
 = 1.0.0 =
 Initial release
