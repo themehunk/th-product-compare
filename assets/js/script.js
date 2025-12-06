@@ -3,6 +3,22 @@
     init: function () {
       TH.bind();
       TH.tab();
+      TH.mainTabheader();
+    },
+     mainTabheader: function () {
+      jQuery(document).ready(function($) {
+    // When the page loads or a new tab is clicked
+    $('.th-nav_ a').on('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        
+        // Get the content of the active link
+        var activeContent = $('.th-nav_ a.active').text(); // You can also use .html() if you need the HTML content
+
+        // Replace the content inside .tabheading with the active link content
+        $('.tabheading').text(activeContent);
+    });
+});
+
     },
     tab: function () {
       $("[data-group-tabs][data-tab]").click(function (e) {

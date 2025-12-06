@@ -1,8 +1,5 @@
 <div class="th-useful-plugins">
     <div>
-        <div class="th-tab-heading">
-            <span class="heading_"><?php esc_html_e('Themehunk Useful Plugins', 'th-product-compare'); ?></span>
-        </div>
         <div class="th-plugins_">
             <!-- woocommerce cart  -->
             <div>

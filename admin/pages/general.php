@@ -33,7 +33,10 @@ if (is_array($th_compare_option)) {
         <span class="th-tab-heading"><?php esc_html_e('Appearance', 'th-product-compare'); ?></span>
         <table>
             <tr>
-                <td><span class="th-color-title"><?php esc_html_e('Comapre Button Type', 'th-product-compare'); ?></span></td>
+                <td>
+                    <span class="th-color-title"><?php esc_html_e('Comapre Button Type', 'th-product-compare'); ?></span>
+                    <span class="th-alt-title"><?php esc_html_e('Choose how the trigger is displayed to users.', 'th-product-compare'); ?></span>
+                </td>
                 <td>
                     <select data-th-save='compare-btn-type'>
                         <option value="checkbox" <?php echo esc_html($th_product_btn_type == 'checkbox' ? "selected" : ''); ?> disabled><?php _e('Text (Checkbox) Pro', 'th-product-compare'); ?></option>
@@ -44,20 +47,28 @@ if (is_array($th_compare_option)) {
             </tr>
 
             <tr>
-                <td><span class="th-color-title"><?php esc_html_e('Link / Button Text', 'th-product-compare'); ?></span></td>
+                <td>
+                    <span class="th-color-title"><?php esc_html_e('Link / Button Text', 'th-product-compare'); ?></span>
+                    <span class="th-alt-title"><?php esc_html_e('Label for the compare action button.', 'th-product-compare'); ?></span>
+                </td>
                 <td>
                     <input data-th-save='compare-btn-text' type="text" placeholder="Compare" value="<?php echo esc_html($th_product_compare_btn_txt); ?>">
                     <i class="description"><?php esc_html_e('This value define maximum number of products you want to add in the compare table.', 'th-product-compare'); ?></i>
                 </td>
             </tr>
             <tr>
-                <td><span class="th-color-title"><?php esc_html_e('Number of Product to Compare', 'th-product-compare') ?></span></td>
+                <td>
+                    <span class="th-color-title"><?php esc_html_e('Number of Product to Compare', 'th-product-compare') ?></span>
+                    <span class="th-alt-title"><?php esc_html_e('Max products allowed in the compare table.', 'th-product-compare'); ?></span>
+                </td>
                 <td>
                     <input data-th-save='compare-product-limit' type="number" placeholder="4" value="<?php echo esc_html($th_product_limit); ?>"  readonly>
                 </td>
             </tr>
             <tr>
-                <td><span class="th-color-title"><?php esc_html_e('Display Compare Button', 'th-product-compare') ?></span></td>
+                <td><span class="th-color-title"><?php esc_html_e('Display Compare Button', 'th-product-compare') ?></span>
+             <span class="th-alt-title"><?php esc_html_e('Where should the compare button appear?', 'th-product-compare'); ?></span>
+            </td>
                 <td>
                     <div class="th-compare-radio">
                         <!--title-->
@@ -78,7 +89,10 @@ if (is_array($th_compare_option)) {
             </tr>
 
             <tr>
-                <td><span class="th-atleast-title"><?php esc_html_e('Minimum products message', 'th-product-compare'); ?></span></td>
+                <td>
+                    <span class="th-atleast-title"><?php esc_html_e('Minimum products message', 'th-product-compare'); ?></span>
+                    <span class="th-alt-title"><?php esc_html_e('Warning when user selects too few items.', 'th-product-compare'); ?></span>
+                </td>
                 <td>
                     <input data-th-save='compare-atleast-text' type="text" placeholder="Compare" value="<?php echo esc_html($th_product_atleast_txt); ?>">
                     <!-- <i class="description"><?php esc_html_e('This value define maximum number of products you want to add in the compare table.', 'th-product-compare'); ?></i> -->
@@ -97,7 +111,10 @@ if (is_array($th_compare_option)) {
             </tr>
 
             <tr>
-                <td><span class="th-color-title"><?php esc_html_e('Place Compare At', 'th-product-compare'); ?></span></td>
+                <td>
+                    <span class="th-color-title"><?php esc_html_e('Place Compare At', 'th-product-compare'); ?></span>
+                    <span class="th-alt-title"><?php esc_html_e('Position relative to the Add to Cart button.', 'th-product-compare'); ?></span>
+                </td>
                 <td>
                     <select data-th-save='compare-at-shop-hook'>
                         <option value="before" <?php echo esc_html($th_product_shop_hook == 'before' ? "selected" : ''); ?>><?php _e('Before Cart', 'th-product-compare'); ?></option>
