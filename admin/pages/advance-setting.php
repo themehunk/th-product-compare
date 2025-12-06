@@ -42,6 +42,7 @@ function th_compare_productsAttributes($defaultAttributes)
             <div class="row_">
                 <div>
                     <span class="bold-heading"><?php esc_html_e('Fields to Show in Comparison Table', 'th-product-compare') ?></span>
+                     <span class="th-alt-title"><?php esc_html_e('Select which product attributes to display in the comparison table.', 'th-product-compare') ?></span>
                 </div>
                 <div class="th-compare-field-wrap woocommerce-th-attributes">
                     <?php th_compare_productsAttributes($defaultAttributes); ?>
@@ -50,6 +51,9 @@ function th_compare_productsAttributes($defaultAttributes)
             <div class="row_">
                 <div>
                     <span class="bold-heading"><?php esc_html_e('Repeat Fields', 'th-product-compare'); ?></span>
+                    <span class="th-alt-title"><?php esc_html_e('Repeat specific rows at the bottom for easier comparison on long tables.
+
+.', 'th-product-compare') ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
