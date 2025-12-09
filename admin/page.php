@@ -1,6 +1,7 @@
 <?php if (!defined('ABSPATH')) exit; ?>
 <div class="th-product-compare-wrap th-plugin-common-wrap">
     <div class="th-product-compare-container">
+        <div class=th-left>
         <nav class="th-nav_">
             <span class="logo-detail">
                 <div class="img_">
@@ -15,6 +16,14 @@
             <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span class="dashicons dashicons-admin-plugins"></span><?php esc_html_e('Useful Plugins', 'th-product-compare'); ?></a>
             
         </nav>
+
+        <div class="th-subscribe-btn">
+                    <h4><?php esc_html_e('Get More', 'th-product-compare-pro'); ?></h4>
+                    <h5><?php esc_html_e('Subscribe more latest updates.', 'th-product-compare-pro'); ?></h5>
+                    <a href="<?php echo esc_url('https://themehunk.com/support/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Subscribe Now', 'th-product-compare-pro'); ?></a>  
+        </div>
+
+        </div>
 
         <div class="th-right">
         <div class="top-header">
@@ -53,5 +62,4 @@
         </div>
 
     </div>
-
 </div>

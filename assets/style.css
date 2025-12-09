@@ -5,6 +5,9 @@
   --border-color: #e2e8f0;
   --text-color-light: #727272;
 }
+body{
+  background: #f8fafc; 
+}
 .th-right-sidebar {
   display: flex;
     flex-direction: column;
@@ -43,7 +46,7 @@
     background: #858789;
     color: #fff;
     display: inline-flex;
-    border-radius: 4px;
+    border-radius: 9px;
     text-transform: uppercase;
     font-weight: 700;
     text-decoration: auto;
@@ -99,10 +102,9 @@
   font-weight: 500;
   width: 100%;
   color: #1d2327;
-  font-size: 1.3em;
-    margin: 0rem 0rem 0.5rem 0rem;
+  font-size: 1.2em;
+  margin: 0;
   text-transform: uppercase;
-  margin-bottom: 48px;
 }
 
 [data-group-tabs][data-tab-container] {
@@ -115,7 +117,7 @@
 
 .th-plugin-common-wrap {
     width: 100%;
-    background: #f8fafc;
+    /* background: #f8fafc; */
     padding: 0;
     margin-right: 1.3rem;
     border-radius: 0;
@@ -177,9 +179,13 @@ label.color-output {
   flex: 1;
 }
 .th-general .th-option_ table tr {
-  margin: 20px 0;
+  margin: 0;
+  padding: 29px 0;
   display: flex;
-  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-color);
+}
+.th-general .th-option_ table tr:last-child {
+  border-bottom: none;
 }
 .th-general .th-option_ table tr:first-child {
   margin-top: 0;
@@ -242,6 +248,10 @@ label.color-output {
 }
 .th-product-compare-wrap .setting_ .field-to-show > div .row_ {
   display: flex;
+  padding-top: 29px;
+}
+.setting_ .row_:first-child{
+  border-bottom: 1px solid var(--border-color);
 }
 .th-product-compare-wrap .setting_ .field-to-show > div .row_ > div {
   flex: 1;
@@ -298,7 +308,6 @@ label.color-output {
   font-size: 15px;
   align-items: center;
   grid-gap: 16px;
-  width: 687px;
   max-width: 100%;
 }
 .th-compare-pro-feature .th-compare-banner .heading_{
@@ -492,6 +501,7 @@ a.link_.upgrade-button::before {
 }
 .th-plugin-common-wrap .th-right{
   width: 82%;
+  margin-left: 250px;
 }
 .th-plugin-common-wrap .container-tabs {
     max-width: 850px;
@@ -499,7 +509,7 @@ a.link_.upgrade-button::before {
     margin: 0 auto;
     background: #fff;
     justify-content: space-between;
-    border-radius: 10px;
+    border-radius: 9px;
     border: 1px solid var(--border-color);
 }
 .th-product-compare-container {
@@ -527,13 +537,14 @@ a.link_.upgrade-button::before {
   margin-bottom: 21px;
   position: sticky;
   top: 32px;
+  z-index: 108;
 }
 
 
 .th-product-compare-wrap {
   width: 100%;
 }
-.th-nav_ {
+.th-left {
     display: flex;
     flex-direction: column;
     width: 18%;
@@ -553,7 +564,7 @@ a.link_.upgrade-button::before {
     position: relative;
     align-items: center;
     padding: 9px;
-    border-radius: 8px;
+    border-radius: 9px;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -622,31 +633,9 @@ a.link_.upgrade-button::before {
 .th-compare-add-shortcode,
 .th-product-compare-wrap .setting_{
   display: flex;
-  min-height: 509px;
 }
 
-.th-subscribe-btn{
-    background: #eef2ff;
-    color: #111;
-    padding: 12px;
-    width: 91%;
-    margin: 0 auto;
-    border-radius: 5px;
-    margin-top: 155px;
-}
-.wp-core-ui .th-subscribe-btn .button-primary{
-  background: var(--highlight-color)!important;
-  color: #FFF!important;
-  width: 100%;
-  text-align: center;
-  padding: 4px 0;
-  letter-spacing: 1px;
-}
-.th-subscribe-btn h4,
-.th-subscribe-btn h5{
-  margin: 0 0 9px 0;
-  color: #2e2e2e;
-}
+
 
  .th-save-btn button.loading:before {
   content: "\f463";
@@ -702,16 +691,18 @@ a.link_.upgrade-button::before {
   color: var(--text-color-light);
   display: block;
   font-weight: 400;
-  margin-top: 12px;
+  margin-top: 4px;
+  font-size: .75rem;
+  line-height: 1rem;
 }
 .description {
-    font-weight: 500;
-   color: var(--text-color-light);
+    color: var(--text-color-light);
     font-style: NORMAL;
     margin-top: 9px;
     display: block;
     line-height: 19px;
-    font-size: 0.867rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
 }
 
 .th-compare-radio {
@@ -759,8 +750,53 @@ a.link_.upgrade-button::before {
   height: 154px;
   flex-wrap: wrap;
 }
+.th-subscribe-btn{
+    background: #eef2ff;
+    color: #111;
+    padding: 12px;
+    width: 91%;
+    margin: 0 auto;
+    border-radius: 5px;
+   position: absolute;
+    bottom: 54px;
+}
+.wp-core-ui .th-subscribe-btn .button-primary{
+  background: var(--highlight-color)!important;
+  color: #FFF!important;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 9px;
+}
+.th-subscribe-btn h4,
+.th-subscribe-btn h5{
+  margin: 0 0 5px 0;
+  color: #2e2e2e;
+  line-height: 18px;
+  color: var(--highlight-color);
+}
+.th-plugin-footer{
+ 
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #FFF;
+  text-align: center;
+  border-top: 1px soild var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 108;
+}
+.th-left {
+   position: fixed;
+    width: 250px; /* Set the width as needed */
+    height: 100vh; /* Full height of the screen */
+    background-color: white; /* Optional: Set background to avoid transparency */
+    z-index: 100; /* Ensure it stays above other content */
+    overflow-y: auto; /* Enable scrolling inside the sidebar if content overflows */
+}
+
 @media screen and (max-width: 1024px){
-  .th-nav_{
+  .th-left{
     width: 27%;
   }
   .th-general .th-option_, .th-product-compare-wrap .setting_ .field-to-show, .th-compare-add-shortcode > div:not(.themehunk-sidebar), .th-help-wrap .blocks, .dummy-and-style{
