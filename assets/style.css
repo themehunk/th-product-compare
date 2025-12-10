@@ -63,7 +63,6 @@ body{
 }
 .th-useful-plugins > div:not(.themehunk-sidebar) {
   flex: 1;
-  padding-right: 30px;
 }
 .th-useful-plugins .th-plugins_ {
   display: flex;
@@ -84,16 +83,12 @@ body{
   height: auto;
 }
 .th-useful-plugins .th-plugins_ > div .description_ .plugin-title_ {
-  font-size: 16px;
+  font-size: 14px;
   display: block;
-  line-height: 1;
+  line-height: 21px;
   text-decoration: none;
   font-weight: 600;
 }
-.th-useful-plugins .th-plugins_ > div .description_ .plugin-title_:hover {
-  text-decoration: underline;
-}
-
 .th-tab-heading {
   display: block;
   border-bottom: 1px solid #f0f0f1;
@@ -628,6 +623,10 @@ a.link_.upgrade-button::before {
   margin-right: 12px!important;
   display: inline-flex!important;
 }
+.th-plugin-common-wrap button{
+  line-height: 2.15384615!important;
+  min-height: initial!important;
+}
 
 .th-help-wrap,
 .th-compare-add-shortcode,
@@ -797,11 +796,43 @@ a.link_.upgrade-button::before {
 
 @media screen and (max-width: 1024px){
   .th-left{
-    width: 27%;
+    width: 199px;
   }
   .th-general .th-option_, .th-product-compare-wrap .setting_ .field-to-show, .th-compare-add-shortcode > div:not(.themehunk-sidebar), .th-help-wrap .blocks, .dummy-and-style{
     max-width: 91%;
   }
+  .th-plugin-common-wrap .th-right{
+    width: 72%;
+    margin-left: 216px;
+  }
+  .th-help-wrap .blocks > div{
+    width: 100%;
+  }
+  .th-useful-plugins .th-plugins_ > div{
+    width: 50%;
+  }
+  .th-compare-pro-feature .th-compare-banner .bold_{
+    font-size: 12px;
+    line-height: 19px;
+  }
+  .th-compare-pro-feature .th-compare-banner .button_ a{
+    padding: 9px 14px 9px 63px;
+  }
+}
+
+@media screen and (max-width: 900px){
+ .th-plugin-common-wrap .container-tabs{
+  max-width: 500px;
+ }
+ .th-plugin-common-wrap .th-right{
+  width: initial;
+ }
+ .wp-core-ui .th-save-btn button{
+  padding: 0 9px;
+ }
+ .top-header{
+  top: 45px;
+ }
 }
 
 
