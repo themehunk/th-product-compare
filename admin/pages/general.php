@@ -58,15 +58,15 @@ if (is_array($th_compare_option)) {
             </tr>
             <tr>
                 <td>
-                    <span class="th-color-title"><?php esc_html_e('Number of Product to Compare', 'th-product-compare') ?></span>
+                    <span class="th-color-title"><?php esc_html_e('Comparison Limit', 'th-product-compare') ?></span>
                     <span class="th-alt-title"><?php esc_html_e('Max products allowed in the compare table.', 'th-product-compare'); ?></span>
                 </td>
                 <td>
-                    <input data-th-save='compare-product-limit' type="number" placeholder="4" value="<?php echo esc_html($th_product_limit); ?>"  readonly>
+                    <input class="th-limit-input" data-th-save='compare-product-limit' type="number" placeholder="4" value="<?php echo esc_html($th_product_limit); ?>"  readonly>
                 </td>
             </tr>
             <tr>
-                <td><span class="th-color-title"><?php esc_html_e('Display Compare Button', 'th-product-compare') ?></span>
+                <td><span class="th-color-title"><?php esc_html_e('Visibility', 'th-product-compare') ?></span>
              <span class="th-alt-title"><?php esc_html_e('Where should the compare button appear?', 'th-product-compare'); ?></span>
             </td>
                 <td>
@@ -85,6 +85,12 @@ if (is_array($th_compare_option)) {
                         <!-- <input type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php echo esc_html($checkChecked['field-product-single-page']); ?> value="product-single-page"> -->
                         <!-- <label class="th-color-title" for="field-show-product-page"><?php esc_html_e('Product Single Page.', 'th-product-compare') ?></label> -->
                     </div>
+
+                    <div class="th-compare-radio shop-archive">
+                        <!--title-->
+                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-product-list" <?php echo esc_html($checkChecked['field-product-page']); ?> value="product-page">
+                        <label class="th-color-title" for="compare-fields-product-list"><?php esc_html_e('Shop and Archive Pages.', 'th-product-compare') ?></label>
+                    </div>
                 </td>
             </tr>
 
@@ -100,19 +106,8 @@ if (is_array($th_compare_option)) {
             </tr>
 
             <tr>
-                <td></td>
                 <td>
-                    <div class="th-compare-radio">
-                        <!--title-->
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-product-list" <?php echo esc_html($checkChecked['field-product-page']); ?> value="product-page">
-                        <label class="th-color-title" for="compare-fields-product-list"><?php esc_html_e('Shop and Archive Pages.', 'th-product-compare') ?></label>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <span class="th-color-title"><?php esc_html_e('Place Compare At', 'th-product-compare'); ?></span>
+                    <span class="th-color-title"><?php esc_html_e('Button Placement', 'th-product-compare'); ?></span>
                     <span class="th-alt-title"><?php esc_html_e('Position relative to the Add to Cart button.', 'th-product-compare'); ?></span>
                 </td>
                 <td>
@@ -124,21 +119,31 @@ if (is_array($th_compare_option)) {
                 </td>
             </tr>
 
-             <tr>
-            
-                <td>
-                    <h4>Using shortcode:     
-                    </h4>
-                </td>
-
-                <td>
-                    <p><strong><?php esc_html_e('Display Compare Button for a Particular Product:', 'th-product-compare-pro'); ?></strong></p>
-                    <p><?php esc_html_e('To show a compare button for a specific product, place the following shortcode where needed:', 'th-product-compare-pro'); ?></p>
-                    <h5><code>[th_compare pid="856"]</code></h5>
-                    <p><?php esc_html_e('* The "pid" attribute should be the ID of the product you want to allow comparison for. *', 'th-product-compare-pro'); ?></p>
-                </td>
-            </tr>
-
         </table>
+
     </div>
 </div>
+ <div class="th-shortcode-box">
+            
+            <div class="th-shortcode-header">
+                <span class="th-shortcode-icon">⧉</span>
+                <strong><?php esc_html_e('Display via Shortcode', 'th-product-compare-pro'); ?></strong>
+            </div>
+
+            <p class="th-shortcode-text">
+                <?php esc_html_e('To display the compare button for a specific product anywhere on your site, use the following shortcode:', 'th-product-compare-pro'); ?>
+            </p>
+
+           <div class="th-shortcode-code">
+                <code id="th-copy-shortcode">[th_compare pid="856"]</code>
+                <button type="button" class="th-copy-btn" data-copy-target="th-copy-shortcode">
+                    Copy
+                </button>
+            </div>
+
+
+            <p class="th-shortcode-note">
+                <?php esc_html_e('* Replace "856" with the specific Product ID.', 'th-product-compare-pro'); ?>
+            </p>
+
+        </div>

@@ -18,9 +18,9 @@
         </nav>
 
         <div class="th-subscribe-btn">
-                    <h4><?php esc_html_e('Get More', 'th-product-compare-pro'); ?></h4>
-                    <h5><?php esc_html_e('Subscribe more latest updates.', 'th-product-compare-pro'); ?></h5>
-                    <a href="<?php echo esc_url('https://themehunk.com/support/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Subscribe Now', 'th-product-compare-pro'); ?></a>  
+                    <h4><?php esc_html_e('Pro Plan', 'th-product-compare-pro'); ?></h4>
+                    <h5><?php esc_html_e('Upgrade for more features', 'th-product-compare-pro'); ?></h5>
+                    <a href="<?php echo esc_url('https://themehunk.com/support/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Upgrade Now', 'th-product-compare-pro'); ?></a>  
         </div>
 
         </div>

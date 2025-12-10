@@ -3,10 +3,11 @@
   --light-color: #505458;
   --text-color: #111;
   --border-color: #e2e8f0;
-  --text-color-light: #727272;
+  --text-color-light: #64748B;
+  --body-background: #f8fafc;
 }
 body{
-  background: #f8fafc; 
+  background: var(--body-background);
 }
 .th-right-sidebar {
   display: flex;
@@ -92,14 +93,19 @@ body{
 .th-tab-heading {
   display: block;
   border-bottom: 1px solid #f0f0f1;
-  padding-bottom: 21px;
+  padding: .9rem;
   letter-spacing: 0.5px;
-  font-weight: 500;
+  font-weight: 700;
   width: 100%;
   color: #1d2327;
-  font-size: 1.2em;
+  font-size: 1em;
   margin: 0;
   text-transform: uppercase;
+  width: auto;
+  margin: -1.5rem -1.5rem 0 -1.5rem;
+  background: #fbfcfd;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 [data-group-tabs][data-tab-container] {
@@ -112,7 +118,7 @@ body{
 
 .th-plugin-common-wrap {
     width: 100%;
-    /* background: #f8fafc; */
+    /* background: var(--body-background); */
     padding: 0;
     margin-right: 1.3rem;
     border-radius: 0;
@@ -123,9 +129,6 @@ body{
 .th-product-compare-wrap a:focus {
   box-shadow: none;
   outline: none;
-}
-.th-product-compare-wrap .th-product-compare-container {
-  display: flex;
 }
 
 
@@ -244,6 +247,7 @@ label.color-output {
 .th-product-compare-wrap .setting_ .field-to-show > div .row_ {
   display: flex;
   padding-top: 29px;
+  padding-bottom: 29px;
 }
 .setting_ .row_:first-child{
   border-bottom: 1px solid var(--border-color);
@@ -251,10 +255,16 @@ label.color-output {
 .th-product-compare-wrap .setting_ .field-to-show > div .row_ > div {
   flex: 1;
 }
+.th-product-compare-wrap .setting_ .field-to-show > div .row_ > div:first-child {
+  max-width: 39%;
+}
 .th-product-compare-wrap .setting_ .field-to-show .th-compare-field-wrap {
   display: flex;
   flex-direction: column;
   grid-gap: 15px;
+  background: var(--body-background);
+  border-radius: 9px;
+  padding: 12px;
 }
 
 
@@ -264,13 +274,13 @@ label.color-output {
 }
 .th-help-wrap .blocks {
   display: flex;
-  grid-gap: 40px;
+  grid-gap: 20px;
   flex-wrap: wrap;
 }
 .th-help-wrap .blocks > div {
-  padding: 24px 22px;
+  padding: 18px;
   box-shadow: 0px 0px 5px 1px #eff8fd;
-  width: calc(50% - 20px);
+  width: 31.33%;
   display: flex;
   flex-direction: column;
   grid-gap: 12px;
@@ -297,13 +307,13 @@ label.color-output {
   background: #E1E6F4;
   color: #111;
   display: flex;
-  padding: 20px 26px;
-  border-radius: 4px;
+  padding: 18px;
+  border-radius: 9px;
   color: white;
   font-size: 15px;
   align-items: center;
   grid-gap: 16px;
-  max-width: 100%;
+  max-width: 579px;
 }
 .th-compare-pro-feature .th-compare-banner .heading_{
   color: #111;
@@ -311,6 +321,7 @@ label.color-output {
 .th-compare-pro-feature .th-compare-banner .heading_ {
   flex: 3;
   line-height: 1.4;
+  font-size: 12px;
 }
 .th-compare-pro-feature .th-compare-banner .button_ {
   flex: 1.5;
@@ -321,22 +332,23 @@ label.color-output {
   color: white;
   text-decoration: none;
   text-align: center;
-  padding: 14px 14px 14px 63px;
+  padding: 5px 9px 5px 39px;
   font-size: inherit;
   position: relative;
   width: fit-content;
-  border-radius: 4px;
+  border-radius: 9px;
+  float: right;
 }
 .th-compare-pro-feature .th-compare-banner .button_ a:before {
   content: "\f160";
   font-family: "dashicons";
-  font-size: 36px;
+  font-size: 16px;
   position: absolute;
   left: 16px;
 }
 .th-compare-pro-feature .th-compare-banner .bold_ {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 13px;
 }
 .th-compare-pro-feature .img-description {
   display: flex;
@@ -355,6 +367,7 @@ label.color-output {
 }
 .th-compare-pro-feature .img-description .wrap_ .img_ img {
   max-width: 90%;
+
 }
 .th-compare-pro-feature .img-description .wrap_ .description_ {
   display: flex;
@@ -362,15 +375,16 @@ label.color-output {
   grid-gap: 12px;
 }
 .th-compare-pro-feature .img-description .wrap_ .description_ .heading_ {
-  font-size: 22px;
+  font-size: 16px;
   line-height: 1;
   font-weight: 600;
   color: black;
 }
 .th-compare-pro-feature .img-description .wrap_ .description_ .text_ {
-  font-size: 15px;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: 400;
-  color: #4e4e4e;
+  color: var(--text-color-light);
 }
 
 .active[data-slug="th-product-compare"] .premium a {
@@ -495,17 +509,26 @@ a.link_.upgrade-button::before {
   text-indent: 9px;
 }
 .th-plugin-common-wrap .th-right{
-  width: 82%;
+  width: 100%;
   margin-left: 250px;
 }
 .th-plugin-common-wrap .container-tabs {
     max-width: 850px;
-    padding: 1.5rem;
     margin: 0 auto;
-    background: #fff;
     justify-content: space-between;
     border-radius: 9px;
+    /* background: #fff;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color); */
+}
+.th-general,
+.setting_
+{
+  background: #fff;
+    padding: 1.5rem;
     border: 1px solid var(--border-color);
+    border-radius: 9px;
+    margin: 0 auto;
 }
 .th-product-compare-container {
   display: flex;
@@ -719,8 +742,8 @@ a.link_.upgrade-button::before {
   transition: 0.3s all ease;
   z-index: 10;
   position: absolute;
-  left: 0;
-  top: 50%;
+  left: -1px;
+  top: 56%;
   transform: translateY(-50%) scale(0);
 }
 .th-compare-radio label:after {
@@ -739,7 +762,7 @@ a.link_.upgrade-button::before {
 }
 .th-compare-radio input:checked + label:before {
   transform: translateY(-50%) scale(1);
-  color: var(--highlight-color);
+  color: #FFF;
 }
 .th-compare-radio input:checked + label:after {
   border-color: var(--highlight-color);
@@ -786,17 +809,123 @@ a.link_.upgrade-button::before {
   z-index: 108;
 }
 .th-left {
-   position: fixed;
-    width: 250px; /* Set the width as needed */
-    height: 100vh; /* Full height of the screen */
-    background-color: white; /* Optional: Set background to avoid transparency */
-    z-index: 100; /* Ensure it stays above other content */
-    overflow-y: auto; /* Enable scrolling inside the sidebar if content overflows */
+  position: fixed;
+    width: 250px;
+    height: 100vh;
+    z-index: 100000000008;
+    top: 32px;
+    overflow-y: auto;
+    background: var(--body-background);
+    padding-top: 40px;
+}
+.th-compare-radio.shop-archive{
+  margin-top: 12px;
+}
+.th-plugin-common-wrap td .th-limit-input{
+  max-width: 108px!important;
+}
+.sticky-rows-settings .th-compare-radio {
+  margin-bottom: 9px;
+}
+
+.th-shortcode-box {
+    border: 1px dashed #cfd9e6;
+    background: #f7faff;
+    padding: 20px 24px;
+    border-radius: 9px;
+    margin: 21px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+}
+
+.th-shortcode-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #0d2c54;
+}
+
+.th-shortcode-icon {
+    background: #e7f0ff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.th-shortcode-text {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--text-color-light);
+}
+
+.th-shortcode-code {
+    background: #0f172a;
+    color: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+    user-select: all;
+}
+
+.th-shortcode-code code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: 14px;
+}
+
+.th-shortcode-note {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.th-shortcode-code {
+    background: #0f172a;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 9px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.th-shortcode-code code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: 14px;
+    user-select: all;
+}
+
+.th-copy-btn {
+    background: var(--highlight-color);
+    border: none;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 9px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.th-copy-btn:hover {
+    background: #1d4ed8;
+}
+
+.th-copy-btn.copied {
+    background: #16a34a;
 }
 
 @media screen and (max-width: 1024px){
   .th-left{
     width: 199px;
+    top: 39px;
   }
   .th-general .th-option_, .th-product-compare-wrap .setting_ .field-to-show, .th-compare-add-shortcode > div:not(.themehunk-sidebar), .th-help-wrap .blocks, .dummy-and-style{
     max-width: 91%;
@@ -821,6 +950,9 @@ a.link_.upgrade-button::before {
 }
 
 @media screen and (max-width: 900px){
+  .th-left{
+    top: 48px;
+  }
  .th-plugin-common-wrap .container-tabs{
   max-width: 500px;
  }
@@ -842,7 +974,7 @@ a.link_.upgrade-button::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: var(--body-background);
   border-radius: 10px;
 }
 

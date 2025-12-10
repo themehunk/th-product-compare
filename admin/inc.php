@@ -14,6 +14,18 @@ class th_product_compare
         add_action('wp_enqueue_scripts', array($this, 'enqueue_front_script'));
         add_filter('plugin_action_links_' . plugin_basename(TH_PRODUCT_PATH . '/' . basename(TH_PRODUCT_BASE_NAME)), array($this, 'add_menu_links'));
         add_filter('plugin_row_meta', array($this, 'docs_link'), 10, 2);
+        add_action('admin_init', function () {
+
+    if (
+        isset($_GET['page']) &&
+        $_GET['page'] === 'th-product-compare'
+    ) {
+        remove_all_actions('admin_notices');
+        remove_all_actions('all_admin_notices');
+    }
+
+});
+
 
         $this->localizeOption = get_option('th_compare_option');
         $cookiesName = th_product_compare::cookieName();

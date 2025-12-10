@@ -23,7 +23,7 @@ if (!function_exists('tpcp_loaded')) {
 
     include_once(TH_PRODUCT_PATH . 'admin/themehunk-menu/admin-menu.php');
     include_once(TH_PRODUCT_PATH . 'admin/inc.php');
-    include_once(TH_PRODUCT_PATH . 'notice/th-notice.php');
+    // include_once(TH_PRODUCT_PATH . 'notice/th-notice.php');
     include_once(TH_PRODUCT_PATH . 'admin/front/front.php');
     include_once(TH_PRODUCT_PATH . 'admin/front/product.php');
     include_once(TH_PRODUCT_PATH . 'admin/back/init.php');
