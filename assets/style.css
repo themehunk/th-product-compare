@@ -927,9 +927,9 @@ a.link_.upgrade-button::before {
     width: 199px;
     top: 39px;
   }
-  .th-general .th-option_, .th-product-compare-wrap .setting_ .field-to-show, .th-compare-add-shortcode > div:not(.themehunk-sidebar), .th-help-wrap .blocks, .dummy-and-style{
+  /* .th-general .th-option_, .th-product-compare-wrap .setting_ .field-to-show, .th-compare-add-shortcode > div:not(.themehunk-sidebar), .th-help-wrap .blocks, .dummy-and-style{
     max-width: 91%;
-  }
+  } */
   .th-plugin-common-wrap .th-right{
     width: 72%;
     margin-left: 216px;
@@ -966,7 +966,103 @@ a.link_.upgrade-button::before {
   top: 45px;
  }
 }
+@media screen and (max-width: 767px){
+  .th-left{
+    width: 72px;
+    padding-left: 0;
+  }
+ .logo-detail span{
+    display: none;
+  }
+  .logo-detail{
+    padding-left: 0;
+  }
+  .th-nav_ > a{
+    font-size: 0;
+    display: inline-flex;
+  }
+.th-nav_ span.dashicons{
+    margin-right: 0;
+    margin-left: 5px;
+  }
+  .th-plugin-common-wrap .th-right{
+    margin-left: 79px;
+  }
+  .container-tabs table tr{
+    display: flex;
+    flex-direction: column;
+  }
+  .th-general .th-option_{
+    width: 100%;
+  }
+  .th-plugin-common-wrap .th-right{
+    width: 75%;
+  }
+  .th-plugin-common-wrap .container-tabs{
+    max-width: 100%;
+  }
+  .th-general .th-option_ table tr td:first-child{
+    min-width: initial;
+    max-width: 100%;
+  }
+  .th-product-compare-wrap .setting_ .field-to-show > div .row_{
+    flex-direction: column;
+  }
+  .th-product-compare-wrap .setting_ .field-to-show > div .row_ > div:first-child{
+    max-width: 100%;
+  }
+  .th-useful-plugins .th-plugins_ > div{
+    width: 100%;
+  }
+  .th-compare-field-wrap.woocommerce-th-attributes,
+  .sticky-rows-settings{
+    height: initial;
+    margin-top: 18px;
+  }
+  .th-compare-pro-feature .img-description .wrap_ .img_{
+    margin-left: initial;
+  }
+  .th-compare-pro-feature .img-description .wrap_{
+    width: initial;
+  }
+  .th-compare-pro-feature .th-compare-banner{
+    flex-direction: column;
+  }
+  .top-header{
+    top: 0;
+    justify-content: center;
+    padding: 12px 0;
+  }
+  .th-subscribe-btn{
+    padding: 5px;
 
+  }
+  .th-subscribe-btn h5{
+    display: none;
+  }
+ .wp-core-ui .th-subscribe-btn .button-primary{
+    font-size: 0;
+        height: initial;
+        min-height: initial;
+        line-height: initial;
+  }
+  .th-subscribe-btn a::after{
+    content: "\f504";
+        font-family: dashicons;
+        display: block;
+        height: 29px;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+  .th-save-btn{
+    display: flex;
+  }
+  .tabheading{
+    display: none;
+  }
+}
 
 /* For Chrome, Edge, Safari */
 ::-webkit-scrollbar {
@@ -985,5 +1081,30 @@ a.link_.upgrade-button::before {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+
+/* Make table scrollable on small screens (basic safety) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Hide borders and make mobile card style */
+@media (max-width: 600px) {
+
+    table tbody tr {
+        display: block;
+        margin-bottom: 18px;
+        padding: 12px;
+    }
+
+    table tbody tr td {
+        display: block;
+        width: 100%;
+    }
+
+    /* Force titles to look like headings */
+    
 }
 
