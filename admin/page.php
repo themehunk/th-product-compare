@@ -1,4 +1,66 @@
-<?php if (!defined('ABSPATH')) exit; ?>
+<?php if (!defined('ABSPATH')) exit;
+
+if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
+    function thpc_get_svg_icon( $name ) {
+
+        $icons = [
+
+            // ⚙️ Basic Settings Icon (Gear)
+            'settings' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            ',
+
+            // 🔧 Advance Icon
+            'advance' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="4" y1="21" y2="14"></line>
+                <line x1="4" x2="4" y1="10" y2="3"></line>
+                <line x1="12" x2="12" y1="21" y2="12"></line>
+                <line x1="12" x2="12" y1="8" y2="3"></line>
+                <line x1="20" x2="20" y1="21" y2="16"></line>
+                <line x1="20" x2="20" y1="12" y2="3"></line>
+                <line x1="1" x2="7" y1="14" y2="14"></line>
+                <line x1="9" x2="15" y1="8" y2="8"></line>
+                <line x1="17" x2="23" y1="16" y2="16"></line>
+            </svg>
+            ',
+
+            // 🔐 Premium Icon
+            'premium' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            ',
+
+            // ❓ Help Icon
+            'help' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <path d="M12 17h.01"></path>
+            </svg>
+            ',
+
+            // 🔌 Useful Plugins Icon
+            'plugins' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22v-5"></path>
+                <path d="M9 8V2"></path>
+                <path d="M15 8V2"></path>
+                <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"></path>
+            </svg>
+            ',
+        ];
+
+        return $icons[ $name ] ?? '';
+    }
+}
+
+?>
 <div class="th-product-compare-wrap th-plugin-common-wrap">
     <div class="th-product-compare-container">
         <div class=th-left>
@@ -9,18 +71,18 @@
                 </div>
                 <span><?php esc_html_e('Compare', 'th-product-compare'); ?></span>
             </span>
-            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span class="dashicons dashicons-admin-generic"></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="setting" href="#"><span class="dashicons dashicons-hammer"></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span class="dashicons dashicons-unlock"></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="help" href="#"><span class="dashicons dashicons-editor-help"></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span class="dashicons dashicons-admin-plugins"></span><?php esc_html_e('Useful Plugins', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span><?php echo thpc_get_svg_icon('settings'); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></span></a>
+            <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo thpc_get_svg_icon('premium'); ?></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo thpc_get_svg_icon('help'); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span><?php echo thpc_get_svg_icon('plugins'); ?></span><?php esc_html_e('Useful Plugins', 'th-product-compare'); ?></a>
             
         </nav>
 
         <div class="th-subscribe-btn">
-                    <h4><?php esc_html_e('Get More', 'th-product-compare-pro'); ?></h4>
-                    <h5><?php esc_html_e('Subscribe more latest updates.', 'th-product-compare-pro'); ?></h5>
-                    <a href="<?php echo esc_url('https://themehunk.com/support/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Subscribe Now', 'th-product-compare-pro'); ?></a>  
+                    <h4><?php esc_html_e('Pro Plan', 'th-product-compare-pro'); ?></h4>
+                    <h5><?php esc_html_e('Upgrade for more features', 'th-product-compare-pro'); ?></h5>
+                    <a href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Upgrade Now', 'th-product-compare-pro'); ?></a>  
         </div>
 
         </div>

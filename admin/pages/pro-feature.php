@@ -63,18 +63,5 @@ if (!defined('ABSPATH')) exit;
             </div>
         </div>
     </div>
-    <!-- banner  -->
-    <div class="th-compare-banner">
-        <div class="heading_">
-            <span><?php esc_html_e('Upgrade to', "th-product-compare") ?></span>
-            <span class="bold_"><?php esc_html_e('PREMIUM VERSION', "th-product-compare"); ?></span>
-            <span class="bold_"><?php esc_html_e('TH PRODUCT COMPARE', "th-product-compare"); ?></span>
-        </div>
-        <div class="button_">
-            <a href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin'); ?>" target="_blank">
-                <span class="bold_"><?php esc_html_e('UPGRADE PRO', "th-product-compare"); ?></span>
-            </a>
-        </div>
-    </div>
-    <!-- banner  -->
+    
 </div>

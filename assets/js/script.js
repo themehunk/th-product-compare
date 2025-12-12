@@ -4,6 +4,7 @@
       TH.bind();
       TH.tab();
       TH.mainTabheader();
+      TH.copyToClip();
     },
      mainTabheader: function () {
       jQuery(document).ready(function($) {
@@ -20,6 +21,35 @@
 });
 
     },
+         copyToClip: function () {
+
+            $('.th-copy-btn').on('click', function () {
+
+                  var button = $(this);
+                  var targetId = button.data('copy-target');
+                  var textToCopy = $('#' + targetId).text();
+
+                  // Create temporary input
+                  var tempInput = $('<input>');
+                  $('body').append(tempInput);
+                  tempInput.val(textToCopy).select();
+
+                  document.execCommand('copy');
+                  tempInput.remove();
+
+                  // UI Feedback
+                  button.text('Copied!');
+                  button.addClass('copied');
+
+                  setTimeout(function () {
+                      button.text('Copy');
+                      button.removeClass('copied');
+                  }, 1500);
+
+              });
+
+    },
+
     tab: function () {
       $("[data-group-tabs][data-tab]").click(function (e) {
         e.preventDefault();
