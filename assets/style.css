@@ -1032,6 +1032,7 @@ a.link_.upgrade-button::before {
     top: 0;
     justify-content: center;
     padding: 12px 0;
+    padding-top: 21px;
   }
   .th-subscribe-btn{
     padding: 5px;
@@ -1061,6 +1062,21 @@ a.link_.upgrade-button::before {
   }
   .tabheading{
     display: none;
+  }
+  .th-compare-pro-feature .th-compare-banner .button_ a{
+   padding: 9px 14px 9px 36px;
+  }
+  .th-compare-pro-feature .img-description .wrap_ .description_ .text_{
+    line-height: 18px;
+  }
+  .th-compare-pro-feature .th-compare-banner .heading_{
+    text-align: center;
+  }
+  .th-shortcode-code code{
+    font-size: 9px;
+  }
+  .th-useful-plugins .th-plugins_ > div .description_ .plugin-title_{
+    font-size: 12px;
   }
 }
 
