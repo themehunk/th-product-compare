@@ -287,6 +287,7 @@ label.color-output {
   justify-content: flex-start;
   border-radius: 9px;
   border: 1px solid var(--border-color);
+  background: #FFF;
 }
 .th-help-wrap .blocks > div .link_.fb {
   background-color: #2b8ef2;
@@ -702,9 +703,10 @@ a.link_.upgrade-button::before {
 #wpcontent{
   padding-bottom: 107px;
 }
-.th-nav_ span.dashicons {
+.th-nav_ span {
     margin-right: 9px;
     color: #aab2cb;
+    display: flex;
 }
  .th-nav_ > a.active span {
     color: var(--highlight-color);
@@ -789,6 +791,8 @@ a.link_.upgrade-button::before {
   text-align: center;
   letter-spacing: 1px;
   border-radius: 9px;
+  letter-spacing: 0.02rem;
+  font-weight: 600;
 }
 .th-subscribe-btn h4,
 .th-subscribe-btn h5{
@@ -981,7 +985,7 @@ a.link_.upgrade-button::before {
     font-size: 0;
     display: inline-flex;
   }
-.th-nav_ span.dashicons{
+.th-nav_ span{
     margin-right: 0;
     margin-left: 5px;
   }
