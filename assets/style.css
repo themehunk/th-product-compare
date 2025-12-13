@@ -536,8 +536,9 @@ a.link_.upgrade-button::before {
   position: relative;
   height: 100%;
 }
-.tabheading{
-  letter-spacing: 1px;
+.th-plugin-common-wrap .tabheading{
+  letter-spacing: 0.01rem;
+    font-weight: 600;
 }
 .product-logo{
   --tw-bg-opacity: 1;
@@ -563,14 +564,6 @@ a.link_.upgrade-button::before {
 .th-product-compare-wrap {
   width: 100%;
 }
-.th-left {
-    display: flex;
-    flex-direction: column;
-    width: 18%;
-    padding: 10px;
-    border-right: 1px solid var(--border-color);
-}
-
 .th-nav_ > a {
   margin-bottom: 9px;
     border: 0;
@@ -613,18 +606,17 @@ a.link_.upgrade-button::before {
     margin-bottom: 21px;
     padding-left: 9px;
 }
-.logo-detail span {
-  color: #111!important;
-}
 
-.logo-detail span {
-  color: #121116;
+.th-plugin-common-wrap .logo-detail span {
+  color: #111!important;
     font-size: .9rem;
     line-height: 1.8;
     font-weight: bold;
     letter-spacing: 1px;
     margin: 0;
     padding: 0;
+    font-size: 18px;
+    letter-spacing: 0;
 }
 
 .th-general {
@@ -667,10 +659,6 @@ a.link_.upgrade-button::before {
 .th-nav_ span {
     color: #aab2cb;
 }
-.logo-detail span{
-  font-size: 16px;
-}
-
 
   .th-save-btn
   button:before {
@@ -812,15 +800,19 @@ a.link_.upgrade-button::before {
   border-bottom: 1px solid var(--border-color);
   z-index: 108;
 }
-.th-left {
-  position: fixed;
+.th-plugin-common-wrap .th-left {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-right: 1px solid var(--border-color);
+    position: fixed;
     width: 250px;
     height: 100vh;
     z-index: 100000000008;
     top: 32px;
     overflow-y: auto;
     background: var(--body-background);
-    padding-top: 40px;
+    padding-top: 10px;
 }
 .th-compare-radio.shop-archive{
   margin-top: 12px;
@@ -927,7 +919,7 @@ a.link_.upgrade-button::before {
 }
 
 @media screen and (max-width: 1024px){
-  .th-left{
+  .th-plugin-common-wrap .th-left{
     width: 199px;
     top: 39px;
   }
@@ -951,10 +943,16 @@ a.link_.upgrade-button::before {
   .th-compare-pro-feature .th-compare-banner .button_ a{
     padding: 9px 14px 9px 63px;
   }
+  .th-plugin-common-wrap .logo-detail span{
+    font-size: 12px;
+  }
+  .th-plugin-common-wrap .logo-detail{
+    padding-left: 0;
+  }
 }
 
 @media screen and (max-width: 900px){
-  .th-left{
+  .th-plugin-common-wrap .th-left{
     top: 48px;
   }
  .th-plugin-common-wrap .container-tabs{
@@ -971,11 +969,11 @@ a.link_.upgrade-button::before {
  }
 }
 @media screen and (max-width: 767px){
-  .th-left{
+  .th-plugin-common-wrap .th-left{
     width: 72px;
     padding-left: 0;
   }
- .logo-detail span{
+ .th-plugin-common-wrap .logo-detail span{
     display: none;
   }
   .logo-detail{
@@ -1064,7 +1062,7 @@ a.link_.upgrade-button::before {
   .th-save-btn{
     display: flex;
   }
-  .tabheading{
+  .th-plugin-common-wrap .tabheading{
     display: none;
   }
   .th-compare-pro-feature .th-compare-banner .button_ a{
@@ -1081,6 +1079,9 @@ a.link_.upgrade-button::before {
   }
   .th-useful-plugins .th-plugins_ > div .description_ .plugin-title_{
     font-size: 12px;
+  }
+  .th-plugin-common-wrap .logo-detail{
+    margin-left: 9px;
   }
 }
 

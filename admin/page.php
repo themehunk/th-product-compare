@@ -69,7 +69,7 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
                 <div class="img_">
                     <img src="<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/th-logo.png'); ?>">
                 </div>
-                <span><?php esc_html_e('Compare', 'th-product-compare'); ?></span>
+                <span><?php esc_html_e('Product Compare', 'th-product-compare'); ?></span>
             </span>
             <a data-group-tabs="main" data-tab="general" href="#" class="active"><span><?php echo thpc_get_svg_icon('settings'); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></span></a>
             <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
