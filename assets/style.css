@@ -514,13 +514,20 @@ a.link_.upgrade-button::before {
   margin-left: 250px;
 }
 .th-plugin-common-wrap .container-tabs {
-    max-width: 850px;
     margin: 0 auto;
     justify-content: space-between;
     border-radius: 9px;
     /* background: #fff;
     padding: 1.5rem;
     border: 1px solid var(--border-color); */
+}
+.th-plugin-common-wrap .container-tabs > div{
+  max-width: 850px;
+  margin: 0 auto;
+}
+.th-plugin-common-wrap .container-tabs > div[data-tab-container="help"]{
+  max-width: max-content;
+  padding: 0 54px;
 }
 .th-general,
 .setting_
@@ -955,7 +962,7 @@ a.link_.upgrade-button::before {
   .th-plugin-common-wrap .th-left{
     top: 48px;
   }
- .th-plugin-common-wrap .container-tabs{
+ .th-plugin-common-wrap .container-tabs > div{
   max-width: 500px;
  }
  .th-plugin-common-wrap .th-right{
@@ -1000,7 +1007,7 @@ a.link_.upgrade-button::before {
   .th-plugin-common-wrap .th-right{
     width: 75%;
   }
-  .th-plugin-common-wrap .container-tabs{
+  .th-plugin-common-wrap .container-tabs > div{
     max-width: 100%;
   }
   .th-general .th-option_ table tr td:first-child{
