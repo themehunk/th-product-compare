@@ -54,10 +54,10 @@ class th_product_compare_shortcode
         $checkOption = get_option($this->optionName);
         if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
             if (isset($checkOption['field-product-single-page']) && $checkOption['field-product-single-page'] == '1') {
-                add_action('woocommerce_after_add_to_cart_form', array($this, 'addCompareBtn'), 30);
+                add_action('woocommerce_after_add_to_cart_button', array($this, 'addCompareBtn'), 30);
             }
         } else {
-            add_action('woocommerce_after_add_to_cart_form', array($this, 'addCompareBtn'), 30);
+            add_action('woocommerce_after_add_to_cart_button', array($this, 'addCompareBtn'), 30);
         }
     }
 
@@ -119,7 +119,7 @@ class th_product_compare_shortcode
 <?php
         } else {
             // Icon class
-            $iconClass = 'th-product-compare-btn compare button' . $isAdded;
+            $iconClass = 'th-product-compare-btn compare' . $isAdded;
 ?>
             <div class="thunk-compare">
                 <div th-tooltip="<?php echo esc_attr($compareText); ?>" class="compare-tooltip th-product-compare-btn-wrap">
