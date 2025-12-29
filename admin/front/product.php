@@ -218,18 +218,18 @@ class th_product_compare_return
 
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
-    $returnFooter = "<div class='th-compare-footer-wrap active position-" . $footerBArPosition . "'><div>";
-    $returnFooter .= "<button class='th-footer-up-down'>
-                        <span class='text_'>" . __('Product Compare', 'th-product-compare') . "</span>
-                        <span class='icon_2 dashicons dashicons-arrow-up-alt2'></span>
-                    </button>";
-    $returnFooter .= "<div><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i><span>" . __('Add Product', 'th-product-compare') . "</span></a></div>";
+    $returnFooter ="<div class='th-compare-footer-wrap active position-" . $footerBArPosition . "'><div class='th-compare-footer-level2'><div class='th-compare-footer-level3'>" .
+                "<div class='th-compare-left'><button class='th-footer-up-down' data-text='" . $chekBYoption['compare-opener-btn-text'] . "'>" .
+                "<span class='text_'>" . $chekBYoption['compare-opener-btn-text'] . "</span>" .
+                "<span class='icon_2 dashicons dashicons-arrow-up-alt2'></span></button>" . 
+                "<p class='th-atleast'><span class='th-selected'>Selected</span><span class='th-select-count'>" . $th_product_atleast_txt . "</span></p>" .
+                "<div class='product_image'>" . $footerProduct . "</div>" .
+                 "<div class='th-addremove'><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i></a></div></div>" .
 
-    $returnFooter .= "<p class='th-atleast'>" . $th_product_atleast_txt . "</p>";
-
-    $returnFooter .= "<div class='product_image'>" . $footerProduct . "</div>";
-    $returnFooter .= "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'><span class='dashicons dashicons-visibility icon_'></span><span class='text_'>" . __('View Compare', 'th-product-compare') . "</span></a></div>";
-    $returnFooter .= "</div></div>";
+                "<div class='th-compare-right'><a id='thpc-removeall'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-trash2 lucide-trash-2' aria-hidden='true'><path d='M10 11v6'></path><path d='M14 11v6'></path><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'></path><path d='M3 6h18'></path><path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path></svg></a>" .
+                "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'>" .
+                "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-layers text-indigo-600' aria-hidden='true'><path d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z'></path><path d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12'></path><path d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17'></path></svg><span class='text_'>" . esc_html__('Compare', 'th-product-compare-pro') . "</span></a></div></div></div></div></div>";
+   
 
     foreach ($initTitleAndRow as $initTitleAndRow_final_value) {
         $table .= $initTitleAndRow_final_value['html'];
@@ -293,7 +293,7 @@ class th_product_compare_return
          if (isset($th_compare_option['compare-atleast-text'])) {
             $checkChecked['compare-atleast-text'] = $th_compare_option['compare-atleast-text'];
         } else {
-            $checkChecked['compare-atleast-text'] = 'Select at least 2 products to compare';
+            $checkChecked['compare-atleast-text'] = 'Products';
         }
 
         if (isset($th_compare_option['compare-product-limit'])) {

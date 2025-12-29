@@ -815,7 +815,7 @@ a.link_.upgrade-button::before {
     position: fixed;
     width: 250px;
     height: 100vh;
-    z-index: 100000000008;
+    z-index: 2;
     top: 32px;
     overflow-y: auto;
     background: var(--body-background);
