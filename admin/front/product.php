@@ -78,22 +78,13 @@ class th_product_compare_return
                 unset($title_value['active']);
                 $checkCustomAttr = isset($title_value['custom']) ? true : false;
                 $name_ = $checkCustomAttr ? $title_value['label'] : str_replace("-", " ", $title_key);
-                $putHtml = '';
-                if ($wp_is_mobile) {
-                    if ($checkCustomAttr) {
-                        $putHtml .= '<tr class="_' . $title_key . '_"><td colspan="100" class="left-title">';
-                        $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
-                        $putHtml .= '</td></tr>';
-                    } else {
-                        $putHtml .= '<tr class="' . $title_key . '">';
-                    }
-                } else {
+                $putHtml = ''; 
                     $putHtml .= '<tr class="_' . $title_key . '_"><td class="left-title">';
                     if ($name_ != 'image') {
                         $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
                     }
                     $putHtml .= '</td>';
-                }
+                
                 $title_value['html'] = $putHtml;
                 $initTitleAndRow[$title_key] = $title_value;
             }
@@ -101,7 +92,8 @@ class th_product_compare_return
 
     $pd_html = '';
 
-if ($wp_is_mobile) {
+
+ if ($wp_is_mobile) {
    $pd_html .= '<tr class="_product_details_"><td class="left-title">';
     $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare-pro') . '</span>';
     $pd_html .= '</td>';
@@ -110,6 +102,7 @@ if ($wp_is_mobile) {
     $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare-pro') . '</span>';
     $pd_html .= '</td>';
 }
+
 
 // Add row at TOP (before others)
 $initTitleAndRow = array_merge(
@@ -125,30 +118,24 @@ $initTitleAndRow = array_merge(
     }
 
     if ($chekBYoption['field-repeat-price']) {
-        if ($wp_is_mobile) {
-            $trRepeatPrice_ = '<tr class="th-price">';
-        } else {
+        
             $trRepeatPrice_ = '<tr class="th-price">
-                <td class="left-title"><span>' . __('PRICE', 'th-product-compare') . '</span></td>';
-        }
+                <td class="left-title"><span>' . __('Price', 'th-product-compare') . '</span></td>';
+        
     }
 
     if ($chekBYoption['field-repeat-add-to-cart']) {
-        if ($wp_is_mobile) {
-            $trRepeatAddTocart = '<tr class="th-add-to-cart">';
-        } else {
+       
             $trRepeatAddTocart = '<tr class="th-add-to-cart">
-                 <td class="left-title"><span>' . __('ADD TO CART', 'th-product-compare') . '</span></td>';
-        }
+                 <td class="left-title"><span>' . __('Add To Cart', 'th-product-compare') . '</span></td>';
+        
     }
 
     if ($removeBtn) {
-        if ($wp_is_mobile) {
-            $trDelete_ = '<tr class="th-delete">';
-        } else {
+
             $trDelete_ = '<tr class="th-delete">
                  <td class="left-title"><span>' . __('Remove', 'th-product-compare') . '</span></td>';
-        }
+        
     }
 
     $add_TR_AT_last = 0;

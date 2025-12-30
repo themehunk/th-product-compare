@@ -192,7 +192,6 @@
     color: #464646;
     font-weight: 600;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
     background: rgb(255 255 255 / 58%);
@@ -213,6 +212,7 @@
   font-size: 13px;
   letter-spacing: 0.5px;
   font-weight: 600;
+  margin-left: 21px;
 }
 .th-compare-output-wrap-inner .th-compare-heading .wrap-category_ > div {
   display: flex;
@@ -1384,6 +1384,9 @@ position: relative;
   }
   .th-compare-output-product .product-table-configure td.left-title span {
     font-size: 16px;
+  }
+  .th-compare-output-wrap-inner .th-compare-heading .error_{
+    margin-left: 0;
   }
   .th-compare-output-product
     .product-table-configure
