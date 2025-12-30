@@ -705,7 +705,7 @@ position: relative;
   padding: 0 11px;
 }
 .th-compare-footer-wrap .product_image {
-    overflow: auto;
+    /* overflow: auto; */
     display: flex;
     column-gap: 12px;
     margin-left: 18px;
@@ -742,6 +742,9 @@ position: relative;
   padding: 2px;
   opacity: 0;
   line-height: 1;
+}
+.th-compare-footer-wrap > div .product_image .img_ .th-remove-product:hover {
+    background: red;
 }
 .th-compare-footer-wrap > div .product_image .img_ .th-remove-product:before {
   content: "\f158";
