@@ -281,8 +281,10 @@ $initTitleAndRow = array_merge(
     $th_product_atleast_txt = $chekBYoption['compare-atleast-text'];
     $compare_product_limit = $chekBYoption['compare-product-limit'];
 
-    // Add empty slots up to 7
-    $emptySlots = max(0, $compare_product_limit - $countProductsForFooter);
+    // Add empty slots up to 7 uncommennt below line to add an empty slots
+    // $emptySlots = max(0, $compare_product_limit - $countProductsForFooter);
+
+    $emptySlots = 0;  // $emptySlots set to 0 to remove teh empty slots
     for ($i = 0; $i < $emptySlots; $i++) {
         $footerProduct .= '<div class="img_ empty-slot"></div>';
     }

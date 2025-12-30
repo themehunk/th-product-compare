@@ -1136,3 +1136,10 @@ table {
     
 }
 
+.th-compare-select-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.th-compare-select-wrapper > div{
+  width: 49%;
+}

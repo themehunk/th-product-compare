@@ -8,6 +8,16 @@
       }
       thCompare.popupOpener();
     },
+       updateCompareEnableState: function () {
+  let count = $(".product_image > div.img_").not(".empty-slot").length;
+  let compareBtn = $(".th-compare-enable");
+
+  if (count > 1) {
+    compareBtn.addClass("active").removeClass("disabled");
+  } else {
+    compareBtn.removeClass("active").addClass("disabled");
+  }
+},
     popupOpener: function () {
       $(document).on("click", ".th-footer-up-down", function () {
         let button = $(this);
@@ -158,6 +168,7 @@
             thCompare.containerScroll();
             $(".thcompare-open-by-popup .th-compare-output-wrap").removeClass("th-loading");
           }
+          thCompare.updateCompareEnableState();
         },
         error: function () {
           if (thisElement) {
