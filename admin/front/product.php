@@ -47,6 +47,14 @@ class th_product_compare_return
     
   public function productHtml($setID, $type_ = [])
 {
+
+    $product_details_keys = array(
+    'image',
+    'title',
+    'SKU',
+    'price',
+    'add-to-cart',
+);
     $removeBtn = true;
     if (isset($type_['remove_btn'])) {
         $removeBtn = $type_['remove_btn'];
@@ -61,6 +69,11 @@ class th_product_compare_return
 
     if (!empty($chekBYoption['attributes'])) {
         foreach ($chekBYoption['attributes'] as $title_key => $title_value) {
+            
+    // 🔒 Skip only merged fields
+    if (in_array($title_key, $product_details_keys, true)) {
+        continue;
+    }
             if ($title_value['active'] == 1) {
                 unset($title_value['active']);
                 $checkCustomAttr = isset($title_value['custom']) ? true : false;
@@ -85,6 +98,30 @@ class th_product_compare_return
                 $initTitleAndRow[$title_key] = $title_value;
             }
         }
+
+    $pd_html = '';
+
+if ($wp_is_mobile) {
+   $pd_html .= '<tr class="_product_details_"><td class="left-title">';
+    $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare-pro') . '</span>';
+    $pd_html .= '</td>';
+} else {
+    $pd_html .= '<tr class="_product_details_"><td class="left-title">';
+    $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare-pro') . '</span>';
+    $pd_html .= '</td>';
+}
+
+// Add row at TOP (before others)
+$initTitleAndRow = array_merge(
+    array(
+        'product_details' => array(
+            'html' => $pd_html,
+            'type' => 'product_details',
+        ),
+    ),
+    $initTitleAndRow
+);
+
     }
 
     if ($chekBYoption['field-repeat-price']) {
@@ -131,7 +168,42 @@ class th_product_compare_return
 
             foreach ($initTitleAndRow as $initTitleAndRow_key => $initTitleAndRow_value) {
                 $addMoreHtml = '';
-                if ($initTitleAndRow_key == 'image') {
+                // ❌ Skip individual rows
+                if (in_array($initTitleAndRow_key, ['image','title','price','SKU','add-to-cart'])) {
+                    continue;
+                }
+                     $addMoreHtml = '';
+                    if ($initTitleAndRow_key === 'product_details') {
+
+    $addMoreHtml  = '<div class="pc-product-details">';
+
+    // IMAGE
+    $addMoreHtml .= '<div class="_image_"><div class="image-and-addcart"><div class="img_"><a target="_blank" href="' . $link_ . '">' . $product->get_image() . '</a></div></div></div>';
+
+    // TITLE
+    $addMoreHtml .= '<div class="_title_"><div class="product-title_"><a target="_blank" href="' . $link_ . '">' . esc_html($product->get_name()) . '</a></div></div>';
+
+    // SKU
+    $sku = $product->get_sku() ?: '-';
+    $addMoreHtml .= '<div class="_SKU_">' . esc_html($sku) . '</div>';
+
+    // PRICE
+    $addMoreHtml .= '<div class="_price_"><div class="price_">' . $price_ . '</div></div>';
+
+    // ADD TO CART
+    $addMoreHtml .= '<div class="_add-to-cart_">' . $Add_to_cart_ . '</div>';
+
+    $addMoreHtml .= '</div>';
+
+    $addHtml = '<td class="' . $categoryClassForHide . '">' . $addMoreHtml . '</td>';
+    if ($CheckLAstProduct) $addHtml .= '</tr>';
+
+    $initTitleAndRow_value['html'] .= $addHtml;
+    $initTitleAndRow[$initTitleAndRow_key] = $initTitleAndRow_value;
+
+    continue;
+} 
+                elseif ($initTitleAndRow_key == 'image') {
                     $addMoreHtml .= '<div class="image-and-addcart">';
                     $addMoreHtml .= '<div class="img_ product-comp">';
                     $addMoreHtml .= '<a target="_blank" href="' . $link_ . '">' . $product->get_image() . '</a>';
@@ -266,8 +338,8 @@ class th_product_compare_return
                 'availability' => ["active" => 1],
                 'SKU' => ["active" => 1],
             ],
-            'field-repeat-price' => true,
-            'field-repeat-add-to-cart' => true,
+            'field-repeat-price' => false,
+            'field-repeat-add-to-cart' => false,
         ];
         $th_compare_option = get_option('th_compare_option');
         if (is_array($th_compare_option)) {
