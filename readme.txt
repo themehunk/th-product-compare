@@ -94,40 +94,12 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = 1.3.6 =
-* Update: This release introduces significant UI refinements, flexible text handling, 
-improved compare logic, live admin previews, and internal stability improvements
-while maintaining full backward compatibility.
-== New Features ==
-
-* Unified Product Details Row
-
-== UI & Design Improvements ==
-
-* Modern toggle-style controls
-* Improved sticky header and scrolling behavior
-* Dynamic color injection without duplicate styles
-
-== Admin Panel Improvements ==
-
-* Admin Panel UI modified.
-
-== Backend & PHP Improvements ==
-
-* Cleaner table HTML structure
-* Footer compare bar stability fixes
-* Safer option handling
-
-== Performance & Stability ==
-
-* Reduced DOM reflows
-* Optimized popup animations
-* Improved responsiveness
-
-== Backward Compatibility ==
-
-* No breaking changes
-* Existing CSS and shortcodes remain functional
-
+* New: Added a new sticky header style with improved scrolling behavior.
+* Update: Improved frontend UI for better usability and compatibility.
+* Update: Admin area UI improvements.
+* date: Added a glass-style design to the frontend.
+* date: Changed WooCommerce hook from woocommerce_after_add_to_cart_form to woocommerce_after_add_to_cart_button in admin/front/front.php.
+* emoved: Removed the toggle compare button option and introduced a new style.
 * Update:  Admin area style updated.
 * Update:  woocommerce_after_add_to_cart_form hook changed to woocommerce_after_add_to_cart_button in admin/front/front.php
 
