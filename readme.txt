@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, woocommerce compare, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.3.7
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,11 +93,13 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
-= 1.3.7 =
-*Update:  woocommerce_after_add_to_cart_form hook changed to woocommerce_after_add_to_cart_button in admin/front/front.php
-
 = 1.3.6 =
-*Update:  Admin area style updated.
+* New: Added a new sticky header style with improved scrolling behavior.
+* Update: Improved frontend UI for better usability and compatibility.
+* Update: Admin area UI improvements.
+* date: Added a glass-style design to the frontend.
+* date: Changed WooCommerce hook from woocommerce_after_add_to_cart_form to woocommerce_after_add_to_cart_button in admin/front/front.php.
+* emoved: Removed the toggle compare button option and introduced a new style.
 
 = 1.3.5 =
 *Update:  Themehunk plugins page style improved.
