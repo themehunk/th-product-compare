@@ -8,7 +8,16 @@
   --body-background: #f8fafc;
   --btn-color: #334155;
   --thpc-box-shadow:0 4px 30px rgba(0, 0, 0, 0.1);
-  --thpc-box-background:rgb(255 255 255 / 34%);
+    --thpc-box-background:rgb(255 255 255 / 34%);
+}
+.th-compare-output-wrap .th-compare-output-wrap-inner {
+    background-color: rgb(247 251 255 / 88%);
+    backdrop-filter: blur(7px);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    padding-top: 69px;
 }
 *{
   box-sizing: border-box;
@@ -119,15 +128,6 @@
 }
 .th-compare-output-wrap.th-compare-output-wrap-close {
   animation: popupStyle1close 0.4s linear 0s;
-}
-.th-compare-output-wrap .th-compare-output-wrap-inner {
-    background-color: rgb(247 251 255 / 88%);
-    backdrop-filter: blur(7px);
-    height: 100%;
-    width: 100%;
-    position: relative;
-    overflow: auto;
-    padding-top: 69px;
 }
 .th-compare-output-wrap .th-compare-output-wrap-inner::-webkit-scrollbar {
   width: 2px;
@@ -267,6 +267,7 @@
 .th-compare-output-product .product-table-configure {
   width: 100%;
   margin: 0;
+  border: 0;
 }
 .th-compare-output-product .product-table-configure tr {
   position: relative;
