@@ -115,6 +115,7 @@
 }
 .th-compare-output-wrap.active {
   visibility: visible;
+  opacity: 1; 
   animation: popupStyle1 1.2s ease 0s 1 forwards;
 }
 .th-compare-output-wrap.active.th-animation-2 {
@@ -716,7 +717,7 @@ position: relative;
     height: 3rem;
     min-width: 3rem;
     position: relative;
-    background: #dbdbdb;
+    /* background: #dbdbdb; */
     border-radius: 3px;
     display: flex;
     align-items: center;
