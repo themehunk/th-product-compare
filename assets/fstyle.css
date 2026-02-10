@@ -1376,6 +1376,13 @@ position: relative;
     max-width: 50%;
     margin-left: 0;
   }
+  .th-compare-output-product{
+    margin: 9px 0;
+  }
+  .th-compare-output-product,
+  .product-table-configure{
+    height: 100%;
+  }
   .th-compare-footer-wrap .product_image{
      overflow-x: auto; /* Enables horizontal scrolling */
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
@@ -1384,7 +1391,8 @@ position: relative;
     min-width: unset;
   }
   .th-compare-output-product .product-table-configure td.left-title {
-    padding: 10px;
+    min-width: initial;
+    width: 108px;
     background: #FFF;
   }
   .th-compare-output-product .product-table-configure td.left-title span {
