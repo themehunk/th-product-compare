@@ -13,7 +13,14 @@ if (!function_exists('themehunk_admin_menu')) {
             if ( !is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
                wp_die( - 1, 403 );
            }
-           if (!wp_verify_nonce($_REQUEST['nonce'], 'th_product_compare_admin_nonce')) {
+     
+          if (
+            ! isset( $_POST['nonce'] ) ||
+            ! wp_verify_nonce(
+                sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
+                'th_product_compare_admin_nonce'
+            )
+        ) {
              wp_die( - 1, 403 );
           }
           if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {

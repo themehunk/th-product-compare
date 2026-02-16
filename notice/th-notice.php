@@ -18,15 +18,18 @@ if ( ! class_exists( 'Th_Product_Compare_Notice' ) ) {
         public function __construct() {
 
             // Handle dismiss action securely.
-            if (
-                isset( $_GET['ntc-cmpr-disable'], $_GET['_wpnonce'] ) &&
-                wp_verify_nonce(
-                    sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ),
-                    'thpc_notice_nonce'
-                )
-            ) {
-                add_action( 'admin_init', array( $this, 'set_cookie' ) );
-            }
+           // Handle dismiss action securely
+                if (
+                    isset( $_GET['ntc-cmpr-disable'], $_GET['_wpnonce'] ) &&
+                    '1' === sanitize_text_field( wp_unslash( $_GET['ntc-cmpr-disable'] ) ) &&
+                    wp_verify_nonce(
+                        sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ),
+                        'thpc_notice_nonce'
+                    )
+                ) {
+                    add_action( 'admin_init', array( $this, 'set_cookie' ) );
+                }
+
 
             if ( ! isset( $_COOKIE['thntc_time'] ) ) {
                 add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );

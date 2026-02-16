@@ -62,11 +62,16 @@ class th_compare_admin
 
             }
             
-        if (!wp_verify_nonce($_REQUEST['nonce'], '_wpnonce')) {
-
-                wp_die( - 1, 403 );
-                
-            }
+             // Nonce check (SANITIZED PROPERLY)
+        if (
+            ! isset( $_REQUEST['nonce'] ) ||
+            ! wp_verify_nonce(
+                sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
+                '_wpnonce'
+            )
+        ) {
+            wp_die( -1, 403 );
+        }
         
         if (isset($_POST['inputs']) && is_array($_POST['inputs'])) {
 
@@ -131,10 +136,15 @@ class th_compare_admin
 
             }
             
-        if (!wp_verify_nonce($_REQUEST['nonce'], '_wpnonce')) {
-
-                wp_die( - 1, 403 );
-                
+          // Nonce check (SANITIZED PROPERLY)
+        if (
+            ! isset( $_REQUEST['nonce'] ) ||
+            ! wp_verify_nonce(
+                sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
+                '_wpnonce'
+            )
+        ) {
+            wp_die( -1, 403 );
         }
 
         if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {

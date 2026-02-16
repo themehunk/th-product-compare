@@ -96,7 +96,7 @@ class th_product_compare
                 'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/') . '" target="_blank">' . __('Support', 'th-product-compare') . '</a>',
                 'premium_version' => '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
                 
-                'rating'           => '<a href="' . esc_url('https://wordpress.org/support/plugin/th-product-compare/reviews/?filter=5') . '" target="_blank" rel="noopener noreferrer" title="' . esc_attr__('Rate us on WordPress.org', 'th-product-compare') . '" style="color: #ffb900;">'
+                'rating'           => '<a href="' . esc_url('https://wordpress.org/support/plugin/th-product-compare/reviews') . '" target="_blank" rel="noopener noreferrer" title="' . esc_attr__('Rate us on WordPress.org', 'th-product-compare') . '" style="color: #ffb900;">'
                                 . str_repeat('<span class="dashicons dashicons-star-filled" style="font-size: 16px; width:16px; height: 16px;"></span>', 5)
                                 . '</a>',
             );
