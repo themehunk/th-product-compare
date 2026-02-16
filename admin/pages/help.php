@@ -25,8 +25,8 @@ if (!defined('ABSPATH')) exit;
             
             <a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-product-compare-plugin/&text=Hey, I just tried out the WordPress Plugin for <?php echo esc_url(home_url()); ?> . You can also check out this awesome plugin: TH Product Compare By 
 @ThemeHunk %20%23WooCommerce%20%23WordPress" target="_blank" rel="external noreferrer noopener" class="x-gropup is-link">
-        <span class="x-image"><img src="<?php echo(TH_PRODUCT_URL . 'assets/img/x.png'); ?>" /></span>
-        <span><?php esc_html_e(' Click to Tweet','th-shop-mania'); ?></span></a>
+        <span class="x-image"><img src="<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/x.png'); ?>" /></span>
+        <span><?php esc_html_e(' Click to Tweet','th-product-compare'); ?></span></a>
         </div>
         <div>
             <span class="bold-heading"><?php esc_html_e('Leave us a review', 'th-product-compare'); ?></span>

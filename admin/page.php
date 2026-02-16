@@ -1,4 +1,69 @@
 <?php if (!defined('ABSPATH')) exit;
+if ( ! function_exists( 'thpc_allowed_svg_tags' ) ) {
+    function thpc_allowed_svg_tags() {
+
+        return [
+          'svg' => [
+    'xmlns'            => true,
+    'width'            => true,
+    'height'           => true,
+    'viewbox'          => true, // ← lowercase!
+    'fill'             => true,
+    'stroke'           => true,
+    'stroke-width'     => true,
+    'stroke-linecap'   => true,
+    'stroke-linejoin'  => true,
+    'class'            => true,
+],
+
+            'g' => [
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+                'stroke-linecap'  => true,
+                'stroke-linejoin' => true,
+            ],
+            'path' => [
+                'd'               => true,
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+                'stroke-linecap'  => true,
+                'stroke-linejoin' => true,
+            ],
+            'circle' => [
+                'cx'              => true,
+                'cy'              => true,
+                'r'               => true,
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+            ],
+            'rect' => [
+                'width'           => true,
+                'height'          => true,
+                'x'               => true,
+                'y'               => true,
+                'rx'              => true,
+                'ry'              => true,
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+            ],
+            'line' => [
+                'x1'              => true,
+                'x2'              => true,
+                'y1'              => true,
+                'y2'              => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+                'stroke-linecap'  => true,
+            ],
+        ];
+    }
+}
+
+
 
 if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
     function thpc_get_svg_icon( $name ) {
@@ -71,18 +136,18 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
                 </div>
                 <span><?php esc_html_e('Product Compare', 'th-product-compare'); ?></span>
             </span>
-            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span><?php echo thpc_get_svg_icon('settings'); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></span></a>
-            <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo thpc_get_svg_icon('premium'); ?></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo thpc_get_svg_icon('help'); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span><?php echo thpc_get_svg_icon('plugins'); ?></span><?php esc_html_e('Useful Plugins', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span><?php echo wp_kses( thpc_get_svg_icon( 'settings' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></span></a>
+            <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'advance' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'premium' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'help' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'plugins' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Useful Plugins', 'th-product-compare'); ?></a>
             
         </nav>
 
         <div class="th-subscribe-btn">
-                    <h4><?php esc_html_e('Pro Plan', 'th-product-compare-pro'); ?></h4>
-                    <h5><?php esc_html_e('Upgrade for more features', 'th-product-compare-pro'); ?></h5>
-                    <a href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Upgrade Now', 'th-product-compare-pro'); ?></a>  
+                    <h4><?php esc_html_e('Pro Plan', 'th-product-compare'); ?></h4>
+                    <h5><?php esc_html_e('Upgrade for more features', 'th-product-compare'); ?></h5>
+                    <a href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Upgrade Now', 'th-product-compare'); ?></a>  
         </div>
 
         </div>

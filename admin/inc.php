@@ -80,8 +80,8 @@ class th_product_compare
     // add menu links in left where plugin name placed 
     public function add_menu_links($links)
     {
-        $links[] = '<a href="' . admin_url("admin.php?page=th-product-compare") . '">' . __('Settings', 'th-compare-product') . '</a>';
-        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank"><b>' . __('Get Pro', 'th-compare-product') . '</b></a>';
+        $links[] = '<a href="' . admin_url("admin.php?page=th-product-compare") . '">' . __('Settings', 'th-product-compare') . '</a>';
+        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank"><b>' . __('Get Pro', 'th-product-compare') . '</b></a>';
         return $links;
     }
 
@@ -109,7 +109,7 @@ class th_product_compare
     {
 
         if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','th-advance-product-search' ) );
+        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','th-product-compare' ) );
         }
         
         if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {

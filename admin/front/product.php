@@ -81,7 +81,7 @@ class th_product_compare_return
                 $putHtml = ''; 
                     $putHtml .= '<tr class="_' . $title_key . '_"><td class="left-title">';
                     if ($name_ != 'image') {
-                        $putHtml .= '<span>' . __($name_, 'th-product-compare') . '</span>';
+                        $putHtml .= '<span>' . esc_html($name_) . '</span>';
                     }
                     $putHtml .= '</td>';
                 
@@ -95,11 +95,11 @@ class th_product_compare_return
 
  if ($wp_is_mobile) {
    $pd_html .= '<tr class="_product_details_"><td class="left-title">';
-    $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare-pro') . '</span>';
+    $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare') . '</span>';
     $pd_html .= '</td>';
 } else {
     $pd_html .= '<tr class="_product_details_"><td class="left-title">';
-    $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare-pro') . '</span>';
+    $pd_html .= '<span>' . esc_html__('Product Details', 'th-product-compare') . '</span>';
     $pd_html .= '</td>';
 }
 
@@ -290,7 +290,7 @@ $initTitleAndRow = array_merge(
 
                 "<div class='th-compare-right'><a id='thpc-removeall'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-trash2 lucide-trash-2' aria-hidden='true'><path d='M10 11v6'></path><path d='M14 11v6'></path><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'></path><path d='M3 6h18'></path><path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path></svg></a>" .
                 "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'>" .
-                "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-layers text-indigo-600' aria-hidden='true'><path d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z'></path><path d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12'></path><path d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17'></path></svg><span class='text_'>" . esc_html__('Compare', 'th-product-compare-pro') . "</span></a></div></div></div></div></div>";
+                "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-layers text-indigo-600' aria-hidden='true'><path d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z'></path><path d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12'></path><path d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17'></path></svg><span class='text_'>" . esc_html__('Compare', 'th-product-compare') . "</span></a></div></div></div></div></div>";
    
 
     foreach ($initTitleAndRow as $initTitleAndRow_final_value) {

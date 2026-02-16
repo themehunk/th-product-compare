@@ -1,27 +1,36 @@
-====== Product Compare for WooCommerce ========
+===== Product Compare for WooCommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: compare, woocommerce compare, compare product, product compare, product comparison
+Tags: compare, compare for woocommerce, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.9
 Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Th Product Compare plugin for WooCommerce helps you to create interactive product comparison tables and allow customers to compare their products.
+Add an easy and powerful product compare feature to your WooCommerce store. Let customers do product comparison by price, features, and attributes.
 
 == Description ==
 
-Th Product Compare plugin helps you to create interactive product comparison tables and allow customers to compare their products on their WooCommerce Store. It will also increases engagement and conversion rates. This plugin lets the customers to compare different product and display fields like Image, Title, Rating, Price, Add to cart, Description, Availability and SKU. You can display Compare button or link with your products and also add Number of Product to Compare in your comparison table. It is Woocommerce Compatible, fully Responsive, and user friendly plugin which make your buying decision more easy.
+Product Compare for WooCommerce allows your customers to compare multiple products side by side based on price, attributes, and features. This helps shoppers make faster and more confident purchasing decisions, improving user experience and conversions. This plugin is lightweight, easy to use, and fully compatible with WooCommerce stores.
 
-[Docs](https://themehunk.com/docs/th-product-compare-pro/) | [Sales Page](https://themehunk.com/th-product-compare-plugin/) | [support](https://themehunk.com/contact-us/)
+This Product Compare Plugin for WooCommerce will also increases engagement and conversion rates.Let the customers to compare different product and display fields like Image, Title, Rating, Price, Add to cart, Description, Availability and SKU. You can display Compare button or link with your products and also add Number of Product to Compare in your comparison table. It is Woocommerce Compatible, fully Responsive, and user friendly plugin which make your buying decision more easy.
+
+This Product Comparison plugin is fully responsive, easy to use, and designed to integrate seamlessly with WooCommerce and most WordPress themes. It enhances customer engagement and helps boost conversions by letting shoppers quickly spot differences and similarities between products.
+
+[Live Demo](https://wpthemes.themehunk.com/th-product-compare-pro/) | [Docs](https://themehunk.com/docs/th-product-compare-pro/) | [Sales Page](https://themehunk.com/th-product-compare-plugin/) | [support](https://themehunk.com/contact-us/)
+
+https://www.youtube.com/watch?v=GLUnCANzJ2s&t=14s
 
 **Key Features:-**
 
+⭐ Add a product compare button to shop and product pages
 ⭐ Add Compare button or link with Text
+⭐ Compare products in a clean and responsive comparison table
 ⭐ Add Number of Product to Compare in comparison table
+⭐ Ajax-powered product compare for smooth user experience
 ⭐ Display product fields like Image, Title, Rating, Price, Add to cart, Description, Availability and SKU.
-⭐ Display Compare Button at Product Single Page, Shop and Archive Pages
+⭐ Display Product Compare Button at Product Single Page, Shop and Archive Pages
 ⭐ Search Products directly from the footer bar and add them Comparison table
 ⭐ Easy to remove products from the table
 ⭐ Highly Responsive to each & every device
@@ -31,8 +40,9 @@ Th Product Compare plugin helps you to create interactive product comparison tab
 
 **Pro Features:-**
 
-⭐ Add Compare button, link or Icon with Text.
+⭐ Add Product Comparison button, link or Icon with Text.
 ⭐ Display your compare product in Popup or Page.
+⭐ Choose which attributes and fields appear in the comparison table.
 ⭐ Compare by Category in the Comparison Table.
 ⭐ Display Similarities & Differences Product Highlight Button.
 ⭐ Add Number of Product to Compare in comparison table.
@@ -49,9 +59,9 @@ Th Product Compare plugin helps you to create interactive product comparison tab
 ⭐ Automated Comparison table at product single page.
 ⭐ Manual product selection settings to display comparison table at product single page.
 ⭐ Highly Responsive to each & every device.
-⭐ Fully compatible with WordPress Themes.
+⭐ Fully compatible with All WordPress WooCommerce Themes.
 ⭐ User Friendly Customize Panel.
-⭐ Priority 24×7 support available.
+⭐ Priority 24×7 Email support available.
 
 [Checkout Pro](https://themehunk.com/th-product-compare-plugin/) | [Live Demo](https://wpthemes.themehunk.com/th-product-compare-pro/)
 
@@ -90,11 +100,16 @@ It is compatible with all [ThemeHunk themes](https://themehunk.com/free-themes/)
 Yes, You can translate our plugin to desired language.
 
 == Screenshots ==
+1. Compare Table
+2. Dashboard
+3. Compare single Product
+4. Add product
+5. Pro Version
 
 == Changelog ==
 
-
 = 1.3.7 =
+* Update: readme file improve.
 * Update: Mobile style improved.
 
 = 1.3.6 =
@@ -112,7 +127,7 @@ Yes, You can translate our plugin to desired language.
 * New: If no products in footer bar then footer popup should be closed feature added.
 
 = 1.3.3 =
-* New : remove Link or Button option - add icon /check text
+* New : remove Link or Button option – add icon /check text
 * New : shortcode if customize custom
 * Update : remove product not enable compare button working
 	checkbox add default
@@ -201,6 +216,6 @@ Initial release
 Initial release
 
 
-Thanks for using our plugin, I am sure you will create a great Product Search for your site. If you have any query then you can contact at our forum : https://www.support.themehunk.com/
+Thanks for using our Product Compare plugin for WooCommerce, We're sure you will create a great Product Compare for your site. If you have any query then you can contact at our forum : https://wwwthemehunk.com/contact-us
 
-Thank You
+Thank You!
