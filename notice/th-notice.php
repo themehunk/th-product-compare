@@ -48,21 +48,22 @@ if ( ! class_exists( 'Th_Product_Compare_Notice' ) ) {
             );
         }
 
-        public function conditionally_display_notice() {
+    public function conditionally_display_notice() {
 
-            $screen = get_current_screen();
+    $screen = get_current_screen();
 
-            $page = isset( $_GET['page'] )
-                ? sanitize_text_field( wp_unslash( $_GET['page'] ) )
-                : '';
+    if ( ! $screen ) {
+        return;
+    }
 
-            if (
-                ( isset( $screen->id ) && 'plugins' === $screen->id ) ||
-                'th-product-compare' === $page
-            ) {
-                $this->render_notice();
-            }
-        }
+    if (
+        'plugins' === $screen->id ||
+        'toplevel_page_th-product-compare' === $screen->id
+    ) {
+        $this->render_notice();
+    }
+}
+
 
         private function render_notice() {
             ?>

@@ -135,11 +135,11 @@ class th_product_compare_shortcode
     }
 }
 
-function th_product_compare_add_action_shop_list()
+function th_compare_add_action_shop_list()
 {
     $obj = new th_product_compare_shortcode();
     $obj->showAndHideShopPage();
 }
 
-add_action('woocommerce_init', 'th_product_compare_add_action_shop_list');
+add_action('woocommerce_init', 'th_compare_add_action_shop_list');
 ?>
