@@ -12,8 +12,8 @@ if (!function_exists('themehunk_admin_menu')) {
 
  if ( !function_exists('themehunk_activeplugin') ) {
         function themehunk_activeplugin(){
-            if ( !is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
-               wp_die( - 1, 403 );
+            if ( ! current_user_can( 'manage_options' ) ) {
+               wp_die( -1, 403 );
            }
      
           if (

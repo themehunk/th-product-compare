@@ -63,7 +63,7 @@ class th_compare_admin
  public function save() {
 
     /* -------- CAPABILITY -------- */
-    if ( ! is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
+    if ( ! current_user_can( 'manage_options' ) ) {
         wp_die( -1, 403 );
     }
 
@@ -149,15 +149,15 @@ class th_compare_admin
     public function reset()
     {
 
-        if (!is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
+        if ( ! current_user_can( 'manage_options' ) ) {
 
-            wp_die( - 1, 403 );
+            wp_die( -1, 403 );
 
             }
-            
-          // Nonce check (SANITIZED PROPERLY)
+
+          // Nonce check
         if (
-            ! isset( $_REQUEST['nonce'] ) ||
+            ! isset( $_POST['nonce'] ) ||
             ! wp_verify_nonce(
                 sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
                 '_wpnonce'

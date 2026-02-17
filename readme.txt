@@ -1,4 +1,4 @@
-===== Product Compare for WooCommerce ========
+===== ThemeHunk Product Compare for WooCommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: compare, compare for woocommerce, compare product, product compare, product comparison

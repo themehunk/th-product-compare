@@ -131,7 +131,7 @@ class th_product_compare_return
                 $checkCustomAttr = isset($title_value['custom']) ? true : false;
                 $name_ = $checkCustomAttr ? $title_value['label'] : str_replace("-", " ", $title_key);
                 $putHtml = ''; 
-                    $putHtml .= '<tr class="_' . $title_key . '_"><td class="left-title">';
+                    $putHtml .= '<tr class="_' . esc_attr($title_key) . '_"><td class="left-title">';
                     if ($name_ != 'image') {
                         $putHtml .= '<span>' . esc_html($name_) . '</span>';
                     }
@@ -170,23 +170,23 @@ $initTitleAndRow = array_merge(
     }
 
     if ($chekBYoption['field-repeat-price']) {
-        
+
             $trRepeatPrice_ = '<tr class="th-price">
-                <td class="left-title"><span>' . __('Price', 'th-product-compare') . '</span></td>';
-        
+                <td class="left-title"><span>' . esc_html__('Price', 'th-product-compare') . '</span></td>';
+
     }
 
     if ($chekBYoption['field-repeat-add-to-cart']) {
-       
+
             $trRepeatAddTocart = '<tr class="th-add-to-cart">
-                 <td class="left-title"><span>' . __('Add To Cart', 'th-product-compare') . '</span></td>';
-        
+                 <td class="left-title"><span>' . esc_html__('Add To Cart', 'th-product-compare') . '</span></td>';
+
     }
 
     if ($removeBtn) {
 
             $trDelete_ = '<tr class="th-delete">
-                 <td class="left-title"><span>' . __('Remove', 'th-product-compare') . '</span></td>';
+                 <td class="left-title"><span>' . esc_html__('Remove', 'th-product-compare') . '</span></td>';
         
     }
 
@@ -204,7 +204,7 @@ $initTitleAndRow = array_merge(
             if (!$product) continue;
             $price_ = '<span class="price_">' . $product->get_price_html() . '</span>';
             $Add_to_cart_ = '<div class="th-add-to-cart_"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>' . $this->add_to_cart($product) . '</div>';
-            $link_ = esc_html(get_permalink($ProductID));
+            $link_ = esc_url(get_permalink($ProductID));
 
             foreach ($initTitleAndRow as $initTitleAndRow_key => $initTitleAndRow_value) {
                 $addMoreHtml = '';
@@ -250,7 +250,7 @@ $initTitleAndRow = array_merge(
                     $addMoreHtml .= '</div>';
                     $addMoreHtml .= '</div>';
                 } elseif ($initTitleAndRow_key == 'title') {
-                    $addMoreHtml .= '<span class="product-title_"><a target="_blank" href="' . $link_ . '">' . $product->get_name() . '</a></span>';
+                    $addMoreHtml .= '<span class="product-title_"><a target="_blank" href="' . $link_ . '">' . esc_html($product->get_name()) . '</a></span>';
                 } elseif ($initTitleAndRow_key == 'price') {
                     $addMoreHtml .= $price_;
                 } elseif ($initTitleAndRow_key == 'add-to-cart') {
@@ -258,7 +258,7 @@ $initTitleAndRow = array_merge(
                 } elseif ($initTitleAndRow_key == 'SKU') {
                     $sku = $product->get_sku();
                     $sku = $sku ? $sku : "-";
-                    $addMoreHtml .= '<span>' . $sku . '</span>';
+                    $addMoreHtml .= '<span>' . esc_html($sku) . '</span>';
                 } elseif ($initTitleAndRow_key == 'availability') {
                     $productNumber = $product->is_in_stock();
                     $productAvailbulity = __('out of stock', 'th-product-compare');
@@ -267,7 +267,7 @@ $initTitleAndRow = array_merge(
                         $productAvailbulity = __('in stock', 'th-product-compare');
                         $StockClass = 'th-in-stoct';
                     }
-                    $addMoreHtml .= '<span class="' . $StockClass . '">' . $productAvailbulity . '</span>';
+                    $addMoreHtml .= '<span class="' . esc_attr($StockClass) . '">' . esc_html($productAvailbulity) . '</span>';
                 } elseif ($initTitleAndRow_key == 'rating') {
                     $rating_ = $this->productRating($product);
                     $rating_ = $rating_ ? $rating_ : "-";
@@ -275,11 +275,11 @@ $initTitleAndRow = array_merge(
                 } elseif ($initTitleAndRow_key == 'description') {
                     $description_ = $product->get_short_description();
                     $description_ = $description_ ? $description_ : "-";
-                    $addMoreHtml .= '<span>' . $description_ . '</span>';
+                    $addMoreHtml .= '<span>' . wp_kses_post($description_) . '</span>';
                 } elseif (isset($initTitleAndRow_value['custom'])) {
                     $customAttrGlobal = $product->get_attribute($initTitleAndRow_key);
                     $customAttrGlobal = $customAttrGlobal ? $customAttrGlobal : '-';
-                    $addMoreHtml .= '<span>' . $customAttrGlobal . '</span>';
+                    $addMoreHtml .= '<span>' . esc_html($customAttrGlobal) . '</span>';
                 }
 
                 $addHtml = '<td>' . $addMoreHtml . '</td>';
@@ -303,16 +303,16 @@ $initTitleAndRow = array_merge(
                 }
             }
             if (isset($trDelete_)) {
-                $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . $ProductID . '"><i class="dashicons dashicons-dismiss"></i>' . __('Remove', 'th-product-compare') . '</button></td>';
+                $trDelete_ .= '<td><button class="th-compare-product-remove" data-th-product-id="' . esc_attr($ProductID) . '"><i class="dashicons dashicons-dismiss"></i>' . esc_html__('Remove', 'th-product-compare') . '</button></td>';
                 if ($CheckLAstProduct) {
                     $trDelete_ .= '</tr>';
                 }
             }
 
             // add to footer
-            $footerProduct .= '<div data-product-id="' . $ProductID . '" class="img_ product-comp">';
-            $footerProduct .= '<i class="th-remove-product th-compare-product-remove" data-th-product-id="' . $ProductID . '"></i>';
-            $footerProduct .= "<a target='_blank' href='" . $link_ . "'>";
+            $footerProduct .= '<div data-product-id="' . esc_attr($ProductID) . '" class="img_ product-comp">';
+            $footerProduct .= '<i class="th-remove-product th-compare-product-remove" data-th-product-id="' . esc_attr($ProductID) . '"></i>';
+            $footerProduct .= "<a target='_blank' href='" . esc_url($link_) . "'>";
             $footerProduct .= $product->get_image();
             $footerProduct .= '</a></div>';
         }
@@ -332,9 +332,9 @@ $initTitleAndRow = array_merge(
 
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
-    $returnFooter ="<div class='th-compare-footer-wrap active position-" . $footerBArPosition . "'><div class='th-compare-footer-level2'><div class='th-compare-footer-level3'>" .
+    $returnFooter ="<div class='th-compare-footer-wrap active position-" . esc_attr($footerBArPosition) . "'><div class='th-compare-footer-level2'><div class='th-compare-footer-level3'>" .
                 "<div class='th-compare-left'>
-                <p class='th-atleast'><span class='th-selected'>Selected</span><span class='th-select-count'>" . $th_product_atleast_txt . "</span></p>" .
+                <p class='th-atleast'><span class='th-selected'>Selected</span><span class='th-select-count'>" . esc_html($th_product_atleast_txt) . "</span></p>" .
                 "<div class='product_image'>" . $footerProduct . "</div>" .
                  "<div class='th-addremove'><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i></a></div></div>" .
 
@@ -467,7 +467,7 @@ $initTitleAndRow = array_merge(
             if ($getRAtingHtml) {
                 $rating_ = $getRAtingHtml;
                 $rating_ .= "<div class='th-rating-count'>(";
-                $rating_ .= $product->get_rating_count() . __(' Review', 'th-product-compare');
+                $rating_ .= esc_html($product->get_rating_count()) . ' ' . esc_html__('Review', 'th-product-compare');
                 $rating_ .= ")</div>";
                 return $rating_;
             }
