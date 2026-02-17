@@ -14,7 +14,7 @@ class th_product_compare_shortcode
     public function getPrevId()
     {
         if (isset($_COOKIE[$this->cookiesName]) && $_COOKIE[$this->cookiesName] != '') {
-            $getPRoductId = sanitize_text_field($_COOKIE[$this->cookiesName]);
+            $getPRoductId = sanitize_text_field(wp_unslash($_COOKIE[$this->cookiesName]));
             if ($getPRoductId) {
                 $removeSlace = stripslashes($getPRoductId);
                 $removeSlace = json_decode($removeSlace);
@@ -100,7 +100,8 @@ class th_product_compare_shortcode
 
         // Check if product is already in comparison
         $previousCookie = $this->getPrevId();
-        $isChecked = (!empty($previousCookie) && in_array($product_id, $previousCookie)) ? ' checked' : '';
+       $isChecked = (!empty($previousCookie) && in_array($product_id, $previousCookie));
+
         $isAdded = (!empty($previousCookie) && in_array($product_id, $previousCookie)) ? ' th-added-compare' : '';
 
         // Determine button style
@@ -112,7 +113,7 @@ class th_product_compare_shortcode
 ?>
             <div class='th-product-compare-checkbox-wrap'>
                 <label class="th-compare-label">
-                    <input type="checkbox" class="<?php echo esc_attr($checkboxClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>"<?php echo $isChecked; ?> aria-label="<?php echo esc_attr($compareText); ?>">
+                    <input type="checkbox" class="<?php echo esc_attr($checkboxClass); ?>" data-th-product-id="<?php echo esc_attr($product_id); ?>"<?php echo checked($isChecked); ?> aria-label="<?php echo esc_attr($compareText); ?>">
                     <?php echo esc_html($compareText); ?>
                 </label>
             </div>

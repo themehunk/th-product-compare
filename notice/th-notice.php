@@ -1,123 +1,153 @@
 <?php
-
-if (!defined('ABSPATH')){
-
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-include_once ABSPATH . 'wp-admin/includes/plugin.php';
+if ( ! function_exists( 'is_plugin_active' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
 
 if ( is_plugin_active( 'th-product-compare-pro/th-product-compare-pro.php' ) ) {
-
-    exit;
+    return;
 }
 
-if ( ! class_exists( 'Th_Product_Compare_Notice' ) ){
+if ( ! class_exists( 'Th_Product_Compare_Notice' ) ) {
 
-class Th_Product_Compare_Notice{
+    class Th_Product_Compare_Notice {
 
-    function __construct(){
+        public function __construct() {
 
-        if(isset($_GET['ntc-cmpr-disable']) && $_GET['ntc-cmpr-disable'] == true){
-        add_action('admin_init', array($this,'th_product_compare_notice_set_cookie'));
+            // Handle dismiss action securely.
+           // Handle dismiss action securely
+                if (
+                    isset( $_GET['ntc-cmpr-disable'], $_GET['_wpnonce'] ) &&
+                    '1' === sanitize_text_field( wp_unslash( $_GET['ntc-cmpr-disable'] ) ) &&
+                    wp_verify_nonce(
+                        sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ),
+                        'thpc_notice_nonce'
+                    )
+                ) {
+                    add_action( 'admin_init', array( $this, 'set_cookie' ) );
+                }
+
+
+            if ( ! isset( $_COOKIE['thntc_time'] ) ) {
+                add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+                add_action( 'admin_notices', array( $this, 'conditionally_display_notice' ) );
+            } else {
+                add_action( 'admin_notices', array( $this, 'maybe_unset_cookie' ) );
+            }
         }
 
-       
-        if(!isset($_COOKIE['thntc_time'])) {
-        add_action( 'admin_enqueue_scripts', array($this,'th_product_compare_admin_enqueue_style') );
-        add_action( 'admin_notices', array($this,'th_conditionally_display_notice' ));
+        public function enqueue_styles() {
+            wp_enqueue_style(
+                'th-product-compare-notice-style',
+                esc_url( TH_PRODUCT_URL . 'notice/css/th-notice.css' ),
+                array(),
+                '1.0.0'
+            );
         }
 
-        if(isset($_COOKIE['thntc_time'])) {
-            add_action( 'admin_notices', array($this,'th_product_compare_notice_unset_cookie'));
-        }
+    public function conditionally_display_notice() {
 
-        
-    }
-
-    function th_product_compare_admin_enqueue_style(){
-
-         wp_enqueue_style( 'th-product-compare-notice-style', TH_PRODUCT_URL.'notice/css/th-notice.css', array(), '1.0.0' );
-
-    } 
-
-    function th_conditionally_display_notice() {
     $screen = get_current_screen();
 
-    // Show only on Plugins page and your plugin settings page
+    if ( ! $screen ) {
+        return;
+    }
+
     if (
-        ( isset($screen->id) && $screen->id === 'plugins' ) ||
-        ( isset($_GET['page']) && $_GET['page'] === 'th-product-compare' )
+        'plugins' === $screen->id ||
+        'toplevel_page_th-product-compare' === $screen->id
     ) {
-        $this->th_product_compare_admin_notice();
+        $this->render_notice();
     }
 }
 
 
-    function th_product_compare_admin_notice() { 
+        private function render_notice() {
+            ?>
 
-    if(isset($_GET['ntc-cmpr-disable'])){
+            <div class="th-product-compare-notice notice">
+                <div class="th-product-compare-notice-wrap">
 
-          $display ='none';
+                    <div class="th-product-compare-notice-image">
+                        <img src="<?php echo esc_url( TH_PRODUCT_URL . 'notice/img/compare-pro.png' ); ?>"
+                            alt="<?php echo esc_attr__( 'TH Product Compare Pro', 'th-product-compare' ); ?>">
+                    </div>
 
-          }else{
+                    <div class="th-product-compare-notice-content-wrap">
+                        <div class="th-product-compare-notice-content">
 
-          $display ='block';
+                            <p class="th-product-compare-heading">
+                                <?php esc_html_e(
+                                    "Let's remove users confusion & help them choose the correct product. Make product selection easy & advanced using Compare Pro.",
+                                    'th-product-compare'
+                                ); ?>
+                            </p>
 
-          }
+                            <p>
+                                <?php esc_html_e(
+                                    'Filter similarities and differences in the compare table for fast and easy comparison. Show custom and global attributes and order them as you like.',
+                                    'th-product-compare'
+                                ); ?>
+                            </p>
 
-    ?>
-     
-    <div class="th-product-compare-notice notice " style="display:<?php echo esc_attr($display); ?>">
-        <div class="th-product-compare-notice-wrap">
-         <div class="th-product-compare-notice-image"><img src="<?php echo esc_url( TH_PRODUCT_URL.'notice/img/compare-pro.png' );?>" alt="<?php _e('TH Product Compare Pro','th-product-compare'); ?>"></div>
-            <div class="th-product-compare-notice-content-wrap">
-                <div class="th-product-compare-notice-content">
-                <p class="th-product-compare-heading"><?php _e('Let\'s remove users confusion & help them to choose the correct product. Make product selection easy & advanced, using Compare Pro.','th-product-compare'); ?></p>
-                <p><?php _e('Filter Similarities and Differences in Compare table for fast and easy comparison. You can show Custom and Global Attributes in the Compare table and order them in your desired order.','th-product-compare'); ?></p>
+                        </div>
+
+                        <a target="_blank"
+                            href="<?php echo esc_url( 'https://themehunk.com/th-product-compare-plugin/' ); ?>"
+                            class="upgradetopro-btn">
+                            <?php esc_html_e( 'Upgrade To Pro', 'th-product-compare' ); ?>
+                        </a>
+                    </div>
+
+                    <a href="<?php echo esc_url(
+                        wp_nonce_url(
+                            add_query_arg( 'ntc-cmpr-disable', '1' ),
+                            'thpc_notice_nonce'
+                        )
+                    ); ?>"
+                    class="ntc-dismiss dashicons dashicons-dismiss dashicons-dismiss-icon">
+                    </a>
+
                 </div>
-                <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/');?>" class="upgradetopro-btn"><?php _e('Upgrade To Pro','th-product-compare');?> </a>
             </div>
-            <a href="?ntc-cmpr-disable=1"  class="ntc-dismiss dashicons dashicons-dismiss dashicons-dismiss-icon"></a>
-        </div>
-    </div>
 
-    <?php }
-
-
-    function th_product_compare_notice_set_cookie() { 
- 
-        $visit_time = date('F j, Y  g:i a');
-
-        $cok_time = time()+(86457*15);
- 
-        if(!isset($_COOKIE['thntc_time'])) {
- 
-        // set a cookie for 15 days
-        setcookie('thntc_time', $cok_time, time()+(86457*15));
-             
+            <?php
         }
- 
-    }
 
-    function th_product_compare_notice_unset_cookie(){
+        public function set_cookie() {
 
-            $visit_time = time();
+            $expiry = time() + ( 15 * DAY_IN_SECONDS );
 
-            $cookie_time = isset($_COOKIE['thntc_time']) ? sanitize_key($_COOKIE['thntc_time']) : '0';
+            setcookie(
+                'thntc_time',
+                $expiry,
+                $expiry,
+                COOKIEPATH,
+                COOKIE_DOMAIN
+            );
+        }
 
+        public function maybe_unset_cookie() {
 
-            if ($cookie_time < $visit_time) {
+            $cookie_time = isset( $_COOKIE['thntc_time'] )
+                ? (int) sanitize_text_field( wp_unslash( $_COOKIE['thntc_time'] ) )
+                : 0;
 
-            setcookie('thntc_time', null, strtotime('-1 day'));
+            if ( $cookie_time < time() ) {
 
+                setcookie(
+                    'thntc_time',
+                    '',
+                    time() - DAY_IN_SECONDS,
+                    COOKIEPATH,
+                    COOKIE_DOMAIN
+                );
             }
-
+        }
     }
 
-    
+    new Th_Product_Compare_Notice();
 }
-
-$obj = New Th_Product_Compare_Notice();
-
- }

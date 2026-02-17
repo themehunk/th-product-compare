@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 if (!function_exists('themehunk_admin_menu')) {
   include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
     define('THEMEHUNK_PURL', plugin_dir_url(__FILE__));
@@ -13,7 +15,14 @@ if (!function_exists('themehunk_admin_menu')) {
             if ( !is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
                wp_die( - 1, 403 );
            }
-           if (!wp_verify_nonce($_REQUEST['nonce'], 'th_product_compare_admin_nonce')) {
+     
+          if (
+            ! isset( $_POST['nonce'] ) ||
+            ! wp_verify_nonce(
+                sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
+                'th_product_compare_admin_nonce'
+            )
+        ) {
              wp_die( - 1, 403 );
           }
           if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
@@ -48,7 +57,7 @@ if (!function_exists('themehunk_admin_menu')) {
     function themehunk_plugins(){
 
       if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','th-advance-product-search' ) );
+        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','th-product-compare' ) );
         }
 
         include_once THEMEHUNK_PDIR . "/th-option/th-option.php";
@@ -60,7 +69,7 @@ function admin_scripts( $hook ) {
   
     if ($hook === 'toplevel_page_themehunk-plugins'  ) {
       
-      wp_enqueue_style( 'themehunk-plugin-css', THEMEHUNK_PURL . '/th-option/assets/css/started.css' );
+      wp_enqueue_style( 'themehunk-plugin-css', THEMEHUNK_PURL . '/th-option/assets/css/started.css',false,'1.0.0' );
 
       wp_enqueue_script('themehunk-plugin-js', THEMEHUNK_PURL . '/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),'1', true);
 

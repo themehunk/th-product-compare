@@ -17,8 +17,14 @@ class th_compare_admin
 
     public function filter_product()
     {
+        check_ajax_referer( 'th_product_compare_nonce', 'nonce' );
 
-        $text_ = isset( $_POST['inputs'] ) ? sanitize_text_field($_POST['inputs']):'';
+            /* -------- INPUT -------- */
+        $text_ = '';
+        if ( isset( $_POST['inputs'] ) ) {
+            $text_ = sanitize_text_field( wp_unslash( $_POST['inputs'] ) );
+            $text_ = substr( $text_, 0, 50 ); // prevent heavy searches
+        }
 
         $arrArg = array(
             'post_type'     => 'product',
@@ -54,35 +60,53 @@ class th_compare_admin
     }
 
 
-    public function save()
-    {
-         if (!is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
+ public function save() {
 
-            wp_die( - 1, 403 );
-
-            }
-            
-        if (!wp_verify_nonce($_REQUEST['nonce'], '_wpnonce')) {
-
-                wp_die( - 1, 403 );
-                
-            }
-        
-        if (isset($_POST['inputs']) && is_array($_POST['inputs'])) {
-
-            $result = $this->setOption($_POST['inputs']);
-
-           if($result){
-
-            echo esc_html('update');
-
-           }
-
-        }
-
-        die();
-
+    /* -------- CAPABILITY -------- */
+    if ( ! is_user_logged_in() || ! current_user_can( 'administrator' ) ) {
+        wp_die( -1, 403 );
     }
+
+    /* -------- NONCE -------- */
+    if (
+        ! isset( $_POST['nonce'] ) ||
+        ! wp_verify_nonce(
+            sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
+            '_wpnonce'
+        )
+    ) {
+        wp_die( -1, 403 );
+    }
+
+    /* -------- INPUT -------- */
+    if ( ! isset( $_POST['inputs'] ) || ! is_array( $_POST['inputs'] ) ) {
+        wp_die();
+    }
+
+    // Sanitize recursively
+    $clean_inputs = array();
+
+    foreach ( wp_unslash( $_POST['inputs'] ) as $key => $value ) {
+
+        $key = sanitize_key( $key );
+
+        if ( is_array( $value ) ) {
+            $clean_inputs[ $key ] = array_map( 'sanitize_text_field', $value );
+        } else {
+            $clean_inputs[ $key ] = sanitize_text_field( $value );
+        }
+    }
+
+    /* -------- SAVE -------- */
+    $result = $this->setOption( $clean_inputs );
+
+    if ( $result ) {
+        echo esc_html__( 'update', 'th-product-compare' );
+    }
+
+    wp_die();
+}
+
 
     // cookies
     public function setOption($inputs)
@@ -131,10 +155,15 @@ class th_compare_admin
 
             }
             
-        if (!wp_verify_nonce($_REQUEST['nonce'], '_wpnonce')) {
-
-                wp_die( - 1, 403 );
-                
+          // Nonce check (SANITIZED PROPERLY)
+        if (
+            ! isset( $_REQUEST['nonce'] ) ||
+            ! wp_verify_nonce(
+                sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
+                '_wpnonce'
+            )
+        ) {
+            wp_die( -1, 403 );
         }
 
         if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {

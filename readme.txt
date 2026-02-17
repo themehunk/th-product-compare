@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, compare for woocommerce, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,8 +108,12 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.3.8 =
+* Update: Sanitize and escaping issues resolved.
+
 = 1.3.7 =
 * Update: readme file improve.
+* Update: Mobile style improved.
 
 = 1.3.6 =
 * New: Added a new sticky header style with improved scrolling behavior.

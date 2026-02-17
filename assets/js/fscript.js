@@ -103,6 +103,7 @@
           action: "th_get_compare_product",
           product_id: ids,
           add_remove: action_,
+          nonce: th_product.nonce
         },
         dataType: "json",
         success: function (response) {
@@ -253,6 +254,7 @@
           data: {
             action: "th_compare_filter_product",
             inputs: value_,
+            nonce: th_product.nonce
           },
           dataType: "json",
           success: function (response) {

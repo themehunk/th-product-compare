@@ -65,7 +65,7 @@ function th_compare_productsAttributes($defaultAttributes)
 
                         <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-add-to-cart" <?php echo esc_html($fieldrepeatAddToCart); ?> value="repeat-add-to-cart">
 
-                        <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php _e('Repeat Add To Cart at the end of the table', 'th-product-compare'); ?>
+                        <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php esc_attr_e('Repeat Add To Cart at the end of the table', 'th-product-compare'); ?>
                         </label>
 
                     </div>

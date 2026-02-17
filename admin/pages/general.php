@@ -41,10 +41,10 @@ if (is_array($th_compare_option)) {
                     <div class="th-compare-select-wrapper">
                         <div> 
                     <select data-th-save='compare-btn-type'>
-                        <option value="checkbox" <?php echo esc_html($th_product_btn_type == 'checkbox' ? "selected" : ''); ?> disabled><?php _e('Text (Checkbox) Pro', 'th-product-compare'); ?></option>
-                        <option value="icon" <?php echo esc_html($th_product_btn_type == 'icon' ? "selected" : ''); ?>><?php _e('Icon', 'th-product-compare'); ?></option>
+                        <option value="checkbox" <?php echo esc_html($th_product_btn_type == 'checkbox' ? "selected" : ''); ?> disabled><?php esc_attr_e('Text (Checkbox) Pro', 'th-product-compare'); ?></option>
+                        <option value="icon" <?php echo esc_html($th_product_btn_type == 'icon' ? "selected" : ''); ?>><?php esc_attr_e('Icon', 'th-product-compare'); ?></option>
                     </select>
-                    <i class="description"><?php _e('How you want to display compare trigger.', 'th-product-compare'); ?></i>
+                    <i class="description"><?php esc_html_e('How you want to display compare trigger.', 'th-product-compare'); ?></i>
                     </div>
 
                     <div>
@@ -111,8 +111,8 @@ if (is_array($th_compare_option)) {
                 </td>
                 <td>
                     <select data-th-save='compare-at-shop-hook'>
-                        <option value="before" <?php echo esc_html($th_product_shop_hook == 'before' ? "selected" : ''); ?>><?php _e('Before Cart', 'th-product-compare'); ?></option>
-                        <option value="after" <?php echo esc_html($th_product_shop_hook == 'after' ? "selected" : ''); ?>><?php _e('After Cart', 'th-product-compare'); ?></option>
+                        <option value="before" <?php echo esc_html($th_product_shop_hook == 'before' ? "selected" : ''); ?>><?php esc_html_e('Before Cart', 'th-product-compare'); ?></option>
+                        <option value="after" <?php echo esc_html($th_product_shop_hook == 'after' ? "selected" : ''); ?>><?php esc_html_e('After Cart', 'th-product-compare'); ?></option>
                     </select>
                     
                 </td>
@@ -126,11 +126,11 @@ if (is_array($th_compare_option)) {
             
             <div class="th-shortcode-header">
                 <span class="th-shortcode-icon">⧉</span>
-                <strong><?php esc_html_e('Display via Shortcode', 'th-product-compare-pro'); ?></strong>
+                <strong><?php esc_html_e('Display via Shortcode', 'th-product-compare'); ?></strong>
             </div>
 
             <p class="th-shortcode-text">
-                <?php esc_html_e('To display the compare button for a specific product anywhere on your site, use the following shortcode:', 'th-product-compare-pro'); ?>
+                <?php esc_html_e('To display the compare button for a specific product anywhere on your site, use the following shortcode:', 'th-product-compare'); ?>
             </p>
 
            <div class="th-shortcode-code">
@@ -142,7 +142,7 @@ if (is_array($th_compare_option)) {
 
 
             <p class="th-shortcode-note">
-                <?php esc_html_e('* Replace "856" with the specific Product ID.', 'th-product-compare-pro'); ?>
+                <?php esc_html_e('* Replace "856" with the specific Product ID.', 'th-product-compare'); ?>
             </p>
 
         </div>
