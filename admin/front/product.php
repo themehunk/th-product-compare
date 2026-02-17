@@ -11,40 +11,92 @@ class th_product_compare_return
         add_action('wp_ajax_th_get_compare_product', array($this, 'get_products'));
         add_action('wp_ajax_nopriv_th_get_compare_product', array($this, 'get_products'));
     }
-    public function get_products()
-    {
-        if ( isset($_POST['product_id']) && ( intval($_POST['product_id']) || $_POST['product_id'] === 'refresh' ) ) {
+    // public function get_products()
+    // {
+    //     /* ---------- NONCE CHECK (BEST WAY) ---------- */
+    // check_ajax_referer( 'th_product_compare_nonce', 'nonce' );
 
-            $productID = $_POST['product_id'] === 'refresh' ? 'refresh' : intval($_POST['product_id']);
+    //     if ( isset($_POST['product_id']) && ( intval($_POST['product_id']) || $_POST['product_id'] === 'refresh' ) ) {
 
-            $addREmove = sanitize_text_field($_POST['add_remove']);
+    //         $productID = $_POST['product_id'] === 'refresh' ? 'refresh' : intval($_POST['product_id']);
 
-            $setID = $this->setId_cookie($productID, $addREmove);
+    //         $addREmove = sanitize_text_field($_POST['add_remove']);
 
-            if (!empty($setID)) {
+    //         $setID = $this->setId_cookie($productID, $addREmove);
 
-                $html = $this->productHtml($setID);
+    //         if (!empty($setID)) {
 
-                if (isset($setID['product_limit'])) {
+    //             $html = $this->productHtml($setID);
 
-                    $html['product_limit'] = __('Product Limit Exceeded.', 'th-product-compare');
+    //             if (isset($setID['product_limit'])) {
 
-                }
+    //                 $html['product_limit'] = __('Product Limit Exceeded.', 'th-product-compare');
 
-                $return = $html;
+    //             }
 
-            } else {
+    //             $return = $html;
 
-                $return = ['no_product' => 1];
+    //         } else {
 
-            }
+    //             $return = ['no_product' => 1];
 
-            wp_send_json($return);
+    //         }
 
+    //         wp_send_json($return);
+
+    //     }
+
+    // }
+    
+    public function get_products() {
+
+    /* ---------- NONCE CHECK (BEST WAY) ---------- */
+    check_ajax_referer( 'th_product_compare_nonce', 'nonce' );
+
+    /* ---------- PRODUCT ID ---------- */
+    if ( ! isset( $_POST['product_id'] ) ) {
+        wp_send_json_error( array( 'message' => __( 'Missing product id', 'th-product-compare' ) ) );
+    }
+
+    $raw_product = sanitize_text_field( wp_unslash( $_POST['product_id'] ) );
+
+    if ( 'refresh' === $raw_product ) {
+        $productID = 'refresh';
+    } else {
+        $productID = intval( $raw_product );
+        if ( $productID <= 0 ) {
+            wp_send_json_error( array( 'message' => __( 'Invalid product id', 'th-product-compare' ) ) );
+        }
+    }
+
+    /* ---------- ACTION ---------- */
+    if ( ! isset( $_POST['add_remove'] ) ) {
+        wp_send_json_error( array( 'message' => __( 'Missing action', 'th-product-compare' ) ) );
+    }
+
+    $addREmove = sanitize_text_field( wp_unslash( $_POST['add_remove'] ) );
+
+    /* ---------- PROCESS ---------- */
+    $setID = $this->setId_cookie( $productID, $addREmove );
+
+    if ( ! empty( $setID ) ) {
+
+        $html = $this->productHtml( $setID );
+
+        if ( isset( $setID['product_limit'] ) ) {
+            $html['product_limit'] = __( 'Product Limit Exceeded.', 'th-product-compare' );
         }
 
+        wp_send_json( $html );
+
+    } else {
+
+        wp_send_json( array( 'no_product' => 1 ) );
+
     }
-    
+}
+
+
   public function productHtml($setID, $type_ = [])
 {
 
@@ -281,10 +333,8 @@ $initTitleAndRow = array_merge(
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
     $returnFooter ="<div class='th-compare-footer-wrap active position-" . $footerBArPosition . "'><div class='th-compare-footer-level2'><div class='th-compare-footer-level3'>" .
-                "<div class='th-compare-left'><button class='th-footer-up-down' data-text='" . $chekBYoption['compare-opener-btn-text'] . "'>" .
-                "<span class='text_'>" . $chekBYoption['compare-opener-btn-text'] . "</span>" .
-                "<span class='icon_2 dashicons dashicons-arrow-up-alt2'></span></button>" . 
-                "<p class='th-atleast'><span class='th-selected'>Selected</span><span class='th-select-count'>" . $th_product_atleast_txt . "</span></p>" .
+                "<div class='th-compare-left'>
+                <p class='th-atleast'><span class='th-selected'>Selected</span><span class='th-select-count'>" . $th_product_atleast_txt . "</span></p>" .
                 "<div class='product_image'>" . $footerProduct . "</div>" .
                  "<div class='th-addremove'><a href='#' class='th-add-product-bar'><i class='dashicons dashicons-plus'></i></a></div></div>" .
 
@@ -424,24 +474,46 @@ $initTitleAndRow = array_merge(
         }
     }
     // cookies
-    public function getPrevId()
-    {
-        $cookiesName = th_product_compare::cookieName();
-        if (isset($_COOKIE[$cookiesName]) && $_COOKIE[$cookiesName] != '') {
-            if (isset($_COOKIE[$cookiesName]) && $_COOKIE[$cookiesName] != '') {
-                $getPRoductId = sanitize_text_field($_COOKIE[$cookiesName]);
-                if ($getPRoductId) {
-                    $removeSlace = stripslashes($getPRoductId);
-                    $removeSlace = json_decode($removeSlace);
-                    $decodeArray = [];
-                    foreach ($removeSlace as $array_value) {
-                        $decodeArray[] = th_product_compare::th_decrypt($array_value);
-                    }
-                    return $decodeArray;
-                }
-            }
+  public function getPrevId() {
+
+    $cookiesName = th_product_compare::cookieName();
+
+    if ( empty( $_COOKIE[ $cookiesName ] ) ) {
+        return array();
+    }
+
+    /* -------- sanitize cookie -------- */
+    $cookie_value = sanitize_text_field(
+        wp_unslash( $_COOKIE[ $cookiesName ] )
+    );
+
+    if ( empty( $cookie_value ) ) {
+        return array();
+    }
+
+    /* -------- decode JSON safely -------- */
+    $decoded = json_decode( $cookie_value, true );
+
+    if ( ! is_array( $decoded ) ) {
+        return array();
+    }
+
+    /* -------- decrypt & validate -------- */
+    $decodeArray = array();
+
+    foreach ( $decoded as $value ) {
+
+        $product_id = th_product_compare::th_decrypt( $value );
+        $product_id = absint( $product_id );
+
+        if ( $product_id > 0 ) {
+            $decodeArray[] = $product_id;
         }
     }
+
+    return $decodeArray;
+}
+
     function setId_cookie($id, $addREmove)
     {
         $previousCookie = array();

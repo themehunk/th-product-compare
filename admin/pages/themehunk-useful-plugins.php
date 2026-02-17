@@ -1,3 +1,6 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+?>
 <div class="th-useful-plugins">
     <div>
         <div class="th-plugins_">

@@ -1,3 +1,6 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+?>
 <div class="sidebar-section">
             <div class="section">
             <h3 class="hndle ui-sortable-handle">

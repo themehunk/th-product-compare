@@ -1,3 +1,6 @@
+<?php 
+if ( ! defined( 'ABSPATH' ) ) exit;
+?>
 <div class="header th-option-area">
 
     <!-- themehunkhemes-badge wp-badge-->

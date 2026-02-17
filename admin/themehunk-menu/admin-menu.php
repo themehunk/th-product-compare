@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 if (!function_exists('themehunk_admin_menu')) {
   include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
     define('THEMEHUNK_PURL', plugin_dir_url(__FILE__));
@@ -67,7 +69,7 @@ function admin_scripts( $hook ) {
   
     if ($hook === 'toplevel_page_themehunk-plugins'  ) {
       
-      wp_enqueue_style( 'themehunk-plugin-css', THEMEHUNK_PURL . '/th-option/assets/css/started.css' );
+      wp_enqueue_style( 'themehunk-plugin-css', THEMEHUNK_PURL . '/th-option/assets/css/started.css',false,'1.0.0' );
 
       wp_enqueue_script('themehunk-plugin-js', THEMEHUNK_PURL . '/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),'1', true);
 
