@@ -1,21 +1,43 @@
 <?php
 if (!defined('ABSPATH')) exit;
+
+// Force default + safe loading
 $defaultAttributes = [
-    'image' => ["active" => 1],
-    'title' => ["active" => 1],
-    'rating' => ["active" => 1],
-    'price' => ["active" => 1],
-    'add-to-cart' => ["active" => 1],
-    'description' => ["active" => 0],
-    'availability' => ["active" => 1],
-    'SKU' => ["active" => 1],
+    'image'       => ['active' => 1],
+    'title'       => ['active' => 1],
+    'rating'      => ['active' => 1],
+    'price'       => ['active' => 1],
+    'add-to-cart' => ['active' => 1],
+    'description' => ['active' => 0],
+    'availability'=> ['active' => 1],
+    'SKU'         => ['active' => 1],
 ];
 
-if (is_array($th_compare_option)) {
-    if (isset($th_compare_option['attributes'])) {
-        $defaultAttributes = $th_compare_option['attributes'];
+$th_compare_option = get_option('th_compare_option');
+
+
+if (!is_array($th_compare_option)) {
+    $th_compare_option = [];
+}
+
+if (isset($th_compare_option['attributes']) && is_array($th_compare_option['attributes'])) {
+    // Merge with defaults (saved values priority)
+    foreach ($th_compare_option['attributes'] as $key => $val) {
+        if (array_key_exists($key, $defaultAttributes)) {
+            if (is_array($val)) {
+                $defaultAttributes[$key] = $val;
+            } elseif (is_numeric($val)) {
+                $defaultAttributes[$key]['active'] = (int)$val;
+            }
+        }
     }
 }
+
+if (is_string($th_compare_option) && !empty($th_compare_option)) {
+    error_log("th_compare_option is STRING: " . substr($th_compare_option, 0, 200));
+}
+
+
 $fieldRepeatPrice = isset($th_compare_option['field-repeat-price']) && $th_compare_option['field-repeat-price'] == '1' ? 'checked="checked"' : '';
 $fieldrepeatAddToCart = isset($th_compare_option['field-repeat-add-to-cart']) && $th_compare_option['field-repeat-add-to-cart'] == '1' ? 'checked="checked"' : '';
 

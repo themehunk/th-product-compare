@@ -59,9 +59,20 @@ class th_compare_admin
         wp_send_json_success($items);
     }
 
+private function sanitize_nested_array( $array ) {
+    $clean = array();
+    foreach ( $array as $key => $value ) {
+        $key = sanitize_key( $key );
+        if ( is_array( $value ) ) {
+            $clean[ $key ] = $this->sanitize_nested_array( $value );
+        } else {
+            $clean[ $key ] = sanitize_text_field( $value );
+        }
+    }
+    return $clean;
+}
 
- public function save() {
-
+public function save() {
     /* -------- CAPABILITY -------- */
     if ( ! current_user_can( 'manage_options' ) ) {
         wp_die( -1, 403 );
@@ -80,28 +91,55 @@ class th_compare_admin
 
     /* -------- INPUT -------- */
     if ( ! isset( $_POST['inputs'] ) || ! is_array( $_POST['inputs'] ) ) {
+        wp_send_json_error( array( 'message' => 'No input data received' ) );
         wp_die();
     }
 
-    // Sanitize recursively
-    $clean_inputs = array();
+    $raw_inputs = wp_unslash( $_POST['inputs'] );
 
-    foreach ( wp_unslash( $_POST['inputs'] ) as $key => $value ) {
+    // Final clean structure 
+    $clean_data = array();
 
+    // Recursive sanitize + preserve structure
+    foreach ( $raw_inputs as $key => $value ) {
         $key = sanitize_key( $key );
 
         if ( is_array( $value ) ) {
-            $clean_inputs[ $key ] = array_map( 'sanitize_text_field', $value );
+            // Nested array (jaise compare-attributes, compare-field)
+            $clean_data[ $key ] = $this->sanitize_nested_array( $value );
         } else {
-            $clean_inputs[ $key ] = sanitize_text_field( $value );
+            // Simple field (text, number, etc.)
+            $clean_data[ $key ] = sanitize_text_field( $value );
         }
     }
 
+    // Special handling for attributes → 'on' ko 1 mein convert + missing ko 0  do
+    if ( isset( $clean_data['compare-attributes'] ) && is_array( $clean_data['compare-attributes'] ) ) {
+        $attributes = array();
+        foreach ( $clean_data['compare-attributes'] as $attr_key => $val ) {
+            $attr_key = sanitize_key( $attr_key );
+            $attributes[ $attr_key ] = array(
+                'active' => ( ! empty( $val ) && $val !== '0' ) ? 1 : 0
+            );
+        }
+        $clean_data['attributes'] = $attributes;  // rename key to match frontend expectation
+        unset( $clean_data['compare-attributes'] ); // optional cleanup
+    }
+
+    // Repeat fields ko '1'/'0' string mein convert (for consistency)
+    if ( isset( $clean_data['compare-field'] ) && is_array( $clean_data['compare-field'] ) ) {
+        $clean_data['field-repeat-price'] = ! empty( $clean_data['compare-field']['repeat-price'] ) ? '1' : '0';
+        $clean_data['field-repeat-add-to-cart'] = ! empty( $clean_data['compare-field']['repeat-add-to-cart'] ) ? '1' : '0';
+        unset( $clean_data['compare-field'] ); // optional
+    }
+
     /* -------- SAVE -------- */
-    $result = $this->setOption( $clean_inputs );
+    $result = $this->setOption( $clean_data );
 
     if ( $result ) {
         echo esc_html__( 'update', 'th-product-compare' );
+    } else {
+        echo esc_html__( 'nochange', 'th-product-compare' );
     }
 
     wp_die();
