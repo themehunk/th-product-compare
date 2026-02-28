@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, compare for woocommerce, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,11 @@ Yes, You can translate our plugin to desired language.
 5. Pro Version
 
 == Changelog ==
+
+= 1.3.9 =
+* Update: Reset button moved to reset tab.
+* Update: Php fatal error removed in function th_compare_productsAttributes($defaultAttributes).
+* Update: Style Updated.
 
 = 1.3.8 =
 * Update: Sanitize and escaping issues resolved.

@@ -119,6 +119,11 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
                 <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"></path>
             </svg>
             ',
+
+            // 🔐 Premium Icon
+            'reset' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>
+            ',
         ];
 
         return $icons[ $name ] ?? '';
@@ -158,7 +163,7 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
         <div class="top-header">
                 <h2 class="tabheading"><?php esc_html_e("Basic Settings", 'th-product-compare'); ?></h2>
                 <div class="th-save-btn">
-                    <button class="button th-compare-reset-style-btn"><?php esc_html_e("Reset Defaults", 'th-product-compare'); ?></button>
+                    
                     <button class="button button-primary th-option-save-btn"><?php esc_html_e("Save Changes", 'th-product-compare'); ?></button>
                 </div>
             </div>
@@ -181,6 +186,12 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <div data-group-tabs="main" data-tab-container="pro-feature">
                 <?php include_once 'pages/pro-feature.php'; ?>
             </div>
+
+            <!-- reset tab -->
+            <div data-group-tabs="main" data-tab-container="reset">
+                <?php include_once 'pages/reset.php'; ?>
+            </div>
+
             <!-- useful plugins tab -->
             <div data-group-tabs="main" data-tab-container="themehunk-useful">
                 <?php include_once 'pages/themehunk-useful-plugins.php'; ?>
