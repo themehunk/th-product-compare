@@ -1,59 +1,66 @@
 <?php
 if (!defined('ABSPATH')) exit;
+
+// Force default + safe loading
 $defaultAttributes = [
-    'image' => ["active" => 1],
-    'title' => ["active" => 1],
-    'rating' => ["active" => 1],
-    'price' => ["active" => 1],
-    'add-to-cart' => ["active" => 1],
-    'description' => ["active" => 0],
-    'availability' => ["active" => 1],
-    'SKU' => ["active" => 1],
+    'image'       => ['active' => 1],
+    'title'       => ['active' => 1],
+    'rating'      => ['active' => 1],
+    'price'       => ['active' => 1],
+    'add-to-cart' => ['active' => 1],
+    'description' => ['active' => 0],
+    'availability'=> ['active' => 1],
+    'SKU'         => ['active' => 1],
 ];
 
-if (is_array($th_compare_option)) {
-    if (isset($th_compare_option['attributes'])) {
-        $defaultAttributes = $th_compare_option['attributes'];
+$th_compare_option = get_option('th_compare_option');
+
+
+if (!is_array($th_compare_option)) {
+    $th_compare_option = [];
+}
+
+if (isset($th_compare_option['attributes']) && is_array($th_compare_option['attributes'])) {
+    // Merge with defaults (saved values priority)
+    foreach ($th_compare_option['attributes'] as $key => $val) {
+        if (array_key_exists($key, $defaultAttributes)) {
+            if (is_array($val)) {
+                $defaultAttributes[$key] = $val;
+            } elseif (is_numeric($val)) {
+                $defaultAttributes[$key]['active'] = (int)$val;
+            }
+        }
     }
 }
+
+if (is_string($th_compare_option) && !empty($th_compare_option)) {
+    error_log("th_compare_option is STRING: " . substr($th_compare_option, 0, 200));
+}
+
+
 $fieldRepeatPrice = isset($th_compare_option['field-repeat-price']) && $th_compare_option['field-repeat-price'] == '1' ? 'checked="checked"' : '';
 $fieldrepeatAddToCart = isset($th_compare_option['field-repeat-add-to-cart']) && $th_compare_option['field-repeat-add-to-cart'] == '1' ? 'checked="checked"' : '';
 
 function th_compare_productsAttributes($defaultAttributes)
 {
-    if (!is_array($defaultAttributes)) {
-        return;
-    }
-
     foreach ($defaultAttributes as $key => $value) {
-
         $uniqId = 'compare-attributes-' . $key;
-        $name_  = ucfirst(str_replace("-", " ", $key));
+        $name_ = ucfirst(str_replace("-", " ", $key));
+        $active = 0;
 
-        // ---- SAFE ACTIVE CHECK ----
-        $isActive = false;
+if (is_array($value) && isset($value['active'])) {
+    $active = $value['active'];
+} elseif ($value == 1 || $value === "1") {
+    $active = 1;
+}
 
-        if (is_array($value) && isset($value['active'])) {
-            $isActive = ($value['active'] == "1");
-        } elseif ($value === "1" || $value === 1) {
-            // backward compatibility support
-            $isActive = true;
-        }
-
-        $checkActive = $isActive ? "checked='checked'" : '';
-        ?>
+$checkActive = $active == 1 ? "checked='checked'" : '';
+?>
         <div class="th-compare-radio">
-            <input type="checkbox"
-                   data-th-save="compare-attributes"
-                   <?php echo $checkActive; ?>
-                   id="<?php echo esc_attr($uniqId); ?>"
-                   value="<?php echo esc_attr($key); ?>">
-
-            <label class="th-color-title" for="<?php echo esc_attr($uniqId); ?>">
-                <?php echo esc_html($name_); ?>
-            </label>
+            <input type="checkbox" data-th-save="compare-attributes" <?php echo esc_attr($checkActive); ?> id="<?php echo esc_attr($uniqId); ?>" value="<?php echo esc_attr($key); ?>">
+            <label class="th-color-title" for="<?php echo esc_attr($uniqId); ?>"> <?php echo esc_html($name_); ?> </label>
         </div>
-        <?php
+<?php
     }
 }
 

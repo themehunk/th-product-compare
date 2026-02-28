@@ -382,20 +382,17 @@ $initTitleAndRow = array_merge(
             'field-repeat-add-to-cart' => false,
         ];
         $th_compare_option = get_option('th_compare_option');
-        if (is_array($th_compare_option)) {
-            if (isset($th_compare_option['attributes'])) {
-                $checkChecked['attributes'] = $th_compare_option['attributes'];
-            }
-            foreach ($checkChecked as $key => $value) {
-                if (isset($th_compare_option[$key]) && $key != 'attributes') {
-                    if ($th_compare_option[$key] == '1') {
-                        $checkChecked[$key] = true;
-                    } else {
-                        $checkChecked[$key] = false;
-                    }
-                }
-            }
+      if (isset($th_compare_option['attributes']) && is_array($th_compare_option['attributes'])) {
+
+    foreach ($th_compare_option['attributes'] as $key => $val) {
+
+        if (is_array($val)) {
+            $checkChecked['attributes'][$key] = $val;
+        } else {
+            $checkChecked['attributes'][$key] = ['active' => intval($val)];
         }
+    }
+}
         if (isset($th_compare_option['compare-popup-position'])) {
             $checkChecked['compare-popup-position'] = $th_compare_option['compare-popup-position'];
         } else {

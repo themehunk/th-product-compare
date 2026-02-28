@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) exit;
                 <span class="text_"><?php esc_html_e('Customize Button Appearnace such as, Button icon, and Table Animation.', 'th-product-compare'); ?></span>
             </div>
             <div class="img_">
-                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/compare-product.png"); ?>">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/general.webp"); ?>">
             </div>
         </div>
         <div class="wrap_">
@@ -32,16 +32,38 @@ if (!defined('ABSPATH')) exit;
                 <span class="text_"><?php esc_html_e('Select what filed to show or hide and field shorting for product compare by attribute.', 'th-product-compare'); ?></span>
             </div>
             <div class="img_">
-                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/advance-product-compare.png"); ?>">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/advance.webp"); ?>">
             </div>
         </div>
+
+          <div class="wrap_">
+            <div class="description_">
+                <span class="heading_"><?php esc_html_e('Compare Popup Setting', 'th-product-compare'); ?></span>
+                <span class="text_"><?php esc_html_e('Select settings for bottom compare popup', 'th-product-compare'); ?></span>
+            </div>
+            <div class="img_">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/compare-bar.webp"); ?>">
+            </div>
+        </div>
+
+        <div class="wrap_">
+            <div class="description_">
+                <span class="heading_"><?php esc_html_e('Compare Bar Setting', 'th-product-compare'); ?></span>
+                <span class="text_"><?php esc_html_e('Select settings for bottom compare bar', 'th-product-compare'); ?></span>
+            </div>
+            <div class="img_">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/compare-bar.webp"); ?>">
+            </div>
+        </div>
+
+
         <div class="wrap_">
             <div class="description_">
                 <span class="heading_"><?php esc_html_e('Compare Table Style', 'th-product-compare'); ?></span>
                 <span class="text_"><?php esc_html_e('Customize styling and appearance of compare table.', 'th-product-compare'); ?></span>
             </div>
             <div class="img_">
-                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/product-compare-style.png"); ?>">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/compare-style.webp"); ?>">
             </div>
         </div>
         <div class="wrap_">
@@ -50,7 +72,7 @@ if (!defined('ABSPATH')) exit;
                 <span class="text_"><?php esc_html_e('Create Custom shortcodes for product comparison to display on a single page or post.', 'th-product-compare'); ?></span>
             </div>
             <div class="img_">
-                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/custom-shortcodes-th.png"); ?>">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/custom.webp"); ?>">
             </div>
         </div>
         <div class="wrap_">
@@ -59,7 +81,7 @@ if (!defined('ABSPATH')) exit;
                 <span class="text_"><?php esc_html_e('Enable and customize products to add on all single product compare page.', 'th-product-compare'); ?></span>
             </div>
             <div class="img_">
-                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/settings-for-single-page-.png"); ?>">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/single-page.webp"); ?>">
             </div>
         </div>
     </div>

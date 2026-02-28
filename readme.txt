@@ -112,6 +112,8 @@ Yes, You can translate our plugin to desired language.
 * Update: Reset button moved to reset tab.
 * Update: Php fatal error removed in function th_compare_productsAttributes($defaultAttributes).
 * Update: Style Updated.
+* New: Premium button added.
+* New: Premium images changed.
 
 = 1.3.8 =
 * Update: Sanitize and escaping issues resolved.
