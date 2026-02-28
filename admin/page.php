@@ -146,8 +146,6 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'premium' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'help' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
              <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'reset' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Reset', 'th-product-compare'); ?></a>
-
-            <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'plugins' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Useful Plugins', 'th-product-compare'); ?></a>
             
         </nav>
 
@@ -162,6 +160,11 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
         <div class="th-right">
         <div class="top-header">
                 <h2 class="tabheading"><?php esc_html_e("Basic Settings", 'th-product-compare'); ?></h2>
+                 <a href="<?php echo esc_url( 'https://themehunk.com/product-compare-plugin/' ); ?>"
+               title="<?php esc_attr_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>"
+               target="_blank">
+                <?php esc_html_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>
+            </a>
                 <div class="th-save-btn">
                     
                     <button class="button button-primary th-option-save-btn"><?php esc_html_e("Save Changes", 'th-product-compare'); ?></button>
@@ -190,11 +193,6 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <!-- reset tab -->
             <div data-group-tabs="main" data-tab-container="reset">
                 <?php include_once 'pages/reset.php'; ?>
-            </div>
-
-            <!-- useful plugins tab -->
-            <div data-group-tabs="main" data-tab-container="themehunk-useful">
-                <?php include_once 'pages/themehunk-useful-plugins.php'; ?>
             </div>
 
         </div>

@@ -122,6 +122,7 @@ body{
     padding: 0;
     margin-right: 1.3rem;
     border-radius: 0;
+    margin-left: -20px;
 }
 .th-product-compare-wrap * {
   box-sizing: border-box;
@@ -443,21 +444,6 @@ a.x-gropup svg{
 .th-compare-pro-feature .img_{
     position: relative;
 }
-.th-compare-pro-feature .img_:after{
-  content: 'Pro';
-    background: #b73838;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 100%;
-    width: 29px;
-    height: 29px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 12px;
-} 
 .compare-th_compare{
   font-size: 18px;
   line-height: 27px;
@@ -572,7 +558,7 @@ a.link_.upgrade-button::before {
   justify-content: space-between;
   align-items: center;
   background: #FFF;
-  padding: 0 21px;
+  padding: 9px 21px;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 21px;
   position: sticky;
@@ -672,30 +658,30 @@ a.link_.upgrade-button::before {
     color: #aab2cb;
 }
 
-  .th-save-btn
-  button:before {
+  .th-save-btn button:before,
+  .th-reset-button button:before{
   font-family: "dashicons";
   height: unset;
   width: unset;
 }
-  .th-save-btn
-  button.loading:before {
+  .th-save-btn button.loading:before,
+  .th-reset-button button.loading:before{
   content: "\f463";
   animation: loaderTMK 0.8s linear 0s infinite forwards;
 }
 
-  .th-save-btn
-  button.loading {
+  .th-save-btn button.loading,
+  .th-reset-button button.loading{
   pointer-events: none;
   opacity: 0.5;
 }
-  .th-save-btn
-  button.th-compare-reset-style-btn:before {
+  .th-reset-button button.th-compare-reset-style-btn:before {
   content: "\f531";
   margin-right: 9px;
   display: inline-flex;
 }
-.wp-core-ui .th-save-btn button{
+.wp-core-ui .th-save-btn button,
+.wp-core-ui .th-reset-button button{
   border: 0;
   justify-content: center;
   border-radius: 9px;
@@ -995,7 +981,59 @@ a.link_.upgrade-button::before {
     background-color: rgb(254 226 226 / 1);
     color: rgb(220 38 38 / 1);
 }
+.themehunk_page_th-product-compare .notice{
+  display: none!important;
+}
+/* Premium Green Upgrade Button */
+a[title="Get Premium Version"] {
+    position: relative;
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, #00c853, #009127, #00bfa5);
+    background-size: 200% 200%;
+    box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    animation: gradientMove 4s ease infinite;
+    margin-left: auto;
+    margin-right: 9px;
+    letter-spacing: .16rem;
+}
 
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hover Effect */
+a[title="Get Premium Version"]:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 200, 83, 0.6);
+}
+
+/* Shine Effect */
+a[title="Get Premium Version"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+a[title="Get Premium Version"]:hover::before {
+    left: 125%;
+}
 /*   Reset CSS END  */
 @media screen and (max-width: 1024px){
   .th-plugin-common-wrap .th-left{

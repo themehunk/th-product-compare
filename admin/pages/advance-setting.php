@@ -21,39 +21,24 @@ $fieldrepeatAddToCart = isset($th_compare_option['field-repeat-add-to-cart']) &&
 
 function th_compare_productsAttributes($defaultAttributes)
 {
-    if (!is_array($defaultAttributes)) {
-        return;
-    }
-
     foreach ($defaultAttributes as $key => $value) {
-
         $uniqId = 'compare-attributes-' . $key;
-        $name_  = ucfirst(str_replace("-", " ", $key));
+        $name_ = ucfirst(str_replace("-", " ", $key));
+        $active = 0;
 
-        // ---- SAFE ACTIVE CHECK ----
-        $isActive = false;
+if (is_array($value) && isset($value['active'])) {
+    $active = $value['active'];
+} elseif ($value == 1 || $value === "1") {
+    $active = 1;
+}
 
-        if (is_array($value) && isset($value['active'])) {
-            $isActive = ($value['active'] == "1");
-        } elseif ($value === "1" || $value === 1) {
-            // backward compatibility support
-            $isActive = true;
-        }
-
-        $checkActive = $isActive ? "checked='checked'" : '';
-        ?>
+$checkActive = $active == 1 ? "checked='checked'" : '';
+?>
         <div class="th-compare-radio">
-            <input type="checkbox"
-                   data-th-save="compare-attributes"
-                   <?php echo $checkActive; ?>
-                   id="<?php echo esc_attr($uniqId); ?>"
-                   value="<?php echo esc_attr($key); ?>">
-
-            <label class="th-color-title" for="<?php echo esc_attr($uniqId); ?>">
-                <?php echo esc_html($name_); ?>
-            </label>
+            <input type="checkbox" data-th-save="compare-attributes" <?php echo esc_attr($checkActive); ?> id="<?php echo esc_attr($uniqId); ?>" value="<?php echo esc_attr($key); ?>">
+            <label class="th-color-title" for="<?php echo esc_attr($uniqId); ?>"> <?php echo esc_html($name_); ?> </label>
         </div>
-        <?php
+<?php
     }
 }
 

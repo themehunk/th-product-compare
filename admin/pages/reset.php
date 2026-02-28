@@ -14,7 +14,7 @@
 
                         
                         
-                         <div class="th-save-btn">
+                         <div class="th-reset-button">
                             <button class="button th-compare-reset-style-btn"><?php esc_html_e("Reset Settings", 'th-product-compare'); ?></button>
                         </div>
                     
