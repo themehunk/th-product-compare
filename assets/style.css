@@ -818,7 +818,7 @@ a.link_.upgrade-button::before {
     z-index: 2;
     top: 32px;
     overflow-y: auto;
-    background: var(--body-background);
+    background: #FFF;
     padding-top: 10px;
 }
 .th-compare-radio.shop-archive{

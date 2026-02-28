@@ -140,6 +140,8 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'advance' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'premium' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'help' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
+             <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'reset' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Reset', 'th-product-compare'); ?></a>
+
             <a data-group-tabs="main" data-tab="themehunk-useful" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'plugins' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Useful Plugins', 'th-product-compare'); ?></a>
             
         </nav>
