@@ -395,25 +395,38 @@ label.color-output {
 .x-gropup {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #2a2929;
-    color: #FFF;
-    padding: 2px 0px 1px 12px;
+    color: #FFF!important;
+    margin: 0 !important;
     color: #fff;
     line-height: normal;
     text-decoration: none;
     box-shadow: 0 0 0 0 #3b5998;
     transition: .3s ease;
-    border-radius: 58px;
-    width: 179px;
+    gap: 9px;
+    width: max-content;
+    padding: 0.4rem 1.5rem;
+    letter-spacing: -0.08px;
+    font-size: .6875rem;
+    line-height: 1.81818;
+    border-radius: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.059rem;
 }
 .x-gropup:hover{
   color: #FFF;
 }
-.x-image{
-  max-width: 54px;
+.x-gropup svg{
+  fill: currentColor;
 }
-.x-image img{
-  max-width: 100%;
+a.x-gropup svg{
+    fill: currentColor;
+    text-transform: capitalize;
+}
+
+a.x-gropup svg{
+    width: 18px;
 }
 .th-option-save-btn{
   background: #3070ff!important;
@@ -638,14 +651,6 @@ a.link_.upgrade-button::before {
   padding: 0 9px;
   display: inline-flex!important;
 }
-.th-compare-reset-style-btn{
-  background: #FFF;
-  color: #111;
-  color: var(--text-color)!important;
-  border-color: var(--light-color)!important;
-  margin-right: 12px!important;
-  display: inline-flex!important;
-}
 .th-plugin-common-wrap button{
   line-height: 2.15384615!important;
   min-height: initial!important;
@@ -687,7 +692,8 @@ a.link_.upgrade-button::before {
   .th-save-btn
   button.th-compare-reset-style-btn:before {
   content: "\f531";
-  margin-right: 9px;;
+  margin-right: 9px;
+  display: inline-flex;
 }
 .wp-core-ui .th-save-btn button{
   border: 0;
@@ -818,7 +824,7 @@ a.link_.upgrade-button::before {
     z-index: 2;
     top: 32px;
     overflow-y: auto;
-    background: var(--body-background);
+    background: #FFF;
     padding-top: 10px;
 }
 .th-compare-radio.shop-archive{
@@ -924,7 +930,73 @@ a.link_.upgrade-button::before {
 .th-copy-btn.copied {
     background: #16a34a;
 }
+/*   Reset CSS Starts   */
+.reset-wrapper .page-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+.reset-tab{
+    padding: 108px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+.reset-tab p{
+    max-width: 718px;
+    text-align: center;
+    color: rgb(107 114 128 / 1);
+    font-size: .99rem;
+    line-height: 1.625;
+}
+.reset-tab *{
+    margin: 0;
+}
+.svg-wrapper svg{
+    color: rgb(239 68 68 / 1);
+}
+.svg-wrapper{
+    background-color: rgb(254 242 242 / 1);
+    border-radius: 100%;
+    width: 59px;
+    height: 59px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.reset-wrapper .reset-tab .th-compare-reset-style-btn{
+    color: rgb(220 38 38 /1);
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    background-color: rgb(254 242 242 / 1);
+    border-color: rgb(254 226 226 / 1);
+    border-radius: 9px;
+    transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: .99rem;
+    line-height: .75rem !important;
+    border: 1px solid transparent;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+
+}
+.reset-wrapper .reset-tab .th-compare-reset-style-btn:hover{
+    background-color: rgb(254 226 226 / 1);
+    color: rgb(220 38 38 / 1);
+}
+
+/*   Reset CSS END  */
 @media screen and (max-width: 1024px){
   .th-plugin-common-wrap .th-left{
     width: 199px;
@@ -1089,6 +1161,9 @@ a.link_.upgrade-button::before {
   }
   .th-plugin-common-wrap .logo-detail{
     margin-left: 9px;
+  }
+  .reset-tab{
+    padding: 27px;
   }
 }
 
