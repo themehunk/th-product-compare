@@ -42,7 +42,7 @@ if (!defined('ABSPATH')) exit;
                 <span class="text_"><?php esc_html_e('Select settings for bottom compare popup', 'th-product-compare'); ?></span>
             </div>
             <div class="img_">
-                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/compare-bar.webp"); ?>">
+                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/compare-popup.webp"); ?>">
             </div>
         </div>
 
@@ -75,15 +75,7 @@ if (!defined('ABSPATH')) exit;
                 <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/custom.webp"); ?>">
             </div>
         </div>
-        <div class="wrap_">
-            <div class="description_">
-                <span class="heading_"><?php esc_html_e('Single Product Page Compare Setting', 'th-product-compare'); ?></span>
-                <span class="text_"><?php esc_html_e('Enable and customize products to add on all single product compare page.', 'th-product-compare'); ?></span>
-            </div>
-            <div class="img_">
-                <img src="<?php echo esc_url(TH_PRODUCT_URL . "assets/img/pro-img/single-page.webp"); ?>">
-            </div>
-        </div>
+        
     </div>
     
 </div>

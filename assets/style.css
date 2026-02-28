@@ -315,8 +315,7 @@ label.color-output {
   font-size: 15px;
   align-items: center;
   grid-gap: 16px;
-  max-width: 579px;
-  margin: 0 auto;
+  width: 80%;
 }
 .th-compare-pro-feature .th-compare-banner .heading_{
   color: #111;
@@ -365,12 +364,11 @@ label.color-output {
   grid-gap: 20px;
 }
 .th-compare-pro-feature .img-description .wrap_ .img_ {
-  margin-left: -23px;
   background: #fff;
     padding: 1.5rem;
     border: 1px solid var(--border-color);
-    border-radius: 9px;
-    margin: 0 auto;
+    border-radius: 8px;
+    width: 80%;
 }
 .th-compare-pro-feature .img-description .wrap_ .img_ img {
   max-width: 100%;
