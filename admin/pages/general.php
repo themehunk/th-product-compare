@@ -57,7 +57,7 @@ if (is_array($th_compare_option)) {
 
             <tr>
                 <td>
-                    <span class="th-color-title"><?php esc_html_e('Comparison Limit', 'th-product-compare') ?></span>
+                    <span class="th-color-title"><?php esc_html_e('Comparison Limit (Pro)', 'th-product-compare') ?></span>
                     <span class="th-alt-title"><?php esc_html_e('Max products allowed in the compare table.', 'th-product-compare'); ?></span>
                 </td>
                 <td>
