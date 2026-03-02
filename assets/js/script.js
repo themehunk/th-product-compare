@@ -116,7 +116,7 @@
           nonce: th_product.th_product_compare_nonce,
         },
         success: function (response) {
-          if (response == "update") {
+          if (response.trim() === "update") {
             thisBTN.removeClass("loading");
           }
         },
