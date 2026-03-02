@@ -315,7 +315,7 @@ label.color-output {
   font-size: 15px;
   align-items: center;
   grid-gap: 16px;
-  max-width: 579px;
+  width: 80%;
   margin: 0 auto;
 }
 .th-compare-pro-feature .th-compare-banner .heading_{
@@ -363,14 +363,14 @@ label.color-output {
   display: flex;
   flex-direction: column;
   grid-gap: 20px;
+  width: 80%;
+  margin: 0 auto;
 }
 .th-compare-pro-feature .img-description .wrap_ .img_ {
-  margin-left: -23px;
   background: #fff;
     padding: 1.5rem;
     border: 1px solid var(--border-color);
-    border-radius: 9px;
-    margin: 0 auto;
+    border-radius: 8px;
 }
 .th-compare-pro-feature .img-description .wrap_ .img_ img {
   max-width: 100%;
@@ -1109,8 +1109,8 @@ a[title="Get Premium Version"]:hover::before {
  .th-plugin-common-wrap .th-right{
   width: initial;
  }
- .wp-core-ui .th-save-btn button{
-  padding: 0 9px;
+ a[title="Get Premium Version"]{
+  font-size: 10px;
  }
  .top-header{
   top: 45px;
@@ -1172,9 +1172,6 @@ a[title="Get Premium Version"]:hover::before {
   .th-compare-pro-feature .img-description .wrap_ .img_{
     margin-left: initial;
   }
-  .th-compare-pro-feature .img-description .wrap_{
-    width: initial;
-  }
   .th-compare-pro-feature .th-compare-banner{
     flex-direction: column;
   }
@@ -1233,6 +1230,9 @@ a[title="Get Premium Version"]:hover::before {
   }
   .reset-tab{
     padding: 27px;
+  }
+  .th-compare-pro-feature .th-compare-banner{
+    flex-direction: column;
   }
 }
 
