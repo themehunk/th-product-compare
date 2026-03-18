@@ -116,7 +116,13 @@
           nonce: th_product.th_product_compare_nonce,
         },
         success: function (response) {
+<<<<<<< HEAD
           if (response.trim() === "update") {
+=======
+
+          if (response.trim() === "update") {
+
+>>>>>>> 90a55cf5582dbe0b5a603c3e3e7ecc125061c235
             thisBTN.removeClass("loading");
           }
         },
