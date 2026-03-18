@@ -110,6 +110,7 @@ Yes, You can translate our plugin to desired language.
 
 = 1.3.10=
 * New: Feedback deactivation added.
+* Update: Plugin text corrected.
 
 = 1.3.9 =
 * Update: Reset button moved to reset tab.
