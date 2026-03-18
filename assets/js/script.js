@@ -116,10 +116,8 @@
           nonce: th_product.th_product_compare_nonce,
         },
         success: function (response) {
-                    console.log("response", response);
 
           if (response.trim() === "update") {
-          console.log("update", response);
 
             thisBTN.removeClass("loading");
           }
