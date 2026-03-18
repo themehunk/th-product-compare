@@ -73,7 +73,7 @@ function thpc_deactivate_feedback_modal() {
             </div>
 
             <div class="thpc-df-body">
-                <p><?php esc_html_e( 'If you have a moment, please share why you are deactivating All In One Advance Cart:', 'th-product-compare' ); ?></p>
+                <p><?php esc_html_e( 'If you have a moment, please share why you are deactivating ThemeHunk Product Compare:', 'th-product-compare' ); ?></p>
 
                 <ul class="thpc-df-reasons">
                     <?php foreach ( $reasons as $value => $label ) : ?>
