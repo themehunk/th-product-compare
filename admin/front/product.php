@@ -115,8 +115,9 @@ class th_product_compare_return
 
     $footerProduct = '';
     $wp_is_mobile = wp_is_mobile();
+    $mobileClass = $wp_is_mobile ? 'mobile-flex' : '';
     $table = '';
-    $table .= '<table class="product-table-configure woocommerce">';
+    $table .= '<table class="product-table-configure woocommerce ' . $mobileClass . '">';
     $initTitleAndRow = [];
 
     if (!empty($chekBYoption['attributes'])) {

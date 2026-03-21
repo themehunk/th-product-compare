@@ -138,6 +138,45 @@
             $(".th-product-compare-btn").removeClass("th-added-compare");
           } else {
             $(".thcompare-open-by-popup .th-compare-output-product").html(response.html);
+
+            // Mobile flex: sync scroll and set product-count classes
+            var $mobileTable = $(".product-table-configure.mobile-flex");
+            if ($mobileTable.length) {
+              var productCount = $mobileTable.find("tr:first td:not(.left-title)").length;
+              if (productCount > 3) {
+                $mobileTable.addClass("_has-scroll");
+              } else {
+                $mobileTable.removeClass("_has-scroll");
+              }
+              if (productCount === 2) {
+                $mobileTable.addClass("_two-products");
+              } else {
+                $mobileTable.removeClass("_two-products");
+              }
+              // Sync horizontal scroll across all rows
+              var syncScrollRAF = null;
+              var isSyncing = false;
+              var allRows = $mobileTable.find("tr").toArray();
+              allRows.forEach(function (row) {
+                row.addEventListener("scroll", function () {
+                  if (isSyncing) return;
+                  var source = this;
+                  var sl = source.scrollLeft;
+                  if (syncScrollRAF) cancelAnimationFrame(syncScrollRAF);
+                  syncScrollRAF = requestAnimationFrame(function () {
+                    isSyncing = true;
+                    for (var i = 0; i < allRows.length; i++) {
+                      if (allRows[i] !== source) {
+                        allRows[i].scrollLeft = sl;
+                      }
+                    }
+                    isSyncing = false;
+                    syncScrollRAF = null;
+                  });
+                }, { passive: true });
+              });
+            }
+
             if (response.footer_bar && response.footer_bar != "") {
               let footer_bar = $(".th-compare-footer-wrap");
               if (footer_bar.length) {

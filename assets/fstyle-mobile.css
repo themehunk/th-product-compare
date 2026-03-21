@@ -1,0 +1,501 @@
+/* Frontend Mobile Responsive CSS */
+
+@media screen and (max-width: 450px) {
+  .th-compare-left{
+    flex-grow: 2;
+    max-width: 218px;
+  }
+  .th-compare-right{
+    width: max-content;
+    flex-shrink: 0;
+  }
+  .th-compare-footer-wrap > div .product_image{
+    min-width: initial;
+    margin-left: 0;
+  }
+  .th-compare-footer-wrap .product_image{
+     overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0;
+  }
+  .th-compare-footer-wrap > div {
+    padding: 0 10px;
+    justify-content: space-between;
+  }
+  .th-compare-footer-wrap > div .th-add-product-bar i {
+    border-radius: 4px;
+  }
+  .th-compare-footer-wrap > div .th-add-product-bar span {
+    display: none;
+  }
+  .th-compare-footer-wrap > div .th-compare-footer-product-opner .icon_ {
+    border-radius: 4px !important;
+  }
+  .th-compare-footer-wrap > div .th-compare-footer-product-opner .text_ {
+    display: none;
+  }
+
+  .th-add-more-product-container .th-add-more-product-inner {
+    justify-content: center;
+    width: 95%;
+  }
+  .th-add-more-product-container .th-add-more-product-inner .th-search-product {
+    max-width: 90%;
+  }
+  .th-add-more-product-container
+    .th-add-more-product-inner
+    .th-search-product
+    .th-search-product-input-result
+    .th-compare-external-popup-open {
+    font-size: 14px;
+  }
+  .th-add-more-product-container
+    .th-add-more-product-inner
+    .th-search-product
+    .th-search-product-input-result
+    .th-compare-external-popup-open
+    .img_ {
+    height: 45px;
+    width: 52px;
+  }
+  .th-add-more-product-container
+    .th-add-more-product-inner
+    .th-search-product
+    .th-search-product-input
+    input {
+    padding: 4px;
+    margin-bottom: 4px;
+  }
+  .th-add-product-bar span{
+    display: none;
+  }
+  .th-compare-footer-wrap > div .th-add-product-bar{
+    display: initial;
+  }
+  #thpc-removeall {
+    margin-left: 9px;
+  }
+  .th-compare-footer-wrap > div .th-add-product-bar i,
+  .th-compare-footer-wrap > div .th-compare-enable .th-compare-footer-product-opner .icon_{
+    background: #FFF;
+  }
+  .th-atleast{
+    display: none;
+  }
+  .th-compare-output-wrap-inner .th-compare-heading{
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .th-heighlights-products > div{
+    font-size: 9px;
+  }
+  .th-compare-output-wrap-inner .th-compare-heading .heading_{
+    font-size: .9rem;
+    line-height: 1.2rem;
+  }
+  .th-compare-output-wrap-inner .th-compare-heading .wrap-category_ .wrap-category_inner a{
+    padding-left: .7rem;
+    padding-right: .7rem;
+    padding-top: 0.175rem;
+    padding-bottom: 0.175rem;
+  }
+  .th-compare-output-wrap .th-compare-output-close{
+    right: 9px;
+    top: 18px;
+    transform: initial;
+  }
+  .th-compare-output-wrap-inner .th-compare-heading .wrap-category_ .wrap-category_inner::-webkit-scrollbar{
+    display: none;
+  }
+  .th-compare-footer-wrap .product_image::-webkit-scrollbar{
+    display: none!important;
+  }
+  .th-compare-output-product,
+  .th-compare-output-product .product-table-configure{
+    height: 100%;
+    margin: 0;
+  }
+  .th-compare-output-wrap .th-compare-output-wrap-inner{
+    padding-top: 108px!important;
+    overflow: hidden;
+  }
+}
+
+
+/*  ========================================================
+    Mobile Flex Table Layout (max-width: 451px)
+    Design: centered section headings, 3 equal product
+    columns, bordered image boxes, blue links, icon-only
+    cart buttons, card-style product details, horizontal
+    scroll for 4+ products
+    ======================================================== */
+@media screen and (max-width: 451px) {
+
+/* ---- TABLE BASE ---- */
+.product-table-configure.mobile-flex{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.product-table-configure.mobile-flex tbody{
+  display: block;
+}
+
+/* ---- ROW = block container with horizontal scroll ---- */
+.th-compare-output-product .product-table-configure.mobile-flex tr{
+  display: block;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 0;
+  border: none;
+}
+
+/* Hide scrollbar but keep scroll */
+.th-compare-output-product .product-table-configure.mobile-flex tr::-webkit-scrollbar{
+  display: none;
+}
+.th-compare-output-product .product-table-configure.mobile-flex tr{
+  scrollbar-width: none;
+}
+
+/* ---- LEFT TITLE = full-width centered section heading ---- */
+.th-compare-output-product .product-table-configure.mobile-flex td.left-title{
+  width: 100%;
+  display: block;
+  padding: 6px 12px 6px;
+  background: rgb(231 231 233 / 28%);
+  border: none;
+  min-width: unset;
+  max-width: none;
+  white-space: normal;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex td.left-title span{
+  font-size: .75rem;
+  font-weight: 700;
+  color: #000000;
+  display: block;
+  border-bottom: 2px solid #e5e7eb66;
+  padding-bottom: 6px;
+  word-break: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ---- PRODUCT CELLS = inline-block, max 3 visible, 4th slides ---- */
+.th-compare-output-product .product-table-configure.mobile-flex._two-products td:not(.left-title){
+  width: 50%;
+  min-width: 50%;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex td:not(.left-title){
+  display: inline-block;
+  width: 33.33%;
+  min-width: 33.33%;
+  padding: 8px 6px;
+  font-size: 0.8rem;
+  vertical-align: top;
+  box-sizing: border-box;
+  text-align: center;
+  border: none;
+  white-space: normal;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex td:not(.left-title):last-child{
+  border-right: none;
+}
+
+/* ---- PRODUCT DETAILS ROW (image + title + sku + price + cart) ---- */
+.th-compare-output-product .product-table-configure.mobile-flex .pc-product-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex ._product_details_ td:not(.left-title){
+  height: 300px;
+}
+
+/* Image box with border */
+.th-compare-output-product .product-table-configure.mobile-flex ._image_{
+  width: 100%;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex ._image_ .image-and-addcart{
+  display: flex;
+  justify-content: center;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex ._image_ .image-and-addcart .img_{
+  width: auto!important;
+  height: auto!important;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex ._image_ .image-and-addcart .img_ img{
+  position: relative!important;
+  width: 80px!important;
+  height: auto!important;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+/* Product title */
+.th-compare-output-product .product-table-configure.mobile-flex ._title_{
+  width: 100%;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .product-title_ a{
+  font-size: .72rem;
+  line-height: 1.1rem;
+  font-weight: 600;
+  text-decoration: none!important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+/* SKU - muted */
+.th-compare-output-product .product-table-configure.mobile-flex ._SKU_{
+  font-size: 0.68rem;
+  line-height: 1rem;
+  color: #6b7280;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Price - bold */
+.th-compare-output-product .product-table-configure.mobile-flex ._price_ .price_{
+  font-size: .82rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex ._price_ .price_ del{
+  font-size: .72rem;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+/* Add to cart - icon-only rounded colored button */
+.th-compare-output-product .product-table-configure.mobile-flex ._add-to-cart_{
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn {
+    padding: 0 !important;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_{
+  height: 36px;
+  width: 50px;
+  min-width: 36px!important;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cart icon SVG — flex item that gives the container its height; shown above the dark <a> layer */
+.th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ > svg{
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  color: #fff;
+  stroke: #fff;
+}
+
+/* Dark button layer — absolute, behind the SVG (z-index 1) */
+.th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ a{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0!important;
+  font-size: 0;
+  color: #ffffff;
+  background: #1a1a1a;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ a .add-to-cart-text{
+  display: none;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ a svg{
+  width: 18px;
+  height: 18px;
+}
+
+/* Added / In-cart: raise <a> above the SVG, show tick via ::after */
+.mobile-flex .th-compare-add-to-cart-btn.added,
+.mobile-flex .th-compare-add-to-cart-btn.th-in-cart {
+  z-index: 3 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0 !important;
+  color: #fff !important;
+}
+
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added > svg,
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart > svg {
+  display: none;
+}
+
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added::after,
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart::after {
+  content: "\2713";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  display: block;
+}
+
+.mobile-flex .th-compare-add-to-cart-btn.loading{
+  position: absolute !important;
+  inset: 0;
+  z-index: 3;
+}
+
+.woocommerce .product-table-configure.mobile-flex ._add-to-cart_ .th-add-to-cart_,
+.woocommerce .mobile-flex .th-add-to-cart_{
+  min-width: 36px;
+  flex-wrap: nowrap;
+}
+
+/* ---- RATING ROW ---- */
+.th-compare-output-product .product-table-configure.mobile-flex ._rating_ td:not(.left-title) .th-compare-rating,
+.th-compare-output-product .product-table-configure.mobile-flex ._rating_ td:not(.left-title) .mobile-title{
+  display: block;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex ._rating_ td:not(.left-title){
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .th-compare-rating .star-rating{
+  font-size: 0.8rem;
+}
+
+/* ---- DESCRIPTION ROW ---- */
+.mobile-flex .description-text{
+  padding: 0 4px;
+  font-size: .72rem;
+  line-height: 1rem;
+  text-align: left;
+}
+
+.mobile-flex ._description_ td:not(.left-title){
+  text-align: left;
+}
+
+/* ---- AVAILABILITY ROW ---- */
+.th-compare-output-product .product-table-configure.mobile-flex td .th-in-stoct{
+  padding: 3px 8px;
+  color: #16a34a;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex td .th-out-of-stoct{
+  padding: 3px 8px;
+  color: #dc2626;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ---- MOBILE TITLE (label above value in each cell) ---- */
+.mobile-flex .mobile-title{
+  font-size: 0.6rem;
+  color: #9ca3af;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+/* ---- REPEAT PRICE / ADD-TO-CART ROWS ---- */
+.th-compare-output-product .product-table-configure.mobile-flex .th-price td:not(.left-title),
+.th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart td:not(.left-title){
+  text-align: center;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .th-price td:not(.left-title) .price_{
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+/* ---- REMOVE ROW ---- */
+.th-compare-output-product .product-table-configure.mobile-flex .th-delete td:not(.left-title){
+  text-align: center;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex .th-delete button{
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ---- SCROLL FADE HINT (shows when 4+ products) ---- */
+.th-compare-output-product .product-table-configure.mobile-flex tr{
+  position: relative;
+}
+
+.th-compare-output-product .product-table-configure.mobile-flex._has-scroll tr::after{
+  content: '';
+  position: sticky;
+  right: 0;
+  top: 0;
+  display: inline-block;
+  width: 24px;
+  min-height: 100%;
+  background: linear-gradient(to right, transparent, rgba(248,250,255,0.85));
+  pointer-events: none;
+  vertical-align: top;
+}
+
+/* ---- GENERAL OVERRIDES ---- */
+.th-compare-output-wrap .th-compare-output-wrap-inner{
+  background-color: #f8faff;
+}
+
+.th-compare-output-product:has(> .mobile-flex){
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+}
