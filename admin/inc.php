@@ -124,7 +124,7 @@ class th_product_compare
 
     public function enqueue_admin_script($hook)
     {
-        // if ('check-plugin' != $hook) return;
+        if ( 'themehunk_page_th-product-compare' !== $hook ) return;
         wp_enqueue_style('th-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false,'1.0.0');
         wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/script.js', [], 1, true);
         wp_localize_script('th-product-js', 'th_product', array(
