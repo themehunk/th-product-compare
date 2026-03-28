@@ -219,6 +219,32 @@
         }
       });
     },
+    removeAllProducts: function (e) {
+      e.preventDefault();
+      $(".th-compare-footer-wrap").addClass("loading");
+      $.ajax({
+        method: "post",
+        url: th_product.th_product_ajax_url,
+        data: {
+          action: "th_remove_all_compare",
+          nonce: th_product.nonce
+        },
+        dataType: "json",
+        success: function (response) {
+          if (response.no_product == "1") {
+            $(".thcompare-open-by-popup").remove();
+            $(".th-compare-footer-wrap").remove();
+            $(".th-add-more-product-container").remove();
+            $("body").removeClass("th_product_Compare_body_Class");
+            $(".th-product-compare-checkbox").removeClass("th-added-compare").prop("checked", false);
+            $(".th-product-compare-btn").removeClass("th-added-compare");
+          }
+        },
+        error: function () {
+          $(".th-compare-footer-wrap").removeClass("loading");
+        }
+      });
+    },
     removeCompare: function () {
       let closebtn = $(this);
       let getWrap = closebtn.closest(".thcompare-open-by-popup");
@@ -348,6 +374,7 @@
         ".thcompare-open-by-popup .th-compare-output-wrap .th-compare-output-close",
         thCompare.removeCompare
       );
+      $(document).on("click", "#thpc-removeall", thCompare.removeAllProducts);
       $(document).on("click", ".th-add-product-bar", thCompare.addMorePopup);
       $(document).on(
         "click",

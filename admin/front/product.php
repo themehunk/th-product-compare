@@ -10,6 +10,8 @@ class th_product_compare_return
     {
         add_action('wp_ajax_th_get_compare_product', array($this, 'get_products'));
         add_action('wp_ajax_nopriv_th_get_compare_product', array($this, 'get_products'));
+        add_action('wp_ajax_th_remove_all_compare', array($this, 'remove_all_products'));
+        add_action('wp_ajax_nopriv_th_remove_all_compare', array($this, 'remove_all_products'));
     }
     // public function get_products()
     // {
@@ -96,6 +98,13 @@ class th_product_compare_return
     }
 }
 
+
+    public function remove_all_products() {
+        check_ajax_referer( 'th_product_compare_nonce', 'nonce' );
+        $cookiesName = th_product_compare::cookieName();
+        setcookie( $cookiesName, '', time() - 3600, '/' );
+        wp_send_json( array( 'no_product' => '1' ) );
+    }
 
   public function productHtml($setID, $type_ = [])
 {

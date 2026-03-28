@@ -312,32 +312,33 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background: #1a1a1a;
 }
 
-/* Cart icon SVG — flex item that gives the container its height; shown above the dark <a> layer */
+/* Cart icon SVG — behind the clickable <a> layer */
 .th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ > svg{
   width: 18px;
   height: 18px;
   flex-shrink: 0;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
   color: #fff;
   stroke: #fff;
 }
 
-/* Dark button layer — absolute, behind the SVG (z-index 1) */
+/* Transparent button layer — on top (z-index 2) so it directly receives touch/click events */
 .th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ a{
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0!important;
   font-size: 0;
   color: #ffffff;
-  background: #1a1a1a;
+  background: transparent;
   border-radius: 8px;
   text-decoration: none;
 }
@@ -351,36 +352,64 @@
   height: 18px;
 }
 
-/* Added / In-cart: raise <a> above the SVG, show tick via ::after */
-.mobile-flex .th-compare-add-to-cart-btn.added,
-.mobile-flex .th-compare-add-to-cart-btn.th-in-cart {
+/* ---- LOADING STATE: spinner covers the cart icon ---- */
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.loading {
+  position: absolute !important;
+  inset: 0;
+  z-index: 3 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #1a1a1a !important;
+  border-radius: 8px;
+  pointer-events: none;
+  font-size: 0 !important;
+}
+
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: th-mobile-cart-spin 0.7s linear infinite;
+  display: block;
+  flex-shrink: 0;
+}
+
+@keyframes th-mobile-cart-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- ADDED / IN-CART STATE: green background + tick ---- */
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added,
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart {
+  position: absolute !important;
+  inset: 0;
   z-index: 3 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   font-size: 0 !important;
   color: #fff !important;
-}
-
-.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added > svg,
-.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart > svg {
-  display: none;
+  background: #16a34a !important;
+  border-radius: 8px;
 }
 
 .mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added::after,
 .mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart::after {
   content: "\2713";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1;
   color: #fff;
   display: block;
 }
 
-.mobile-flex .th-compare-add-to-cart-btn.loading{
-  position: absolute !important;
-  inset: 0;
-  z-index: 3;
+/* Hide WooCommerce's injected "View cart" link inside the icon button */
+.mobile-flex .th-add-to-cart_ a.added_to_cart {
+  display: none !important;
 }
 
 .woocommerce .product-table-configure.mobile-flex ._add-to-cart_ .th-add-to-cart_,
