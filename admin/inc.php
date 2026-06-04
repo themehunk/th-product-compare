@@ -1,4 +1,4 @@
-<?php if (!defined('ABSPATH')) exit;
+﻿<?php if (!defined('ABSPATH')) exit;
 
 // popup directory
 class th_product_compare
@@ -140,11 +140,22 @@ class th_product_compare
         wp_enqueue_style('th-product-compare-style-front', TH_PRODUCT_URL . 'assets/fstyle.css', false,'1.0.0');
         wp_enqueue_style('th-product-compare-style-front-mobile', TH_PRODUCT_URL . 'assets/fstyle-mobile.css', array('th-product-compare-style-front'), '1.0.0');
         wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/fscript.js', array('jquery'), 1, array('in_footer' => true,'strategy'  => 'async',));
-         wp_localize_script('th-product-js', 'th_product', array(
-        'th_product_ajax_url' => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('th_product_compare_nonce'),
-    ));
+        wp_localize_script('th-product-js', 'th_product', array(
+            'th_product_ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('th_product_compare_nonce'),
+        ));
 
+        // Dynamic icon colors from backend settings
+        $opt        = $this->localizeOption;
+        $bg_color   = sanitize_hex_color( $opt['icon-bg-color']    ?? '' ) ?: '#111827';
+        $svg_color  = sanitize_hex_color( $opt['icon-svg-color']   ?? '' ) ?: '#ffffff';
+        $badge_color= sanitize_hex_color( $opt['icon-badge-color'] ?? '' ) ?: '#ef4444';
+
+        $css = "
+            .th-compare-icon-widget{background:{$bg_color}!important;color:{$svg_color}!important;}
+            .th-compare-icon-widget-count{background:{$badge_color}!important;}
+        ";
+        wp_add_inline_style( 'th-product-compare-style-front', $css );
     }
 
     public static function th_decrypt($string, $key = 12345)
@@ -182,5 +193,6 @@ class th_product_compare
         $minLength = substr($convertMd5, -12);
         return 'th_compare_product_' . $minLength;
     }
-    // class end 
+
+    // class end
 }

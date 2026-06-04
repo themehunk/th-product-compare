@@ -8,7 +8,45 @@
       }
       thCompare.popupOpener();
     },
-       updateCompareEnableState: function () {
+    updateMenuIcon: function () {
+      let count = $(".th-compare-footer-wrap .product_image .product-comp").length;
+
+      // Shortcode / template-tag widgets — always visible, only badge toggles
+      let widgets = $(".th-compare-icon-widget");
+      if (widgets.length) {
+        let badge = widgets.find(".th-compare-icon-widget-count");
+        if (count > 0) {
+          badge.text(count).show();
+        } else {
+          badge.hide();
+        }
+      }
+    },
+    menuIconClick: function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      let compareWrap = $(".thcompare-open-by-popup .th-compare-output-wrap");
+      if (compareWrap.length) {
+        if (compareWrap.hasClass("active")) {
+          compareWrap.addClass("th-compare-output-wrap-close").removeClass("active");
+          $(".th-compare-footer-product-opner").removeClass("active");
+          $("body").removeClass("th_product_Compare_body_Class");
+        } else {
+          compareWrap.removeClass("th-compare-output-wrap-close").addClass("active");
+          $(".th-compare-footer-product-opner").addClass("active");
+          $("body").addClass("th_product_Compare_body_Class");
+        }
+      } else {
+        thCompare.openAndaddPopup("refresh", false);
+        setTimeout(function () {
+          $(".thcompare-open-by-popup .th-compare-output-wrap")
+            .removeClass("th-compare-output-wrap-close")
+            .addClass("active");
+          $("body").addClass("th_product_Compare_body_Class");
+        }, 400);
+      }
+    },
+    updateCompareEnableState: function () {
   let count = $(".product_image > div.img_").not(".empty-slot").length;
   let compareBtn = $(".th-compare-enable");
 
@@ -131,6 +169,7 @@
               getWrap.remove();
               $(".th-compare-footer-wrap").remove();
               $(".th-add-more-product-container").remove();
+              thCompare.updateMenuIcon(); // called AFTER footer removed so count is correctly 0
             }, 500);
             $("body").removeClass("th_product_Compare_body_Class");
             // Clear all checkboxes and icons
@@ -209,6 +248,10 @@
             $(".thcompare-open-by-popup .th-compare-output-wrap").removeClass("th-loading");
           }
           thCompare.updateCompareEnableState();
+          // For no_product, updateMenuIcon is called inside setTimeout after footer is removed
+          if (response.no_product !== "1") {
+            thCompare.updateMenuIcon();
+          }
         },
         error: function () {
           if (thisElement) {
@@ -238,6 +281,7 @@
             $("body").removeClass("th_product_Compare_body_Class");
             $(".th-product-compare-checkbox").removeClass("th-added-compare").prop("checked", false);
             $(".th-product-compare-btn").removeClass("th-added-compare");
+            thCompare.updateMenuIcon();
           }
         },
         error: function () {
@@ -381,6 +425,10 @@
         ".th-compare-external-popup-open",
         thCompare.addMorePopupClick
       );
+      $(document).on("click", ".th-compare-icon-widget", thCompare.menuIconClick);
+      $(document).on("keydown", ".th-compare-icon-widget", function (e) {
+        if (e.key === "Enter" || e.key === " ") thCompare.menuIconClick(e);
+      });
     },
     containerScroll: function () {
       let heading_ = $(".th-compare-heading");

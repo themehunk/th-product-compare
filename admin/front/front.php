@@ -31,7 +31,12 @@ class th_product_compare_shortcode
     public function get()
     {
         add_shortcode('th_compare', array($this, 'compare'));
+        add_shortcode('th_compare_icon', array($this, 'compare_icon_shortcode'));
         $this->showAndHideSingle();
+    }
+
+    public function compare_icon_shortcode( $atts, $content = null ) {
+        return th_compare_menu_icon( false );
     }
 
     public function showAndHideShopPage()
@@ -142,4 +147,63 @@ function th_compare_add_action_shop_list()
 }
 
 add_action('woocommerce_init', 'th_compare_add_action_shop_list');
+
+/**
+ * Template function — use in any theme file or child theme.
+ *
+ * Usage:
+ *   <?php th_compare_menu_icon(); ?>
+ *
+ * To capture as a string:
+ *   <?php $icon = th_compare_menu_icon( false ); ?>
+ *
+ * @param bool $echo  Echo the output (true) or return it (false).
+ * @return string
+ */
+if ( ! function_exists( 'th_compare_menu_icon' ) ) :
+function th_compare_menu_icon( $echo = true ) {
+    if ( ! class_exists( 'WooCommerce' ) ) {
+        if ( $echo ) { return; }
+        return '';
+    }
+
+    // Respect the backend "Enable Floating Compare Icon" toggle
+    $option = get_option( 'th_compare_option' );
+    if ( isset( $option['field-menu-icon'] ) && $option['field-menu-icon'] !== '1' ) {
+        if ( $echo ) { return; }
+        return '';
+    }
+
+    // Read count from cookie so badge is correct on first render
+    $count       = 0;
+    $cookie_name = th_product_compare::cookieName();
+    if ( ! empty( $_COOKIE[ $cookie_name ] ) ) {
+        $raw     = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
+        $decoded = json_decode( $raw, true );
+        if ( is_array( $decoded ) ) {
+            $count = count( $decoded );
+        }
+    }
+
+    $label       = esc_attr__( 'Compare Products', 'th-product-compare' );
+    // Outer widget is ALWAYS visible — same as a nav cart icon
+    // Only the count badge is hidden when 0 products
+    $badge_style = $count > 0 ? '' : ' style="display:none;"';
+
+    $html  = '<span class="th-compare-icon-widget" role="button" tabindex="0" aria-label="' . $label . '">';
+    $html .= '<span class="th-compare-icon-widget-count"' . $badge_style . '>' . esc_html( $count ) . '</span>';
+    $html .= '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+    $html .= '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>';
+    $html .= '<path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>';
+    $html .= '<path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>';
+    $html .= '</svg>';
+    $html .= '</span>';
+
+    if ( $echo ) {
+        echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        return;
+    }
+    return $html;
+}
+endif;
 ?>
