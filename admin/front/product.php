@@ -342,6 +342,11 @@ $initTitleAndRow = array_merge(
 
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
+    $footer_bar_opt    = get_option( 'th_compare_option' );
+    $footer_bar_enabled = ! isset( $footer_bar_opt['footer-bar'] ) || $footer_bar_opt['footer-bar'] === '1' || $footer_bar_opt['footer-bar'] === 1 || $footer_bar_opt['footer-bar'] === true;
+    if ( ! $footer_bar_enabled ) {
+        $returnFooter = '';
+    } else {
     $returnFooter ="<div class='th-compare-footer-wrap active position-" . esc_attr($footerBArPosition) . "'><div class='th-compare-footer-level2'><div class='th-compare-footer-level3'>" .
                 "<div class='th-compare-left'>
                 <p class='th-atleast'><span class='th-selected'>Selected</span><span class='th-select-count'>" . esc_html($th_product_atleast_txt) . "</span></p>" .
@@ -351,7 +356,7 @@ $initTitleAndRow = array_merge(
                 "<div class='th-compare-right'><a id='thpc-removeall'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-trash2 lucide-trash-2' aria-hidden='true'><path d='M10 11v6'></path><path d='M14 11v6'></path><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'></path><path d='M3 6h18'></path><path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path></svg></a>" .
                 "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'>" .
                 "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-layers text-indigo-600' aria-hidden='true'><path d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z'></path><path d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12'></path><path d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17'></path></svg><span class='text_'>" . esc_html__('Compare', 'th-product-compare') . "</span></a></div></div></div></div></div>";
-   
+    } // end footer_bar_enabled
 
     foreach ($initTitleAndRow as $initTitleAndRow_final_value) {
         $table .= $initTitleAndRow_final_value['html'];
