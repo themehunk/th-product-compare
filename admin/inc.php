@@ -1,4 +1,4 @@
-﻿<?php if (!defined('ABSPATH')) exit;
+<?php if (!defined('ABSPATH')) exit;
 
 // popup directory
 class th_product_compare
