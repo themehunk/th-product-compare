@@ -12,6 +12,7 @@ class th_product_compare
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_script'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_front_script'));
+        add_action('wp_footer', array($this, 'render_floating_icon'));
         add_filter('plugin_action_links_' . plugin_basename(TH_PRODUCT_PATH . '/' . basename(TH_PRODUCT_BASE_NAME)), array($this, 'add_menu_links'));
         add_filter('plugin_row_meta', array($this, 'docs_link'), 10, 2);
 
@@ -146,16 +147,51 @@ class th_product_compare
         ));
 
         // Dynamic icon colors from backend settings
-        $opt        = $this->localizeOption;
-        $bg_color   = sanitize_hex_color( $opt['icon-bg-color']    ?? '' ) ?: '#111827';
-        $svg_color  = sanitize_hex_color( $opt['icon-svg-color']   ?? '' ) ?: '#ffffff';
-        $badge_color= sanitize_hex_color( $opt['icon-badge-color'] ?? '' ) ?: '#ef4444';
+        $opt         = $this->localizeOption;
+        $bg_color    = sanitize_hex_color( $opt['icon-bg-color']    ?? '' ) ?: '#111827';
+        $svg_color   = sanitize_hex_color( $opt['icon-svg-color']   ?? '' ) ?: '#ffffff';
+        $badge_color = sanitize_hex_color( $opt['icon-badge-color'] ?? '' ) ?: '#ef4444';
+        $position    = ( isset( $opt['icon-float-position'] ) && $opt['icon-float-position'] === 'bottom-left' ) ? 'bottom-left' : 'bottom-right';
+        $h_prop      = ( $position === 'bottom-left' ) ? 'left:30px' : 'right:30px';
 
         $css = "
             .th-compare-icon-widget{background:{$bg_color}!important;color:{$svg_color}!important;}
             .th-compare-icon-widget-count{background:{$badge_color}!important;}
+            .th-compare-float-icon{position:fixed!important;bottom:90px!important;{$h_prop}!important;z-index:99999!important;width:52px!important;height:52px!important;border-radius:50%!important;box-shadow:0 4px 20px rgba(0,0,0,.28)!important;}
         ";
         wp_add_inline_style( 'th-product-compare-style-front', $css );
+    }
+
+    public function render_floating_icon() {
+        if ( ! class_exists( 'WooCommerce' ) ) return;
+
+        $opt = $this->localizeOption;
+
+        // Respect the floating icon toggle
+        if ( isset( $opt['field-menu-icon'] ) && $opt['field-menu-icon'] !== '1' ) return;
+
+        // Read count from cookie for badge
+        $count       = 0;
+        $cookie_name = th_product_compare::cookieName();
+        if ( ! empty( $_COOKIE[ $cookie_name ] ) ) {
+            $raw     = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
+            $decoded = json_decode( $raw, true );
+            if ( is_array( $decoded ) ) {
+                $count = count( $decoded );
+            }
+        }
+
+        $badge_style = $count > 0 ? '' : ' style="display:none;"';
+        $label       = esc_attr__( 'Compare Products', 'th-product-compare' );
+
+        echo '<span class="th-compare-icon-widget th-compare-float-icon" role="button" tabindex="0" aria-label="' . $label . '">';
+        echo '<span class="th-compare-icon-widget-count"' . $badge_style . '>' . esc_html( $count ) . '</span>';
+        echo '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+        echo '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>';
+        echo '<path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>';
+        echo '<path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>';
+        echo '</svg>';
+        echo '</span>';
     }
 
     public static function th_decrypt($string, $key = 12345)

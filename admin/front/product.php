@@ -342,9 +342,7 @@ $initTitleAndRow = array_merge(
 
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
-    $footer_bar_opt    = get_option( 'th_compare_option' );
-    $footer_bar_enabled = ! isset( $footer_bar_opt['footer-bar'] ) || $footer_bar_opt['footer-bar'] === '1' || $footer_bar_opt['footer-bar'] === 1 || $footer_bar_opt['footer-bar'] === true;
-    if ( ! $footer_bar_enabled ) {
+    if ( $chekBYoption['footer-bar'] === '0' ) {
         $returnFooter = '';
     } else {
     $returnFooter ="<div class='th-compare-footer-wrap active position-" . esc_attr($footerBArPosition) . "'><div class='th-compare-footer-level2'><div class='th-compare-footer-level3'>" .
@@ -425,6 +423,8 @@ $initTitleAndRow = array_merge(
         } else {
             $checkChecked['compare-product-limit'] = 4;
         }
+
+        $checkChecked['footer-bar'] = ( isset( $th_compare_option['footer-bar'] ) && $th_compare_option['footer-bar'] === '0' ) ? '0' : '1';
 
         return $checkChecked;
     }
