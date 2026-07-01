@@ -653,6 +653,7 @@ a.link_.upgrade-button::before {
     gap: 9px;
     border: 0;
     justify-content: center;
+        font-weight: 600;
     border-radius: 9px;
     font-size: 0.75rem;
     line-height: 1rem!important;
@@ -660,7 +661,7 @@ a.link_.upgrade-button::before {
     padding-bottom: 0.75rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     background-color: var(--highlight-color) !important;
     border-radius: 1.25rem !important;
     color: #FFF !important;
@@ -1027,13 +1028,13 @@ a[title="Get Premium Version"] {
     border-radius: 1.25rem;
     background: linear-gradient(135deg, #00c853, #009127, #00bfa5);
     background-size: 200% 200%;
-    box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35);
+    /* box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35); */
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     animation: gradientMove 4s ease infinite;
     margin-left: auto;
     margin-right: 9px;
-    letter-spacing: .16rem;
+    letter-spacing: 0;
 }
 
 /* Gradient Animation */
@@ -1041,12 +1042,6 @@ a[title="Get Premium Version"] {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-}
-
-/* Hover Effect */
-a[title="Get Premium Version"]:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 35px rgba(0, 200, 83, 0.6);
 }
 
 /* Shine Effect */

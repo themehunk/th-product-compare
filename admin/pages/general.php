@@ -12,8 +12,9 @@ $th_product_btn_type = isset($th_compare_option['compare-btn-type']) ? sanitize_
 $th_product_shop_hook = isset($th_compare_option['compare-at-shop-hook']) ? sanitize_text_field($th_compare_option['compare-at-shop-hook']) : 'after';
 
 $checkChecked = [
-    'field-product-page' => 'checked="checked"',
+    'field-product-page'        => 'checked="checked"',
     'field-product-single-page' => 'checked="checked"',
+    'field-menu-icon'           => 'checked="checked"',
 ];
 
 if (is_array($th_compare_option)) {

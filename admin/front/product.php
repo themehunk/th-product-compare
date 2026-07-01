@@ -10,6 +10,8 @@ class th_product_compare_return
     {
         add_action('wp_ajax_th_get_compare_product', array($this, 'get_products'));
         add_action('wp_ajax_nopriv_th_get_compare_product', array($this, 'get_products'));
+        add_action('wp_ajax_th_remove_all_compare', array($this, 'remove_all_products'));
+        add_action('wp_ajax_nopriv_th_remove_all_compare', array($this, 'remove_all_products'));
     }
     // public function get_products()
     // {
@@ -97,6 +99,13 @@ class th_product_compare_return
 }
 
 
+    public function remove_all_products() {
+        check_ajax_referer( 'th_product_compare_nonce', 'nonce' );
+        $cookiesName = th_product_compare::cookieName();
+        setcookie( $cookiesName, '', time() - 3600, '/' );
+        wp_send_json( array( 'no_product' => '1' ) );
+    }
+
   public function productHtml($setID, $type_ = [])
 {
 
@@ -115,8 +124,9 @@ class th_product_compare_return
 
     $footerProduct = '';
     $wp_is_mobile = wp_is_mobile();
+    $mobileClass = $wp_is_mobile ? 'mobile-flex' : '';
     $table = '';
-    $table .= '<table class="product-table-configure woocommerce">';
+    $table .= '<table class="product-table-configure woocommerce ' . $mobileClass . '">';
     $initTitleAndRow = [];
 
     if (!empty($chekBYoption['attributes'])) {
@@ -332,6 +342,9 @@ $initTitleAndRow = array_merge(
 
     // footer bar build
     $footerBArPosition = $chekBYoption['compare-popup-position'];
+    if ( $chekBYoption['footer-bar'] === '0' ) {
+        $returnFooter = '';
+    } else {
     $returnFooter ="<div class='th-compare-footer-wrap active position-" . esc_attr($footerBArPosition) . "'><div class='th-compare-footer-level2'><div class='th-compare-footer-level3'>" .
                 "<div class='th-compare-left'>
                 <p class='th-atleast'><span class='th-selected'>Selected</span><span class='th-select-count'>" . esc_html($th_product_atleast_txt) . "</span></p>" .
@@ -341,7 +354,7 @@ $initTitleAndRow = array_merge(
                 "<div class='th-compare-right'><a id='thpc-removeall'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-trash2 lucide-trash-2' aria-hidden='true'><path d='M10 11v6'></path><path d='M14 11v6'></path><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'></path><path d='M3 6h18'></path><path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path></svg></a>" .
                 "<div class='th-compare-enable'><a href='#' class='th-compare-footer-product-opner'>" .
                 "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-layers text-indigo-600' aria-hidden='true'><path d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z'></path><path d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12'></path><path d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17'></path></svg><span class='text_'>" . esc_html__('Compare', 'th-product-compare') . "</span></a></div></div></div></div></div>";
-   
+    } // end footer_bar_enabled
 
     foreach ($initTitleAndRow as $initTitleAndRow_final_value) {
         $table .= $initTitleAndRow_final_value['html'];
@@ -410,6 +423,8 @@ $initTitleAndRow = array_merge(
         } else {
             $checkChecked['compare-product-limit'] = 4;
         }
+
+        $checkChecked['footer-bar'] = ( isset( $th_compare_option['footer-bar'] ) && $th_compare_option['footer-bar'] === '0' ) ? '0' : '1';
 
         return $checkChecked;
     }

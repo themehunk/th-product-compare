@@ -124,6 +124,15 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             'reset' => '
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>
             ',
+
+            // 🔔 Compare Menu Icon Tab
+            'compare-icon' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>
+                <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>
+                <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>
+            </svg>
+            ',
         ];
 
         return $icons[ $name ] ?? '';
@@ -143,6 +152,7 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             </span>
             <a data-group-tabs="main" data-tab="general" href="#" class="active"><span><?php echo wp_kses( thpc_get_svg_icon( 'settings' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></span></a>
             <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'advance' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="compare-icon" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'compare-icon' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Compare Icon', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'premium' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'help' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
              <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'reset' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Reset', 'th-product-compare'); ?></a>
@@ -180,6 +190,10 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <!-- setting tab -->
             <div data-group-tabs="main" data-tab-container="setting">
                 <?php include_once 'pages/advance-setting.php'; ?>
+            </div>
+            <!-- compare icon tab -->
+            <div data-group-tabs="main" data-tab-container="compare-icon">
+                <?php include_once 'pages/compare-icon.php'; ?>
             </div>
             <!-- help tab -->
             <div data-group-tabs="main" data-tab-container="help">
