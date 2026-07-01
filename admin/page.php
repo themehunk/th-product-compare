@@ -120,9 +120,19 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             </svg>
             ',
 
+            // 🔌 Single Page Icon
+            'singlepage' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+            ',
+
             // 🔐 Premium Icon
             'reset' => '
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>
+            ',
+
+            // 📱 Mobile Icon
+            'mobile' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
             ',
 
             // 🔔 Compare Menu Icon Tab
@@ -153,7 +163,9 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <a data-group-tabs="main" data-tab="general" href="#" class="active"><span><?php echo wp_kses( thpc_get_svg_icon( 'settings' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></span></a>
             <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'advance' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="compare-icon" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'compare-icon' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Compare Icon', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'premium' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Premium', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'premium' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Advance Premium (Pro)', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="single-page-product" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'singlepage' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Single Product Page (Pro)', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="mobile" href="#"><span><?php echo thpc_get_svg_icon('mobile'); ?></span><?php esc_html_e('Mobile (Pro)', 'th-product-compare-pro'); ?></a>
             <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'help' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
              <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'reset' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Reset', 'th-product-compare'); ?></a>
             
@@ -201,7 +213,23 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             </div>
             <!-- pro feature tab -->
             <div data-group-tabs="main" data-tab-container="pro-feature">
-                <?php include_once 'pages/pro-feature.php'; ?>
+                <?php include_once 'pages/pro-feature.php';
+                 ?>
+            </div>
+
+             <!-- pro feature tab -->
+            <div data-group-tabs="main" data-tab-container="single-page-product">
+                <?php include_once 'pages/pro-single-page-product.php'; ?>
+            </div>
+
+             <!-- pro feature tab -->
+            <div data-group-tabs="main" data-tab-container="mobile">
+                <?php include_once 'pages/pro-mobile.php'; ?>
+            </div>
+
+             <!-- pro feature tab -->
+            <div data-group-tabs="main" data-tab-container="style">
+                <?php include_once 'pages/pro-mobile.php'; ?>
             </div>
 
             <!-- reset tab -->

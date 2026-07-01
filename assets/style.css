@@ -2,7 +2,7 @@
   --highlight-color: #4f46e5;
   --light-color: #505458;
   --text-color: #111;
-  --border-color: #e2e8f0;
+  --border-color: rgb(223 223 223 / 30%);
   --text-color-light: #64748B;
   --body-background: #f8fafc;
 }
@@ -1281,4 +1281,47 @@ table {
 }
 .th-compare-select-wrapper > div{
   width: 49%;
+}
+
+
+.style-setting_ {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+}
+.style-setting_ .nav_ {
+    padding: 4px 2px;
+    text-align: center;
+    background: #f1f5f9;
+    border-radius: 5px;
+    margin: 18px;
+}
+.style-setting_ .nav_ a {
+    color: var(--btn-color);
+    width: 49%;
+    display: inline-flex;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #3c434a;
+}
+.style-setting_ .nav_ a.active{
+    background: var(--highlight-color);
+    color: #fff;
+}
+.style-setting_ .container_ {
+    height: 550px;
+    overflow-y: scroll;
+    padding: 0 18px;
+}
+.style-setting_ .container_ {
+    height: 550px;
+    overflow-y: scroll;
+    padding: 0 18px;
+}
+.bold-heading, .th-color-title {
+    font-weight: 500;
+    color: #334155f7;
+    font-size: .79rem;
 }
