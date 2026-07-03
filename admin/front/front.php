@@ -309,12 +309,12 @@ public function btnBYoption($product_id)
     }
 }
 
-function thpc_add_action_shop_list()
+function th_compare_add_action_shop_list()
 {
     $obj = new th_product_compare_shortcode();
     $obj->showAndHideShopPage();
 }
-add_action('woocommerce_init', 'thpc_add_action_shop_list');
+add_action('woocommerce_init', 'th_compare_add_action_shop_list');
 
 /**
  * Render the compare menu icon widget.

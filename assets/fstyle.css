@@ -212,6 +212,7 @@ opacity: 1 !important;
   color: inherit;
   cursor: pointer;
   opacity: .8;
+  line-height: initial;
 }
 #thpc-removeall:hover{
   color: #FFF;
