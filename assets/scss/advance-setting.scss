@@ -1,0 +1,127 @@
+.th-product-compare-wrap {
+  .setting_ {
+    display: flex;
+    justify-content: space-between;
+
+    .field-to-show {
+      // box-shadow: 0px 0px 8px 0px #d0eaf5;
+      padding-right: 30px;
+      flex: 1;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        // grid-gap      : 30px;
+
+        .row_ {
+          display: flex;
+          border-bottom: 1px solid #f0f0f1;
+          padding: 20px 10px;
+          flex-direction: column;
+          grid-gap: 14px;
+
+          &:last-child {
+            border: none;
+            padding-bottom: 0;
+          }
+
+          > div {
+            flex: 1;
+
+            &:first-child {
+              max-width: 280px;
+            }
+          }
+        }
+      }
+
+      .th-compare-field-wrap {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 15px;
+      }
+    }
+  }
+}
+
+.th-compare-radio {
+  padding-left: 5px;
+
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    min-height: 20px;
+
+    &:before {
+      content: "";
+      font-family: "dashicons";
+      transition: 0.3s all ease;
+      z-index: 10;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      cursor: pointer;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      border: 1px solid grey;
+      left: -2px;
+      top: 50%;
+      border-radius: 3px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked + {
+      label {
+        &:before {
+          transform: translateY(-50%) scale(1);
+          color: white;
+        }
+
+        &:after {
+          border-color: #2a76c2;
+          background-color: #2a76c2;
+        }
+      }
+    }
+  }
+}
+
+.woocommerce-th-attributes {
+  visibility: visible;
+
+  .th-compare-radio {
+    border: 1px solid #b4b4b7;
+    padding: 14px;
+    border-radius: 3px;
+    width: 340px;
+    position: relative;
+    cursor: move;
+
+    > label {
+      cursor: move;
+      text-transform: capitalize;
+    }
+
+    &:after {
+      content: "";
+      font-family: "dashicons";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

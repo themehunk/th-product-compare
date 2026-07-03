@@ -2,225 +2,159 @@
 if (!defined('ABSPATH')) exit;
 class th_compare_admin
 {
-    public $optionName = 'th_compare_option';
-    public static function get()
-    {
-        return new self();
-    }
+    public $tpcp_optionName = 'th_compare_option';
+    private static $instance;
     private function __construct()
     {
-        add_action('wp_ajax_th_compare_save_data', array($this, 'save'));
-        add_action('wp_ajax_th_compare_reset_data', array($this, 'reset'));
-        add_action('wp_ajax_th_compare_filter_product', array($this, 'filter_product'));
-        add_action('wp_ajax_nopriv_th_compare_filter_product', array($this, 'filter_product'));
+        add_action('wp_ajax_tpcp_compare_save_data', array($this, 'save'));
+        add_action('wp_ajax_tpcp_compare_reset_data', array($this, 'reset'));
+        add_action('wp_ajax_tpcp_filter_product', array($this, 'filter_product'));
+        add_action('wp_ajax_nopriv_tpcp_filter_product', array($this, 'filter_product'));
+        // product tab
+        if (isset($_GET['action']) && $_GET['action'] == 'edit') {
+            add_filter('woocommerce_product_data_tabs', [$this, 'tpcp_tab_custom']);
+            add_action('woocommerce_product_data_panels', [$this, 'tpcp_custom_template']);
+        }
+        add_action('woocommerce_process_product_meta', [$this, 'tpcp_save_input'], 10, 2);
+        // product tab
     }
-
+    public function check_user_permission()
+    {
+        $user = wp_get_current_user();
+        $allowed_roles = array('editor', 'administrator');
+        return array_intersect($allowed_roles, $user->roles) ? true : false;
+    }
+    public static function get()
+    {
+        return self::$instance ? self::$instance : self::$instance = new self();
+    }
     public function filter_product()
     {
-        check_ajax_referer( 'th_product_compare_nonce', 'nonce' );
-
-            /* -------- INPUT -------- */
-        $text_ = '';
-        if ( isset( $_POST['inputs'] ) ) {
-            $text_ = sanitize_text_field( wp_unslash( $_POST['inputs'] ) );
-            $text_ = substr( $text_, 0, 50 ); // prevent heavy searches
-        }
-
-        $arrArg = array(
-            'post_type'     => 'product',
-            'post_status'   => 'publish',
-            'nopaging'      => true,
-            'posts_per_page' => 100,
-            's'             => $text_,
-        );
-        if ($text_ != '') {
-            $arrArg['s'] = $text_;
-            $arrArg['posts_per_page'] = 100;
-        } else {
-            $arrArg['posts_per_page'] = 20;
-        }
-        $results = new WP_Query($arrArg);
-        $items = array();
-        if (!empty($results->posts)) {
-            foreach ($results->posts as $result) {
-
-                $imageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($result->ID), 'single-post-thumbnail');
-                $imageUrl = isset($imageUrl[0]) ? $imageUrl[0] : wc_placeholder_img_src();
-
-                $items[] = array(
-                    'image_url' => $imageUrl,
-                    'label' => $result->post_title,
-                    'id' => $result->ID,
-                );
-            }
-        } else {
-            $items['no_product'] = __('No Product Found', 'th-product-compare');
-        }
-        wp_send_json_success($items);
-    }
-
-private function sanitize_nested_array( $array ) {
-    $clean = array();
-    foreach ( $array as $key => $value ) {
-        $key = sanitize_key( $key );
-        if ( is_array( $value ) ) {
-            $clean[ $key ] = $this->sanitize_nested_array( $value );
-        } else {
-            $clean[ $key ] = sanitize_text_field( $value );
-        }
-    }
-    return $clean;
-}
-
-public function save() {
-    /* -------- CAPABILITY -------- */
-    if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( -1, 403 );
-    }
-
-    /* -------- NONCE -------- */
-    if (
-        ! isset( $_POST['nonce'] ) ||
-        ! wp_verify_nonce(
-            sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
-            '_wpnonce'
-        )
-    ) {
-        wp_die( -1, 403 );
-    }
-
-    /* -------- INPUT -------- */
-    if ( ! isset( $_POST['inputs'] ) || ! is_array( $_POST['inputs'] ) ) {
-        wp_send_json_error( array( 'message' => 'No input data received' ) );
-        wp_die();
-    }
-
-    $raw_inputs = wp_unslash( $_POST['inputs'] );
-
-    // Final clean structure 
-    $clean_data = array();
-
-    // Recursive sanitize + preserve structure
-    foreach ( $raw_inputs as $key => $value ) {
-        $key = sanitize_key( $key );
-
-        if ( is_array( $value ) ) {
-            // Nested array (jaise compare-attributes, compare-field)
-            $clean_data[ $key ] = $this->sanitize_nested_array( $value );
-        } else {
-            // Simple field (text, number, etc.)
-            $clean_data[ $key ] = sanitize_text_field( $value );
-        }
-    }
-
-    // Special handling for attributes → 'on' ko 1 mein convert + missing ko 0  do
-    if ( isset( $clean_data['compare-attributes'] ) && is_array( $clean_data['compare-attributes'] ) ) {
-        $attributes = array();
-        foreach ( $clean_data['compare-attributes'] as $attr_key => $val ) {
-            $attr_key = sanitize_key( $attr_key );
-            $attributes[ $attr_key ] = array(
-                'active' => ( ! empty( $val ) && $val !== '0' ) ? 1 : 0
+        if (isset($_POST['inputs'])) {
+            $text_ = sanitize_text_field($_POST['inputs']);
+            $arrArg = array(
+                'post_type'     => 'product',
+                'post_status'   => 'publish',
+                'posts_per_page' => 20,
             );
+            if ($text_ != '') {
+                $arrArg['s'] = $text_;
+            }
+            $results = new WP_Query($arrArg);
+            $items = array();
+            if (!empty($results->posts)) {
+                foreach ($results->posts as $result) {
+                    $productId = $result->ID;
+                    $imageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($productId), 'single-post-thumbnail');
+                    $imageUrl = isset($imageUrl[0]) ? $imageUrl[0] : wc_placeholder_img_src();
+
+                    $items[] = array(
+                        'image_url' => esc_url($imageUrl),
+                        'label' => $result->post_title,
+                        'id' => $productId,
+                    );
+                }
+            } else {
+                $items['no_product'] = esc_html__('No Product Found', 'th-product-compare-pro');
+            }
+            wp_send_json_success($items);
         }
-        $clean_data['attributes'] = $attributes;  // rename key to match frontend expectation
-        unset( $clean_data['compare-attributes'] ); // optional cleanup
     }
 
-    // Repeat fields ko '1'/'0' string mein convert (for consistency)
-    if ( isset( $clean_data['compare-field'] ) && is_array( $clean_data['compare-field'] ) ) {
-        $clean_data['field-repeat-price'] = ! empty( $clean_data['compare-field']['repeat-price'] ) ? '1' : '0';
-        $clean_data['field-repeat-add-to-cart'] = ! empty( $clean_data['compare-field']['repeat-add-to-cart'] ) ? '1' : '0';
-        unset( $clean_data['compare-field'] ); // optional
+    public function save()
+    {
+        if ($this->check_user_permission() && isset($_POST['inputs']) && is_array($_POST['inputs']) && !empty($_POST['inputs'])) {
+            check_ajax_referer('tpcp_plugin_nonce', 'tpcp_nonce_created');
+            $result = $this->setOption($_POST['inputs']);
+            th_product_compare::clear_cached_option();
+            $send = $result ? true : false;
+            wp_send_json_success($send);
+        }
+        die();
     }
-
-    /* -------- SAVE -------- */
-    $result = $this->setOption( $clean_data );
-
-    if ( $result ) {
-        echo esc_html__( 'update', 'th-product-compare' );
-    } else {
-        echo esc_html__( 'nochange', 'th-product-compare' );
-    }
-
-    wp_die();
-}
-
-
     // cookies
     public function setOption($inputs)
     {
-        $checkOption = get_option($this->optionName);
-
+        $checkOption = get_option($this->tpcp_optionName);
         $saveOption = $this->sanitizeOptions($inputs);
-
         if ($checkOption) {
-
-            $result = update_option($this->optionName, $saveOption);
-
+            $result = update_option($this->tpcp_optionName, $saveOption);
         } else {
-
-            $result = add_option($this->optionName, $saveOption);
-
+            $result = add_option($this->tpcp_optionName, $saveOption);
         }
-
         return $result;
     }
 
     function sanitizeOptions($array)
     {
         foreach ($array as $key => &$value) {
-
             if (is_array($value)) {
-
                 $value = $this->sanitizeOptions($value);
-
             } else {
-
                 $value = sanitize_text_field($value);
             }
-
         }
-
         return $array;
     }
 
     public function reset()
     {
-
-        if ( ! current_user_can( 'manage_options' ) ) {
-
-            wp_die( -1, 403 );
-
-            }
-
-          // Nonce check
-        if (
-            ! isset( $_POST['nonce'] ) ||
-            ! wp_verify_nonce(
-                sanitize_text_field( wp_unslash( $_POST['nonce'] ) ),
-                '_wpnonce'
-            )
-        ) {
-            wp_die( -1, 403 );
-        }
-
-        if (isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
-
-            $checkOption = get_option($this->optionName);
-
+        if ($this->check_user_permission() && isset($_POST['inputs']) && $_POST['inputs'] == 'reset') {
+            $checkOption = th_product_compare::get_cached_option();
             if ($checkOption) {
-
-                delete_option($this->optionName);
-
-                echo esc_html('reset');
-
+                delete_option($this->tpcp_optionName);
+                th_product_compare::clear_cached_option();
+                wp_send_json_success(true);
             }
-
         }
-
         die();
+    }
+    //////////////////////////////////
+    // add product editing page  tabs 
+    //////////////////////////////////
 
-  }
+    function tpcp_save_input($product_id)
+    {
+        if (isset($_POST['tpcp_choose_product_auto_manual']) && $_POST['tpcp_choose_product_auto_manual'] != '') {
+            // sanitize_text_field
+            update_post_meta($product_id, 'tpcp_choose_product_auto_manual', sanitize_text_field($_POST['tpcp_choose_product_auto_manual']));
+        }
+        if (isset($_POST['tpcp_auto_show_compare']) && $_POST['tpcp_auto_show_compare'] != '') {
+            update_post_meta($product_id, 'tpcp_auto_show_compare', sanitize_text_field($_POST['tpcp_auto_show_compare']));
+        }
+    }
+
+    function tpcp_tab_custom($tabs)
+    {
+        $tabs['th-compare-custom'] = array(
+            'label' => esc_html__('Compare Option', 'th-product-compare-pro'),
+            'target' => 'th_custom_tab_product_option',
+            'priority' => 51,
+        );
+        return $tabs;
+    }
+    public function excludeIds($arg, $productId)
+    {
+        return $arg;
+        $exp_ = explode('|', $arg);
+        $returnArr = true;
+        if (is_array($exp_) && !empty($exp_)) {
+            foreach ($exp_ as $value_) {
+                $valueWithDash = explode('-', $value_);
+                if ($productId == $valueWithDash[0]) {
+                    $returnArr = false;
+                    break;
+                }
+            }
+        }
+        return $returnArr;
+    }
+    function tpcp_custom_template()
+    {
+        global $post;
+        $productID = get_the_ID();
+        include_once 'template/add-custom-tab-woocommerce.php';
+    }
 
     // class end
 }

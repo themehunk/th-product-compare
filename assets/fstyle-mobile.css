@@ -14,8 +14,8 @@
     margin-left: 0;
   }
   .th-compare-footer-wrap .product_image{
-     overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+     overflow-x: auto; /* Enables horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
   padding: 4px 0;
   }
   .th-compare-footer-wrap > div {
@@ -177,7 +177,7 @@
   font-weight: 700;
   color: #000000;
   display: block;
-  border-bottom: 2px solid #e5e7eb66;
+        border-bottom: 2px solid #e5e7eb66;
   padding-bottom: 6px;
   word-break: normal;
   text-transform: uppercase;
@@ -214,12 +214,12 @@
   align-items: center;
   gap: 6px;
   padding: 4px 0;
-  height: 100%;
+   height: 100%;
   justify-content: space-between;
 }
 
 .th-compare-output-product .product-table-configure.mobile-flex ._product_details_ td:not(.left-title){
-  height: 300px;
+         height: 300px;
 }
 
 /* Image box with border */
@@ -252,7 +252,7 @@
   object-fit: contain;
 }
 
-/* Product title */
+/* Product title - blue link style */
 .th-compare-output-product .product-table-configure.mobile-flex ._title_{
   width: 100%;
 }
@@ -299,7 +299,7 @@
 }
 
 .th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn {
-    padding: 0 !important;
+    padding: 7px 8px 8px 14px !important;
 }
 
 .th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_{
@@ -312,35 +312,27 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: #1a1a1a;
 }
 
-/* Cart icon SVG — behind the clickable <a> layer */
 .th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ > svg{
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  position: relative;
   z-index: 1;
   pointer-events: none;
-  color: #fff;
-  stroke: #fff;
 }
 
-/* Transparent button layer — on top (z-index 2) so it directly receives touch/click events */
 .th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ a{
-  position: absolute;
   inset: 0;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0!important;
   font-size: 0;
   color: #ffffff;
-  background: transparent;
-  border-radius: 8px;
-  text-decoration: none;
+  background: #060606;
+  max-width: fit-content;
+  min-width: auto;
 }
 
 .th-compare-output-product .product-table-configure.mobile-flex .th-add-to-cart_ a .add-to-cart-text{
@@ -352,64 +344,27 @@
   height: 18px;
 }
 
-/* ---- LOADING STATE: spinner covers the cart icon ---- */
-.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.loading {
-  position: absolute !important;
-  inset: 0;
-  z-index: 3 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: #1a1a1a !important;
-  border-radius: 8px;
-  pointer-events: none;
-  font-size: 0 !important;
-}
-
-.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.loading::after {
-  content: '';
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: th-mobile-cart-spin 0.7s linear infinite;
-  display: block;
-  flex-shrink: 0;
-}
-
-@keyframes th-mobile-cart-spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ---- ADDED / IN-CART STATE: green background + tick ---- */
-.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added,
-.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart {
-  position: absolute !important;
-  inset: 0;
-  z-index: 3 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 0 !important;
+.mobile-flex .th-compare-add-to-cart-btn.added,
+.mobile-flex .th-compare-add-to-cart-btn.th-in-cart {
   color: #fff !important;
-  background: #16a34a !important;
-  border-radius: 8px;
+  display: flex !important;
+}
+
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added > svg,
+.mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart > svg {
+  display: none;
 }
 
 .mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.added::after,
 .mobile-flex .th-add-to-cart_ .th-compare-add-to-cart-btn.th-in-cart::after {
   content: "\2713";
   font-size: 18px;
-  font-weight: 700;
   line-height: 1;
   color: #fff;
-  display: block;
 }
 
-/* Hide WooCommerce's injected "View cart" link inside the icon button */
-.mobile-flex .th-add-to-cart_ a.added_to_cart {
-  display: none !important;
+.mobile-flex .th-compare-add-to-cart-btn.loading{
+  position: relative!important;
 }
 
 .woocommerce .product-table-configure.mobile-flex ._add-to-cart_ .th-add-to-cart_,
@@ -525,6 +480,75 @@
   border: 0;
   border-radius: 0;
   box-shadow: none;
+}
+
+/* .th-compare-output-product .product-table-configure.mobile-flex ._description_ td{
+  vertical-align: initial;
+} */
+
+/* ========================================================
+   Desktop Style Variant - Only Color Changes (Layout Stays Mobile-Flex)
+   ======================================================== */
+
+/* Section headers - more neutral gray */
+.product-table-configure.mobile-flex.style-desktop td.left-title{
+  background: #f3f4f6;
+}
+
+.product-table-configure.mobile-flex.style-desktop td.left-title span{
+  color: #374151;
+  border-bottom-color: #d1d5db;
+}
+
+/* Product card borders */
+.product-table-configure.mobile-flex.style-desktop ._image_ .image-and-addcart .img_{
+  border-color: #e5e7eb;
+  background: #fafafa;
+}
+
+/* Product title - darker for better readability */
+.product-table-configure.mobile-flex.style-desktop .product-title_ a{
+  color: #111827;
+}
+
+/* SKU - lighter gray */
+.product-table-configure.mobile-flex.style-desktop ._SKU_{
+  color: #9ca3af;
+}
+
+/* Price - darker */
+.product-table-configure.mobile-flex.style-desktop ._price_ .price_{
+  color: #111827;
+}
+
+/* Add to cart button - blue instead of orange */
+.product-table-configure.mobile-flex.style-desktop .th-add-to-cart_ a{
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+/* Stock status colors - adjusted */
+.product-table-configure.mobile-flex.style-desktop .th-in-stoct{
+  color: #10b981;
+}
+
+.product-table-configure.mobile-flex.style-desktop .th-out-of-stoct{
+  color: #ef4444;
+}
+
+/* Mobile title labels */
+.product-table-configure.mobile-flex.style-desktop .mobile-title{
+  color: #6b7280;
+}
+
+/* Description text */
+.product-table-configure.mobile-flex.style-desktop .description-text{
+  color: #374151;
+}
+
+/* Background color */
+.th-compare-output-wrap .th-compare-output-wrap-inner:has(.style-desktop){
+  background-color: #f9fafb;
 }
 
 }

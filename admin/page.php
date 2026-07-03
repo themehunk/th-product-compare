@@ -1,70 +1,4 @@
-<?php if (!defined('ABSPATH')) exit;
-if ( ! function_exists( 'thpc_allowed_svg_tags' ) ) {
-    function thpc_allowed_svg_tags() {
-
-        return [
-          'svg' => [
-    'xmlns'            => true,
-    'width'            => true,
-    'height'           => true,
-    'viewbox'          => true, // ← lowercase!
-    'fill'             => true,
-    'stroke'           => true,
-    'stroke-width'     => true,
-    'stroke-linecap'   => true,
-    'stroke-linejoin'  => true,
-    'class'            => true,
-],
-
-            'g' => [
-                'fill'            => true,
-                'stroke'          => true,
-                'stroke-width'    => true,
-                'stroke-linecap'  => true,
-                'stroke-linejoin' => true,
-            ],
-            'path' => [
-                'd'               => true,
-                'fill'            => true,
-                'stroke'          => true,
-                'stroke-width'    => true,
-                'stroke-linecap'  => true,
-                'stroke-linejoin' => true,
-            ],
-            'circle' => [
-                'cx'              => true,
-                'cy'              => true,
-                'r'               => true,
-                'fill'            => true,
-                'stroke'          => true,
-                'stroke-width'    => true,
-            ],
-            'rect' => [
-                'width'           => true,
-                'height'          => true,
-                'x'               => true,
-                'y'               => true,
-                'rx'              => true,
-                'ry'              => true,
-                'fill'            => true,
-                'stroke'          => true,
-                'stroke-width'    => true,
-            ],
-            'line' => [
-                'x1'              => true,
-                'x2'              => true,
-                'y1'              => true,
-                'y2'              => true,
-                'stroke'          => true,
-                'stroke-width'    => true,
-                'stroke-linecap'  => true,
-            ],
-        ];
-    }
-}
-
-
-
+<?php if (!defined('ABSPATH')) exit; 
 if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
     function thpc_get_svg_icon( $name ) {
 
@@ -120,14 +54,25 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             </svg>
             ',
 
-            // 🔌 Single Page Icon
+            // 🔌 Style Icon
+            'style' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
+            ',
+
+
+              // 🔌 Single Page Icon
             'singlepage' => '
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
             ',
 
-            // 🔐 Premium Icon
-            'reset' => '
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>
+              // 🔌 Shortcode Icon
+            'shortcode' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            ',
+
+            // 🔌 hooks Icon
+            'hooks' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5"></path><path d="M19 4h-3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3"></path><path d="m10 19 4-14"></path></svg>
             ',
 
             // 📱 Mobile Icon
@@ -135,13 +80,19 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
             ',
 
-            // 🔔 Compare Menu Icon Tab
+            // 🔵 Compare Icon
             'compare-icon' => '
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>
-                <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>
-                <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+            ',
+
+            // 🔑 License Icon
+            'license' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7m4 4V7"></path></svg>
+            ',
+
+            // 🔌 Reset Icon
+            'reset' => '
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>
             ',
         ];
 
@@ -152,49 +103,40 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
 ?>
 <div class="th-product-compare-wrap th-plugin-common-wrap">
     <div class="th-product-compare-container">
-        <div class=th-left>
-        <nav class="th-nav_">
+    <div class="th-left">    
+    <nav class="th-nav_">
             <span class="logo-detail">
                 <div class="img_">
                     <img src="<?php echo esc_url(TH_PRODUCT_URL . 'assets/img/th-logo.png'); ?>">
                 </div>
                 <span><?php esc_html_e('Product Compare', 'th-product-compare'); ?></span>
             </span>
-            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span><?php echo wp_kses( thpc_get_svg_icon( 'settings' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></span></a>
-            <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'advance' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Advance', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="compare-icon" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'compare-icon' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Compare Icon', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="pro-feature" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'premium' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Advance Premium (Pro)', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="single-page-product" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'singlepage' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Single Product Page (Pro)', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="mobile" href="#"><span><?php echo thpc_get_svg_icon('mobile'); ?></span><?php esc_html_e('Mobile (Pro)', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'help' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
-             <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo wp_kses( thpc_get_svg_icon( 'reset' ), thpc_allowed_svg_tags() ); ?></span><?php esc_html_e('Reset', 'th-product-compare'); ?></a>
-            
+            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span ><?php echo thpc_get_svg_icon('settings'); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advanced', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="single-page-product" href="#"><span><?php echo thpc_get_svg_icon('singlepage'); ?></span><?php esc_html_e('Single Product Page', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="add-shortcode" href="#"><span><?php echo thpc_get_svg_icon('shortcode'); ?></span><?php esc_html_e('Shortcode Generator', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="add-hook" href="#"><span><?php echo thpc_get_svg_icon('hooks'); ?></span><?php esc_html_e('Custom Hook', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="style" href="#"><span><?php echo thpc_get_svg_icon('style'); ?></span><?php esc_html_e('Style', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="mobile" href="#"><span><?php echo thpc_get_svg_icon('mobile'); ?></span><?php esc_html_e('Mobile', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="compare-icon" href="#"><span><?php echo thpc_get_svg_icon('compare-icon'); ?></span><?php esc_html_e('Compare Icon', 'th-product-compare-pro'); ?></a>
+
+            <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo thpc_get_svg_icon('help'); ?></span><?php esc_html_e('Help', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="license" href="#"><span><?php echo thpc_get_svg_icon('license'); ?></span><?php esc_html_e('License', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo thpc_get_svg_icon('reset'); ?></span><?php esc_html_e('Reset', 'th-product-compare-pro'); ?></a>
+
         </nav>
-
-        <div class="th-subscribe-btn">
-                    <h4><?php esc_html_e('Pro Plan', 'th-product-compare'); ?></h4>
-                    <h5><?php esc_html_e('Upgrade for more features', 'th-product-compare'); ?></h5>
-                    <a href="<?php echo esc_url('https://themehunk.com/th-product-compare-plugin/'); ?>" target="_blank" class="th-support-btn button button-primary"><?php esc_html_e('Upgrade Now', 'th-product-compare'); ?></a>  
-        </div>
-
-        </div>
-
-        <div class="th-right">
+        
+    </div>
+    <div class="th-right">
         <div class="top-header">
-                <h2 class="tabheading"><?php esc_html_e("Basic Settings", 'th-product-compare'); ?></h2>
-                 <a href="<?php echo esc_url( 'https://themehunk.com/product-compare-plugin/' ); ?>"
-               title="<?php esc_attr_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>"
-               target="_blank">
-                <?php esc_html_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>
-            </a>
+                <h2 class="tabheading"><?php esc_html_e("Basic Settings", 'th-product-compare-pro'); ?></h2>
                 <div class="th-save-btn">
-                    
-                    <button class="button button-primary th-option-save-btn"><?php esc_html_e("Save Changes", 'th-product-compare'); ?></button>
+                <button class="button button-primary th-option-save-btn"><?php esc_html_e("Save Changes", 'th-product-compare-pro'); ?></button>
                 </div>
             </div>
-            
-        <div class="container-tabs">
 
+        <div class="container-tabs">
+            
             <!-- general tab -->
             <div data-group-tabs="main" data-tab-container="general" class="active">
                 <?php include_once 'pages/general.php'; ?>
@@ -202,6 +144,28 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <!-- setting tab -->
             <div data-group-tabs="main" data-tab-container="setting">
                 <?php include_once 'pages/advance-setting.php'; ?>
+            </div>
+
+              <!-- shortcode tab -->
+            <div data-group-tabs="main" data-tab-container="add-hook">
+                <?php include_once 'pages/custom-hook.php'; ?>
+            </div>
+
+            <!-- shortcode tab -->
+            <div data-group-tabs="main" data-tab-container="add-shortcode">
+                <?php include_once 'pages/add-shortcode.php'; ?>
+            </div>
+            <!-- single page Product -->
+            <div data-group-tabs="main" data-tab-container="single-page-product">
+                <?php include_once 'pages/single-page-product.php'; ?>
+            </div>
+                        <!-- style tab -->
+            <div data-group-tabs="main" data-tab-container="style">
+                <?php include_once 'pages/style.php'; ?>
+            </div>
+            <!-- mobile tab -->
+            <div data-group-tabs="main" data-tab-container="mobile">
+                <?php include_once 'pages/mobile.php'; ?>
             </div>
             <!-- compare icon tab -->
             <div data-group-tabs="main" data-tab-container="compare-icon">
@@ -211,35 +175,16 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <div data-group-tabs="main" data-tab-container="help">
                 <?php include_once 'pages/help.php'; ?>
             </div>
-            <!-- pro feature tab -->
-            <div data-group-tabs="main" data-tab-container="pro-feature">
-                <?php include_once 'pages/pro-feature.php';
-                 ?>
+            <!-- license tab -->
+            <div data-group-tabs="main" data-tab-container="license">
+                <?php include_once 'pages/license.php'; ?>
             </div>
-
-             <!-- pro feature tab -->
-            <div data-group-tabs="main" data-tab-container="single-page-product">
-                <?php include_once 'pages/pro-single-page-product.php'; ?>
-            </div>
-
-             <!-- pro feature tab -->
-            <div data-group-tabs="main" data-tab-container="mobile">
-                <?php include_once 'pages/pro-mobile.php'; ?>
-            </div>
-
-             <!-- pro feature tab -->
-            <div data-group-tabs="main" data-tab-container="style">
-                <?php include_once 'pages/pro-mobile.php'; ?>
-            </div>
-
-            <!-- reset tab -->
+             <!-- reset tab -->
             <div data-group-tabs="main" data-tab-container="reset">
                 <?php include_once 'pages/reset.php'; ?>
             </div>
-
         </div>
-
-        </div>
+    </div>
 
     </div>
 </div>

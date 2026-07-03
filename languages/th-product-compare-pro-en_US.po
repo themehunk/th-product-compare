@@ -1,0 +1,846 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TH Product Compare pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-23 06:35+0000\n"
+"PO-Revision-Date: 2026-02-23 06:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.9; wp-6.9.1\n"
+"X-Domain: th-product-compare-pro"
+
+#: admin/inc.php:60
+msgid "Product Compare Pro"
+msgstr ""
+
+#: admin/inc.php:65
+msgid "Settings"
+msgstr ""
+
+#: admin/inc.php:147 admin/inc.php:193
+msgid "COMPARE PRODUCTS"
+msgstr ""
+
+#: admin/page.php:99 admin/page.php:114
+msgid "Basic Settings"
+msgstr ""
+
+#: admin/page.php:100
+msgid "Advanced"
+msgstr ""
+
+#: admin/page.php:101
+msgid "Single Product Page"
+msgstr ""
+
+#: admin/page.php:102
+msgid "Shortcode Generator"
+msgstr ""
+
+#: admin/page.php:103
+msgid "Custom Hook"
+msgstr ""
+
+#: admin/page.php:104
+msgid "Style"
+msgstr ""
+
+#: admin/page.php:105
+msgid "Mobile"
+msgstr ""
+
+#: admin/page.php:107
+msgid "Help"
+msgstr ""
+
+#: admin/page.php:116
+msgid "Reset Defaults"
+msgstr ""
+
+#: admin/page.php:117
+msgid "Save Changes"
+msgstr ""
+
+#: admin/back/init.php:58
+msgid "No Product Found"
+msgstr ""
+
+#: admin/back/init.php:130
+msgid "Compare Option"
+msgstr ""
+
+#: admin/front/front.php:203 admin/front/product.php:453
+#: admin/pages/general.php:3 admin/pages/style.php:389
+msgid "Compare"
+msgstr ""
+
+#: admin/front/front.php:270
+msgid "Compare Products"
+msgstr ""
+
+#: admin/front/product.php:70
+msgid "Product Limit Exceeded."
+msgstr ""
+
+#: admin/front/product.php:102 admin/pages/style.php:200
+#: admin/pages/style.php:243
+msgid "Title"
+msgstr ""
+
+#: admin/front/product.php:104 admin/front/product.php:215
+msgid "Price"
+msgstr ""
+
+#: admin/front/product.php:106 admin/pages/mobile.php:43
+#: admin/pages/style.php:274 admin/pages/style.php:276
+#: admin/pages/style.php:284
+msgid "Rating"
+msgstr ""
+
+#: admin/front/product.php:108 admin/front/product.php:220
+#: admin/pages/mobile.php:37 admin/pages/style.php:133
+msgid "Add To Cart"
+msgstr ""
+
+#: admin/front/product.php:590
+msgid "View Cart"
+msgstr ""
+
+#: admin/front/product.php:110 admin/pages/style.php:294
+#: admin/pages/style.php:296
+msgid "Description"
+msgstr ""
+
+#: admin/front/product.php:112 admin/pages/style.php:306
+#: admin/pages/style.php:308 admin/pages/style.php:312
+msgid "Availability"
+msgstr ""
+
+#: admin/front/product.php:191 admin/front/product.php:195
+#: admin/pages/style.php:184
+msgid "Product Details"
+msgstr ""
+
+#: admin/front/product.php:225 admin/front/product.php:400
+msgid "Remove"
+msgstr ""
+
+#: admin/front/product.php:348 admin/pages/style.php:309
+#: admin/pages/style.php:313
+msgid "in stock"
+msgstr ""
+
+#: admin/front/product.php:348
+msgid "out of stock"
+msgstr ""
+
+#: admin/front/product.php:368
+msgid "Read more"
+msgstr ""
+
+#: admin/front/product.php:460 admin/pages/style.php:175
+msgid "Hide Similarities"
+msgstr ""
+
+#: admin/front/product.php:461 admin/pages/style.php:176
+msgid "Highlight Differences"
+msgstr ""
+
+#: admin/front/product.php:478 admin/pages/style.php:170
+msgid "All"
+msgstr ""
+
+#: admin/front/product.php:505 admin/pages/style.php:6
+msgid "Product Compare"
+msgstr ""
+
+#: admin/front/product.php:624
+msgid " Review"
+msgstr ""
+
+#: admin/pages/add-shortcode.php:17
+msgid "Generate Shortcode"
+msgstr ""
+
+#: admin/pages/add-shortcode.php:22
+msgid "Choose Products"
+msgstr ""
+
+#: admin/pages/add-shortcode.php:23
+msgid ""
+" Create shortcode with the desired products. You can use this shortcode "
+"anywhere in the pages & post."
+msgstr ""
+
+#: admin/pages/add-shortcode.php:27
+msgid "Copy Shortcode"
+msgstr ""
+
+#: admin/pages/add-shortcode.php:65
+msgid "Display via Shortcode"
+msgstr ""
+
+#: admin/pages/add-shortcode.php:69 admin/pages/add-shortcode.php:94
+msgid ""
+"To display the compare button for a specific product anywhere on your site, "
+"use the following shortcode:"
+msgstr ""
+
+#: admin/pages/add-shortcode.php:81
+msgid "* Replace \"856\" with the specific Product ID."
+msgstr ""
+
+#: admin/pages/add-shortcode.php:90
+msgid "Display  Compare Product List via Shortcode"
+msgstr ""
+
+#: admin/pages/add-shortcode.php:106
+msgid "* Replace \"856,29 etc\" with the specific Product ID."
+msgstr ""
+
+#: admin/pages/advance-setting.php:86
+msgid "Advanced Settings"
+msgstr ""
+
+#: admin/pages/advance-setting.php:91
+msgid "Compare Same Category Product"
+msgstr ""
+
+#: admin/pages/advance-setting.php:92
+msgid " Enable Category Tab in the Comparison Table."
+msgstr ""
+
+#: admin/pages/advance-setting.php:98
+msgid "Compare By Category"
+msgstr ""
+
+#: admin/pages/advance-setting.php:99
+msgid "Check to Enable Category Tab in the Comparison Table."
+msgstr ""
+
+#: admin/pages/advance-setting.php:105
+msgid "Similarities & Differences"
+msgstr ""
+
+#: admin/pages/advance-setting.php:106
+msgid " Enable to show differences."
+msgstr ""
+
+#: admin/pages/advance-setting.php:111
+msgid "Product Highlight Button"
+msgstr ""
+
+#: admin/pages/advance-setting.php:112
+msgid ""
+"Check to Enable \"Hide Similarities\" & \"Highlight Differences\" Button in "
+"the Comparison Table."
+msgstr ""
+
+#: admin/pages/advance-setting.php:118
+msgid "Fields to Show in Comparison Table"
+msgstr ""
+
+#: admin/pages/advance-setting.php:119
+msgid "Check to display fields. Drag to reorder."
+msgstr ""
+
+#: admin/pages/advance-setting.php:129
+msgid "Dynamic Attributes"
+msgstr ""
+
+#: admin/pages/advance-setting.php:130
+msgid "Enable to show all custom product attributes automatically."
+msgstr ""
+
+#: admin/pages/advance-setting.php:135
+msgid "Check to Enable Product Dynamic Attributes."
+msgstr ""
+
+#: admin/pages/advance-setting.php:141
+msgid "Repeat Fields"
+msgstr ""
+
+#: admin/pages/advance-setting.php:142
+msgid ""
+"Repeat specific rows at the bottom for easier comparison on long tables."
+msgstr ""
+
+#: admin/pages/advance-setting.php:147
+msgid "Repeat the \"Price\" field at the end of the table"
+msgstr ""
+
+#: admin/pages/advance-setting.php:152
+msgid "Repeat the \"Add to cart\" field at the end of the table"
+msgstr ""
+
+#: admin/pages/advance-setting.php:160
+msgid "Product Image Size"
+msgstr ""
+
+#: admin/pages/advance-setting.php:161
+msgid "Dimensions of product images in the comparison table."
+msgstr ""
+
+#: admin/pages/advance-setting.php:170
+msgid ""
+"Add product image size which you want to display in the Comparison Table. "
+"(Width x Height)px."
+msgstr ""
+
+#: admin/pages/custom-hook.php:17
+msgid "Custom Field Hook"
+msgstr ""
+
+#: admin/pages/custom-hook.php:24
+msgid ""
+"Create shortcode with the desired products. You can use this shortcode "
+"anywhere in pages and posts."
+msgstr ""
+
+#: admin/pages/custom-hook.php:33
+msgid "Custom Field Hook Filter"
+msgstr ""
+
+#: admin/pages/custom-hook.php:37
+msgid "Add custom fields to the Product Compare field map."
+msgstr ""
+
+#: admin/pages/custom-hook.php:39
+msgid "Filter:"
+msgstr ""
+
+#: admin/pages/custom-hook.php:42
+msgid "Expected shape:"
+msgstr ""
+
+#: admin/pages/general.php:34
+msgid "Appearance"
+msgstr ""
+
+#: admin/pages/general.php:40
+msgid "Comapre Button Type and Text"
+msgstr ""
+
+#: admin/pages/general.php:41
+msgid "Choose how the trigger is displayed to users."
+msgstr ""
+
+#: admin/pages/general.php:47
+msgid "Icon"
+msgstr ""
+
+#: admin/pages/general.php:48
+msgid "Checkbox"
+msgstr ""
+
+#: admin/pages/general.php:55 admin/pages/general.php:97
+msgid ""
+"This value define maximum number of products you want to add in the compare "
+"table."
+msgstr ""
+
+#: admin/pages/general.php:63
+msgid "Product Compare Button Redirection"
+msgstr ""
+
+#: admin/pages/general.php:68 admin/pages/general.php:83
+msgid "Popup"
+msgstr ""
+
+#: admin/pages/general.php:69
+msgid "Page"
+msgstr ""
+
+#: admin/pages/general.php:71
+msgid "How you want to display a compare trigger (Like a Link or a Button)."
+msgstr ""
+
+#: admin/pages/general.php:77
+msgid "Pricing Table Effect"
+msgstr ""
+
+#: admin/pages/general.php:82
+msgid "Slide Bar"
+msgstr ""
+
+#: admin/pages/general.php:85
+msgid ""
+"How you want to display a Popup trigger (Like a With Bar or Without Bar)."
+msgstr ""
+
+#: admin/pages/general.php:92
+msgid "Comparison Limit"
+msgstr ""
+
+#: admin/pages/general.php:102
+msgid "Comparison Limit Tooltip"
+msgstr ""
+
+#: admin/pages/general.php:103
+msgid "Tooltip text when limit is reached."
+msgstr ""
+
+#: admin/pages/general.php:106
+msgid "You can add up to {limit} products to compare."
+msgstr ""
+
+#: admin/pages/general.php:107
+msgid "Use {limit} to display the max product number. Leave empty for default."
+msgstr ""
+
+#: admin/pages/general.php:112
+msgid "Visibility"
+msgstr ""
+
+#: admin/pages/general.php:119
+msgid "Product Single Page."
+msgstr ""
+
+#: admin/pages/general.php:125
+msgid "Shop and Archive Pages."
+msgstr ""
+
+#: admin/pages/general.php:133
+msgid "Button Placement"
+msgstr ""
+
+#: admin/pages/general.php:139
+msgid "After Cart"
+msgstr ""
+
+#: admin/pages/general.php:140
+msgid "On Image Left"
+msgstr ""
+
+#: admin/pages/general.php:141
+msgid "On Image Right"
+msgstr ""
+
+#: admin/pages/general.php:142
+msgid "On Cart"
+msgstr ""
+
+#: admin/pages/help.php:7 admin/pages/right-sidebar.php:5
+msgid "Documentation"
+msgstr ""
+
+#: admin/pages/help.php:8
+msgid ""
+"Our plugin is well documented, Please go with documentation & learn to "
+"customize plugin."
+msgstr ""
+
+#: admin/pages/help.php:9 admin/pages/single-page-product.php:108
+msgid "Docs"
+msgstr ""
+
+#: admin/pages/help.php:12 admin/pages/right-sidebar.php:19
+msgid "Contact Support"
+msgstr ""
+
+#: admin/pages/help.php:13 admin/pages/right-sidebar.php:20
+msgid "If you need any help you can contact to our support team."
+msgstr ""
+
+#: admin/pages/help.php:14
+msgid "Need help ?"
+msgstr ""
+
+#: admin/pages/help.php:17 admin/pages/right-sidebar.php:11
+msgid "Spread the News"
+msgstr ""
+
+#: admin/pages/help.php:18 admin/pages/right-sidebar.php:12
+msgid ""
+"Enjoying this plugin? Help spread the the creation and show off your amazing "
+"website with such amazing functionality."
+msgstr ""
+
+#: admin/pages/help.php:25
+msgid "Leave us a review"
+msgstr ""
+
+#: admin/pages/help.php:26
+msgid "We would love to hear your feedback."
+msgstr ""
+
+#: admin/pages/help.php:27
+msgid "Submit review"
+msgstr ""
+
+#: admin/pages/mobile.php:6 admin/pages/style.php:4
+msgid "Compare Product"
+msgstr ""
+
+#: admin/pages/mobile.php:14
+msgid "Mobile Settings"
+msgstr ""
+
+#: admin/pages/mobile.php:17
+msgid "Table Style in Mobile"
+msgstr ""
+
+#: admin/pages/mobile.php:20
+msgid "Mobile Responsive"
+msgstr ""
+
+#: admin/pages/mobile.php:23
+msgid "Desktop Style"
+msgstr ""
+
+#: admin/pages/mobile.php:28
+msgid "Mobile Colors"
+msgstr ""
+
+#: admin/pages/mobile.php:63
+msgid "ComparePro"
+msgstr ""
+
+#: admin/pages/mobile.php:76
+msgid "Product Title One"
+msgstr ""
+
+#: admin/pages/mobile.php:81
+msgid "$90.00"
+msgstr ""
+
+#: admin/pages/mobile.php:84 admin/pages/mobile.php:102
+#: admin/pages/mobile.php:120
+msgid "Buy"
+msgstr ""
+
+#: admin/pages/mobile.php:94
+msgid "Product Title Two"
+msgstr ""
+
+#: admin/pages/mobile.php:99
+msgid "$75.00"
+msgstr ""
+
+#: admin/pages/mobile.php:112
+msgid "Product Title Three"
+msgstr ""
+
+#: admin/pages/mobile.php:117
+msgid "$60.00"
+msgstr ""
+
+#: admin/pages/mobile.php:129 admin/pages/mobile.php:133
+#: admin/pages/mobile.php:137 admin/pages/mobile.php:141
+msgid "DESCRIPTION"
+msgstr ""
+
+#: admin/pages/mobile.php:134 admin/pages/mobile.php:138
+#: admin/pages/mobile.php:142 admin/pages/style.php:297
+#: admin/pages/style.php:301
+msgid "This is a simple product."
+msgstr ""
+
+#: admin/pages/mobile.php:149 admin/pages/mobile.php:153
+#: admin/pages/mobile.php:157 admin/pages/mobile.php:161
+msgid "AVAILABILITY"
+msgstr ""
+
+#: admin/pages/mobile.php:154 admin/pages/mobile.php:158
+#: admin/pages/mobile.php:162
+msgid "In Stock"
+msgstr ""
+
+#: admin/pages/right-sidebar.php:6
+msgid "Want to know how this plugin works. Read our Documentation."
+msgstr ""
+
+#: admin/pages/right-sidebar.php:7
+msgid "View More"
+msgstr ""
+
+#: admin/pages/right-sidebar.php:21
+msgid "NEED HELP"
+msgstr ""
+
+#: admin/pages/right-sidebar.php:24
+msgid "Review"
+msgstr ""
+
+#: admin/pages/right-sidebar.php:25
+msgid "Give us your valueable feedback"
+msgstr ""
+
+#: admin/pages/right-sidebar.php:26
+msgid "SUBMIT A REVIEW"
+msgstr ""
+
+#: admin/pages/single-page-product.php:32
+msgid "Single Product Page Settings"
+msgstr ""
+
+#: admin/pages/single-page-product.php:38
+msgid "Automated Comparison Table"
+msgstr ""
+
+#: admin/pages/single-page-product.php:39
+msgid "Check to Enable Comparison Table at Single Pages of All Products."
+msgstr ""
+
+#: admin/pages/single-page-product.php:45
+msgid "Comparison Table"
+msgstr ""
+
+#: admin/pages/single-page-product.php:52
+msgid "Product Compare By"
+msgstr ""
+
+#: admin/pages/single-page-product.php:53
+msgid "Select the filter to compare the products by"
+msgstr ""
+
+#: admin/pages/single-page-product.php:58
+msgid "Category"
+msgstr ""
+
+#: admin/pages/single-page-product.php:59
+msgid "Tag"
+msgstr ""
+
+#: admin/pages/single-page-product.php:60
+msgid "Related Product"
+msgstr ""
+
+#: admin/pages/single-page-product.php:69
+msgid "Number Of Product"
+msgstr ""
+
+#: admin/pages/single-page-product.php:70
+msgid "Max products allowed in a single product comparison page."
+msgstr ""
+
+#: admin/pages/single-page-product.php:74
+msgid "Number of products limit to show on a single product comparison page."
+msgstr ""
+
+#: admin/pages/single-page-product.php:80
+msgid "Exclude Product"
+msgstr ""
+
+#: admin/pages/single-page-product.php:81
+msgid "Select the products to exclude."
+msgstr ""
+
+#: admin/pages/single-page-product.php:104
+msgid "Manual Setup"
+msgstr ""
+
+#: admin/pages/single-page-product.php:108
+msgid "Check this doc to add Comparison Table Manually for Each Product."
+msgstr ""
+
+#: admin/pages/style.php:5
+msgid "{count} { items shown}"
+msgstr ""
+
+#: admin/pages/style.php:40
+msgid "Compare Bar Settings"
+msgstr ""
+
+#: admin/pages/style.php:41
+msgid "Popup Settings"
+msgstr ""
+
+#: admin/pages/style.php:46
+msgid "Compare Bar"
+msgstr ""
+
+#: admin/pages/style.php:48
+msgid "Use format Text:"
+msgstr ""
+
+#: admin/pages/style.php:48
+msgid "{selected} {products}"
+msgstr ""
+
+#: admin/pages/style.php:72
+msgid "Popup Heading Text"
+msgstr ""
+
+#: admin/pages/style.php:75
+msgid "Popup Count Text"
+msgstr ""
+
+#: admin/pages/style.php:77
+msgid "Use format. You can change count position:"
+msgstr ""
+
+#: admin/pages/style.php:77
+msgid "{count} {Text to be shown.}"
+msgstr ""
+
+#: admin/pages/style.php:81
+msgid "Popup Animation"
+msgstr ""
+
+#: admin/pages/style.php:84
+msgid "Top Slide"
+msgstr ""
+
+#: admin/pages/style.php:88
+msgid "Left Slide"
+msgstr ""
+
+#: admin/pages/style.php:92
+msgid "Right Slide"
+msgstr ""
+
+#: admin/pages/style.php:96
+msgid "ZoomIn"
+msgstr ""
+
+#: admin/pages/style.php:103
+msgid "Popup Position"
+msgstr ""
+
+#: admin/pages/style.php:105
+msgid "Bottom"
+msgstr ""
+
+#: admin/pages/style.php:106
+msgid "Left"
+msgstr ""
+
+#: admin/pages/style.php:107
+msgid "Right"
+msgstr ""
+
+#: admin/pages/style.php:108
+msgid "Top"
+msgstr ""
+
+#: admin/pages/style.php:112
+msgid "Global Colors"
+msgstr ""
+
+#: admin/pages/style.php:115
+msgid "Header"
+msgstr ""
+
+#: admin/pages/style.php:121
+msgid "Table"
+msgstr ""
+
+#: admin/pages/style.php:140
+msgid "Close Button"
+msgstr ""
+
+#: admin/pages/style.php:162
+msgid "2 Items Shown"
+msgstr ""
+
+#: admin/pages/style.php:171
+msgid "Tshirts"
+msgstr ""
+
+#: admin/pages/style.php:203 admin/pages/style.php:246
+msgid "SkU"
+msgstr ""
+
+#: admin/pages/style.php:208 admin/pages/style.php:251
+msgid "$"
+msgstr ""
+
+#: admin/pages/style.php:208 admin/pages/style.php:251
+msgid "90.00"
+msgstr ""
+
+#: admin/pages/style.php:223 admin/pages/style.php:266
+msgid "Add to cart"
+msgstr ""
+
+#: admin/themehunk-menu/admin-menu.php:23
+msgid "No plugin specified"
+msgstr ""
+
+#: admin/themehunk-menu/admin-menu.php:40
+msgid "Plugin Successfully Activated"
+msgstr ""
+
+#. Author of the plugin
+#: admin/themehunk-menu/admin-menu.php:47
+msgid "ThemeHunk"
+msgstr ""
+
+#: admin/themehunk-menu/plugins-list.php:4
+msgid "Vayu Blocks"
+msgstr ""
+
+#: admin/themehunk-menu/plugins-list.php:11
+msgid "TH Advance Product Search"
+msgstr ""
+
+#: admin/themehunk-menu/plugins-list.php:24
+msgid "Th All In One Woo Cart"
+msgstr ""
+
+#: admin/themehunk-menu/plugins-list.php:37
+msgid "Th Product Compare"
+msgstr ""
+
+#: admin/themehunk-menu/plugins-list.php:50
+msgid "TH Variation Swatches"
+msgstr ""
+
+#: admin/themehunk-menu/plugins-list.php:62
+msgid "Lead Form Builder"
+msgstr ""
+
+#: admin/themehunk-menu/plugins-list.php:74
+msgid "WP Popup Builder – Popup Forms & Newsletter"
+msgstr ""
+
+#: admin/back/template/add-custom-tab-woocommerce.php:24
+msgid "Show Compare Product"
+msgstr ""
+
+#: admin/back/template/add-custom-tab-woocommerce.php:28
+msgid "Auto"
+msgstr ""
+
+#: admin/back/template/add-custom-tab-woocommerce.php:29
+msgid "Manual"
+msgstr ""
+
+#: admin/back/template/add-custom-tab-woocommerce.php:30
+msgid "None"
+msgstr ""
+
+#: admin/back/template/add-custom-tab-woocommerce.php:32
+msgid ""
+"Auto settings are the Default settings of Compare products setting. If you "
+"want to set settings manually for this product, please select the manual "
+"option from the dropdown."
+msgstr ""
+
+#: admin/back/template/add-custom-tab-woocommerce.php:41
+msgid "Include Compare Product"
+msgstr ""
+
+#: admin/back/template/add-custom-tab-woocommerce.php:74
+msgid "Select products manually to show them on compare table."
+msgstr ""
+
+#. Name of the plugin
+msgid "TH Product Compare pro"
+msgstr ""
+
+#. Description of the plugin
+msgid "Woocommerce Product Compare."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://themehunk.com"
+msgstr ""

@@ -1,0 +1,42 @@
+.automatically-add-compare {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 12px;
+
+  select,
+  input {
+    width: 250px;
+    padding: 3px 5px;
+    border-color: #e4e4e7;
+    height: 40px;
+  }
+
+  > div {
+    > div.row_ {
+      border: none !important;
+      flex-direction: row !important;
+    }
+
+    > div.row_:not(.th-compare-radio-on) {
+      display: none !important;
+    }
+  }
+
+  &.active {
+    > div {
+      > div.row_:not(.th-compare-radio-on) {
+        display: flex !important;
+      }
+    }
+  }
+
+  .th-compare-add-shortcode {
+    .add-product-wrap {
+      padding: 0;
+
+      .add-by-enter-product {
+        width: 100%;
+      }
+    }
+  }
+}

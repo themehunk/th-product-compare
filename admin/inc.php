@@ -1,102 +1,88 @@
 <?php if (!defined('ABSPATH')) exit;
-
 // popup directory
 class th_product_compare
 {
     private static $instance;
-    public $localizeOption = [];
+    public $tpcp_localizeOption = [];
+    private static $cached_option = null;
     private function __construct()
     {
-        add_action( 'before_woocommerce_init', array( $this, 'hpos_compatibility') );
-        add_action('admin_init', array($this, 'create_roles'));
         add_action('admin_menu', array($this, 'admin_menu'));
+        add_filter(
+            'plugin_action_links_' . plugin_basename(TH_PRODUCT_PATH . '/' . basename(TH_PRODUCT_BASE_NAME)),
+            array($this, 'add_menu_links')
+        );
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_script'));
+        if (isset($_GET['action']) && $_GET['action'] === 'edit') {
+            add_action('admin_enqueue_scripts', array($this, 'enque_for_page_editing'));
+        }
         add_action('wp_enqueue_scripts', array($this, 'enqueue_front_script'));
-        add_action('wp_footer', array($this, 'render_floating_icon'));
-        add_filter('plugin_action_links_' . plugin_basename(TH_PRODUCT_PATH . '/' . basename(TH_PRODUCT_BASE_NAME)), array($this, 'add_menu_links'));
-        add_filter('plugin_row_meta', array($this, 'docs_link'), 10, 2);
+        $this->createPostForCustomPost();
+        $this->tpcp_localizeOption = self::get_cached_option();
 
-        add_action( 'current_screen', function( $screen ) {
-
-    if ( isset( $screen->id ) && 'toplevel_page_th-product-compare' === $screen->id ) {
-        remove_all_actions( 'admin_notices' );
-        remove_all_actions( 'all_admin_notices' );
+        if ( isset($_GET['page']) && $_GET['page'] === 'tpcp-product-compare') {
+                remove_all_actions('admin_notices');
+                remove_all_actions('all_admin_notices');
+            }
+        
+         add_filter('plugin_row_meta', array($this, 'docs_link'), 10, 2);
     }
 
-});
-
-
-
-        $this->localizeOption = get_option('th_compare_option');
-        $cookiesName = th_product_compare::cookieName();
-    }
     public static function get()
     {
         return self::$instance ? self::$instance : self::$instance = new self();
     }
 
-    public function create_roles()
+    public static function get_cached_option()
     {
-        global $wp_roles;
-
-        if (!class_exists('WP_Roles')) {
-            return;
+        if (self::$cached_option === null) {
+            self::$cached_option = get_option('th_compare_option');
         }
-
-        if (!isset($wp_roles)) {
-
-            $wp_roles = new WP_Roles();
-        }
-
-        // Shop manager role
-
-        add_role('th_product_compare_role', __('Product Compare Role', 'th-product-compare'), array(
-            'level_9'        => true,
-            'read'          => true,
-        ));
-
-        $wp_roles->add_cap('th_product_compare_role', 'th_product_compare_manager');
-
-        $wp_roles->add_cap('administrator', 'th_product_compare_manager');
-
+        return self::$cached_option;
     }
 
-    /**
-     *  Declare the woo HPOS compatibility.
-     */
-   public  function hpos_compatibility() {
-
-            if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', TH_PRODUCT_FILE, true );
-            }
+    public static function clear_cached_option()
+    {
+        self::$cached_option = null;
     }
 
     public function admin_menu()
     {
-
-        add_submenu_page('themehunk-plugins', __('Product Compare', 'th-product-compare'), __('Product Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'), 1);
-        
+        // add_menu_page(
+        //     esc_html__('TH Compare Pro', 'th-product-compare-pro'),
+        //     esc_html__('TH Compare Pro', 'th-product-compare-pro'),
+        //     'manage_options',
+        //     'tpcp-product-compare',
+        //     array($this, 'display_addons'),
+        //     esc_url(TH_PRODUCT_URL . 'assets/img/th-nav-logo.png'),
+        //     54,
+        // );
+        add_submenu_page('themehunk-plugins', __('Product Compare', 'th-product-compare-pro'), __('Product Compare', 'th-product-compare-pro'), 'manage_options', 'tpcp-product-compare', array($this, 'display_addons'), 54);
     }
-    // add menu links in left where plugin name placed 
+
     public function add_menu_links($links)
     {
-        $links[] = '<a href="' . admin_url("admin.php?page=th-product-compare") . '">' . __('Settings', 'th-product-compare') . '</a>';
-        $links['premium'] = '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank"><b>' . __('Get Pro', 'th-product-compare') . '</b></a>';
+        $links[] = '<a href="' . esc_url(admin_url("admin.php?page=tpcp-product-compare")) . '">' . esc_html__('Settings', 'th-product-compare-pro') . '</a>';
         return $links;
     }
-
-
-
-    public function docs_link($plugin_meta, $plugin_file)
+    public function display_addons()
     {
-        if (strpos($plugin_file, 'th-product-compare.php') !== false) {
+        if (isset($_GET['page']) && sanitize_text_field($_GET['page']) == 'tpcp-product-compare') {
+            $th_compare_option = $this->tpcp_localizeOption;
+            include_once "page.php";
+        }
+    }
+
+  public function docs_link($plugin_meta, $plugin_file)
+    {
+        if (strpos($plugin_file, 'th-product-compare-pro.php') !== false) {
             $new_links = array(
                 'livedemo' => '<a href="' . esc_url('https://wpthemes.themehunk.com/th-product-compare-pro/') . '" target="_blank">' . __('Live Demo', 'th-product-compare') . '</a>',
                 'documentation' => '<a href="' . esc_url('https://themehunk.com/docs/th-product-compare-pro/') . '" target="_blank">' . __('Documentation', 'th-product-compare') . '</a>',
                 'support' => '<a href="' . esc_url('https://themehunk.com/contact-us/') . '" target="_blank">' . __('Support', 'th-product-compare') . '</a>',
-                'premium_version' => '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
+                // 'premium_version' => '<a href="' . esc_url('https://themehunk.com/th-product-compare-plugin/') . '" target="_blank">' . __('Premium Version', 'th-product-compare') . '</a>',
                 
-                'rating'           => '<a href="' . esc_url('https://wordpress.org/support/plugin/th-product-compare/reviews') . '" target="_blank" rel="noopener noreferrer" title="' . esc_attr__('Rate us on WordPress.org', 'th-product-compare') . '" style="color: #ffb900;">'
+                'rating'           => '<a href="' . esc_url('https://wordpress.org/support/plugin/th-product-compare/reviews/?filter=5') . '" target="_blank" rel="noopener noreferrer" title="' . esc_attr__('Rate us on WordPress.org', 'th-product-compare') . '" style="color: #ffb900;">'
                                 . str_repeat('<span class="dashicons dashicons-star-filled" style="font-size: 16px; width:16px; height: 16px;"></span>', 5)
                                 . '</a>',
             );
@@ -105,96 +91,111 @@ class th_product_compare
         return $plugin_meta;
     }
 
-    public function display_addons()
+    public function createPostForCustomPost()
     {
-
-        if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','th-product-compare' ) );
+        if (!is_admin()) {
+            return;
         }
-        
-        $page = isset( $_GET['page'] )
-                ? sanitize_key( wp_unslash( $_GET['page'] ) )
-                : '';
-
-        if ( 'th-product-compare' === $page ) {
-
-            $th_compare_option = $this->localizeOption; //appear in file pages/advance-setting.php, pages/general.php, pages/style.php
-            include_once "page.php";
+        if (self::get_post_by_name() == null) {
+            $postName = sanitize_text_field('th-product-compare-custom-post');
+            $postTitle = sanitize_text_field('Product Compare');
+            $my_post = array(
+                'post_type' => 'page',
+                'post_name' => $postName,
+                'post_title'    => wp_strip_all_tags($postTitle),
+                'post_content'  => '',
+                'post_status'   => 'publish',
+                'post_author'   => 1,
+            );
+            wp_insert_post($my_post);
         }
     }
 
-    public function enqueue_admin_script($hook)
+    public static function  get_post_by_name()
     {
-        if ( 'themehunk_page_th-product-compare' !== $hook ) return;
-        wp_enqueue_style('th-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false,'1.0.0');
-        wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/script.js', [], 1, true);
-        wp_localize_script('th-product-js', 'th_product', array(
-            'th_product_ajax_url' => admin_url('admin-ajax.php'),
-            'th_product_compare_nonce' => wp_create_nonce( '_wpnonce' ),
+        $check_page = get_option('th-product-compare-page5');
+        if($check_page==null){
+            add_option( 'th-product-compare-page5', true);            
+        }
 
-    ));
+        return $check_page;
+       
+
+        // $query = new WP_Query([
+        //     "name" => 'th-product-compare-custom-post'
+        // ]);
+        // return $query->have_posts() ? reset($query->posts) : null;
     }
 
+    public function enqueue_admin_script()
+    {
+
+        if (isset($_GET['page']) && $_GET['page'] == 'tpcp-product-compare') {
+            wp_enqueue_style('tpcp-color-picker', TH_PRODUCT_URL . 'assets/color/nano.min.css', false, TH_PRODUCT_VERSION);
+            wp_enqueue_style('tpcp-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false, TH_PRODUCT_VERSION);
+            wp_enqueue_style('tpcp-product-compare-style-mobile', TH_PRODUCT_URL . 'assets/style-mobile.css', false, TH_PRODUCT_VERSION);
+            wp_enqueue_script('tpcp-color-picker', TH_PRODUCT_URL . 'assets/color/pickr.es5.min.js', array('jquery'), TH_PRODUCT_VERSION, true);
+
+            wp_enqueue_script('tpcp-product-js', TH_PRODUCT_URL . 'assets/js/script.js', array('jquery', 'jquery-ui-sortable'), TH_PRODUCT_VERSION, true);
+            wp_localize_script(
+                'tpcp-product-js',
+                'th_product',
+                array(
+                    'tpcp_product_ajax_url' => esc_url(admin_url('admin-ajax.php')),
+                    'th_compare_style' => $this->tpcp_localizeOption,
+                    'tpcp_nonce' => wp_create_nonce('tpcp_plugin_nonce'),
+                    'headingtext' => __('COMPARE PRODUCTS','th-product-compare-pro')
+                )
+            );
+        }
+    }
+    public function enque_for_page_editing()
+    {
+        wp_enqueue_style('tpcp-product-compare-style-single-page', TH_PRODUCT_URL . 'assets/single-page-setting-back.css', false, TH_PRODUCT_VERSION);
+        wp_enqueue_script('tpcp-product-js-single-page', TH_PRODUCT_URL . 'assets/js/single-page.js', [], TH_PRODUCT_VERSION, true);
+        wp_localize_script(
+            'tpcp-product-js-single-page',
+            'th_product',
+            array(
+                'tpcp_product_ajax_url' => esc_url(admin_url('admin-ajax.php'))
+            )
+        );
+    }
     public function enqueue_front_script()
     {
-        wp_enqueue_style('dashicons');
-        wp_enqueue_style('th-product-compare-style-front', TH_PRODUCT_URL . 'assets/fstyle.css', false,'1.0.0');
-        wp_enqueue_style('th-product-compare-style-front-mobile', TH_PRODUCT_URL . 'assets/fstyle-mobile.css', array('th-product-compare-style-front'), '1.0.0');
-        wp_enqueue_script('th-product-js', TH_PRODUCT_URL . 'assets/js/fscript.js', array('jquery'), 1, array('in_footer' => true,'strategy'  => 'async',));
-        wp_localize_script('th-product-js', 'th_product', array(
-            'th_product_ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('th_product_compare_nonce'),
-        ));
-
-        // Dynamic icon colors from backend settings
-        $opt         = $this->localizeOption;
-        $bg_color    = sanitize_hex_color( $opt['icon-bg-color']    ?? '' ) ?: '#111827';
-        $svg_color   = sanitize_hex_color( $opt['icon-svg-color']   ?? '' ) ?: '#ffffff';
-        $badge_color = sanitize_hex_color( $opt['icon-badge-color'] ?? '' ) ?: '#ef4444';
-        $position    = ( isset( $opt['icon-float-position'] ) && $opt['icon-float-position'] === 'bottom-left' ) ? 'bottom-left' : 'bottom-right';
-        $h_prop      = ( $position === 'bottom-left' ) ? 'left:30px' : 'right:30px';
-
-        $css = "
-            .th-compare-icon-widget{background:{$bg_color}!important;color:{$svg_color}!important;}
-            .th-compare-icon-widget-count{background:{$badge_color}!important;}
-            .th-compare-float-icon{position:fixed!important;bottom:90px!important;{$h_prop}!important;z-index:99999!important;width:52px!important;height:52px!important;border-radius:50%!important;box-shadow:0 4px 20px rgba(0,0,0,.28)!important;}
-        ";
-        wp_add_inline_style( 'th-product-compare-style-front', $css );
-    }
-
-    public function render_floating_icon() {
-        if ( ! class_exists( 'WooCommerce' ) ) return;
-
-        $opt = $this->localizeOption;
-
-        // Respect the floating icon toggle
-        if ( isset( $opt['field-menu-icon'] ) && $opt['field-menu-icon'] !== '1' ) return;
-
-        // Read count from cookie for badge
-        $count       = 0;
-        $cookie_name = th_product_compare::cookieName();
-        if ( ! empty( $_COOKIE[ $cookie_name ] ) ) {
-            $raw     = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
-            $decoded = json_decode( $raw, true );
-            if ( is_array( $decoded ) ) {
-                $count = count( $decoded );
-            }
+        if (!function_exists('is_woocommerce')) {
+            return;
         }
+        // Only load on WooCommerce pages (shop, product, cart, checkout, account) or pages with compare shortcode
+        // global $post;
+        // $has_shortcode = false;
+        // if (isset($post->post_content)) {
+        //     $has_shortcode = has_shortcode($post->post_content, 'th_compare')
+        //         || has_shortcode($post->post_content, 'tpcp_product_list')
+        //         || has_shortcode($post->post_content, 'th_product_compare_btn');
+        // }
+        // $is_compare_page = isset($post->post_name) && $post->post_name === 'th-product-compare-custom-post';
 
-        $badge_style = $count > 0 ? '' : ' style="display:none;"';
-        $label       = esc_attr__( 'Compare Products', 'th-product-compare' );
+        // if (!is_woocommerce() && !is_cart() && !is_checkout() && !$has_shortcode && !$is_compare_page) {
+        //     return;
+        // }
 
-        echo '<span class="th-compare-icon-widget th-compare-float-icon" role="button" tabindex="0" aria-label="' . $label . '">';
-        echo '<span class="th-compare-icon-widget-count"' . $badge_style . '>' . esc_html( $count ) . '</span>';
-        echo '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
-        echo '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>';
-        echo '<path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>';
-        echo '<path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>';
-        echo '</svg>';
-        echo '</span>';
+        wp_enqueue_style('dashicons');
+        wp_enqueue_style('tpcp-product-compare-style-front', TH_PRODUCT_URL . 'assets/fstyle.css', false, TH_PRODUCT_VERSION);
+        wp_enqueue_style('tpcp-product-compare-style-front-mobile', TH_PRODUCT_URL . 'assets/fstyle-mobile.css', array('tpcp-product-compare-style-front'), TH_PRODUCT_VERSION);
+        wp_enqueue_script('tpcp-product-js', TH_PRODUCT_URL . 'assets/js/fscript.js', array('jquery'), TH_PRODUCT_VERSION, true);
+        wp_localize_script(
+            'tpcp-product-js',
+            'th_product',
+            array(
+                'tpcp_product_ajax_url' => esc_url(admin_url('admin-ajax.php')),
+                'th_compare_style_local' => $this->tpcp_localizeOption,
+                'headingtext' => __('COMPARE PRODUCTS','th-product-compare-pro'),
+                'view_cart_text' => __('View Cart','th-product-compare-pro'),
+            )
+        );
     }
-
-    public static function th_decrypt($string, $key = 12345)
+    public static function tpcp_decrypt($string, $key = 12345)
     {
         $result = '';
         $string = base64_decode($string);
@@ -207,7 +208,7 @@ class th_product_compare
         return $result;
     }
 
-    public static function th_encrypt($string, $key = 12345)
+    public static function tpcp_encrypt($string, $key = 12345)
     {
         $result = '';
         for ($i = 0; $i < strlen($string); $i++) {
@@ -218,6 +219,7 @@ class th_product_compare
         }
         return base64_encode($result);
     }
+
     public static function cookieName()
     {
         $str = get_site_url();
@@ -229,6 +231,176 @@ class th_product_compare
         $minLength = substr($convertMd5, -12);
         return 'th_compare_product_' . $minLength;
     }
-
-    // class end
+    public static $allowKsesAttr = [
+    'table' => [
+        'class' => [], 'id' => [],
+    ],
+    'tbody' => [
+        'class' => [], 'id' => [],
+    ],
+    'tr' => [
+        'class' => [], 'id' => []
+    ],
+    'td' => [
+        'class' => [], 'id' => [], 'colspan' => []
+    ],
+    'div' => [
+        'class' => [], 'id' => [], 'data-product-id' => [], 'style' => [],
+    ],
+    'span' => [
+        'class' => [], 'id' => [], 'style' => [], 'data-id' => [],
+    ],
+    'del' => [
+        'class' => [], 'id' => [], 'style' => [],
+    ],
+    'bdi' => [
+        'class' => [], 'id' => [], 'style' => [],
+    ],
+    'ins' => [
+        'class' => [], 'id' => [], 'style' => [],
+    ],
+    'img' => [
+        'class' => [],
+        'id' => [],
+        'width' => [],
+        'height' => [],
+        'src' => [],
+        'alt' => [],
+        'loading' => [],
+        'srcset' => [],
+        'sizes' => [],
+        'data-th-output' => [],
+        'data-th-save' => [],
+        'data-th' => [],
+    ],
+    'a' => [
+        'class' => [],
+        'id' => [],
+        'target' => [],
+        'href' => [],
+        'data-compare-category' => [],
+        'data-product_id' => [],
+        'data-product_sku' => [],
+        'data-quantity' => [],
+        'aria-label' => [],
+        'rel' => [],
+        'data-th-product-id' => [],
+        'th-tooltip'=>[],
+        'data-compare-limit' =>[]
+    ],
+    'p' => [
+        'class' => [],
+        'id' => [],
+    ],
+    'i' => [
+        'class' => [], 'id' => [], 'data-th-product-id' => [],'data-compare-limit' =>[]
+    ],
+    'button' => [
+        'class' => [], 'id' => [], 'data-th-product-id' => [], 'data-text' => []
+    ],
+    'svg' => [
+        'class' => true,
+        'xmlns' => true,
+        'width' => true,
+        'height' => true,
+        'viewbox' => [],
+        'fill' => true,
+        'stroke' => true,
+        'stroke-width' => true,
+        'stroke-linecap' => true,
+        'stroke-linejoin' => true,
+        'aria-hidden' => true,
+        'role' => true,
+    ],
+    'path' => [
+        'd' => true,
+        'fill' => true,
+        'stroke' => true,
+        'stroke-width' => true,
+        'stroke-linecap' => true,
+        'stroke-linejoin' => true,
+    ],
+    'input' => [
+        'class' => [],
+        'id' => [],
+        'type' => [],
+        'data-th-save' => [],
+        'checked' => [],
+        'data-custom-attr' => [],
+        'value' => [],
+        'name' => [],
+        'data-th-product-id' => [], // Added to allow data-th-product-id
+    ],
+    'select' => [
+        'class' => [],
+    ],
+    'option' => [
+        'class' => [],
+        'value' => [],
+        'selected' => [],
+    ],
+    'label' => [
+        'class' => [],
+        'id' => [],
+        'for' => [],
+        'data-th-product-id' => [], // Added to allow data-th-product-id
+    ]
+];
+    // class end 
 }
+
+if ( ! class_exists( 'th_product_compare_Compatibility' ) ):
+
+    class th_product_compare_Compatibility {
+         /**
+         * Member Variable
+         *
+         * @var object instance
+         */
+
+       
+       private static $instance;
+       private $_settings_api;
+  
+       /**
+         * Initiator
+         */
+        public static function instance() {
+            if ( ! isset( self::$instance ) ) {
+                self::$instance = new self();
+            }
+            return self::$instance;
+        }
+
+        /**
+         * Constructor
+         */
+        public function __construct(){
+
+    add_action( 'before_woocommerce_init', array( $this, 'hpos_compatibility') );
+
+        }
+
+              /**
+     *  Declare the woo HPOS compatibility.
+     */
+    public function hpos_compatibility() {
+
+            if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', TH_PRODUCT_BASE_NAME, true );
+            }
+    }
+
+}
+
+// Load Plugin
+if ( ! function_exists( 'th_product_compare_compt' ) ) {
+    
+function th_product_compare_compt(){
+        return th_product_compare_Compatibility::instance();
+ }
+add_action( 'plugins_loaded', 'th_product_compare_compt', 25 );
+
+}
+
+endif;
