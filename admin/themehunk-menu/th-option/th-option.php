@@ -1,6 +1,4 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
-
 class themehunk_plugin_option{
 
   /*** Plugin List return */

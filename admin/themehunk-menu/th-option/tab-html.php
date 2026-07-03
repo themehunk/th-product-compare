@@ -1,5 +1,12 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
+$getUrlTab = isset($_GET['th-tab']) && $_GET['th-tab'] ? sanitize_key($_GET['th-tab']) : false;
+
+$tabActiveRp =  $getUrlTab == 'recommended-plugin' ? 'active' : '';
+
+if (!$tabActiveRp) {
+
+    $tabActiveWl = 'active';
+}
 
 ?>
 <div class="wrap-th about-wrap-th theme_info_wrapper">
@@ -9,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <div class="content-wrap">
     <div class="main">
 <div class="tab-left" >
-        <div id="Recommended-Plugin" class="tabcontent active">
+        <div id="Recommended-Plugin" class="tabcontent active <?php echo esc_attr($tabActiveRp) ?>">
             <div class="rp-two-column">
             <?php $this->plugin_install(); ?>
             </div>

@@ -1,0 +1,263 @@
+/* Admin Mobile Preview CSS */
+
+.th-mobile-preview-wrap {
+  max-width: 380px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.th-mobile-preview-wrap .preview-top-header {
+  display: flex;
+  gap: 5px;
+  padding: 8px 12px;
+  background: #e5e7eb;
+}
+
+.th-mobile-preview-wrap .preview-top-header span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d5db;
+}
+
+.th-mobile-preview-wrap .preview-top-header span:first-child {
+  background: #ef4444;
+}
+
+.th-mobile-preview-wrap .preview-top-header span:nth-child(2) {
+  background: #f59e0b;
+}
+
+.th-mobile-preview-wrap .preview-top-header span:last-child {
+  background: #22c55e;
+}
+
+/* Preview inner container */
+.th-mobile-preview-inner {
+  position: relative;
+  background: #fff;
+  display: flex;
+}
+
+/* Dark left accent bar */
+.th-mobile-accent-bar {
+  width: 6px;
+  min-height: 100%;
+  background: #1e3a5f;
+  flex-shrink: 0;
+}
+
+/* Content area */
+.th-mobile-content {
+  flex: 1;
+  padding: 0;
+  font-size: 0.75rem;
+  color: #1f2937;
+  overflow: hidden;
+}
+
+/* ---- HEADER ---- */
+.th-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.th-mobile-header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.th-mobile-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.th-mobile-header-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.th-mobile-header > svg {
+  color: #6b7280;
+}
+
+/* ---- ROW: 3 equal columns ---- */
+.th-mobile-row {
+  display: flex;
+  gap: 6px;
+  padding: 8px 10px;
+}
+
+.th-mobile-cell {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+}
+
+/* ---- PRODUCT CARD ---- */
+.th-mobile-product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Image box with badge */
+.th-mobile-img-box {
+  position: relative;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  aspect-ratio: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.th-mobile-img-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* Product name links */
+.th-mobile-product-name {
+  font-size: 0.68rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: #141414;
+  text-decoration: none;
+  display: block;
+  word-break: break-word;
+  margin-top: 2px;
+}
+
+.th-mobile-product-name:hover {
+  text-decoration: underline;
+}
+
+/* Rating inline (star + number) */
+.th-mobile-rating-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 1px;
+}
+
+.th-mobile-star {
+  font-size: 0.75rem;
+  color: #f59e0b;
+}
+
+.th-mobile-rate-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Reviews count */
+.th-mobile-reviews {
+  font-size: 0.6rem;
+  color: #6b7280;
+}
+
+/* Price */
+.th-mobile-price {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 2px;
+}
+
+/* Buy button */
+.th-mobile-buy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #f97316;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.th-mobile-buy-btn svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+/* ---- SECTION HEADING (with info icon) ---- */
+.th-mobile-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 8px 10px 4px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1f2937;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.th-mobile-section-heading svg {
+  flex-shrink: 0;
+  color: #9ca3af;
+}
+
+/* ---- ATTRIBUTE ROWS ---- */
+.th-mobile-attr-row {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.th-mobile-attr-label {
+  font-size: 0.58rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
+}
+
+.th-mobile-attr-value {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: #1f2937;
+  word-break: break-word;
+}
+
+.th-mobile-attr-value.th-mobile-in-stock {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* ---- MOBILE SETTINGS PANEL ---- */
+.th-mobile-settings {
+  margin-bottom: 20px;
+}
+
+.th-mobile-settings .th-color-picker.th-input.input-block {
+  margin-bottom: 15px;
+}
