@@ -77,6 +77,7 @@ class th_compare_admin
     {
         $checkOption = get_option($this->tpcp_optionName);
         $saveOption = $this->sanitizeOptions($inputs);
+        $saveOption = $this->apply_locked_settings( $saveOption );
         if ($checkOption) {
             $result = update_option($this->tpcp_optionName, $saveOption);
         } else {
@@ -95,6 +96,53 @@ class th_compare_admin
             }
         }
         return $array;
+    }
+
+    private function get_locked_settings() {
+
+        return [
+
+            'compare-product-limit' => 4,
+
+            'compare-at-shop-hook' => 'after',
+
+            'close-popup-on-addtocart' => '0',
+
+            'field-product-single-page' => '1',
+
+            'field-product-single-page' => '1',
+
+            'field-show-by-category' => '1',
+
+            'field-highlight-btn' => '1',
+
+            'field-dynamic-attribute' => '',
+
+            'field-repeat-price' => '',
+
+            'field-repeat-add-to-cart' => '',
+
+            'product-image-width' => 168,
+
+            'product-image-height' => 168,
+
+           
+
+        ];
+    }
+
+    private function apply_locked_settings( $options ) {
+
+        $locked = $this->get_locked_settings();
+
+        foreach ( $locked as $key => $value ) {
+
+            $options[ $key ] = $value;
+
+        }
+
+        return $options;
+
     }
 
     public function reset()
