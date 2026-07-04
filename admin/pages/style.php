@@ -21,8 +21,21 @@ function th_apply_color($title, $prop, $color_id = false)
 ?>
         <div class="th-color-picker">
             <label class="th-color-title"><?php echo esc_html($title); ?></label>
-            <div>
-                <label class="color-output" data-th-color="<?php echo esc_attr($color_id); ?>" output-type="<?php echo esc_attr($prop); ?>"></label>
+            <div class="th-color-picker-content">
+                <label
+                    class="color-output"
+                    data-th-color="<?php echo esc_attr($color_id); ?>"
+                    output-type="<?php echo esc_attr($prop); ?>">
+                </label>
+
+                <input type="text" class="th-color-value" readonly>
+
+                <button
+                    type="button"
+                    class="th-color-reset"
+                    title="Reset Color">
+                    &#8635;
+                </button>
             </div>
         </div>
 <?php
