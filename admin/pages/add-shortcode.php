@@ -10,6 +10,8 @@ if ($compareShortCode != '') {
         }
     }
 }
+$product_image  = TH_PRODUCT_URL . 'assets/img/shirt.png';
+$product_image2 = TH_PRODUCT_URL . 'assets/img/shirt2.png';
 ?>
 <div class="setting_ th-compare-add-shortcode">
     <div class="field-to-show">
@@ -41,13 +43,16 @@ if ($compareShortCode != '') {
             
             <div class="add-by-enter-product">
                 <div class="added-product-id">
-                    <input class="put-in-input-hidden" type="hidden" data-th-save='th-compare-shortcode-hidden' name="th-compare-add-id-shortcode-hidden" value="<?php echo esc_attr($compareShortCode); ?>">
-                    <?php echo wp_kses($shortCodeHtml, th_product_compare::$allowKsesAttr); ?>
+                    
                 </div>
                 <div class="wrap-input-product">
-                    <div class="input-placeholder"><span></span></div>
-                    <input type="text" name='th-compare-add-id-shortcode' value="">
-                    <div class="product-result"></div>
+                    <div class="product-result-example">
+                        <span class="checked"><input type="checkbox" class="product-check"><div class="img_"><img src="<?php echo esc_url($product_image); ?>"></div><span><?php esc_html_e('Shirt', 'th-product-compare-pro'); ?></span></span>
+                        <span class="checked"><input type="checkbox" class="product-check"><div class="img_"><img src="<?php echo esc_url($product_image2); ?>"></div><span><?php esc_html_e('Blazer', 'th-product-compare-pro'); ?></span></span>
+                        <span class="checked"><input type="checkbox" class="product-check"><div class="img_"><img src="<?php echo esc_url($product_image); ?>"></div><span><?php esc_html_e('Shirt', 'th-product-compare-pro'); ?></span></span>
+                        <span class="checked"><input type="checkbox" class="product-check"><div class="img_"><img src="<?php echo esc_url($product_image2); ?>"></div><span><?php esc_html_e('Blazer', 'th-product-compare-pro'); ?></span></span>
+                        <span class="checked"><input type="checkbox" class="product-check"><div class="img_"><img src="<?php echo esc_url($product_image); ?>"></div><span><?php esc_html_e('Shirt', 'th-product-compare-pro'); ?></span></span>
+                    </div>
                 </div>
             </div>
         </div>

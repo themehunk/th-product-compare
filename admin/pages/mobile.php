@@ -15,8 +15,8 @@ $fieldMobileRemoveIcon = (!isset($th_compare_option['field-mobile-remove-icon'])
                         <span class="bold-heading"><?php esc_html_e('Mobile Settings', 'th-product-compare-pro'); ?></span>
 
                         <div class="th-color-picker th-input input-block">
-                            <label class="th-color-title"><?php esc_html_e('Table Style in Mobile', 'th-product-compare-pro'); ?></label>
-                            <select data-th-save='tablestyle-in-mobile'>
+                            <label class="th-color-title"><?php esc_html_e('Table Style in Mobile (Pro)', 'th-product-compare-pro'); ?></label>
+                            <select disabled data-th-save='tablestyle-in-mobile'>
                                 <option value="mobile-flex" <?php selected($tablestyle_in_mobile, 'mobile-flex'); ?>>
                                     <?php esc_html_e('Mobile Responsive', 'th-product-compare-pro'); ?>
                                 </option>
@@ -28,8 +28,8 @@ $fieldMobileRemoveIcon = (!isset($th_compare_option['field-mobile-remove-icon'])
 
                         <span class="bold-heading"><?php esc_html_e('Product Remove Icon', 'th-product-compare-pro'); ?></span>
                         <div class="th-compare-radio">
-                            <input type="checkbox" data-th-save='compare-field' id="compare-fields-mobile-remove-icon" <?php echo esc_attr($fieldMobileRemoveIcon); ?> value="mobile-remove-icon">
-                            <label class="th-color-title" for="compare-fields-mobile-remove-icon"><?php esc_html_e('Enable Remove Icon on Mobile', 'th-product-compare-pro'); ?></label>
+                            <input disabled type="checkbox" data-th-save='compare-field' id="compare-fields-mobile-remove-icon" <?php echo esc_attr($fieldMobileRemoveIcon); ?> value="mobile-remove-icon">
+                            <label class="th-color-title" for="compare-fields-mobile-remove-icon"><?php esc_html_e('Enable Remove Icon on Mobile (Pro)', 'th-product-compare-pro'); ?></label>
                             <i class="description"><?php esc_html_e('Check to show the remove product icon on mobile view.', 'th-product-compare-pro'); ?></i>
                         </div>
 

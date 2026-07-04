@@ -90,11 +90,11 @@ if (is_array($th_compare_option)) {
                
                 <tr>
                     <td>
-                        <span class="bold-heading"><?php esc_html_e('Comparison Limit', 'th-product-compare-pro'); ?></span>
+                        <span class="bold-heading"><?php esc_html_e('Comparison Limit (Pro)', 'th-product-compare-pro'); ?></span>
                         <span class="th-alt-title"><?php esc_html_e('Max products allowed in the compare table.', 'th-product-compare'); ?></span>
                     </td>
                     <td>
-                        <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php echo esc_attr($th_product_limit); ?>">
+                        <input data-th-save='compare-product-limit' type="number" placeholder="8" value="<?php echo esc_attr($th_product_limit); ?>" disabled>
                        <i class="description"><?php esc_html_e('This value define maximum number of products you want to add in the compare table.', 'th-product-compare-pro'); ?></i>
                     </td>
                 </tr>
@@ -110,19 +110,19 @@ if (is_array($th_compare_option)) {
                 </tr>
                 <tr>
                     <td>
-                        <span class="bold-heading"><?php esc_html_e('Visibility', 'th-product-compare-pro'); ?></span>
+                        <span class="bold-heading"><?php esc_html_e('Visibility (Pro)', 'th-product-compare-pro'); ?></span>
                         <span class="th-alt-title"><?php esc_html_e('Where should the compare button appear?', 'th-product-compare'); ?></span>
                     </td>
                     <td>
                         <div class="th-compare-radio">
                             <!--title-->
-                            <input type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php echo esc_attr($checkChecked['field-product-single-page']); ?> value="product-single-page">
+                            <input disabled type="checkbox" data-th-save='compare-field' id="field-show-product-page" <?php echo esc_attr($checkChecked['field-product-single-page']); ?> value="product-single-page">
                             <label class="bold-heading" for="field-show-product-page"><?php esc_html_e('Product Single Page.', 'th-product-compare-pro'); ?></label>
                         </div>
 
                         <div class="th-compare-radio shop-archive">
                             <!--title-->
-                            <input type="checkbox" data-th-save='compare-field' id="compare-fields-product-list" <?php echo esc_attr($checkChecked['field-product-page']); ?> value="product-page">
+                            <input disabled type="checkbox" data-th-save='compare-field' id="compare-fields-product-list" <?php echo esc_attr($checkChecked['field-product-page']); ?> value="product-page">
                             <label class="bold-heading" for="compare-fields-product-list"><?php esc_html_e('Shop and Archive Pages.', 'th-product-compare-pro'); ?></label>
                         </div>
 
@@ -131,11 +131,11 @@ if (is_array($th_compare_option)) {
 
                  <tr>
                 <td>
-                    <span class="bold-heading"><?php esc_html_e('Button Placement', 'th-product-compare-pro'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Button Placement (Pro)', 'th-product-compare-pro'); ?></span>
                     <span class="th-alt-title"><?php esc_html_e('Position relative to the Add to Cart button.', 'th-product-compare'); ?></span>
                 </td>
                 <td>
-                    <select data-th-save='compare-at-shop-hook'>
+                    <select data-th-save='compare-at-shop-hook' disabled>
                         <option value="before" <?php echo esc_html($th_product_shop_hook == 'before' ? "selected" : ''); ?>><?php esc_html_e('Before Cart', 'th-product-compare'); ?></option>
                         <option value="after" <?php echo esc_html($th_product_shop_hook == 'after' ? "selected" : ''); ?>><?php esc_html_e('After Cart', 'th-product-compare-pro'); ?></option>
                         <option value="onimageleft" <?php echo esc_html($th_product_shop_hook == 'onimageleft' ? "selected" : ''); ?>><?php esc_html_e('On Image Left', 'th-product-compare-pro'); ?></option>

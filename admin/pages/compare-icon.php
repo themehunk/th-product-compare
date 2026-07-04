@@ -91,7 +91,7 @@ $preview_tab_visible    = ( $th_menu_tab === '1' );
 
                     <tr>
                         <td>
-                            <span class="th-color-title"><?php esc_html_e( 'Compare Menu Sidebar Tab', 'th-product-compare-pro' ); ?></span>
+                            <span class="th-color-title"><?php esc_html_e( 'Compare Menu Sidebar Tab (Pro)', 'th-product-compare-pro' ); ?></span>
                             <span class="th-alt-title"><?php esc_html_e( 'Show a fixed sidebar tab button to open the compare popup.', 'th-product-compare-pro' ); ?></span>
                         </td>
                         <td>
@@ -105,7 +105,7 @@ $preview_tab_visible    = ( $th_menu_tab === '1' );
 
                     <tr data-change-showhide-tab="ci-menu-tab-group" data-show="1" class="<?php echo esc_attr( $th_tab_hidden ); ?>">
                         <td>
-                            <span class="th-color-title"><?php esc_html_e( 'Sidebar Tab Position', 'th-product-compare-pro' ); ?></span>
+                            <span class="th-color-title"><?php esc_html_e( 'Sidebar Tab Position (Pro)', 'th-product-compare-pro' ); ?></span>
                             <span class="th-alt-title"><?php esc_html_e( 'Which side of the screen the tab should appear on.', 'th-product-compare-pro' ); ?></span>
                         </td>
                         <td>
@@ -118,7 +118,7 @@ $preview_tab_visible    = ( $th_menu_tab === '1' );
 
                     <tr data-change-showhide-tab="ci-menu-tab-group" data-show="1" class="<?php echo esc_attr( $th_tab_hidden ); ?>">
                         <td>
-                            <span class="th-color-title"><?php esc_html_e( 'Sidebar Tab Label', 'th-product-compare-pro' ); ?></span>
+                            <span class="th-color-title"><?php esc_html_e( 'Sidebar Tab Label (Pro)', 'th-product-compare-pro' ); ?></span>
                             <span class="th-alt-title"><?php esc_html_e( 'Text displayed on the sidebar tab.', 'th-product-compare-pro' ); ?></span>
                         </td>
                         <td>

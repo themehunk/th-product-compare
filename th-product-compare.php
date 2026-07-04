@@ -34,7 +34,6 @@ add_action( 'plugins_loaded', function() {
 } );
 
 if (!function_exists('th_product_compare_loaded')) {
-    include_once(TH_PRODUCT_PATH . 'license/init.php');
     include_once(TH_PRODUCT_PATH . 'admin/themehunk-menu/admin-menu.php');
     include_once(TH_PRODUCT_PATH . 'admin/inc.php');
     include_once(TH_PRODUCT_PATH . 'admin/front/front.php');

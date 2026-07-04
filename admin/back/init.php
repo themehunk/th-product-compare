@@ -126,6 +126,12 @@ class th_compare_admin
 
             'product-image-height' => 168,
 
+            'compare-menu-tab' => '0',
+
+            'tablestyle-in-mobile' => 'mobile-flex',
+
+            'field-mobile-remove-icon' => '',
+
            
 
         ];
