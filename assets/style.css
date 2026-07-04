@@ -1296,17 +1296,18 @@ table {
   border: 1px solid var(--border-color);
 }
 
-.product-result > span{
+.product-result-example > span{
   display: flex;
   gap: 9px;
   align-items: center;
   background: transparent;
+  margin-bottom: 9px;
 }
-.product-result > span.checked,
-.product-result > span:hover{
+.product-result-example > span.checked,
+.product-result-example > span:hover{
   background: #f8fafc;
 }
-.product-result .img_{
+.product-result-example .img_{
   max-width: 29px;
   border-radius: 9px;;
 }
@@ -1353,23 +1354,23 @@ table {
     justify-content: center;
     align-items: center;
 }
-.product-result{
+.product-result-example{
   max-height: 199px;
   overflow-y: scroll;
   border: 1px solid transparent;
   border-radius: 9px;
   padding: 9px 0 0 9px;
 }
-.wrap-input-product.active .product-result{
+.wrap-input-product.active .product-result-example{
   border-color: #e2e8f0;
   margin-top: 7px;
 }
-.product-result span span{
+.product-result-example span span{
   color: #475569;
   font-size: .875rem;
   line-height: 1.25rem;
 }
-.product-result span.checked span{
+.product-result-example span.checked span{
   color: #111;
 }
 .add-product-shortcode-shortcode{
@@ -1447,7 +1448,7 @@ input:focus{
   padding: 0 18px;
 }
 
-.th-plugin-common-wrap .product-result input{
+.th-plugin-common-wrap .product-result-example input{
     width: 18px!important;
     max-width: initial!important;
     border-radius: 5px;
@@ -1992,10 +1993,4 @@ tr[data-change-showhide-tab="pricing-table-appear"]{
   margin-top: 9px;
 }
 
-
-.th-license-wrap{
-     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
 

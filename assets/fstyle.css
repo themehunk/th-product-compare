@@ -1912,6 +1912,9 @@ vertical-align: bottom;
   visibility: visible;
   border: 0;
 }
+.single-product .th-product-compare-btn.th-tooltip-active.disabled::after{
+  display: none!important;
+}
 .th-product-compare-btn.th-tooltip-active.disabled:hover::after,
 .th-product-compare-btn.th-tooltip-active.disabled:hover::before {
   opacity: 1;

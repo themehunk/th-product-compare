@@ -83,40 +83,40 @@ foreach ($defaultAttributes as $key => $value) {
 <div class="setting_">
     <div class="field-to-show">
         <div class="th-tab-heading">
-            <span class="heading_"><?php esc_html_e('Advanced Settings', 'th-product-compare-pro'); ?></span>
+            <span class="heading_"><?php esc_html_e('Advanced Settings (Pro)', 'th-product-compare'); ?></span>
         </div>
         <div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php esc_html_e('Compare Same Category Product', 'th-product-compare-pro'); ?></span>
-                     <span class='th-alt-title'><?php esc_html_e(' Enable Category Tab in the Comparison Table.', 'th-product-compare-pro'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Compare Same Category Product', 'th-product-compare'); ?></span>
+                     <span class='th-alt-title'><?php esc_html_e(' Enable Category Tab in the Comparison Table.', 'th-product-compare'); ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
 
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-show-by-category" <?php echo esc_attr($fieldShowByCate); ?> value="show-by-category">
-                        <label class="th-color-title" for="compare-fields-show-by-category"><?php esc_html_e('Compare By Category', 'th-product-compare-pro'); ?></label>
-                        <i class='description'><?php esc_html_e('Check to Enable Category Tab in the Comparison Table.', 'th-product-compare-pro'); ?></i>
+                        <input disabled type="checkbox" data-th-save='compare-field' id="compare-fields-show-by-category" <?php echo esc_attr($fieldShowByCate); ?> value="show-by-category">
+                        <label class="th-color-title" for="compare-fields-show-by-category"><?php esc_html_e('Compare By Category', 'th-product-compare'); ?></label>
+                        <i class='description'><?php esc_html_e('Check to Enable Category Tab in the Comparison Table.', 'th-product-compare'); ?></i>
                     </div>
                 </div>
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php esc_html_e('Similarities & Differences', 'th-product-compare-pro'); ?></span>
-                    <span class='th-alt-title'><?php esc_html_e(' Enable to show differences.', 'th-product-compare-pro'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Similarities & Differences', 'th-product-compare'); ?></span>
+                    <span class='th-alt-title'><?php esc_html_e(' Enable to show differences.', 'th-product-compare'); ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-highlight-btn" <?php echo esc_attr($fieldShowHighlight); ?> value="highlight-btn">
-                        <label class="th-color-title" for="compare-fields-highlight-btn"><?php esc_html_e('Product Highlight Button', 'th-product-compare-pro'); ?></label>
-                        <i class='description'><?php esc_html_e('Check to Enable "Hide Similarities" & "Highlight Differences" Button in the Comparison Table.', 'th-product-compare-pro'); ?></i>
+                        <input disabled type="checkbox" data-th-save='compare-field' id="compare-fields-highlight-btn" <?php echo esc_attr($fieldShowHighlight); ?> value="highlight-btn">
+                        <label class="th-color-title" for="compare-fields-highlight-btn"><?php esc_html_e('Product Highlight Button', 'th-product-compare'); ?></label>
+                        <i class='description'><?php esc_html_e('Check to Enable "Hide Similarities" & "Highlight Differences" Button in the Comparison Table.', 'th-product-compare'); ?></i>
                     </div>
                 </div>
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php esc_html_e('Fields to Show in Comparison Table', 'th-product-compare-pro'); ?></span>
-                     <span class='th-alt-title'><?php esc_html_e('Check to display fields. Drag to reorder.', 'th-product-compare-pro'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Fields to Show in Comparison Table', 'th-product-compare'); ?></span>
+                     <span class='th-alt-title'><?php esc_html_e('Check to display fields. Drag to reorder.', 'th-product-compare'); ?></span>
                 </div>
                 <div class="th-compare-field-wrap woocommerce-th-attributes">
                     <?php
@@ -126,30 +126,30 @@ foreach ($defaultAttributes as $key => $value) {
             </div>
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php esc_html_e('Dynamic Attributes', 'th-product-compare-pro'); ?></span>
-                     <span class='th-alt-title'><?php esc_html_e('Enable to show all custom product attributes automatically.', 'th-product-compare-pro'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Dynamic Attributes', 'th-product-compare'); ?></span>
+                     <span class='th-alt-title'><?php esc_html_e('Enable to show all custom product attributes automatically.', 'th-product-compare'); ?></span>
                 </div>
                 <div class="dynamic-attribute">
                     <div class="th-compare-radio">
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-dynamic-attribute" <?php echo esc_attr($fieldDynamicAttribute); ?> value="dynamic-attribute">
-                        <label class="th-color-title" for="compare-fields-dynamic-attribute"><?php esc_html_e('Check to Enable Product Dynamic Attributes.', 'th-product-compare-pro'); ?></label>
+                        <input disabled type="checkbox" data-th-save='compare-field' id="compare-fields-dynamic-attribute" <?php echo esc_attr($fieldDynamicAttribute); ?> value="dynamic-attribute">
+                        <label class="th-color-title" for="compare-fields-dynamic-attribute"><?php esc_html_e('Check to Enable Product Dynamic Attributes.', 'th-product-compare'); ?></label>
                     </div>
                 </div>
             </div>
             <div class="row_ repeat-field">
                 <div>
-                    <span class="bold-heading"><?php esc_html_e('Repeat Fields', 'th-product-compare-pro'); ?></span>
-                    <span class='th-alt-title'><?php esc_html_e('Repeat specific rows at the bottom for easier comparison on long tables.', 'th-product-compare-pro'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Repeat Fields', 'th-product-compare'); ?></span>
+                    <span class='th-alt-title'><?php esc_html_e('Repeat specific rows at the bottom for easier comparison on long tables.', 'th-product-compare'); ?></span>
                 </div>
                 <div>
                     <div class="th-compare-radio">
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-price" <?php echo esc_attr($fieldRepeatPrice); ?> value="repeat-price">
-                        <label class="th-color-title" for="compare-fields-repeat-price"><?php esc_html_e('Repeat the "Price" field at the end of the table', 'th-product-compare-pro'); ?></label>
+                        <input disabled type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-price" <?php echo esc_attr($fieldRepeatPrice); ?> value="repeat-price">
+                        <label class="th-color-title" for="compare-fields-repeat-price"><?php esc_html_e('Repeat the "Price" field at the end of the table', 'th-product-compare'); ?></label>
                     </div>
 
                     <div class="th-compare-radio">
-                        <input type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-add-to-cart" <?php echo esc_attr($fieldrepeatAddToCart); ?> value="repeat-add-to-cart">
-                        <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php esc_html_e('Repeat the "Add to cart" field at the end of the table', 'th-product-compare-pro'); ?></label>
+                        <input disabled type="checkbox" data-th-save='compare-field' id="compare-fields-repeat-add-to-cart" <?php echo esc_attr($fieldrepeatAddToCart); ?> value="repeat-add-to-cart">
+                        <label class="th-color-title" for="compare-fields-repeat-add-to-cart"><?php esc_html_e('Repeat the "Add to cart" field at the end of the table', 'th-product-compare'); ?></label>
                     </div>
 
                 </div>
@@ -157,17 +157,17 @@ foreach ($defaultAttributes as $key => $value) {
 
             <div class="row_">
                 <div>
-                    <span class="bold-heading"><?php esc_html_e('Product Image Size', 'th-product-compare-pro'); ?></span>
-                    <span class='th-alt-title'><?php esc_html_e('Dimensions of product images in the comparison table.', 'th-product-compare-pro'); ?></span>
+                    <span class="bold-heading"><?php esc_html_e('Product Image Size', 'th-product-compare'); ?></span>
+                    <span class='th-alt-title'><?php esc_html_e('Dimensions of product images in the comparison table.', 'th-product-compare'); ?></span>
                 </div>
                 <div>
                     <div class="th-product-size">
-                        <input data-th-save='product-image-width' type="number" value="<?php echo intval($th_image_width); ?>">
+                        <input disabled data-th-save='product-image-width' type="number" value="<?php echo intval($th_image_width); ?>">
                         <span>X</span>
-                        <input data-th-save='product-image-height' type="number" value="<?php echo intval($th_image_height); ?>">
+                        <input disabled data-th-save='product-image-height' type="number" value="<?php echo intval($th_image_height); ?>">
                         <span>px</span>
                     </div>
-                    <i class='description'><?php esc_html_e('Add product image size which you want to display in the Comparison Table. (Width x Height)px.', 'th-product-compare-pro'); ?></i>
+                    <i class='description'><?php esc_html_e('Add product image size which you want to display in the Comparison Table. (Width x Height)px.', 'th-product-compare'); ?></i>
 
                 </div>
             </div>

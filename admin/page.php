@@ -85,11 +85,6 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
             ',
 
-            // 🔑 License Icon
-            'license' => '
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7m4 4V7"></path></svg>
-            ',
-
             // 🔌 Reset Icon
             'reset' => '
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>
@@ -111,27 +106,26 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
                 </div>
                 <span><?php esc_html_e('Product Compare', 'th-product-compare'); ?></span>
             </span>
-            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span ><?php echo thpc_get_svg_icon('settings'); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advanced', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="single-page-product" href="#"><span><?php echo thpc_get_svg_icon('singlepage'); ?></span><?php esc_html_e('Single Product Page', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="add-shortcode" href="#"><span><?php echo thpc_get_svg_icon('shortcode'); ?></span><?php esc_html_e('Shortcode Generator', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="add-hook" href="#"><span><?php echo thpc_get_svg_icon('hooks'); ?></span><?php esc_html_e('Custom Hook', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="style" href="#"><span><?php echo thpc_get_svg_icon('style'); ?></span><?php esc_html_e('Style', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="mobile" href="#"><span><?php echo thpc_get_svg_icon('mobile'); ?></span><?php esc_html_e('Mobile', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="compare-icon" href="#"><span><?php echo thpc_get_svg_icon('compare-icon'); ?></span><?php esc_html_e('Compare Icon', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="general" href="#" class="active"><span ><?php echo thpc_get_svg_icon('settings'); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="setting" href="#"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advanced (Pro)', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="single-page-product" href="#"><span><?php echo thpc_get_svg_icon('singlepage'); ?></span><?php esc_html_e('Single Product Page', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="add-shortcode" href="#"><span><?php echo thpc_get_svg_icon('shortcode'); ?></span><?php esc_html_e('Shortcode Generator (Pro)', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="add-hook" href="#"><span><?php echo thpc_get_svg_icon('hooks'); ?></span><?php esc_html_e('Custom Hook', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="style" href="#"><span><?php echo thpc_get_svg_icon('style'); ?></span><?php esc_html_e('Style', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="mobile" href="#"><span><?php echo thpc_get_svg_icon('mobile'); ?></span><?php esc_html_e('Mobile', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="compare-icon" href="#"><span><?php echo thpc_get_svg_icon('compare-icon'); ?></span><?php esc_html_e('Compare Icon', 'th-product-compare'); ?></a>
 
-            <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo thpc_get_svg_icon('help'); ?></span><?php esc_html_e('Help', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="license" href="#"><span><?php echo thpc_get_svg_icon('license'); ?></span><?php esc_html_e('License', 'th-product-compare-pro'); ?></a>
-            <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo thpc_get_svg_icon('reset'); ?></span><?php esc_html_e('Reset', 'th-product-compare-pro'); ?></a>
+            <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo thpc_get_svg_icon('help'); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo thpc_get_svg_icon('reset'); ?></span><?php esc_html_e('Reset', 'th-product-compare'); ?></a>
 
         </nav>
         
     </div>
     <div class="th-right">
         <div class="top-header">
-                <h2 class="tabheading"><?php esc_html_e("Basic Settings", 'th-product-compare-pro'); ?></h2>
+                <h2 class="tabheading"><?php esc_html_e("Basic Settings", 'th-product-compare'); ?></h2>
                 <div class="th-save-btn">
-                <button class="button button-primary th-option-save-btn"><?php esc_html_e("Save Changes", 'th-product-compare-pro'); ?></button>
+                <button class="button button-primary th-option-save-btn"><?php esc_html_e("Save Changes", 'th-product-compare'); ?></button>
                 </div>
             </div>
 
@@ -174,10 +168,6 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
             <!-- help tab -->
             <div data-group-tabs="main" data-tab-container="help">
                 <?php include_once 'pages/help.php'; ?>
-            </div>
-            <!-- license tab -->
-            <div data-group-tabs="main" data-tab-container="license">
-                <?php include_once 'pages/license.php'; ?>
             </div>
              <!-- reset tab -->
             <div data-group-tabs="main" data-tab-container="reset">
