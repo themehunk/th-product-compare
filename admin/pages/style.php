@@ -1,9 +1,9 @@
 <?php
 if (!defined('ABSPATH')) exit;
 $blankImgUrl = TH_PRODUCT_URL . '/assets/img/blank.png';
-$th_headingText = isset($th_compare_option['compare-heading-text']) ? $th_compare_option['compare-heading-text'] : esc_html__('Compare Product', 'th-product-compare-pro');
-$th_countText = isset($th_compare_option['compare-count-text']) ? $th_compare_option['compare-count-text'] : esc_html__('{count} { items shown}', 'th-product-compare-pro');
-$th_openerBtnText = isset($th_compare_option['compare-opener-btn-text']) ? $th_compare_option['compare-opener-btn-text'] : esc_html__('Product Compare', 'th-product-compare-pro');
+$th_headingText = isset($th_compare_option['compare-heading-text']) ? $th_compare_option['compare-heading-text'] : esc_html__('Compare Product', 'th-product-compare');
+$th_countText = isset($th_compare_option['compare-count-text']) ? $th_compare_option['compare-count-text'] : esc_html__('{count} { items shown}', 'th-product-compare');
+$th_openerBtnText = isset($th_compare_option['compare-opener-btn-text']) ? $th_compare_option['compare-opener-btn-text'] : esc_html__('Product Compare', 'th-product-compare');
 $th_product_position = isset($th_compare_option['compare-popup-position']) ? $th_compare_option['compare-popup-position'] : 'bottom';
 $th_product_Animation = isset($th_compare_option['compare-popup-animation']) ? $th_compare_option['compare-popup-animation'] : '';
 $th_product_atleast_txt = isset($th_compare_option['compare-atleast-text']) ? sanitize_text_field($th_compare_option['compare-atleast-text']) : __('{Selected} {Products}', 'th-product-compare');
@@ -37,15 +37,15 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
         <div class="style-setting_">
            
             <div class="nav_">
-                <a data-group-tabs="style-nav" data-tab="style" href="#" class="active"><?php esc_html_e('Compare Bar Settings', 'th-product-compare-pro'); ?></a>
-                <a data-group-tabs="style-nav" data-tab="setting" href="#"><?php esc_html_e('Popup Settings', 'th-product-compare-pro'); ?></a>
+                <a data-group-tabs="style-nav" data-tab="style" href="#" class="active"><?php esc_html_e('Compare Bar Settings', 'th-product-compare'); ?></a>
+                <a data-group-tabs="style-nav" data-tab="setting" href="#"><?php esc_html_e('Popup Settings', 'th-product-compare'); ?></a>
             </div>
             <div class="container_">
                 <div data-group-tabs="style-nav" data-tab-container="style" class="active">
                     <div class="th-color-output">
-                        <span class="bold-heading"><?php esc_html_e('Comapre Bar', 'th-product-compare-pro'); ?></span>
+                        <span class="bold-heading"><?php esc_html_e('Comapre Bar', 'th-product-compare'); ?></span>
                          <input data-innerdynamic="1" data-th-save='compare-atleast-text' type="text" placeholder="Compare" value="<?php echo esc_html($th_product_atleast_txt); ?>">
-                        <i class="description compareatleast"><?php esc_html_e('Use format Text:', 'th-product-compare-pro'); ?> <code><?php esc_html_e( '{selected} {products}', 'th-product-compare-pro' ); ?></code>
+                        <i class="description compareatleast"><?php esc_html_e('Use format Text:', 'th-product-compare'); ?> <code><?php esc_html_e( '{selected} {products}', 'th-product-compare' ); ?></code>
 </i>
                        <?php
                         th_apply_color('Background', 'background-color', 'footer-bar-bg-color');
@@ -69,56 +69,56 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                 <div data-group-tabs="style-nav" data-tab-container="setting">
                     <div class="th-color-output">
                         <div class="th-color-picker th-input input-block">
-                            <span class="bold-heading"><?php esc_html_e('Popup Heading Text', 'th-product-compare-pro'); ?></span>
+                            <span class="bold-heading"><?php esc_html_e('Popup Heading Text', 'th-product-compare'); ?></span>
                             <input data-innerdynamic="1" data-th-save='compare-heading-text' type="text" value="<?php echo esc_attr($th_headingText); ?>">
                              
-                            <span class="th-color-title popupcount"><?php esc_html_e('Popup Count Text', 'th-product-compare-pro'); ?></span>
+                            <span class="th-color-title popupcount"><?php esc_html_e('Popup Count Text', 'th-product-compare'); ?></span>
                             <input data-innerdynamic="1" data-th-save='compare-count-text' type="text" value="<?php echo esc_attr($th_countText); ?>">
-                            <i class="description compareatleast"><?php esc_html_e( 'Use format. You can change count position:', 'th-product-compare-pro' ); ?> <code><?php esc_html_e( '{count} {Text to be shown.}', 'th-product-compare-pro' ); ?></code></i>
+                            <i class="description compareatleast"><?php esc_html_e( 'Use format. You can change count position:', 'th-product-compare' ); ?> <code><?php esc_html_e( '{count} {Text to be shown.}', 'th-product-compare' ); ?></code></i>
                         </div>
 
                         <div class="th-color-picker th-input input-block">
-                            <label class="th-color-title"><?php esc_html_e('Popup Animation', 'th-product-compare-pro'); ?></label>
+                            <label class="th-color-title"><?php esc_html_e('Popup Animation', 'th-product-compare'); ?></label>
                             <select data-innerdynamic="1" data-th-save='compare-popup-animation'>
                                 <option value="1" <?php selected( $th_product_Animation, '1' ); ?>>
-                                    <?php esc_html_e( 'Top Slide', 'th-product-compare-pro' ); ?>
+                                    <?php esc_html_e( 'Top Slide', 'th-product-compare' ); ?>
                                 </option>
 
                                 <option value="2" <?php selected( $th_product_Animation, '2' ); ?>>
-                                    <?php esc_html_e( 'Left Slide', 'th-product-compare-pro' ); ?>
+                                    <?php esc_html_e( 'Left Slide', 'th-product-compare' ); ?>
                                 </option>
 
                                 <option value="3" <?php selected( $th_product_Animation, '3' ); ?>>
-                                    <?php esc_html_e( 'Right Slide', 'th-product-compare-pro' ); ?>
+                                    <?php esc_html_e( 'Right Slide', 'th-product-compare' ); ?>
                                 </option>
 
                                 <option value="4" <?php selected( $th_product_Animation, '4' ); ?>>
-                                    <?php esc_html_e( 'ZoomIn', 'th-product-compare-pro' ); ?>
+                                    <?php esc_html_e( 'ZoomIn', 'th-product-compare' ); ?>
                                 </option>
 
                             </select>
                         </div>
 
                         <div class="th-color-picker th-input input-block popup-position">
-                            <label class="th-color-title"><?php esc_html_e('Popup Position', 'th-product-compare-pro'); ?></label>
+                            <label class="th-color-title"><?php esc_html_e('Popup Position', 'th-product-compare'); ?></label>
                             <select data-innerdynamic="1" data-th-save='compare-popup-position'>
-                                <option value="bottom" <?php echo $th_product_position == 'bottom' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Bottom', 'th-product-compare-pro'); ?></option>
-                                <option value="left" <?php echo $th_product_position == 'left' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Left', 'th-product-compare-pro'); ?></option>
-                                <option value="right" <?php echo $th_product_position == 'right' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Right', 'th-product-compare-pro'); ?></option>
-                                <option value="top" <?php echo $th_product_position == 'top' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Top', 'th-product-compare-pro'); ?></option>
+                                <option value="bottom" <?php echo $th_product_position == 'bottom' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Bottom', 'th-product-compare'); ?></option>
+                                <option value="left" <?php echo $th_product_position == 'left' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Left', 'th-product-compare'); ?></option>
+                                <option value="right" <?php echo $th_product_position == 'right' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Right', 'th-product-compare'); ?></option>
+                                <option value="top" <?php echo $th_product_position == 'top' ? esc_attr("selected") : ''; ?>><?php esc_html_e('Top', 'th-product-compare'); ?></option>
                             </select>
                         </div>
 
-                         <span class="bold-heading"><?php esc_html_e('Global Colors', 'th-product-compare-pro'); ?></span>
+                         <span class="bold-heading"><?php esc_html_e('Global Colors', 'th-product-compare'); ?></span>
                         <?php
                         th_apply_color('Global Background Color', 'background-color', 'global-background'); ?>
-                        <span class="bold-heading"><?php esc_html_e('Header', 'th-product-compare-pro'); ?></span>
+                        <span class="bold-heading"><?php esc_html_e('Header', 'th-product-compare'); ?></span>
                         <?php
                         th_apply_color('Color', 'color', 'heading-style');
                         th_apply_color('Background Color', 'background-color', 'heading-style-bg');
                         // -------------- x --------------
                         ?>
-                         <span class="bold-heading"><?php esc_html_e('Table', 'th-product-compare-pro'); ?></span>
+                         <span class="bold-heading"><?php esc_html_e('Table', 'th-product-compare'); ?></span>
                          <?php
                         th_apply_color('Table Content Color', 'color', 'table-content-color');
                         // th_apply_color('Even Row Background Color', 'background-color', 'row-even-bg');
@@ -129,27 +129,27 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                         th_apply_color('Remove Button Text Color', 'color', 'remove-btn-color');
                         // -------------- x --------------
                         ?>
-                        <span class="bold-heading"><?php esc_html_e('Image Remove Icon', 'th-product-compare-pro'); ?></span>
+                        <span class="bold-heading"><?php esc_html_e('Image Remove Icon', 'th-product-compare'); ?></span>
                         <?php
                         th_apply_color('Icon Color', 'color', 'img-remove-icon-color');
                         th_apply_color('Background Color', 'background-color', 'img-remove-icon-color');
                         ?>
                         <div class="th-color-picker th-input input-block">
-                            <label class="th-color-title"><?php esc_html_e('Button Size (px)', 'th-product-compare-pro'); ?></label>
+                            <label class="th-color-title"><?php esc_html_e('Button Size (px)', 'th-product-compare'); ?></label>
                             <input data-th-save='img-remove-btn-size' type="number" min="16" max="48" value="<?php echo isset($th_compare_option['img-remove-btn-size']) ? intval($th_compare_option['img-remove-btn-size']) : 18; ?>">
                         </div>
                         <?php
                         // -------------- x --------------
                         ?>
 
-                        <span class="bold-heading"><?php esc_html_e('Add To Cart', 'th-product-compare-pro'); ?></span>
+                        <span class="bold-heading"><?php esc_html_e('Add To Cart', 'th-product-compare'); ?></span>
                         <?php
                         th_apply_color('Color', 'color', 'add-to-cart');
                         th_apply_color('Background Color', 'background-color', 'add-to-cart');
                         // -------------- x --------------
                         ?>
 
-                        <span class="bold-heading"><?php esc_html_e('Close Button', 'th-product-compare-pro'); ?></span>
+                        <span class="bold-heading"><?php esc_html_e('Close Button', 'th-product-compare'); ?></span>
                         <?php
                         th_apply_color('Color', 'color', 'close-btn-style');
                         th_apply_color('Background Color', 'background-color', 'close-btn-style');
@@ -171,7 +171,7 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
     <div class="th-compare-heading" data-th-output="heading-style-bg" data-th-save="style" data-th="background-color|color">
         <div class="headingwrap">
             <span class="heading_" data-th-output="heading-style" data-th-save='style' data-th='color'><?php echo esc_html($th_headingText); ?></span>
-            <span class="th-compare-count" data-th-output="heading-style" data-th-save='style' data-th='color'><?php esc_html_e('2 Items Shown','th-product-compare-pro'); ?></span>
+            <span class="th-compare-count" data-th-output="heading-style" data-th-save='style' data-th='color'><?php esc_html_e('2 Items Shown','th-product-compare'); ?></span>
         </div>
         <span class="error_"></span>
         <div class="th-compare-output-close">
@@ -179,13 +179,13 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
         </div>
         <div class="wrap-category_">
             <div class="wrap-category_inner">
-                <a href="#" data-compare-category="all" class="active"><?php esc_html_e('All','th-product-compare-pro'); ?></a>
-                <a href="#" data-compare-category="hoodies"><?php esc_html_e('Tshirts','th-product-compare-pro'); ?></a>
+                <a href="#" data-compare-category="all" class="active"><?php esc_html_e('All','th-product-compare'); ?></a>
+                <a href="#" data-compare-category="hoodies"><?php esc_html_e('Tshirts','th-product-compare'); ?></a>
             </div>
         </div>
         <div class="th-heighlights-products">
-            <div class="th-hide-similarities" data-th-output="heading-style" data-th-save='style' data-th='color'><?php esc_html_e('Hide Similarities','th-product-compare-pro'); ?></div>
-            <div class="th-highlight-difference" data-th-output="heading-style" data-th-save='style' data-th='color'><?php esc_html_e('Highlight Differences','th-product-compare-pro'); ?></div>
+            <div class="th-hide-similarities" data-th-output="heading-style" data-th-save='style' data-th='color'><?php esc_html_e('Hide Similarities','th-product-compare'); ?></div>
+            <div class="th-highlight-difference" data-th-output="heading-style" data-th-save='style' data-th='color'><?php esc_html_e('Highlight Differences','th-product-compare'); ?></div>
         </div>
     </div>
 
@@ -193,7 +193,7 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
         <table class="product-table-configure woocommerce th-desktop-type-displey with-footer-bar" data-th-output="product-img-bg-color" data-th-save="style" data-th="background-color">
             <tbody data-th-output="table-content-color" data-th-save="style" data-th="background-color|color">
                 <tr class="_product_details_">
-                    <td class="left-title"><span><?php esc_html_e('Product Details','th-product-compare-pro'); ?></span></td>
+                    <td class="left-title"><span><?php esc_html_e('Product Details','th-product-compare'); ?></span></td>
                     
                     <!-- First Product: Sunglasses -->
                     <td class="thcpr-by-all thcpr-by-accessories">
@@ -210,15 +210,15 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                             </div>
                             <div class="_title_">
                                 <div class="product-title_">
-                                    <a target="_blank" href="#"><?php esc_html_e('Title','th-product-compare-pro'); ?></a>
+                                    <a target="_blank" href="#"><?php esc_html_e('Title','th-product-compare'); ?></a>
                                 </div>
                             </div>
-                            <div class="_SKU_" ><?php esc_html_e('SkU','th-product-compare-pro'); ?></div>
+                            <div class="_SKU_" ><?php esc_html_e('SkU','th-product-compare'); ?></div>
                             <div class="_price_">
                                 <div class="price_">
                                     <span class="price_">
                                         <span class="woocommerce-Price-amount amount" >
-                                            <bdi><span class="woocommerce-Price-currencySymbol" ><?php esc_html_e('$','th-product-compare-pro') ?></span><?php esc_html_e('90.00','th-product-compare-pro'); ?></bdi>
+                                            <bdi><span class="woocommerce-Price-currencySymbol" ><?php esc_html_e('$','th-product-compare') ?></span><?php esc_html_e('90.00','th-product-compare'); ?></bdi>
                                         </span>
                                     </span>
                                 </div>
@@ -233,7 +233,7 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                                     <a href="#" 
                                        data-quantity="1" 
                                        class="th-compare-add-to-cart-btn" 
-                                       rel="nofollow"><?php esc_html_e('Add to cart','th-product-compare-pro') ?></a>
+                                       rel="nofollow"><?php esc_html_e('Add to cart','th-product-compare') ?></a>
                                 </div>
                             </div>
                         </div>
@@ -254,15 +254,15 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                             </div>
                             <div class="_title_">
                                 <div class="product-title_">
-                                    <a target="_blank" href="#"><?php esc_html_e('Title','th-product-compare-pro'); ?></a>
+                                    <a target="_blank" href="#"><?php esc_html_e('Title','th-product-compare'); ?></a>
                                 </div>
                             </div>
-                            <div class="_SKU_" ><?php esc_html_e('SkU','th-product-compare-pro'); ?></div>
+                            <div class="_SKU_" ><?php esc_html_e('SkU','th-product-compare'); ?></div>
                             <div class="_price_">
                                 <div class="price_">
                                     <span class="price_">
                                         <span class="woocommerce-Price-amount amount" >
-                                            <bdi><span class="woocommerce-Price-currencySymbol" ><?php esc_html_e('$','th-product-compare-pro') ?></span><?php esc_html_e('90.00','th-product-compare-pro'); ?></bdi>
+                                            <bdi><span class="woocommerce-Price-currencySymbol" ><?php esc_html_e('$','th-product-compare') ?></span><?php esc_html_e('90.00','th-product-compare'); ?></bdi>
                                         </span>
                                     </span>
                                 </div>
@@ -277,7 +277,7 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                                     <a href="#" 
                                        data-quantity="1" 
                                        class="th-compare-add-to-cart-btn" 
-                                       rel="nofollow"><?php esc_html_e('Add to cart','th-product-compare-pro') ?></a>
+                                       rel="nofollow"><?php esc_html_e('Add to cart','th-product-compare') ?></a>
                                 </div>
                             </div>
                         </div>
@@ -285,9 +285,9 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                 </tr>
 
                 <tr class="_rating_">
-                    <td class="left-title"><span><?php esc_html_e('Rating','th-product-compare-pro'); ?></span></td>
+                    <td class="left-title"><span><?php esc_html_e('Rating','th-product-compare'); ?></span></td>
                     <td class="thcpr-by-all thcpr-by-accessories">
-                        <div class="mobile-title"><?php esc_html_e('Rating','th-product-compare-pro'); ?></div>
+                        <div class="mobile-title"><?php esc_html_e('Rating','th-product-compare'); ?></div>
                         <span class="th-compare-rating">
                             <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5" data-th-output="rating-color" data-th-save='style' data-th='color'>
                                 <span></span>
@@ -295,7 +295,7 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                         </span>
                     </td>
                     <td class="thcpr-by-all thcpr-by-hoodies">
-                        <div class="mobile-title"><?php esc_html_e('Rating','th-product-compare-pro'); ?></div>
+                        <div class="mobile-title"><?php esc_html_e('Rating','th-product-compare'); ?></div>
                         <span class="th-compare-rating">
                             <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5" data-th-output="rating-color" data-th-save='style' data-th='color'>
                                 <span></span>
@@ -305,26 +305,26 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                 </tr>
 
                 <tr class="_description_">
-                    <td class="left-title"><span ><?php esc_html_e('Description','th-product-compare-pro'); ?></span></td>
+                    <td class="left-title"><span ><?php esc_html_e('Description','th-product-compare'); ?></span></td>
                     <td class="thcpr-by-all thcpr-by-accessories">
-                        <div class="mobile-title"><?php esc_html_e('Description','th-product-compare-pro'); ?></div>
-                        <span><?php esc_html_e('This is a simple product.','th-product-compare-pro'); ?></span>
+                        <div class="mobile-title"><?php esc_html_e('Description','th-product-compare'); ?></div>
+                        <span><?php esc_html_e('This is a simple product.','th-product-compare'); ?></span>
                     </td>
                     <td class="thcpr-by-all thcpr-by-hoodies">
                         <div class="mobile-title">Description</div>
-                        <span><?php esc_html_e('This is a simple product.','th-product-compare-pro'); ?></span>
+                        <span><?php esc_html_e('This is a simple product.','th-product-compare'); ?></span>
                     </td>
                 </tr>
 
                 <tr class="_availability_">
-                    <td class="left-title"><span><?php esc_html_e('Availability','th-product-compare-pro'); ?></span></td>
+                    <td class="left-title"><span><?php esc_html_e('Availability','th-product-compare'); ?></span></td>
                     <td class="thcpr-by-all thcpr-by-accessories">
-                        <div class="mobile-title"><?php esc_html_e('Availability','th-product-compare-pro'); ?></div>
-                        <span class="th-in-stoct"><?php esc_html_e('in stock','th-product-compare-pro'); ?></span>
+                        <div class="mobile-title"><?php esc_html_e('Availability','th-product-compare'); ?></div>
+                        <span class="th-in-stoct"><?php esc_html_e('in stock','th-product-compare'); ?></span>
                     </td>
                     <td class="thcpr-by-all thcpr-by-hoodies">
-                        <div class="mobile-title"><?php esc_html_e('Availability','th-product-compare-pro'); ?></div>
-                        <span class="th-in-stoct"><?php esc_html_e('in stock','th-product-compare-pro'); ?></span>
+                        <div class="mobile-title"><?php esc_html_e('Availability','th-product-compare'); ?></div>
+                        <span class="th-in-stoct"><?php esc_html_e('in stock','th-product-compare'); ?></span>
                     </td>
                 </tr>
 
@@ -400,7 +400,7 @@ $blankImage2 = '<img src="' . esc_attr($blankImgUrl) . '">';
                             <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>
                             <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>
                         </svg>
-                        <span class="text_"><?php esc_html_e('Compare','th-product-compare-pro'); ?></span>
+                        <span class="text_"><?php esc_html_e('Compare','th-product-compare'); ?></span>
                     </a>
                 </div>
             </div>

@@ -21,15 +21,15 @@ if ($save_productsMode == 'manual') {
     <div>
         <div class="row_">
             <div>
-                <span class="bold-heading"><?php esc_html_e("Show Compare Product", 'th-product-compare-pro'); ?></span>
+                <span class="bold-heading"><?php esc_html_e("Show Compare Product", 'th-product-compare'); ?></span>
             </div>
             <div>
                 <select class="tpcp_choose_product_auto_manual" name="tpcp_choose_product_auto_manual">
-                    <option <?php echo esc_attr($checkAuto); ?> value='auto'><?php esc_html_e("Auto", 'th-product-compare-pro'); ?> </option>
-                    <option <?php echo esc_attr($checkManual); ?> value='manual'><?php esc_html_e("Manual", 'th-product-compare-pro'); ?></option>
-                    <option <?php echo esc_attr($checkHide); ?> value='hide'><?php esc_html_e("None", 'th-product-compare-pro'); ?> </option>
+                    <option <?php echo esc_attr($checkAuto); ?> value='auto'><?php esc_html_e("Auto", 'th-product-compare'); ?> </option>
+                    <option <?php echo esc_attr($checkManual); ?> value='manual'><?php esc_html_e("Manual", 'th-product-compare'); ?></option>
+                    <option <?php echo esc_attr($checkHide); ?> value='hide'><?php esc_html_e("None", 'th-product-compare'); ?> </option>
                 </select>
-                <i class='description'><?php esc_html_e("Auto settings are the Default settings of Compare products setting. If you want to set settings manually for this product, please select the manual option from the dropdown.", 'th-product-compare-pro'); ?></i>
+                <i class='description'><?php esc_html_e("Auto settings are the Default settings of Compare products setting. If you want to set settings manually for this product, please select the manual option from the dropdown.", 'th-product-compare'); ?></i>
             </div>
         </div>
         <!-- tab content  -->
@@ -38,7 +38,7 @@ if ($save_productsMode == 'manual') {
         ?>
         <div class="row_ hide_show_wrap <?php echo esc_attr($checkShow); ?>">
             <div>
-                <span class="bold-heading"><?php esc_html_e("Include Compare Product", 'th-product-compare-pro'); ?></span>
+                <span class="bold-heading"><?php esc_html_e("Include Compare Product", 'th-product-compare'); ?></span>
             </div>
             <div>
 
@@ -56,7 +56,7 @@ if ($save_productsMode == 'manual') {
                                 ?>
                                             <span class="added_id" data-id="<?php echo esc_attr($valueWithDash[0]); ?>">
                                                 <span class="dashicons dashicons-no rm_"></span>
-                                                <span class="p_title"><?php esc_html_e($valueWithDash[1], 'th-product-compare-pro'); ?></span>
+                                                <span class="p_title"><?php esc_html_e($valueWithDash[1], 'th-product-compare'); ?></span>
                                             </span>
                                 <?php endforeach;
                                     }
@@ -71,7 +71,7 @@ if ($save_productsMode == 'manual') {
                         </div>
                     </div>
                 </div>
-                <i class='description'><?php esc_html_e("Select products manually to show them on compare table.", 'th-product-compare-pro'); ?> </i>
+                <i class='description'><?php esc_html_e("Select products manually to show them on compare table.", 'th-product-compare'); ?> </i>
 
             </div>
         </div>

@@ -55,7 +55,7 @@ class th_compare_admin
                     );
                 }
             } else {
-                $items['no_product'] = esc_html__('No Product Found', 'th-product-compare-pro');
+                $items['no_product'] = esc_html__('No Product Found', 'th-product-compare');
             }
             wp_send_json_success($items);
         }
@@ -181,7 +181,7 @@ class th_compare_admin
     function tpcp_tab_custom($tabs)
     {
         $tabs['th-compare-custom'] = array(
-            'label' => esc_html__('Compare Option', 'th-product-compare-pro'),
+            'label' => esc_html__('Compare Option', 'th-product-compare'),
             'target' => 'th_custom_tab_product_option',
             'priority' => 51,
         );

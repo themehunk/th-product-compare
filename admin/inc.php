@@ -20,7 +20,7 @@ class th_product_compare
         $this->createPostForCustomPost();
         $this->tpcp_localizeOption = self::get_cached_option();
 
-        if ( isset($_GET['page']) && $_GET['page'] === 'tpcp-product-compare') {
+        if ( isset($_GET['page']) && $_GET['page'] === 'th-product-compare') {
                 remove_all_actions('admin_notices');
                 remove_all_actions('all_admin_notices');
             }
@@ -49,25 +49,25 @@ class th_product_compare
     public function admin_menu()
     {
         // add_menu_page(
-        //     esc_html__('TH Compare Pro', 'th-product-compare-pro'),
-        //     esc_html__('TH Compare Pro', 'th-product-compare-pro'),
+        //     esc_html__('TH Compare Pro', 'th-product-compare'),
+        //     esc_html__('TH Compare Pro', 'th-product-compare'),
         //     'manage_options',
-        //     'tpcp-product-compare',
+        //     'th-product-compare',
         //     array($this, 'display_addons'),
         //     esc_url(TH_PRODUCT_URL . 'assets/img/th-nav-logo.png'),
         //     54,
         // );
-        add_submenu_page('themehunk-plugins', __('Product Compare', 'th-product-compare-pro'), __('Product Compare', 'th-product-compare-pro'), 'manage_options', 'tpcp-product-compare', array($this, 'display_addons'), 54);
+        add_submenu_page('themehunk-plugins', __('Product Compare', 'th-product-compare'), __('Product Compare', 'th-product-compare'), 'manage_options', 'th-product-compare', array($this, 'display_addons'), 54);
     }
 
     public function add_menu_links($links)
     {
-        $links[] = '<a href="' . esc_url(admin_url("admin.php?page=tpcp-product-compare")) . '">' . esc_html__('Settings', 'th-product-compare-pro') . '</a>';
+        $links[] = '<a href="' . esc_url(admin_url("admin.php?page=th-product-compare")) . '">' . esc_html__('Settings', 'th-product-compare') . '</a>';
         return $links;
     }
     public function display_addons()
     {
-        if (isset($_GET['page']) && sanitize_text_field($_GET['page']) == 'tpcp-product-compare') {
+        if (isset($_GET['page']) && sanitize_text_field($_GET['page']) == 'th-product-compare') {
             $th_compare_option = $this->tpcp_localizeOption;
             include_once "page.php";
         }
@@ -130,10 +130,10 @@ class th_product_compare
     public function enqueue_admin_script()
     {
 
-        if (isset($_GET['page']) && $_GET['page'] == 'tpcp-product-compare') {
+        if (isset($_GET['page']) && $_GET['page'] == 'th-product-compare') {
             wp_enqueue_style('tpcp-color-picker', TH_PRODUCT_URL . 'assets/color/nano.min.css', false, TH_PRODUCT_VERSION);
-            wp_enqueue_style('tpcp-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false, TH_PRODUCT_VERSION);
-            wp_enqueue_style('tpcp-product-compare-style-mobile', TH_PRODUCT_URL . 'assets/style-mobile.css', false, TH_PRODUCT_VERSION);
+            wp_enqueue_style('th-product-compare-style', TH_PRODUCT_URL . 'assets/style.css', false, TH_PRODUCT_VERSION);
+            wp_enqueue_style('th-product-compare-style-mobile', TH_PRODUCT_URL . 'assets/style-mobile.css', false, TH_PRODUCT_VERSION);
             wp_enqueue_script('tpcp-color-picker', TH_PRODUCT_URL . 'assets/color/pickr.es5.min.js', array('jquery'), TH_PRODUCT_VERSION, true);
 
             wp_enqueue_script('tpcp-product-js', TH_PRODUCT_URL . 'assets/js/script.js', array('jquery', 'jquery-ui-sortable'), TH_PRODUCT_VERSION, true);
@@ -144,14 +144,14 @@ class th_product_compare
                     'tpcp_product_ajax_url' => esc_url(admin_url('admin-ajax.php')),
                     'th_compare_style' => $this->tpcp_localizeOption,
                     'tpcp_nonce' => wp_create_nonce('tpcp_plugin_nonce'),
-                    'headingtext' => __('COMPARE PRODUCTS','th-product-compare-pro')
+                    'headingtext' => __('COMPARE PRODUCTS','th-product-compare')
                 )
             );
         }
     }
     public function enque_for_page_editing()
     {
-        wp_enqueue_style('tpcp-product-compare-style-single-page', TH_PRODUCT_URL . 'assets/single-page-setting-back.css', false, TH_PRODUCT_VERSION);
+        wp_enqueue_style('th-product-compare-style-single-page', TH_PRODUCT_URL . 'assets/single-page-setting-back.css', false, TH_PRODUCT_VERSION);
         wp_enqueue_script('tpcp-product-js-single-page', TH_PRODUCT_URL . 'assets/js/single-page.js', [], TH_PRODUCT_VERSION, true);
         wp_localize_script(
             'tpcp-product-js-single-page',
@@ -181,8 +181,8 @@ class th_product_compare
         // }
 
         wp_enqueue_style('dashicons');
-        wp_enqueue_style('tpcp-product-compare-style-front', TH_PRODUCT_URL . 'assets/fstyle.css', false, TH_PRODUCT_VERSION);
-        wp_enqueue_style('tpcp-product-compare-style-front-mobile', TH_PRODUCT_URL . 'assets/fstyle-mobile.css', array('tpcp-product-compare-style-front'), TH_PRODUCT_VERSION);
+        wp_enqueue_style('th-product-compare-style-front', TH_PRODUCT_URL . 'assets/fstyle.css', false, TH_PRODUCT_VERSION);
+        wp_enqueue_style('th-product-compare-style-front-mobile', TH_PRODUCT_URL . 'assets/fstyle-mobile.css', array('th-product-compare-style-front'), TH_PRODUCT_VERSION);
         wp_enqueue_script('tpcp-product-js', TH_PRODUCT_URL . 'assets/js/fscript.js', array('jquery'), TH_PRODUCT_VERSION, true);
         wp_localize_script(
             'tpcp-product-js',
@@ -190,8 +190,8 @@ class th_product_compare
             array(
                 'tpcp_product_ajax_url' => esc_url(admin_url('admin-ajax.php')),
                 'th_compare_style_local' => $this->tpcp_localizeOption,
-                'headingtext' => __('COMPARE PRODUCTS','th-product-compare-pro'),
-                'view_cart_text' => __('View Cart','th-product-compare-pro'),
+                'headingtext' => __('COMPARE PRODUCTS','th-product-compare'),
+                'view_cart_text' => __('View Cart','th-product-compare'),
             )
         );
     }

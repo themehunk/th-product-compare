@@ -204,7 +204,7 @@ public function btnBYoption($product_id)
 
         $defaultOptions = array(
             'compare-btn-type'     => 'icon',
-            'compare-btn-text'     => esc_html__( 'Compare', 'th-product-compare-pro' ),
+            'compare-btn-text'     => esc_html__( 'Compare', 'th-product-compare' ),
             'compare-appear-type'  => '',
             'compare-at-shop-hook' => '',
         );
@@ -271,7 +271,7 @@ public function btnBYoption($product_id)
                 $html = '<div class="th-compare-filter-shortcode ' . $addClassWrapClass . '">';
                 $html .= '<div class="th-compare-output-wrap-inner">';
                 $html .= '<div class="th-compare-heading">';
-                $html .= '<span class="heading_">' . esc_html__('Compare Products', 'th-product-compare-pro') . '</span>';
+                $html .= '<span class="heading_">' . esc_html__('Compare Products', 'th-product-compare') . '</span>';
                 if (isset($productHtml['category'])) {
                     $html .= $productHtml['category'];
                 }
@@ -352,7 +352,7 @@ function thpc_compare_menu_icon( $echo = true ) {
     }
 
     $badge_style = $count > 0 ? '' : ' style="display:none;"';
-    $label       = esc_attr__( 'Compare Products', 'th-product-compare-pro' );
+    $label       = esc_attr__( 'Compare Products', 'th-product-compare' );
 
     $html  = '<span class="th-compare-icon-widget" role="button" tabindex="0"';
     $html .= ' aria-label="' . $label . '"';
@@ -408,7 +408,7 @@ function thpc_compare_menu_icon_floating() {
     }
 
     $badge_style = $count > 0 ? '' : ' style="display:none;"';
-    $label       = esc_attr__( 'Compare Products', 'th-product-compare-pro' );
+    $label       = esc_attr__( 'Compare Products', 'th-product-compare' );
 
     $float_pos = isset( $option['icon-float-position'] ) ? $option['icon-float-position'] : 'bottom-right';
     $pos_class = $float_pos === 'bottom-left' ? ' class="th-icon-bottom-left"' : '';

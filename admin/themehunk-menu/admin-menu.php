@@ -20,7 +20,7 @@ if (!function_exists('themehunk_admin_menu')) {
            wp_send_json_error(
              array(
                'success' => false,
-               'message' => __( 'No plugin specified', 'th-product-compare-pro' ),
+               'message' => __( 'No plugin specified', 'th-product-compare' ),
              )
            );
          }
@@ -37,14 +37,14 @@ if (!function_exists('themehunk_admin_menu')) {
          wp_send_json_success(
            array(
              'success' => true,
-             'message' => __( 'Plugin Successfully Activated', 'th-product-compare-pro' ),
+             'message' => __( 'Plugin Successfully Activated', 'th-product-compare' ),
            )
          );
            }
     }
 
     function themehunk_admin_menu(){
-            add_menu_page(__('ThemeHunk', 'th-product-compare'), __('ThemeHunk', 'th-product-compare-pro'), 'manage_options', 'themehunk-plugins', 'themehunk_plugins',  THEMEHUNK_PURL . '/th-option/assets/images/themehunk-icon.svg', 59);
+            add_menu_page(__('ThemeHunk', 'th-product-compare'), __('ThemeHunk', 'th-product-compare'), 'manage_options', 'themehunk-plugins', 'themehunk_plugins',  THEMEHUNK_PURL . '/th-option/assets/images/themehunk-icon.svg', 59);
         }
     function themehunk_plugins(){
 
