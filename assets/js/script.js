@@ -333,6 +333,27 @@ function tpcpSplitAtleastText(text) {
         },
       });
     },
+    rgbToHex: function(color){
+
+    if(!color) return '';
+
+    if(color.indexOf('#') === 0){
+        return color.toUpperCase();
+    }
+
+    let rgb = color.match(/\d+/g);
+
+    if(!rgb) return color;
+
+    return "#" +
+        ((1 << 24) +
+        (parseInt(rgb[0]) << 16) +
+        (parseInt(rgb[1]) << 8) +
+        parseInt(rgb[2]))
+        .toString(16)
+        .slice(1)
+        .toUpperCase();
+},
     bind: function () {
       $(document).on("click", ".th-option-save-btn", TH.saveData);
       $(document).on("click", "[data-th-color][output-type]", TH.pkr);
@@ -343,6 +364,7 @@ function tpcpSplitAtleastText(text) {
       );
       $(document).on("click", ".th-compare-reset-style-btn", TH.resetStyle);
       TH.singlePageShow();
+      $(document).on("click", ".th-color-reset", TH.resetSingleColor);
     },
     singlePageShow: function () {
       $('input[value="auto-single-page"]').change(function () {
@@ -378,7 +400,11 @@ function tpcpSplitAtleastText(text) {
       );
       if (outoutOBj.length) {
         let getColorValue = outoutOBj.css(getColorProperty);
-        inputOBj.css("background-color", getColorValue);
+
+        inputOBj.css("background-color", getColorValue).attr("data-default-color", getColorValue);
+
+        inputOBj.siblings(".th-color-value").val(TH.rgbToHex(getColorValue));
+
       }
     },
     pkr: function (e) {
@@ -419,12 +445,42 @@ function tpcpSplitAtleastText(text) {
           let color_ = color.toHEXA().toString(0);
           // preview css on input editor item
           select_element.css("background-color", color_);
+          select_element.siblings(".th-color-value").val(color_);
           TH._setStyleColor(outputColor, color_, getColorProperty);
         })
         .on("hide", (instance) => {
           instance._root.app.remove();
         });
     },
+    resetSingleColor: function (e) {
+
+    e.preventDefault();
+
+    let btn = $(this);
+
+    let picker = btn.siblings(".color-output");
+
+    let defaultColor = picker.attr("data-default-color");
+
+    if (!defaultColor) {
+        return;
+    }
+
+    let property = picker.attr("output-type");
+
+    let colorID = picker.attr("data-th-color");
+
+    let output = $('[data-th-output="' + colorID + '"]');
+
+    picker.css("background-color", defaultColor);
+
+    btn
+        .siblings(".th-color-value")
+        .val(TH.rgbToHex(defaultColor));
+
+    TH._setStyleColor(output, defaultColor, property);
+
+},
     _setStyleColor: function (element, element_value, styleProperty = false) {
       if (element.length > 1) {
         $.each(element, (i, element__) => {

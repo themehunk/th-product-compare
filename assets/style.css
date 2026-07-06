@@ -140,7 +140,14 @@ img{
 
 
 
-
+.th-color-picker-content {
+  display: flex;
+  align-items: center;
+  grid-gap: 9px;
+}
+.th-color-picker-content .th-color-value{
+  width: 108px!important;
+}
 .container-tabs a{
   text-decoration: none;
 }
@@ -1071,6 +1078,50 @@ font-size: 13px;
 .themehunk_page_tpcp-product-compare .notice{
   display: none!important;
 }
+/* Premium Green Upgrade Button */
+a[title="Get Premium Version"] {
+    position: relative;
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, #00c853, #009127, #00bfa5);
+    background-size: 200% 200%;
+    /* box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35); */
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    animation: gradientMove 4s ease infinite;
+    margin-left: auto;
+    margin-right: 9px;
+    letter-spacing: 0;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Shine Effect */
+a[title="Get Premium Version"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+a[title="Get Premium Version"]:hover::before {
+    left: 125%;
+}
 @media screen and (max-width: 1024px){
   .th-plugin-common-wrap .th-left{
     width: 199px;
@@ -1993,4 +2044,7 @@ tr[data-change-showhide-tab="pricing-table-appear"]{
   margin-top: 9px;
 }
 
+.th-nav_ > a.pro-tabs{
+  color: #b4bbb4;
+}
 

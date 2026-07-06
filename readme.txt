@@ -110,6 +110,8 @@ Yes, You can translate our plugin to desired language.
 
 = 1.4.0 =
 * Fix: Remove all products icon in footer bar now working correctly.
+* Color code and resbutton adde dto old color picker.
+* Upgrade to pro , premium buttons added.
 
 = 1.3.12 =
 * Fix: Remove all products icon in footer bar now working correctly.
