@@ -486,7 +486,7 @@ $initTitleAndRow = array_merge(
             $icon_badge_style = $add_TR_AT_last > 0 ? '' : ' style="display:none;"';
             $return['compare_icon'] = wp_kses(
                 "<span class='th-compare-icon-widget' role='button' tabindex='0'" .
-                " style='background:" . esc_attr($icon_bg) . ";color:" . esc_attr($icon_color) . ";'>" .
+                " '>" .
                 "<span class='th-compare-icon-widget-count'" . $icon_badge_style . ">" . intval($add_TR_AT_last) . "</span>" .
                 "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z'></path><path d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12'></path><path d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17'></path></svg>" .
                 "</span>",
@@ -552,9 +552,6 @@ $initTitleAndRow = array_merge(
             'compare-menu-tab-position' => 'left',
             'compare-menu-tab-text' => esc_html__('Compare', 'th-product-compare'),
             'field-menu-icon' => '1',
-            'icon-bg-color' => '#111827',
-            'icon-svg-color' => '#ffffff',
-            'icon-badge-color' => '#ef4444',
         ];
         $th_compare_option = th_product_compare::get_cached_option();
         if (is_array($th_compare_option)) {

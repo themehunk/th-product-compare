@@ -107,13 +107,14 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
                 <span><?php esc_html_e('Product Compare', 'th-product-compare'); ?></span>
             </span>
             <a data-group-tabs="main" data-tab="general" href="#" class="active"><span ><?php echo thpc_get_svg_icon('settings'); ?></span><?php esc_html_e('Basic Settings', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="setting" href="#" class="pro-tabs"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advanced (Pro)', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="single-page-product" href="#"><span><?php echo thpc_get_svg_icon('singlepage'); ?></span><?php esc_html_e('Single Product Page', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="add-shortcode" href="#" class="pro-tabs"><span><?php echo thpc_get_svg_icon('shortcode'); ?></span><?php esc_html_e('Shortcode Generator (Pro)', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="add-hook" href="#"><span><?php echo thpc_get_svg_icon('hooks'); ?></span><?php esc_html_e('Custom Hook', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="style" href="#"><span><?php echo thpc_get_svg_icon('style'); ?></span><?php esc_html_e('Style', 'th-product-compare'); ?></a>
-            <a data-group-tabs="main" data-tab="mobile" href="#" class="pro-tabs"><span><?php echo thpc_get_svg_icon('mobile'); ?></span><?php esc_html_e('Mobile Style (Pro)', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="compare-icon" href="#"><span><?php echo thpc_get_svg_icon('compare-icon'); ?></span><?php esc_html_e('Compare Icon', 'th-product-compare'); ?></a>
+
+            <a data-group-tabs="main" data-tab="setting" href="#" class="pro-tabs"><span><?php echo thpc_get_svg_icon('advance'); ?></span><?php esc_html_e('Advanced (Pro)', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="add-shortcode" href="#" class="pro-tabs"><span><?php echo thpc_get_svg_icon('shortcode'); ?></span><?php esc_html_e('Shortcode Generator (Pro)', 'th-product-compare'); ?></a>
+            <a data-group-tabs="main" data-tab="mobile" href="#" class="pro-tabs"><span><?php echo thpc_get_svg_icon('mobile'); ?></span><?php esc_html_e('Mobile Style (Pro)', 'th-product-compare'); ?></a>
 
             <a data-group-tabs="main" data-tab="help" href="#"><span><?php echo thpc_get_svg_icon('help'); ?></span><?php esc_html_e('Help', 'th-product-compare'); ?></a>
             <a data-group-tabs="main" data-tab="reset" href="#"><span><?php echo thpc_get_svg_icon('reset'); ?></span><?php esc_html_e('Reset', 'th-product-compare'); ?></a>
@@ -136,7 +137,9 @@ if ( ! function_exists( 'thpc_get_svg_icon' ) ) {
                 <?php esc_html_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>
                 </a>
                 <div class="th-save-btn">
-                <button class="button button-primary th-option-save-btn"><?php esc_html_e("Save Changes", 'th-product-compare'); ?></button>
+                <button disabled class="button button-primary th-option-save-btn">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save transition-transform group-hover:scale-110" aria-hidden="true"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"></path><path d="M7 3v4a1 1 0 0 0 1 1h7"></path></svg></span><span class="text"><?php esc_html_e( 'Save All Changes', 'th-advance-product-search' ); ?></span>
+                </button>
                 </div>
             </div>
 

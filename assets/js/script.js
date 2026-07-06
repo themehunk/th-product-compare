@@ -210,6 +210,11 @@ function tpcpSplitAtleastText(text) {
       });
       return returnSave;
     },
+    enableSaveButton: function () {
+    $(".th-option-save-btn")
+        .prop("disabled", false)
+        .removeAttr("disabled");
+    },
     saveData: function () {
       let thisBTN = $(this);
       let thContainer = thisBTN.closest(".th-product-compare-wrap");
@@ -226,10 +231,10 @@ function tpcpSplitAtleastText(text) {
         },
         success: function (response) {
           if (response.data) {
-            thisBTN.removeClass("loading");
+            thisBTN.prop("disabled", true).attr("disabled", "disabled").removeClass("loading");
           }
           setTimeout(() => {
-            thisBTN.removeClass("loading");
+            thisBTN.removeClass("loading").prop("disabled", true).attr("disabled", "disabled");
           }, 500);
         },
       });
@@ -365,6 +370,8 @@ function tpcpSplitAtleastText(text) {
       $(document).on("click", ".th-compare-reset-style-btn", TH.resetStyle);
       TH.singlePageShow();
       $(document).on("click", ".th-color-reset", TH.resetSingleColor);
+
+      $(document).on( "input change", "[data-th-save]", TH.enableSaveButton);
     },
     singlePageShow: function () {
       $('input[value="auto-single-page"]').change(function () {
@@ -447,6 +454,8 @@ function tpcpSplitAtleastText(text) {
           select_element.css("background-color", color_);
           select_element.siblings(".th-color-value").val(color_);
           TH._setStyleColor(outputColor, color_, getColorProperty);
+
+          TH.enableSaveButton();
         })
         .on("hide", (instance) => {
           instance._root.app.remove();
@@ -479,6 +488,8 @@ function tpcpSplitAtleastText(text) {
         .val(TH.rgbToHex(defaultColor));
 
     TH._setStyleColor(output, defaultColor, property);
+
+    TH.enableSaveButton();
 
 },
     _setStyleColor: function (element, element_value, styleProperty = false) {
