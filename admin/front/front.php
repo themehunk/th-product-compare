@@ -356,7 +356,7 @@ function thpc_compare_menu_icon( $echo = true ) {
 
     $html  = '<span class="th-compare-icon-widget" role="button" tabindex="0"';
     $html .= ' aria-label="' . $label . '"';
-    $html .= ' style="background:' . esc_attr( $bg ) . ';color:' . esc_attr( $color ) . ';">';
+    $html .= ' >';
     $html .= '<span class="th-compare-icon-widget-count"' . $badge_style . '>' . intval( $count ) . '</span>';
     $html .= '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
     $html .= '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>';
@@ -415,7 +415,7 @@ function thpc_compare_menu_icon_floating() {
     echo '<div id="th-compare-icon-wrap"' . $pos_class . '>';
     echo '<span class="th-compare-icon-widget" role="button" tabindex="0"';
     echo ' aria-label="' . esc_attr( $label ) . '"';
-    echo ' style="background:' . esc_attr( $bg ) . ';color:' . esc_attr( $color ) . ';">';
+    echo ' >';
     echo '<span class="th-compare-icon-widget-count"' . wp_kses_post( $badge_style ) . '>' . intval( $count ) . '</span>';
     echo '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
     echo '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>';

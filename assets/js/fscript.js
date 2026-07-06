@@ -911,6 +911,18 @@ thCompare.updateCompareLimitUI();
           } else if (getKey == "footer-bar-img-bg-colorth-idbackground-color") {
             styleAdd += ".th-compare-footer-wrap > div .product_image .img_{background-color:" + style_[getKey] + "!important;}";
           }
+          else if (getKey == "floating-ci-colorth-idcolor") {
+            styleAdd += ".th-compare-icon-widget{color:" + style_[getKey] + ";}";
+          }
+          else if (getKey == "floating-ci-colorth-idbackground-color") {
+            styleAdd += ".th-compare-icon-widget{background-color:" + style_[getKey] + ";}";
+          }
+          else if (getKey == "floating-ci-badge-colorth-idcolor") {
+            styleAdd += ".th-compare-icon-widget-count{color:" + style_[getKey] + ";}";
+          }
+           else if (getKey == "floating-ci-badge-colorth-idbackground-color") {
+            styleAdd += ".th-compare-icon-widget-count{background-color:" + style_[getKey] + ";}";
+          }
           // Mobile colors
           else if (getKey == "mobile-table-bg-colorth-idbackground-color") {
             styleAdd += ".product-table-configure.mobile-flex{background-color:" + style_[getKey] + "!important;}";
