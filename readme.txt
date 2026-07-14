@@ -114,6 +114,7 @@ Yes, You can translate our plugin to desired language.
 * Upgrade to pro , premium buttons added.
 * New: Comapare Icon added.
 * Update: Admin Style updated.
+* Update: Astra compatibility added.
 
 = 1.3.12 =
 * Fix: Remove all products icon in footer bar now working correctly.
