@@ -246,7 +246,7 @@ public function btnBYoption($product_id)
         }
     }
 
-    $html = '<div class="thunk-compare '.esc_attr($shop_btntype).'"><div class="th-product-compare-btn-wrap">';
+    $html = '<div class="thunk-compare th-theme-action '.esc_attr($shop_btntype).'"><div class="th-product-compare-btn-wrap">';
     if ($options['compare-btn-type'] == 'checkbox') {
         $html .= '<label class="' . esc_attr($btnClass) . '" data-th-product-id="' . esc_attr($product_id) . '">' . $compareText . '</label>';
     } else {

@@ -2313,27 +2313,33 @@ vertical-align: bottom;
 }
 
 /********************** Themes Compatibility Css  *********************************** */
-.single-product .ast-woocommerce-container .thunk-compare{
+.single-product .ast-woocommerce-container .thunk-compare,
+.wp-theme-storefront .summary .thunk-compare{
   display: inline-flex;
   margin-left: 9px;
   height: 34px;
+  align-items: center;
 }
 
-.ast-article-single .summary .thunk-compare{
+.ast-article-single .summary .thunk-compare,
+.wp-theme-storefront .summary .thunk-compare{
     border: 1px solid #D1D5DB;
     border-radius: 4px;
     padding: 4px 9px;
 }
 
 .ast-article-single .summary  .th-product-compare-btn.btn_type, 
-.ast-article-single .summary  .th-product-compare-btn.icon_type{
+.ast-article-single .summary  .th-product-compare-btn.icon_type,
+.wp-theme-storefront .summary .th-product-compare-btn.btn_type,
+.wp-theme-storefront .summary .th-product-compare-btn.icon_type{
     font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.ast-article-single .summary .th-product-compare-btn .icon{
+.ast-article-single .summary .th-product-compare-btn .icon,
+.wp-theme-storefront .summary .th-product-compare-btn .icon{
   font-size: 19px;
 }
 
@@ -2415,7 +2421,7 @@ vertical-align: bottom;
 }
 
 
-
+/* shop page*/
 .astra-shop-thumbnail-wrap .th-compatible-compare{
     position: absolute;
     right: 1em;
@@ -2430,7 +2436,6 @@ vertical-align: bottom;
     visibility: visible;
     opacity: 1;
 }
-/* shop page*/
 .astra-shop-thumbnail-wrap .th-compatible-compare .th-product-compare-btn{
     border-radius: 50%;
     color: var(--ast-global-color-2)!important;
@@ -2448,5 +2453,70 @@ vertical-align: bottom;
 }
 .astra-shop-thumbnail-wrap .th-compatible-compare .th-product-compare-btn:hover{
   opacity: 1!important;
+}
+
+/* StoreFront */
+.wp-theme-storefront.single-product .th-product-compare-btn-wrap{
+  justify-content: center;
+  margin: 5px 0;
+}
+.wp-theme-storefront .summary .thunk-compare{
+  height: 45px;
+}
+
+/* Blocksy */
+.wp-theme-blocksy .summary .thunk-compare{
+  display: inline-flex;
+  margin-left: 9px;
+  height: 34px;
+  border: 1px solid var(--quantity-initial-color, var(--theme-button-background-initial-color));
+  border-radius: 4px;
+  padding: 4px 9px;
+  height: initial;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+}
+.wp-theme-blocksy .summary .th-product-compare-btn.btn_type, 
+.wp-theme-blocksy .summary .th-product-compare-btn.icon_type{
+  font-size: 14px;
+}
+
+.wp-theme-blocksy li.product .th-product-compare-btn.btn_type, 
+.wp-theme-blocksy li.product .th-product-compare-btn.icon_type{
+    color: var(--theme-button-text-hover-color);
+    border-color: var(--theme-button-border-hover-color);
+    background-color: var(--theme-button-background-hover-color);
+    min-height: var(--theme-button-min-height);
+    padding: var(--theme-button-padding);
+    text-align: center;
+    border-radius: var(--theme-button-border-radius, 3px);
+
+    font-family: var(--theme-button-font-family, var(--theme-font-family));
+    font-size: var(--theme-button-font-size);
+    font-weight: var(--theme-button-font-weight);
+    font-style: var(--theme-button-font-style);
+    line-height: var(--theme-button-line-height);
+    letter-spacing: var(--theme-button-letter-spacing);
+    text-transform: var(--theme-button-text-transform);
+    -webkit-text-decoration: var(--theme-button-text-decoration);
+    text-decoration: var(--theme-button-text-decoration);
+}
+.wp-theme-blocksy li.product  .th-product-compare-btn-wrap{
+    justify-content: var(--horizontal-alignment);
+}
+
+@media screen and (max-width: 767px){
+    .wp-theme-storefront .summary .thw-to-add-text,
+    .wp-theme-storefront .summary .th-product-compare-btn .text{
+        display: none;
+    }
+    .wp-theme-storefront .summary .th-product-compare-btn .icon{
+      margin: 0;
+    }
+    .wp-theme-blocksy .summary .thunk-compare{
+      width: 129px;
+    }
+ 
 }
 /********************** Themes Compatibility End  *********************************** */
