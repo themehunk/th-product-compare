@@ -109,8 +109,11 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = 1.4.1 =
-* Update: Plugin compatibility for following themes added
-Astra, StoreFront, Hello Elemntor, Kadence.
+* New: Added compatibility with the following themes:
+  - Astra
+  - Storefront
+  - Hello Elementor
+  - Blocksy
 
 = 1.4.0 =
 * Fix: Remove all products icon in footer bar now working correctly.
