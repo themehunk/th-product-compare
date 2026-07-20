@@ -114,6 +114,7 @@ Yes, You can translate our plugin to desired language.
   - Storefront
   - Hello Elementor
   - Blocksy
+  - Kadence
 
 = 1.4.0 =
 * Fix: Remove all products icon in footer bar now working correctly.

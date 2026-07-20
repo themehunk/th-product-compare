@@ -2541,10 +2541,12 @@ vertical-align: bottom;
     .wp-theme-blocksy .summary .thunk-compare{
       width: 129px;
     }
-    .wp-theme-hello-elementor .summary .thunk-compare .text{
+    .wp-theme-hello-elementor .summary .thunk-compare .text,
+    .wp-theme-kadence .summary .thunk-compare .text{
       display: none;
     }
-    .wp-theme-hello-elementor .summary .thunk-compare{
+    .wp-theme-hello-elementor .summary .thunk-compare,
+    .wp-theme-kadence .summary .thunk-compare{
       width: 39px;
     }
  
