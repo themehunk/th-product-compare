@@ -2314,7 +2314,9 @@ vertical-align: bottom;
 
 /********************** Themes Compatibility Css  *********************************** */
 .single-product .ast-woocommerce-container .thunk-compare,
-.wp-theme-storefront .summary .thunk-compare{
+.wp-theme-storefront .summary .thunk-compare,
+.wp-theme-hello-elementor .summary .thunk-compare,
+.wp-theme-kadence .summary .thunk-compare{
   display: inline-flex;
   margin-left: 9px;
   height: 34px;
@@ -2322,7 +2324,9 @@ vertical-align: bottom;
 }
 
 .ast-article-single .summary .thunk-compare,
-.wp-theme-storefront .summary .thunk-compare{
+.wp-theme-storefront .summary .thunk-compare,
+.wp-theme-hello-elementor .summary .thunk-compare,
+.wp-theme-kadence .summary .thunk-compare{
     border: 1px solid #D1D5DB;
     border-radius: 4px;
     padding: 4px 9px;
@@ -2331,7 +2335,11 @@ vertical-align: bottom;
 .ast-article-single .summary  .th-product-compare-btn.btn_type, 
 .ast-article-single .summary  .th-product-compare-btn.icon_type,
 .wp-theme-storefront .summary .th-product-compare-btn.btn_type,
-.wp-theme-storefront .summary .th-product-compare-btn.icon_type{
+.wp-theme-storefront .summary .th-product-compare-btn.icon_type,
+.wp-theme-hello-elementor .summary .th-product-compare-btn.btn_type,
+.wp-theme-hello-elementor .summary .th-product-compare-btn.icon_type,
+.wp-theme-kadence .summary .th-product-compare-btn.btn_type,
+.wp-theme-kadence .summary .th-product-compare-btn.icon_type{
     font-size: 14px;
     display: flex;
     align-items: center;
@@ -2339,7 +2347,9 @@ vertical-align: bottom;
 }
 
 .ast-article-single .summary .th-product-compare-btn .icon,
-.wp-theme-storefront .summary .th-product-compare-btn .icon{
+.wp-theme-storefront .summary .th-product-compare-btn .icon,
+.wp-theme-hello-elementor .summary .th-product-compare-btn .icon,
+.wp-theme-kadence .summary .th-product-compare-btn .icon{
   font-size: 19px;
 }
 
@@ -2420,6 +2430,9 @@ vertical-align: bottom;
     transform:translateX(-50%) translateY(0);
 }
 
+.single-product .th-theme-actions-wrapper .th-product-compare-btn.icon_type{
+  display: inline-flex;
+}
 
 /* shop page*/
 .astra-shop-thumbnail-wrap .th-compatible-compare{
@@ -2484,26 +2497,37 @@ vertical-align: bottom;
 
 .wp-theme-blocksy li.product .th-product-compare-btn.btn_type, 
 .wp-theme-blocksy li.product .th-product-compare-btn.icon_type{
-    color: var(--theme-button-text-hover-color);
-    border-color: var(--theme-button-border-hover-color);
-    background-color: var(--theme-button-background-hover-color);
-    min-height: var(--theme-button-min-height);
-    padding: var(--theme-button-padding);
+    color: var(--theme-text-color);
     text-align: center;
-    border-radius: var(--theme-button-border-radius, 3px);
-
-    font-family: var(--theme-button-font-family, var(--theme-font-family));
-    font-size: var(--theme-button-font-size);
-    font-weight: var(--theme-button-font-weight);
-    font-style: var(--theme-button-font-style);
-    line-height: var(--theme-button-line-height);
-    letter-spacing: var(--theme-button-letter-spacing);
-    text-transform: var(--theme-button-text-transform);
-    -webkit-text-decoration: var(--theme-button-text-decoration);
-    text-decoration: var(--theme-button-text-decoration);
+    font-family: var(--theme-font-family);
+    font-size: var(--theme-font-size);
+    font-weight: var(--theme-font-weight);
+    font-style: var(--theme-font-style, inherit);
+    line-height: var(--theme-line-height);
+    letter-spacing: var(--theme-letter-spacing);
+    text-transform: var(--theme-text-transform);
 }
 .wp-theme-blocksy li.product  .th-product-compare-btn-wrap{
     justify-content: var(--horizontal-alignment);
+}
+.wp-theme-blocksy li.product .th-product-compare-btn.btn_type:hover, 
+.wp-theme-blocksy li.product .th-product-compare-btn.icon_type:hover{
+    color: var(--theme-link-hover-color);
+}
+/* Hello Elementor */
+.wp-theme-hello-elementor .summary .thunk-compare{
+    height: 39px;
+}
+.wp-theme-hello-elementor .summary .th-product-compare-btn-wrap{
+  height: 100%;
+   box-sizing: border-box;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.wp-theme-kadence .summary .thunk-compare{
+    height: 41px;
 }
 
 @media screen and (max-width: 767px){
@@ -2516,6 +2540,12 @@ vertical-align: bottom;
     }
     .wp-theme-blocksy .summary .thunk-compare{
       width: 129px;
+    }
+    .wp-theme-hello-elementor .summary .thunk-compare .text{
+      display: none;
+    }
+    .wp-theme-hello-elementor .summary .thunk-compare{
+      width: 39px;
     }
  
 }

@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: compare, compare for woocommerce, compare product, product compare, product comparison
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,10 @@ Yes, You can translate our plugin to desired language.
 5. Pro Version
 
 == Changelog ==
+
+= 1.4.1 =
+* Update: Plugin compatibility for following themes added
+Astra, StoreFront, Hello Elemntor, Kadence.
 
 = 1.4.0 =
 * Fix: Remove all products icon in footer bar now working correctly.
