@@ -183,6 +183,85 @@ class th_product_compare
         wp_enqueue_style('dashicons');
         wp_enqueue_style('th-product-compare-style-front', TH_PRODUCT_URL . 'assets/fstyle.css', false, TH_PRODUCT_VERSION);
         wp_enqueue_style('th-product-compare-style-front-mobile', TH_PRODUCT_URL . 'assets/fstyle-mobile.css', array('th-product-compare-style-front'), TH_PRODUCT_VERSION);
+
+
+
+$excluded_themes = array(
+    'top-store-pro',
+    'open-shop',
+    'open-shop-pro',
+    'open-mart',
+    'amaz-store',
+    'jot-shop',
+    'royal-shop',
+    'royal-shop-pro',
+    'big-store',
+    'm-shop',
+    'shopline',
+    'shopline-pro',
+    'almaira-shop',
+    'almaira'
+);
+
+$current_theme = strtolower( wp_get_theme()->get_template() );
+
+if ( ! in_array( $current_theme, $excluded_themes, true ) ) {
+
+    $custom_css = '
+    /* New Tooltip */
+    .thunk-compare .th-product-compare-btn::after{
+        content: attr(th-tooltip);
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 12px);
+        transform: translateX(-50%) translateY(8px);
+        background: #1f2937;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1;
+        padding: 9px 14px;
+        border-radius: 8px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: .25s ease;
+        pointer-events: none;
+        box-shadow: 0 8px 25px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.12);
+        z-index: 9999;
+    }
+
+    /* Arrow */
+    .thunk-compare .th-product-compare-btn::before{
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 100%;
+        transform: translateX(-50%) translateY(8px);
+        border-width: 6px;
+        border-style: solid;
+        border-color: #1f2937 transparent transparent transparent;
+        opacity: 0;
+        visibility: hidden;
+        transition: .25s ease;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    /* Hover */
+    .thunk-compare .th-product-compare-btn:hover::after,
+    .thunk-compare .th-product-compare-btn:hover::before{
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+    ';
+
+    wp_add_inline_style( 'th-product-compare-style-front', $custom_css );
+}
+
+
+
         wp_enqueue_script('tpcp-product-js', TH_PRODUCT_URL . 'assets/js/fscript.js', array('jquery'), TH_PRODUCT_VERSION, true);
         wp_localize_script(
             'tpcp-product-js',
