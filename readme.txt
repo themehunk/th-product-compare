@@ -110,11 +110,13 @@ Yes, You can translate our plugin to desired language.
 
 = 1.4.1 =
 * New: Added compatibility with the following themes:
-  - Astra
+   - Astra
   - Storefront
   - Hello Elementor
   - Blocksy
   - Kadence
+  - Top Store
+  - TH Shop Mania
 
 = 1.4.0 =
 * Fix: Remove all products icon in footer bar now working correctly.
