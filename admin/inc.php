@@ -187,7 +187,6 @@ class th_product_compare
 
 
 $excluded_themes = array(
-    'top-store-pro',
     'open-shop',
     'open-shop-pro',
     'open-mart',
@@ -196,11 +195,10 @@ $excluded_themes = array(
     'royal-shop',
     'royal-shop-pro',
     'big-store',
-    'm-shop',
     'shopline',
     'shopline-pro',
     'almaira-shop',
-    'almaira'
+    'almaira',
 );
 
 $current_theme = strtolower( wp_get_theme()->get_template() );

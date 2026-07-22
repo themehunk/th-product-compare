@@ -2473,7 +2473,8 @@ vertical-align: bottom;
 .wp-theme-th-shop-mania .summary .th-product-compare-btn.icon_type .icon{
   margin: 0;
 }
-.wp-theme-th-shop-mania .summary .th-product-compare-btn.icon_type:before{
+.wp-theme-th-shop-mania .summary .th-product-compare-btn.icon_type:before,
+.wp-theme-m-shop .summary .th-product-compare-btn.icon_type:before{
   content: '';
     position: absolute;
     left: 50%;
@@ -2490,7 +2491,9 @@ vertical-align: bottom;
     top: initial;
 }
 .wp-theme-th-shop-mania .summary .thunk-compare .th-product-compare-btn:hover::after, 
-.wp-theme-th-shop-mania .summary .thunk-compare .th-product-compare-btn:hover::before {
+.wp-theme-th-shop-mania .summary .thunk-compare .th-product-compare-btn:hover::before,
+.wp-theme-m-shop .summary .th-product-compare-btn:hover:after,
+.wp-theme-m-shop .summary .th-product-compare-btn:hover:before {
     opacity: 1!important;
     visibility: visible!important;
     transform: translateX(-50%) translateY(0) !important;
@@ -2561,6 +2564,14 @@ vertical-align: bottom;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  /* M Shop */
+  .wp-theme-m-shop.woocommerce .entry-summary a.th-product-compare-btn .icon{
+    font-size: initial;
+    margin: 0;
+  }
+  .wp-theme-m-shop.woocommerce .entry-summary a.th-product-compare-btn .icon{
+    display: initial;
   }
 @media screen and (max-width: 767px){
     .wp-theme-storefront .summary .thw-to-add-text,
