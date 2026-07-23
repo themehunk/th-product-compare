@@ -39,6 +39,7 @@ if (!function_exists('th_product_compare_loaded')) {
     include_once(TH_PRODUCT_PATH . 'admin/front/front.php');
     include_once(TH_PRODUCT_PATH . 'admin/front/product.php');
     include_once(TH_PRODUCT_PATH . 'admin/back/init.php');
+    include_once(TH_PRODUCT_PATH . 'admin/deactivate-feedback.php');
     include_once(TH_PRODUCT_PATH . 'admin/front/custom-page.php');
 
     add_action('wp_loaded', 'th_product_compare_loaded');
