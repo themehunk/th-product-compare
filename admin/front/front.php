@@ -69,18 +69,71 @@ class th_product_compare_shortcode
         }
     }
 
-    public function showAndHideSingle()
-    {
-        $checkOption = th_product_compare::get_cached_option();
-        if ($checkOption && is_array($checkOption) && !empty($checkOption)) {
-            add_action('woocommerce_after_single_product_summary', [$this, 'appearAutoSinglePage']);
-            if (isset($checkOption['field-product-single-page']) && $checkOption['field-product-single-page'] == '1') {
-                add_action('woocommerce_after_add_to_cart_button', array($this, 'addCompareBtn'), 30);
-            }
-        } else {
-            add_action('woocommerce_after_add_to_cart_button', array($this, 'addCompareBtn'), 30);
+    public function showAndHideSingle() {
+
+    $checkOption = th_product_compare::get_cached_option();
+
+    if ( $checkOption && is_array( $checkOption ) && ! empty( $checkOption ) ) {
+
+        add_action(
+            'woocommerce_after_single_product_summary',
+            array( $this, 'appearAutoSinglePage' )
+        );
+
+        if (
+            isset( $checkOption['field-product-single-page'] ) &&
+            '1' === $checkOption['field-product-single-page']
+        ) {
+            add_action(
+                'woocommerce_after_add_to_cart_button',
+                array( $this, 'addCompareBtn' ),
+                30
+            );
         }
+
+    } else {
+
+        add_action(
+            'woocommerce_after_add_to_cart_button',
+            array( $this, 'addCompareBtn' ),
+            30
+        );
     }
+
+    /*
+     * Single Product block page only.
+     * This also handles Related product buttons.
+     */
+    
+        add_filter(
+            'render_block_woocommerce/product-button',
+            array( $this, 'addCompareBtnToBlock' ),
+            30,
+            3
+        );
+    
+}
+
+   
+   public function addCompareBtnToBlock( $block_content, $block, $instance ) {
+
+    // Only Single Product page.
+    if ( ! is_singular( 'product' ) ) {
+        return $block_content;
+    }
+
+    ob_start();
+
+    $this->addCompareBtn();
+
+    $compare_html = ob_get_clean();
+
+    if ( empty( $compare_html ) ) {
+        return $block_content;
+    }
+
+    return $block_content . $compare_html;
+}
 
     public function excludeIds($arg, $productId)
     {
