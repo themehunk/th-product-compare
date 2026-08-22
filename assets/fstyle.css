@@ -111,10 +111,6 @@ opacity: 1 !important;
   margin-right: 9px;
   font-style: normal;
 }
-.th-product-compare-btn.icon_type.th-added-compare,
-.th-product-compare-btn.txt_type.th-added-compare{
-  opacity: .7;
-}
 /*.th-product-compare-btn.icon_type:hover:after{
     content: attr(th-tooltip);
     position: absolute;
