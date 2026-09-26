@@ -357,32 +357,83 @@ $initTitleAndRow = array_merge(
                     } elseif ($initTitleAndRow_key == 'rating') {
                         $rating_ = $this->productRating($product) ?: "-";
                         $addMoreHtml .= '<div class="mobile-title">' . $rowMobileTitle . '</div><span class="th-compare-rating">' . $rating_ . '</span>';
-                    } elseif ($initTitleAndRow_key == 'description') {
+                    } elseif ( 'description' === $initTitleAndRow_key ) {
 
-                        $desc = $product->get_short_description();
-                        $desc = $desc ? wp_strip_all_tags($desc) : '-';
+    /*
+     * Get the original WooCommerce short description.
+     *
+     * Keep the HTML because product descriptions can contain
+     * paragraphs, lists, links, formatting, etc.
+     */
+    $description_html = $product->get_short_description();
 
-                        $limit = 120;
+    /*
+     * Sanitize the description while preserving safe HTML.
+     */
+    $description_html = wp_kses_post( $description_html );
 
-                        if ($desc !== '-' && mb_strlen($desc) > $limit) {
+    /*
+     * Plain-text version is ONLY used for calculating the
+     * visible character limit.
+     */
+    $description_text = wp_strip_all_tags( $description_html );
+    $description_text = trim( $description_text );
 
-                            $short = mb_substr($desc, 0, $limit);
-                            $rest  = mb_substr($desc, $limit);
+    $limit = 120;
 
-                            $descHtml  = '<div class="desc-short">' . esc_html($short) . '</div>';
-                            $descHtml .= '<div class="desc-more" style="display:none;">' . esc_html($rest) . '</div>';
-                            $descHtml .= ' <a href="#" class="th-read-more" data-state="collapsed">'
-                                       . esc_html__('Read more', 'th-product-compare')
-                                       . '</a>';
+    if ( '' === $description_text ) {
 
-                        } else {
-                            // OLD behavior preserved
-                            $descHtml = esc_html($desc);
-                        }
+        $desc_html = '-';
 
-                        $addMoreHtml .= '<div class="mobile-title">' . $rowMobileTitle . '</div>
-                                         <div class="description-text">' . $descHtml . '</div>';
-                    }elseif (isset($initTitleAndRow_value['custom'])) {
+    } elseif ( mb_strlen( $description_text ) > $limit ) {
+
+        /*
+         * Preview text.
+         *
+         * This is intentionally plain text so that we don't
+         * break <ul>, <li>, <p>, etc. while truncating.
+         */
+        $short_description = mb_substr(
+            $description_text,
+            0,
+            $limit
+        );
+
+        $desc_html  = '<div class="desc-short">';
+        $desc_html .= esc_html( $short_description ) . '...';
+        $desc_html .= '</div>';
+
+        /*
+         * IMPORTANT:
+         *
+         * Use the ORIGINAL sanitized HTML here.
+         * Do NOT use $description_text.
+         */
+        $desc_html .= '<div class="desc-more" style="display:none;">';
+        $desc_html .= $description_html;
+        $desc_html .= '</div>';
+
+        $desc_html .= '<a href="#" class="th-read-more" data-state="collapsed">';
+        $desc_html .= esc_html__( 'Read more', 'th-product-compare' );
+        $desc_html .= '</a>';
+
+    } else {
+
+        /*
+         * Description is short enough.
+         * Preserve its HTML formatting.
+         */
+        $desc_html = $description_html;
+    }
+
+    $addMoreHtml .= '<div class="mobile-title">';
+    $addMoreHtml .= esc_html( $rowMobileTitle );
+    $addMoreHtml .= '</div>';
+
+    $addMoreHtml .= '<div class="description-text">';
+    $addMoreHtml .= $desc_html;
+    $addMoreHtml .= '</div>';
+} elseif (isset($initTitleAndRow_value['custom'])) {
                         $customAttrGlobal = $product->get_attribute($initTitleAndRow_key) ?: '-';
                         $addMoreHtml .= '<div class="mobile-title">' . $rowMobileTitle . '</div><span>' . $customAttrGlobal . '</span>';
                     }else{

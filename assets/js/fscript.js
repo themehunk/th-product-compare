@@ -969,22 +969,51 @@ thCompare.updateCompareLimitUI();
     thCompare.init();
   });
 
-  $(document).on("click", ".th-read-more", function (e) {
-  e.preventDefault();
+$(document).on('click', '.th-read-more', function (event) {
+    event.preventDefault();
 
-  let btn = $(this);
-  let wrap = btn.closest(".description-text");
-  let more = wrap.find(".desc-more");
+    const $button = $(this);
+    const $wrapper = $button.closest('.description-text');
+    const $short = $wrapper.find('.desc-short');
+    const $more = $wrapper.find('.desc-more');
 
-  if (btn.attr("data-state") === "collapsed") {
-    more.slideDown(150);
-    btn.text("Read less");
-    btn.attr("data-state", "expanded");
-  } else {
-    more.slideUp(150);
-    btn.text("Read more");
-    btn.attr("data-state", "collapsed");
-  }
+    const state = $button.attr('data-state');
+
+    if ('collapsed' === state) {
+
+        $short.stop(true, true).slideUp(150);
+        $more.stop(true, true).slideDown(150);
+
+        $button
+            .text('Read less')
+            .attr('data-state', 'expanded');
+
+    } else {
+
+        $more.stop(true, true).slideUp(150);
+        $short.stop(true, true).slideDown(150);
+
+        $button
+            .text('Read more')
+            .attr('data-state', 'collapsed');
+    }
+});
+
+$(function () {
+    $('.th-read-more').each(function () {
+        const $button = $(this);
+        const $wrapper = $button.closest('.description-text');
+        const $short = $wrapper.find('.desc-short');
+        const $more = $wrapper.find('.desc-more');
+
+        if ('expanded' === $button.attr('data-state')) {
+            $short.hide();
+            $more.show();
+        } else {
+            $short.show();
+            $more.hide();
+        }
+    });
 });
 
 })(jQuery);
